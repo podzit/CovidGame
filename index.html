@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B7FFGFHT2H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B7FFGFHT2H');
+</script>
+<!---FIN DU SCRIPT GOOGLE ANALYTICS-->
+
+
+    <title>***CovidGame***</title>
+    <link rel="icon" href="favicon.ico" />
+    <style>
+        .button {
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 18px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        
+        .button1 {background-color: #008CBA;} /* Blue */
+        .button2 {background-color: #4CAF50;} /* Green */
+        
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.7">
+        
+  </head>
+  <body>
+    <div align="center">
+        <p style="text-align: center;"><button class="button button1" id="bouton">CLIQUE POUR VOIR LES CARTES</button></p>    
+    <font size="18"> 
+    <strong>
+        
+    <table style="border-collapse: collapse; width: 50%; height: 18px; border:0;">
+        <tbody>
+        <tr style="height: 18px;">
+        <td style="width: 25%; text-align: center; height: 18px;">Toi</td>
+        <td style="width: 5%; text-align: center;">VS</td>
+        <td style="width: 25%; text-align: center; height: 18px;">L'ennemi</td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        <p id="cartes"></p>
+            <script>
+            
+                
+            document.getElementById("bouton").onclick = function() {jeu()};
+
+            function jeu() {
+            var random = undefined;
+            var random2 = undefined;
+            var min=1; 
+            var max=19;  
+            random = Math.floor(Math.random() * (max - min)) + min;
+            random2 = Math.floor(Math.random() * (max - min)) + min;
+            var extension = '.jpeg';
+            var image = (random)+(extension);
+            var image2 = (random2)+(extension);
+            var code1 = "\<img src\=\"img\/";
+            var code2 = "\" alt\=\"\" width\=\"300\" height\=\"500\" \/\>";
+            var codeimage = code1 + image + code2;
+            var codeimage2 = code1 + image2 + code2;
+            var html = "\<table style\=\"border\-collapse\: collapse\; width\: 50\%\;\" border\=\"0\" align\=\"center\"\>\<tbody\>\<tr\>\<td style\=\"width\: 50\%\; text\-align\: center\;\"\>\<div align\=\"center\"\>";
+            var html2 = "\<\/div\>\<\/td\>";
+            var html3 = "\<td style\=\"width\: 10\%\;\"\>\&nbsp\;\<\/td\>\<td style\=\"width\: 50\%\; text\-align\: center\;\"\>\<div align\=\"center\"\>"; 
+            var html4 = "\<\/div\>\<\/td\>\<\/tr\>\<\/tbody\>\<\/table\>";
+            var affimg = html + codeimage + html2 + html3 + codeimage2 + html4;
+            var result;
+            var valeur1 = undefined;
+            var valeur2 = undefined;
+            var cat = undefined;
+            var cat2 = undefined;
+            if (random == 1){valeur1 = 1};
+            if (random == 2){valeur1 = 2};
+            if (random == 3){valeur1 = 3};
+            if (random == 4){valeur1 = 3};
+            if (random == 5){valeur1 = 4};
+            if (random == 6){valeur1 = 4};
+            if (random == 7){valeur1 = 5};
+            if (random == 8){valeur1 = 5};
+            if (random == 9){valeur1 = 6};
+            if (random == 10){valeur1 = 1};
+            if (random == 11){valeur1 = 2};
+            if (random == 12){valeur1 = 3};
+            if (random == 13){valeur1 = 3};
+            if (random == 14){valeur1 = 4};
+            if (random == 15){valeur1 = 4};
+            if (random == 16){valeur1 = 5};
+            if (random == 17){valeur1 = 5};
+            if (random == 18){valeur1 = 6};
+            if (random2 == 1){valeur2 = 1};
+            if (random2 == 2){valeur2 = 2};
+            if (random2 == 3){valeur2 = 3};
+            if (random2 == 4){valeur2 = 3};
+            if (random2 == 5){valeur2 = 4};
+            if (random2 == 6){valeur2 = 4};
+            if (random2 == 7){valeur2 = 5};
+            if (random2 == 8){valeur2 = 5};
+            if (random2 == 9){valeur2 = 6};
+            if (random2 == 10){valeur2 = 1};
+            if (random2 == 11){valeur2 = 2};
+            if (random2 == 12){valeur2 = 3};
+            if (random2 == 13){valeur2 = 3};
+            if (random2 == 14){valeur2 = 4};
+            if (random2 == 15){valeur2 = 4};
+            if (random2 == 16){valeur2 = 5};
+            if (random2 == 17){valeur2 = 5};
+            if (random2 == 18){valeur2 = 6};
+            if (random < 10){
+                    cat = 1;
+                }
+            if(random > 9){
+                    cat = 2;
+                }
+            if (random2 < 10){
+                    cat2 = 1;
+                }
+            if(random2 > 9){
+                    cat2 = 2;
+                }            
+            if (valeur1 > valeur2 && cat == 1 && cat2 == 2) {
+                    result = "Bravo \! Tu as fais gagn\351 le nouvel ordre mondial";
+                } 
+            else if (valeur1 > valeur2 && cat == 1 && cat2 == 1) {
+                    result = "Bravo \! Tu as tu\351 tes alli\351s";
+                }
+            else if (valeur1 > valeur2 && cat == 2 && cat2 == 1){
+                    result = "Bravo \! Tu as vaincu l\'\351lite p\351dophile satanique";
+                }
+            else if (valeur1 > valeur2 && cat == 2 && cat2 == 2){
+                    result = "Bravo \! Tu es le survivant de ta guilde";
+                }
+            else if (valeur2 > valeur1 && cat2 == 1 && cat == 2){
+                    result = "Looser \! Le complot mondial a eu ta peau"; 
+                }
+            else if (valeur2 > valeur1 && cat2 == 1 && cat == 1){
+                    result = "Looser \! Trop de complot tue le complot"; 
+                }
+            else if (valeur2 > valeur1 && cat2 == 2 && cat == 1){
+                    result = "Looser \! Tu as perdu contre la guilde de la chloroquine";
+            }
+            else if (valeur2 > valeur1 && cat2 == 2 && cat == 2){
+                    result = "Looser \! Tu as \351t\351 trahis par tes amis";
+            }
+            else{
+                result = "Match nul\: Personne n\'est sorti vivant de ce duel";
+            }
+            console.log(random,random2,valeur1,valeur2,cat,cat2);
+            
+            
+            var saut = "\<p style\=\"text\-align\: center\;\"\>";
+            var fin = "\<\/p\>";
+            var recharge = "\<p style\=\"text\-align\: center\; font\-size\:large\;\"\>\<button class\=\"button button2\" id\=\"bouton2\"\>REJOUER\<\/button\>\<\/p\>";
+            var body = affimg + saut + result + fin + recharge;
+
+            document.getElementById("cartes").innerHTML = body;
+
+            document.getElementById("bouton2").addEventListener("click", jeu);
+            
+            }
+            
+            </script>
+</strong>
+</font>
+
+<!-- FOOTER -->
+<div align="center"><a href="https://github.com/podzit/CovidGame" target="_blank" font-size="14"><strong>Contribuer à ce site</strong><img src="img/github.png" width=2%></a></div>
+<!-- END FOOTER -->
+
+</body>
+</html>
