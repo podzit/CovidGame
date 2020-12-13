@@ -17,8 +17,8 @@
 
     <title>***CovidGame***</title>
     <link rel="icon" href="favicon.ico" />
-
-    <meta property="og:image" content="https://covidgame.fun/img/covid.jpg">
+    <link rel="stylesheet" href="assets/main.css">
+    <meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:title" content="CovidGame" />
     <meta property="og:type" content="website" />
@@ -39,64 +39,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <meta charset="UTF-8">
 
-    <style>
-        
-        /* Style pour les boutons */
-        
-        .button {
-          border: none;
-          color: white;
-          padding: 15px 32px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-          font-size: 18px;
-          margin: 4px 2px;
-          cursor: pointer;
-        }
-        
-        .button1 {background-color: #008CBA;} /* Blue */
-        .button2 {background-color: #4CAF50;} /* Green */
-        
-        </style>
-
-
-        
   </head>
   <body>
-    <div align="center">
-
-        <!-- Affichage du bouton pour lancer le jeu -->
-        <p style="text-align: center;">
-            <button class="button button2" id="bouton">
-                CLIQUE POUR JOUER
-            </button>
-        </p>
-
-    <font size="14"> 
-    <strong>
-        
-        <!-- Présentation des camps -->
-
-    <table style="border-collapse: collapse; width: 50%; height: 18px; border:0;">
-        <tbody>
-            <tr style="height: 18px;">
-                <td style="width: 25%; text-align: center; height: 18px;">
-                    Toi
-                </td>
-                <td style="width: 5%; text-align: center;">
-                    vs
-                </td>
-                <td style="width: 25%; text-align: center; height: 18px;">
-                    L'ennemi
-                </td>
+    <section>
+        <button class="button button2" id="bouton">
+          CLIQUE POUR JOUER
+        </button>
+  
+        <!-- This <table> can be replaced by 3 <div> using flex-box or grid css attributes:  -->
+        <!-- flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ -->
+        <!-- grid: https://css-tricks.com/snippets/css/complete-guide-grid/ -->
+        <table>
+          <tbody>
+            <tr>
+              <td class="side">Toi</td>
+              <td class="middle">VS</td>
+              <td class="side">L'ennemi</td>
             </tr>
-        </tbody>
-    </table>
-</div>
-        <!-- Balise affichage des cartes -->
+          </tbody>
+        </table>
+      </section>
 
-            <table id="cartes" style="border-collapse: collapse; width: 50%; border:0;" align="center">
+      <!-- Balise affichage des cartes -->
+        
+        <table id="cartes" style="border-collapse: collapse; width: 50%; border:0;" align="center">
                 <tbody>
                     <tr>
                         <td style="width: 50%; text-align: center;">
@@ -112,26 +78,27 @@
                 </tbody>
             </table>
         
-        <!-- Javascript -->
-
-        <script src="covidgame.js">
-            
-        </script>
+        
 </strong>
-</font>
 
 <!-- FOOTER -->
-<div align="center">
+<section>
     <p style="font-size:20px">
-    <a href="https://github.com/podzit/CovidGame" target="_blank">
+      <a href="https://github.com/podzit/CovidGame" target="_blank">
         <strong>
-            Contribuer à ce site
+          Contribuer à ce site
         </strong>
-        <img src="img/github.png" width=2%>
-    </a>
-</p>
-</div>
-<!-- END FOOTER -->
+        <img src="assets/img/github.png" width=2%>
+      </a>
+    </p>
+  </section>
+<!-- FOOTER'S END -->
+
+<!-- Javascript -->
+
+<script type="text/javascript" src="assets/main.js">
+            
+</script>
 
 </body>
 </html>
