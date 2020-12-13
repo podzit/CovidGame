@@ -8,7 +8,7 @@ Le tirage est aléatoire (random et random2) et le code construit ensuite le nom
 
 ## Les cartes
 
-Les cartes sont à faire au préalables (par exemple sur https://www.mtgcardmaker.com/) et à insérer dans un dossier img/
+Les cartes sont à faire au préalables (par exemple sur https://www.mtgcardmaker.com/) et à insérer dans le dossier img/
 
 ## Personnalisation du message de résultat
 
