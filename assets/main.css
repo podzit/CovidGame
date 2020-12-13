@@ -1,9 +1,22 @@
 /* Style pour les boutons */
 
-body: {
-  font-size: 14;
+body {
+  font-size: 4rem;
   font-weight: bold;
+  font-family: sans-serif;
 }
+
+section {
+  text-align: center;
+}
+
+table {
+  width: 50%;
+  height: 18px;
+  margin: auto;
+}
+table td.side { width: 25%; text-align: center; height: 18px; }
+table td.middle { width: 5%; text-align: center; }
 
 .button {
   border: none;
