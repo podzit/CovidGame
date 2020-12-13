@@ -31,15 +31,15 @@
   </head>
   <body>
     <div align="center">
-        <p style="text-align: center;"><button class="button button1" id="bouton">CLIQUE POUR VOIR LES CARTES</button></p>    
-    <font size="18"> 
+        <p style="text-align: center;"><button class="button button2" id="bouton">CLIQUE POUR JOUER</button></p>    
+    <font size="14"> 
     <strong>
         
     <table style="border-collapse: collapse; width: 50%; height: 18px; border:0;">
         <tbody>
         <tr style="height: 18px;">
         <td style="width: 25%; text-align: center; height: 18px;">Toi</td>
-        <td style="width: 5%; text-align: center;">VS</td>
+        <td style="width: 5%; text-align: center;">vs</td>
         <td style="width: 25%; text-align: center; height: 18px;">L'ennemi</td>
         </tr>
         </tbody>
@@ -155,12 +155,12 @@
             
             var saut = "\<p style\=\"text\-align\: center\;\"\>";
             var fin = "\<\/p\>";
-            var recharge = "\<p style\=\"text\-align\: center\; font\-size\:large\;\"\>\<button class\=\"button button2\" id\=\"bouton2\"\>REJOUER\<\/button\>\<\/p\>";
-            var body = affimg + saut + result + fin + recharge;
+            /*var recharge = "\<p style\=\"text\-align\: center\; font\-size\:large\;\"\>\<button class\=\"button button2\" id\=\"bouton2\"\>REJOUER\<\/button\>\<\/p\>";*/
+            var body = affimg + saut + result + fin;
 
             document.getElementById("cartes").innerHTML = body;
 
-            document.getElementById("bouton2").addEventListener("click", jeu);
+            /*document.getElementById("bouton2").addEventListener("click", jeu);*/
             
             }
             
