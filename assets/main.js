@@ -28,16 +28,10 @@ function jeu() {
   cat2 = Math.floor(Math.random() * (max - min)) + min;
 
     /* Tirage cartes */
-  if (cat == 1){
+  if (cat == 1 || cat == 2){
     choix = Math.floor(Math.random() * (max2 - min)) + min;
   }
-  if(cat == 2){
-    choix = Math.floor(Math.random() * (max2 - min)) + min;
-  }
-  if (cat2 == 1){
-    choix2 = Math.floor(Math.random() * (max3 - min)) + min;
-  }
-  if(cat2 == 2){
+  if (cat2 == 1 || cat2 == 2){
     choix2 = Math.floor(Math.random() * (max3 - min)) + min;
   }
 
