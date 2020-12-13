@@ -37,20 +37,13 @@ function jeu() {
 
   /* Construction nom de la carte en num.jpeg*/
   var extension = '.jpeg';
-  var sep = '/';
+  var sep = '';
 
   var image = cat + sep + choix + extension;
   var image2 = cat2 + sep + choix2 + extension;
 
-  /* Affichage en HTML */
-  var code1 = "\<img src\=\"assets\/img\/";
-  var code2 = "\" alt\=\"\" width\=\"400\" height\=\"560\" \/\>";
-  var codeimage = code1 + image + code2;
-  var codeimage2 = code1 + image2 + code2;
-  var html = "\<tbody\>\<tr\>\<td style\=\"width\: 50\%\; text\-align\: center\;\"\>\<div align\=\"center\"\>";
-  var html2 = "\<\/div\>\<\/td\>\<td style\=\"width\: 10\%\;\"\>\&nbsp\;\<\/td\>\<td style\=\"width\: 50\%\; text\-align\: center\;\"\>\<div align\=\"center\"\>";
-  var html3 = "\<\/div\>\<\/td\>\<\/tr\>";
-  var affimg = html + codeimage + html2 + codeimage2 + html3;
+  document.getElementById("img-toi").innerHTML = `<img src="assets/img/${image}" />`;
+  document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/${image2}" />`;
 
   /* Assignation des valeurs selon les cartes */
   if (cat == 1 && choix == 1){valeur1 = 1};
@@ -144,7 +137,7 @@ function jeu() {
   var body = affimg + result2;
 
   /* Action pour affichage au niveau de la balise cartes */
-  document.getElementById("cartes").innerHTML = body;
+  // document.getElementById("cartes").innerHTML = body;
 
 /* Action pour le deuxième bouton */
 /*document.getElementById("bouton2").addEventListener("click", jeu);*/

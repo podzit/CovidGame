@@ -42,54 +42,52 @@
   </head>
   <body>
     <section>
-        <button class="button button2" id="bouton">
-          CLIQUE POUR JOUER
-        </button>
-  
-        <!-- This <table> can be replaced by 3 <div> using flex-box or grid css attributes:  -->
-        <!-- flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ -->
-        <!-- grid: https://css-tricks.com/snippets/css/complete-guide-grid/ -->
-        <table>
-          <tbody>
-            <tr>
-              <td class="side">Toi</td>
-              <td class="middle">VS</td>
-              <td class="side">L'ennemi</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      <button class="button button2" id="bouton">
+        CLIQUE POUR JOUER
+      </button>
 
-      <!-- Balise affichage des cartes -->
-        
-      <table id="cartes">
+      <!-- This <table> can be replaced by 3 <div> using flex-box or grid css attributes:  -->
+      <!-- flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ -->
+      <!-- grid: https://css-tricks.com/snippets/css/complete-guide-grid/ -->
+      <table>
         <tbody>
           <tr>
-            <td class="side"><img src="assets/img/back.png"></td>
-            <td class="middle"></td>
-            <td class="side"><img src="assets/img/back.png"></td>
+            <td class="side">Toi</td>
+            <td class="middle">VS</td>
+            <td class="side">L'ennemi</td>
           </tr>
         </tbody>
       </table>
+    </section>
 
-<!-- FOOTER -->
-<section>
-    <p style="font-size:20px">
-      <a href="https://github.com/podzit/CovidGame" target="_blank">
-        <strong>
-          Contribuer à ce site
-        </strong>
-        <img src="assets/img/github.png" width=2%>
-      </a>
-    </p>
-  </section>
-<!-- FOOTER'S END -->
+    <!-- Balise affichage des cartes -->
+    <table id="cartes">
+      <tbody>
+        <tr>
+          <td id="img-toi"><img src="assets/img/back.png"></td>
+          <td></td>
+          <td id="img-ennemi"><img src="assets/img/back.png"></td>
+        </tr>
+      </tbody>
+    </table>
 
-<!-- Javascript -->
 
-<script type="text/javascript" src="assets/main.js">
-            
-</script>
 
-</body>
+    <!-- FOOTER -->
+    <section>
+      <p style="font-size:20px">
+        <a href="https://github.com/podzit/CovidGame" target="_blank">
+          <strong>
+            Contribuer à ce site
+          </strong>
+          <img src="assets/img/github.png" width=2%>
+        </a>
+      </p>
+    </section>
+    <!-- FOOTER'S END -->
+
+    <!-- Javascript -->
+
+    <script type="text/javascript" src="assets/main.js"></script>
+  </body>
 </html>
