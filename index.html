@@ -2,14 +2,36 @@
 <html>
   <head>
 
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
 <!---FIN DU SCRIPT GOOGLE ANALYTICS-->
 
 
-
     <title>***CovidGame***</title>
     <link rel="icon" href="favicon.ico" />
+
+    <meta property="og:image" content="https://covidgame.fun/img/covid.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:title" content="CovidGame" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://covidgame.fun" />
+    <meta property="og:description" content="Qui des comploteurs ou des complotistes vaincront ?" />
+    <meta name="Content-Language" content="fr">
+    <meta name="Description" content="Jeu en ligne pour rigoler autour du Covid19">
+    <meta name="Keywords" content="jeu;france;fr;cartes;covid19;covid;complots;humour;nouvelordremondial;complistes;comploteurs;raoult;hydroxychloroquine;vaccin;masque;illuminatis;">
+    <meta name="Subject" content="CovidGame">
+    <meta name="Copyright" content="PodzIT 2020">
+    <meta name="Author" content="PodzIT">
+    <meta name="Identifier-Url" content="covidgame.fun">
+    <meta name="Revisit-After" content="1 day">
+    <meta name="Robots" content="all">
+    <meta name="Rating" content="general">
+    <meta name="Distribution" content="global">
+    <meta name="Geography" content="France">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <meta charset="UTF-8">
+
     <style>
         
         /* Style pour les boutons */
@@ -31,8 +53,7 @@
         
         </style>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+
         
   </head>
   <body>
@@ -67,9 +88,22 @@
     </table>
 </div>
         <!-- Balise affichage des cartes -->
-        <p id="cartes">
 
-        </p>
+            <table id="cartes" style="border-collapse: collapse; width: 50%; border:0;" align="center">
+                <tbody>
+                    <tr>
+                        <td style="width: 50%; text-align: center;">
+                            <img src="img/back.png">
+                        </td>
+                        <td style="width: 10%; text-align: center;">
+                            
+                        </td>
+                        <td style="width: 50%; text-align: center;">
+                            <img src="img/back.png">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         
         <!-- Javascript -->
 
@@ -111,9 +145,9 @@
             var code2 = "\" alt\=\"\" width\=\"400\" height\=\"560\" \/\>";
             var codeimage = code1 + image + code2;
             var codeimage2 = code1 + image2 + code2;
-            var html = "\<table style\=\"border\-collapse\: collapse\; width\: 50\%\;\" border\=\"0\" align\=\"center\"\>\<tbody\>\<tr\>\<td style\=\"width\: 50\%\; text\-align\: center\;\"\>\<div align\=\"center\"\>";
+            var html = "\<tbody\>\<tr\>\<td style\=\"width\: 50\%\; text\-align\: center\;\"\>\<div align\=\"center\"\>";
             var html2 = "\<\/div\>\<\/td\>\<td style\=\"width\: 10\%\;\"\>\&nbsp\;\<\/td\>\<td style\=\"width\: 50\%\; text\-align\: center\;\"\>\<div align\=\"center\"\>"; 
-            var html3 = "\<\/div\>\<\/td\>\<\/tr\>\<\/tbody\>\<\/table\>";
+            var html3 = "\<\/div\>\<\/td\>\<\/tr\>";
             var affimg = html + codeimage + html2 + codeimage2 + html3;
 
 
@@ -210,11 +244,14 @@
             var centre = "\<p style\=\"text\-align\: center\;\"\>";
             var centrefin = "\<\/p\>";
             
+            var tableresult = "\<tr\>\<td colspan\=\"3\" style\=\"width\: 50\%\; text\-align\: center\;\"\>";
+            var tableresult2 = "\<\/td\>\<\/tr\>\<\/tbody\>";
+            var result2 = tableresult + result + tableresult2;
             
             /* code pour l'affichage d'un deuxième bouton en bas */
             /*var recharge = "\<p style\=\"text\-align\: center\; font\-size\:large\;\"\>\<button class\=\"button button2\" id\=\"bouton2\"\>REJOUER\<\/button\>\<\/p\>";*/
             
-            var body = affimg + centre + result + centrefin;
+            var body = affimg + centre + result2 + centrefin;
 
         /* Action pour affichage au niveau de la balise cartes */    
             
