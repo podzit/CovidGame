@@ -12,7 +12,10 @@ Les cartes sont à faire au préalables (par exemple sur https://www.mtgcardmake
 
 # Personnalisation du message de résultat
 
-2 catégories sont définies 1 les comploteurs, 2 les complotistes (var cat)
+2 catégories sont définies dans les variables cat et cat2:
+- 1 les comploteurs
+- 2 les complotistes
+
 C'est pour pouvoir personnaliser un message de résultat en fonction de la situation (var result)
 
 # Tester
