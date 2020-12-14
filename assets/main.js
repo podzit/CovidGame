@@ -65,13 +65,13 @@ const deck = [
     categorie: 'comploteurs',
     force: 5,
     nom: 10,
-    perso: 'Les illuminatis'
+    perso: 'La société secrête des illuminatis'
   },
   {
     categorie: 'comploteurs',
     force: 6,
     nom: 11,
-    perso: 'Les franc-maçons'
+    perso: 'La franc-maçonnerie'
   },
   {
     categorie: 'complotistes',
@@ -137,7 +137,7 @@ const deck = [
     categorie: 'complotistes',
     force: 5,
     nom: 11,
-    perso: 'Hydroxychloroquine'
+    perso: "L'hydroxychloroquine"
   },
   {
     categorie: 'complotistes',
@@ -155,31 +155,38 @@ let carteEnnemi = deck[Math.floor(Math.random() * Math.floor(deck.length))];
 document.getElementById("img-toi").innerHTML = `<img src="assets/img/${carteToi.categorie}/${carteToi.nom}.jpeg" />`;
 document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/${carteEnnemi.categorie}/${carteEnnemi.nom}.jpeg" />`;
 
+// génération de la phrase
+const motVainqueur = ['Wahou!','Super!','Great!','Bravo!','Formidable!','Yes!']
+const motPerdant  = ['Looser!','Boooo!','Oups!','Dommage!','Raté!','Désolé!']
+const verbe = ['a buté','a trucidé','a défoncé','a explosé','a exterminé','a réduit en miette','a anihilé','a dispersé','a ventilé','a embaumé','a vitrifié','a décalqué']
+let gagne = motVainqueur[Math.floor(Math.random() * Math.floor(motVainqueur.length))];
+let perd = motPerdant[Math.floor(Math.random() * Math.floor(motPerdant.length))];
+let action = verbe[Math.floor(Math.random() * Math.floor(verbe.length))];
 
 // Affichage du résultats en fonction des cas
   if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'complotistes') {
-    result = `Tu as fais gagné le nouvel ordre mondial avec ${carteToi.perso}`;
+    result = `${gagne} ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'comploteurs') {
-    result = `Wahou ! Tu as tué ton ami ${carteEnnemi.perso}`;
+    result = `${gagne} Sans pitié, ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'complotistes' && carteEnnemi.categorie == 'comploteurs'){
-    result = `Yes ! Tu as vaincu l'élite pédophile satanique avec ${carteToi.perso}`;
+    result = `${gagne} Tu as vaincu l'élite pédophile satanique avec ${carteToi.perso}`;
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'complotistes' && carteEnnemi.categorie == 'complotistes'){
-    result = `${carteEnnemi.perso} a succombé ! Tu es le survivant de ta guilde`;
+    result = `${gagne} ${carteEnnemi.perso} a succombé ! Tu es le survivant de ta guilde`;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'complotistes' && carteEnnemi.categorie == 'comploteurs'){
-    result = `Looser ! Le complot mondial a eu ta peau en utilisant ${carteEnnemi.perso}`;
+    result = `${perd} Le complot mondial t'${action} en utilisant ${carteEnnemi.perso}`;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'comploteurs'){
-    result = `Oups ${carteEnnemi.perso} t'as assassiné ! Trop de complot tue le complot`;
+    result = `${perd} ${carteEnnemi.perso} t'${action}! Trop de complot tue le complot`;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'complotistes'){
-    result = `Looser ! Tu as perdu contre ${carteEnnemi.perso} et sa guilde de la chloroquine`;
+    result = `${perd} ${carteEnnemi.perso} ${action} ${carteToi.perso}`;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'complotistes' && carteEnnemi.categorie == 'complotistes'){
-    result = `Dommage ! Tu as été trahis par ton ami ${carteEnnemi.perso}`;
+    result = `${perd} Tu as été trahis par ${carteEnnemi.perso}`;
   }
   else{
     result = `Match nul: Personne n'est sorti vivant de ce duel`;
