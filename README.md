@@ -14,7 +14,8 @@ Le tirage est aléatoire et le code construit ensuite le nom des cartes à affic
 
 Les cartes sont à faire au préalables (par exemple sur https://www.mtgcardmaker.com/) et à insérer dans le dossier assets/img/comploteurs ou complotistes selon la catégorie voulue
 
-À chaque ajout de carte:
+À chaque ajout de carte il faut éditer main.js:
+
 - Augmenter max et/ou max2 (max est le nombre de cartes dans le dossier comploteurs, max2 est le nombre de cartes dans le dossier complotistes) 
 - Insérer dans la partie "Assignation des valeurs selon les cartes", la bonne valeur en fonction du numéro de la ou des cartes ajoutées.
 
