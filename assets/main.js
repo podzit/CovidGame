@@ -1,129 +1,114 @@
-/* Appel de la fonction jeu lors du clic sur le bouton */
+// Appel de la fonction jeu lors du clic sur le bouton
 document.getElementById("bouton").onclick = function() {jeu()};
 
-/* Déclaration de la fonction jeu */
+// Déclaration de la fonction jeu
 
 function jeu() {
-  /* Mise à zéro des variables */
-  var cat = undefined;
-  var cat2 = undefined;
-  var choix = undefined;
-  var choix2 = undefined;
+// Mise à zéro des variables
   var valeur1 = undefined;
   var valeur2 = undefined;
   var result = undefined;
-  var min = undefined;
-  var max = undefined;
-  var max2 = undefined;
-  var max3 = undefined;
+  
+//Déclaration des catégories
+const categories = ['comploteurs', 'complotistes'];
 
-  /* Nombre de cartes dans les dossier 1 et 2 */
-  var max2 = 11 + 1;
-  var max3 = 12 + 1;
+// On prend un nombre au hasard compris entre 0 et la taille du array categories-1
+var index = Math.floor(Math.random() * Math.floor(categories.length));
+var index2 = Math.floor(Math.random() * Math.floor(categories.length));
 
-  /* Tirage catégorie */
-  min = 1;
-  max = 3;
-  cat = Math.floor(Math.random() * (max - min)) + min;
-  cat2 = Math.floor(Math.random() * (max - min)) + min;
+// Nombre de cartes dans les dossier 1 et 2
+const min = 1;
+const max = 11 + 1;
+const max2 = 12 + 1;
 
-/* Tirage cartes */
-
-  if (cat == 1){
-      choix = Math.floor(Math.random() * (max2 - min)) + min;
+// Tirage cartes
+  if (categories[index] == 'comploteurs'){
+      var numcarte = Math.floor(Math.random() * (max - min)) + min;
       }
 
-  if(cat == 2){
-      choix = Math.floor(Math.random() * (max3 - min)) + min;
+  if (categories[index] == 'complotistes'){
+      var numcarte = Math.floor(Math.random() * (max2 - min)) + min;
       }
 
-  if (cat2 == 1){
-       choix2 = Math.floor(Math.random() * (max2 - min)) + min;
-       }
+  if (categories[index2] == 'comploteurs'){
+      var numcarte2 = Math.floor(Math.random() * (max - min)) + min;
+      }
 
-  if(cat2 == 2){
-       choix2 = Math.floor(Math.random() * (max3 - min)) + min;
-       }
+  if (categories[index2] == 'complotistes'){
+      var numcarte2 = Math.floor(Math.random() * (max2 - min)) + min;
+      }
 
-  /* Construction nom de la carte en num.jpeg*/
+// Construction nom de la carte en num.jpe
   var extension = '.jpeg';
   var sep = '/';
 
-  var image = cat + sep + choix + extension;
-  var image2 = cat2 + sep + choix2 + extension;
+  var image = categories[index] + sep + numcarte + extension;
+  var image2 = categories[index2] + sep + numcarte2 + extension;
 
   document.getElementById("img-toi").innerHTML = `<img src="assets/img/${image}" />`;
   document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/${image2}" />`;
 
-  /* Assignation des valeurs selon les cartes */
-  if (cat == 1 && choix == 1){valeur1 = 1};
-  if ((cat == 1 && choix == 2)||(cat == 1 && choix == 3)){valeur1 = 2};
-  if ((cat == 1 && choix == 4)||(cat == 1 && choix == 5)){valeur1 = 3};
-  if ((cat == 1 && choix == 6)||(cat == 1 && choix == 7)||(cat == 1 && choix == 8)){valeur1 = 4};
-  if ((cat == 1 && choix == 9)||(cat == 1 && choix == 10)){valeur1 = 5};
-  if (cat == 1 && choix == 11){valeur1 = 6};
-  if ((cat == 2 && choix == 1)||(cat == 2 && choix == 2)){valeur1 = 1};
-  if ((cat == 2 && choix == 3)||(cat == 2 && choix == 4)){valeur1 = 2};
-  if ((cat == 2 && choix == 5)||(cat == 2 && choix == 6)){valeur1 = 3};
-  if ((cat == 2 && choix == 7)||(cat == 2 && choix == 8)||(cat == 2 && choix == 9)){valeur1 = 4};
-  if ((cat == 2 && choix == 10)||(cat == 2 && choix == 11)){valeur1 = 5};
-  if (cat == 2 && choix == 12){valeur1 = 6};
+// Assignation des valeurs selon les cartes
+  if (categories[index] == 'comploteurs' && numcarte == 1){valeur1 = 1};
+  if ((categories[index] == 'comploteurs' && numcarte == 2)||(categories[index] == 'comploteurs' && numcarte == 3)){valeur1 = 2};
+  if ((categories[index] == 'comploteurs' && numcarte == 4)||(categories[index] == 'comploteurs' && numcarte == 5)){valeur1 = 3};
+  if ((categories[index] == 'comploteurs' && numcarte == 6)||(categories[index] == 'comploteurs' && numcarte == 7)||(categories[index] == 'comploteurs' && numcarte == 8)){valeur1 = 4};
+  if ((categories[index] == 'comploteurs' && numcarte == 9)||(categories[index] == 'comploteurs' && numcarte == 10)){valeur1 = 5};
+  if (categories[index] == 'comploteurs' && numcarte == 11){valeur1 = 6};
+  if ((categories[index] == 'complotistes' && numcarte == 1)||(categories[index] == 'complotistes' && numcarte == 2)){valeur1 = 1};
+  if ((categories[index] == 'complotistes' && numcarte == 3)||(categories[index] == 'complotistes' && numcarte == 4)){valeur1 = 2};
+  if ((categories[index] == 'complotistes' && numcarte == 5)||(categories[index] == 'complotistes' && numcarte == 6)){valeur1 = 3};
+  if ((categories[index] == 'complotistes' && numcarte == 7)||(categories[index] == 'complotistes' && numcarte == 8)||(categories[index] == 'complotistes' && numcarte == 9)){valeur1 = 4};
+  if ((categories[index] == 'complotistes' && numcarte == 10)||(categories[index] == 'complotistes' && numcarte == 11)){valeur1 = 5};
+  if (categories[index] == 'complotistes' && numcarte == 12){valeur1 = 6};
 
-  if (cat2 == 1 && choix2 == 1){valeur2 = 1};
-  if ((cat2 == 1 && choix2 == 2)||(cat2 == 1 && choix2 == 3)){valeur2 = 2};
-  if ((cat2 == 1 && choix2 == 4)||(cat2 == 1 && choix2 == 5)){valeur2 = 3};
-  if ((cat2 == 1 && choix2 == 6)||(cat2 == 1 && choix2 == 7)||(cat2 == 1 && choix2 == 8)){valeur2 = 4};
-  if ((cat2 == 1 && choix2 == 9)||(cat2 == 1 && choix2 == 10)){valeur2 = 5};
-  if (cat2 == 1 && choix2 == 11){valeur2 = 6};
-  if ((cat2 == 2 && choix2 == 1)||(cat2 == 2 && choix2 == 2)){valeur2 = 1};
-  if ((cat2 == 2 && choix2 == 3)||(cat2 == 2 && choix2 == 4)){valeur2 = 2};
-  if ((cat2 == 2 && choix2 == 5)||(cat2 == 2 && choix2 == 6)){valeur2 = 3};
-  if ((cat2 == 2 && choix2 == 7)||(cat2 == 2 && choix2 == 8)||(cat2 == 2 && choix2 == 9)){valeur2 = 4};
-  if ((cat2 == 2 && choix2 == 10)||(cat2 == 2 && choix2 == 11)){valeur2 = 5};
-  if (cat2 == 2 && choix2 == 12){valeur2 = 6};
+  if (categories[index2] == 'comploteurs' && numcarte2 == 1){valeur2 = 1};
+  if ((categories[index2] == 'comploteurs' && numcarte2 == 2)||(categories[index2] == 'comploteurs' && numcarte2 == 3)){valeur2 = 2};
+  if ((categories[index2] == 'comploteurs' && numcarte2 == 4)||(categories[index2] == 'comploteurs' && numcarte2 == 5)){valeur2 = 3};
+  if ((categories[index2] == 'comploteurs' && numcarte2 == 6)||(categories[index2] == 'comploteurs' && numcarte2 == 7)||(categories[index2] == 'comploteurs' && numcarte2 == 8)){valeur2 = 4};
+  if ((categories[index2] == 'comploteurs' && numcarte2 == 9)||(categories[index2] == 'comploteurs' && numcarte2 == 10)){valeur2 = 5};
+  if (categories[index2] == 'comploteurs' && numcarte2 == 11){valeur2 = 6};
+  if ((categories[index2] == 'complotistes' && numcarte2 == 1)||(categories[index2] == 'complotistes' && numcarte2 == 2)){valeur2 = 1};
+  if ((categories[index2] == 'complotistes' && numcarte2 == 3)||(categories[index2] == 'complotistes' && numcarte2 == 4)){valeur2 = 2};
+  if ((categories[index2] == 'complotistes' && numcarte2 == 5)||(categories[index2] == 'complotistes' && numcarte2 == 6)){valeur2 = 3};
+  if ((categories[index2] == 'complotistes' && numcarte2 == 7)||(categories[index2] == 'complotistes' && numcarte2 == 8)||(categories[index2] == 'complotistes' && numcarte2 == 9)){valeur2 = 4};
+  if ((categories[index2] == 'complotistes' && numcarte2 == 10)||(categories[index2] == 'complotistes' && numcarte2 == 11)){valeur2 = 5};
+  if (categories[index2] == 'complotistes' && numcarte2 == 12){valeur2 = 6};
 
-  /* Affichage du résultats en fonction des cas */
-  if (valeur1 > valeur2 && cat == 1 && cat2 == 2) {
+// Affichage du résultats en fonction des cas
+  if (valeur1 > valeur2 && categories[index] == 'comploteurs' && categories[index2] == 'complotistes') {
     result = "Bravo \! Tu as fais gagn\351 le nouvel ordre mondial";
   }
-  else if (valeur1 > valeur2 && cat == 1 && cat2 == 1) {
+  else if (valeur1 > valeur2 && categories[index] == 'comploteurs' && categories[index2] == 'comploteurs') {
     result = "Wahou \! Tu as tu\351 tes alli\351s";
   }
-  else if (valeur1 > valeur2 && cat == 2 && cat2 == 1){
+  else if (valeur1 > valeur2 && categories[index] == 'complotistes' && categories[index2] == 'comploteurs'){
     result = "Yes \! Tu as vaincu l\'\351lite p\351dophile satanique";
   }
-  else if (valeur1 > valeur2 && cat == 2 && cat2 == 2){
+  else if (valeur1 > valeur2 && categories[index] == 'complotistes' && categories[index2] == 'complotistes'){
     result = "Wahou \! Tu es le survivant de ta guilde";
   }
-  else if (valeur2 > valeur1 && cat2 == 1 && cat == 2){
+  else if (valeur1 < valeur2 && categories[index] == 'complotistes' && categories[index2] == 'comploteurs'){
     result = "Looser \! Le complot mondial a eu ta peau";
   }
-  else if (valeur2 > valeur1 && cat2 == 1 && cat == 1){
+  else if (valeur1 < valeur2 && categories[index] == 'comploteurs' && categories[index2] == 'comploteurs'){
     result = "Oups \! Trop de complot tue le complot";
   }
-  else if (valeur2 > valeur1 && cat2 == 2 && cat == 1){
+  else if (valeur1 < valeur2 && categories[index] == 'comploteurs' && categories[index2] == 'complotistes'){
     result = "Looser \! Tu as perdu contre la guilde de la chloroquine";
   }
-  else if (valeur2 > valeur1 && cat2 == 2 && cat == 2){
+  else if (valeur1 < valeur2 && categories[index] == 'complotistes' && categories[index2] == 'complotistes'){
     result = "Dommage \! Tu as \351t\351 trahis par tes amis";
   }
   else{
     result = "Match nul\: Personne n\'est sorti vivant de ce duel";
   }
 
-  /* débug */
-  /*console.log(valeur1,valeur2,cat,cat2,choix,choix2);*/
+// débug
+//console.log(index,numcarte)
 
-  /* Centre l'affichage des résultats */
+// Affichage des résultats
   
   document.getElementById("resultat").innerHTML = `${result}`;
 
-  /* code pour l'affichage d'un deuxième bouton en bas */
-  /*var recharge = "\<p style\=\"text\-align\: center\; font\-size\:large\;\"\>\<button class\=\"button button2\" id\=\"bouton2\"\>REJOUER\<\/button\>\<\/p\>";*/
-
-  /* Action pour affichage au niveau de la balise cartes */
-  // document.getElementById("cartes").innerHTML = body;
-
-/* Action pour le deuxième bouton */
-/*document.getElementById("bouton2").addEventListener("click", jeu);*/
 }
