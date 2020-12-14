@@ -37,7 +37,7 @@ function jeu() {
 
   /* Construction nom de la carte en num.jpeg*/
   var extension = '.jpeg';
-  var sep = '';
+  var sep = '/';
 
   var image = cat + sep + choix + extension;
   var image2 = cat2 + sep + choix2 + extension;
@@ -127,14 +127,11 @@ function jeu() {
   /*console.log(valeur1,valeur2,cat,cat2,choix,choix2);*/
 
   /* Centre l'affichage des résultats */
-  var tableresult = "\<tr\>\<td colspan\=\"3\" style\=\"width\: 50\%\; text\-align\: center\;\"\>";
-  var tableresult2 = "\<\/td\>\<\/tr\>\<\/tbody\>";
-  var result2 = tableresult + result + tableresult2;
+  
+  document.getElementById("resultat").innerHTML = `${result}`;
 
   /* code pour l'affichage d'un deuxième bouton en bas */
   /*var recharge = "\<p style\=\"text\-align\: center\; font\-size\:large\;\"\>\<button class\=\"button button2\" id\=\"bouton2\"\>REJOUER\<\/button\>\<\/p\>";*/
-
-  var body = affimg + result2;
 
   /* Action pour affichage au niveau de la balise cartes */
   // document.getElementById("cartes").innerHTML = body;
