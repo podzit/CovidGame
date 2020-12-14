@@ -27,13 +27,23 @@ function jeu() {
   cat = Math.floor(Math.random() * (max - min)) + min;
   cat2 = Math.floor(Math.random() * (max - min)) + min;
 
-    /* Tirage cartes */
-  if (cat == 1 || cat == 2){
-    choix = Math.floor(Math.random() * (max2 - min)) + min;
-  }
-  if (cat2 == 1 || cat2 == 2){
-    choix2 = Math.floor(Math.random() * (max3 - min)) + min;
-  }
+/* Tirage cartes */
+
+  if (cat == 1){
+      choix = Math.floor(Math.random() * (max2 - min)) + min;
+      }
+
+  if(cat == 2){
+      choix = Math.floor(Math.random() * (max2 - min)) + min;
+      }
+
+  if (cat2 == 1){
+       choix2 = Math.floor(Math.random() * (max3 - min)) + min;
+       }
+
+  if(cat2 == 2){
+       choix2 = Math.floor(Math.random() * (max3 - min)) + min;
+       }
 
   /* Construction nom de la carte en num.jpeg*/
   var extension = '.jpeg';
