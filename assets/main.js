@@ -34,11 +34,11 @@ function jeu() {
       }
 
   if(cat == 2){
-      choix = Math.floor(Math.random() * (max2 - min)) + min;
+      choix = Math.floor(Math.random() * (max3 - min)) + min;
       }
 
   if (cat2 == 1){
-       choix2 = Math.floor(Math.random() * (max3 - min)) + min;
+       choix2 = Math.floor(Math.random() * (max2 - min)) + min;
        }
 
   if(cat2 == 2){
