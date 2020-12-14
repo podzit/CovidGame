@@ -1,6 +1,6 @@
 # CovidGame
 
-Jeu de hasard en ligne pour rire de l'affrontement entre "complotistes" et "moutons".
+Jeu de hasard en ligne pour rire de l'affrontement entre "complotistes" et "comploteurs".
 
 ## Tirage des catégories
 
