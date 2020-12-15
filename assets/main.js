@@ -1,151 +1,10 @@
 // Appel de la fonction jeu lors du clic sur le bouton
 document.getElementById("bouton").onclick = function() {jeu()};
 
+import {deck} from './data.js';
+
 // Déclaration de la fonction jeu
-
 function jeu() {
-
-// Déclaration des cartes
-const deck = [
-  {
-    categorie: 'comploteurs',
-    force: 1,
-    nom: 1, // <- la carte 1.jpeg
-    perso: 'Sibeth Ndiaye' 
-  },
-  {
-    categorie: 'comploteurs',
-    force: 2,
-    nom: 2,
-    perso: 'Jean Castex'
-  },
-  {
-    categorie: 'comploteurs',
-    force: 2,
-    nom: 3,
-    perso: 'Le masque'
-  },
-  {
-    categorie: 'comploteurs',
-    force: 3,
-    nom: 4,
-    perso: 'Big Pharma'
-  },
-  {
-    categorie: 'comploteurs',
-    force: 3,
-    nom: 5,
-    perso: 'George Soros'
-  },
-  {
-    categorie: 'comploteurs',
-    force: 4,
-    nom: 6,
-    perso: 'La 5G'
-  },
-  {
-    categorie: 'comploteurs',
-    force: 4,
-    nom: 7,
-    perso: 'Bill Gates'
-  },
-  {
-    categorie: 'comploteurs',
-    force: 4,
-    nom: 8,
-    perso: 'BFM TV'
-  },
-  {
-    categorie: 'comploteurs',
-    force: 5,
-    nom: 9,
-    perso: 'Le vaccin'
-  },
-  {
-    categorie: 'comploteurs',
-    force: 5,
-    nom: 10,
-    perso: 'La société secrête des illuminatis'
-  },
-  {
-    categorie: 'comploteurs',
-    force: 6,
-    nom: 11,
-    perso: 'La franc-maçonnerie'
-  },
-  {
-    categorie: 'complotistes',
-    force: 1,
-    nom: 1,
-    perso: 'Hold Up'
-  },
-  {
-    categorie: 'complotistes',
-    force: 1,
-    nom: 2,
-    perso: 'CNews'
-  },
-  {
-    categorie: 'complotistes',
-    force: 2,
-    nom: 3,
-    perso: 'Donald Trump'
-  },
-  {
-    categorie: 'complotistes',
-    force: 2,
-    nom: 4,
-    perso: 'Pascal Praud'
-  },
-  {
-    categorie: 'complotistes',
-    force: 3,
-    nom: 5,
-    perso: 'Q'
-  },
-  {
-    categorie: 'complotistes',
-    force: 3,
-    nom: 6,
-    perso: 'Christian Perronne'
-  },
-  {
-    categorie: 'complotistes',
-    force: 4,
-    nom: 7,
-    perso: 'Ema Krusi'
-  },
-  {
-    categorie: 'complotistes',
-    force: 4,
-    nom: 8,
-    perso: 'Eve Engerer'
-  },
-  {
-    categorie: 'complotistes',
-    force: 4,
-    nom: 9,
-    perso: 'Eric Zemmour'
-  },
-  {
-    categorie: 'complotistes',
-    force: 5,
-    nom: 10,
-    perso: 'Didier Raoult'
-  },
-  {
-    categorie: 'complotistes',
-    force: 5,
-    nom: 11,
-    perso: "L'hydroxychloroquine"
-  },
-  {
-    categorie: 'complotistes',
-    force: 6,
-    nom: 12,
-    perso: 'Sylvano Trotta'
-  },
-]
 
 // Tirage des cartes
 let carteToi = deck[Math.floor(Math.random() * Math.floor(deck.length))]
@@ -177,7 +36,7 @@ const audioloose = `<audio autoplay><source src="assets/audioloose.ogg" type="au
 
 // Affichage du résultats en fonction des cas
   if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'complotistes') {
-    result = `${gagne} ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
+    var result = `${gagne} ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
     audio.innerHTML = `${audiowin}`;
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'comploteurs') {
@@ -209,7 +68,7 @@ const audioloose = `<audio autoplay><source src="assets/audioloose.ogg" type="au
   }
 
 // débug
-//console.log(index,numcarte)
+//console.log(carteToi.nom)
 
 // Affichage des résultats
   
