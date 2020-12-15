@@ -17,9 +17,9 @@ Les cartes sont à faire au préalables (par exemple sur https://www.mtgcardmake
   
     force: 2, // Niveau sur la carte
     
-    nom: nom du fichier
+    nom: 'nom du fichier',
     
-    perso: nom du personnage
+    perso: 'nom du personnage'
   
   },
 ```
