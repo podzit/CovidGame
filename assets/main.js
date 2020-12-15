@@ -155,38 +155,54 @@ let carteEnnemi = deck[Math.floor(Math.random() * Math.floor(deck.length))];
 document.getElementById("img-toi").innerHTML = `<img src="assets/img/${carteToi.categorie}/${carteToi.nom}.jpeg" />`;
 document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/${carteEnnemi.categorie}/${carteEnnemi.nom}.jpeg" />`;
 
-// génération de la phrase
-const motVainqueur = ['Wahou!','Super!','Great!','Bravo!','Formidable!','Yes!']
-const motPerdant  = ['Looser!','Boooo!','Oups!','Dommage!','Raté!','Désolé!']
-const verbe = ['a buté','a trucidé','a défoncé','a explosé','a exterminé','a réduit en miette','a anihilé','a dispersé','a ventilé','a embaumé','a vitrifié','a décalqué']
+// Génération de la phrase
+const motVainqueur = ['Wahou!','Super!','Great!','Bravo!','Formidable!','Yes!','Wouhou!','Bien joué!','Et bim!']
+const motPerdant  = ['Looser!','Boooo!','Oups!','Dommage!','Raté!','Désolé!','Aïe!','Zut!','Ouch!']
+const verbe = ['a buté','a trucidé','a défoncé','a explosé','a exterminé','a réduit en miette',
+'a anihilé','a dézingué','a déglingué','a vitrifié','a décalqué','a démembré','a atomisé','a écartelé',
+'a abattu','a écrasé','a égorgé','a anéanti','a assassiné','a étouffé','a étranglé','a étripé','a bousillé',
+'a crevé','a décapité','a décimé','a démoli','a détruit','a descendu','a empoisonné','a exécuté','a exterminé',
+'a fait disparaitre','fait sauter','a flingué','a foudroyé','a fusillé','a guillotiné','a lynché',
+'a massacré','a occis','a pendu','a poignardé','a pourfendu','a refroidi','a saigné',
+'a immolé','a supprimé']
 let gagne = motVainqueur[Math.floor(Math.random() * Math.floor(motVainqueur.length))];
 let perd = motPerdant[Math.floor(Math.random() * Math.floor(motPerdant.length))];
 let action = verbe[Math.floor(Math.random() * Math.floor(verbe.length))];
 
+// Son
+var audio = document.getElementById("audio");
+const audiowin = `<audio autoplay><source src="assets/audiowin.ogg" type="audio/ogg"></audio>`;
+const audioloose = `<audio autoplay><source src="assets/audioloose.ogg" type="audio/ogg"></audio>`;
+
+
 // Affichage du résultats en fonction des cas
   if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'complotistes') {
     result = `${gagne} ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
+    audio.innerHTML = `${audiowin}`;
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'comploteurs') {
-    result = `${gagne} Sans pitié, ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
+    result = `${gagne} Entre comploteurs, ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'complotistes' && carteEnnemi.categorie == 'comploteurs'){
     result = `${gagne} Tu as vaincu l'élite pédophile satanique avec ${carteToi.perso}`;
+    audio.innerHTML = `${audiowin}`;
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'complotistes' && carteEnnemi.categorie == 'complotistes'){
     result = `${gagne} ${carteEnnemi.perso} a succombé ! Tu es le survivant de ta guilde`;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'complotistes' && carteEnnemi.categorie == 'comploteurs'){
     result = `${perd} Le complot mondial t'${action} en utilisant ${carteEnnemi.perso}`;
+    audio.innerHTML = `${audioloose}`;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'comploteurs'){
     result = `${perd} ${carteEnnemi.perso} t'${action}! Trop de complot tue le complot`;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'complotistes'){
     result = `${perd} ${carteEnnemi.perso} ${action} ${carteToi.perso}`;
+    audio.innerHTML = `${audioloose}`;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'complotistes' && carteEnnemi.categorie == 'complotistes'){
-    result = `${perd} Tu as été trahis par ${carteEnnemi.perso}`;
+    result = `${perd} Entre complotistes, ${carteEnnemi.perso} ${action} ${carteToi.perso}`;
   }
   else{
     result = `Match nul: Personne n'est sorti vivant de ce duel`;
