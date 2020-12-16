@@ -8,6 +8,12 @@ export const deck = [
   },
   {
     categorie: 'comploteurs',
+    force: 1,
+    nom: 'linky',
+    perso: 'Linky' 
+  },
+  {
+    categorie: 'comploteurs',
     force: 2,
     nom: 'castex',
     perso: 'Jean Castex'
@@ -20,6 +26,12 @@ export const deck = [
   },
   {
     categorie: 'comploteurs',
+    force: 2,
+    nom: 'mouton',
+    perso: 'Le troupeau de moutons'
+  },
+  {
+    categorie: 'comploteurs',
     force: 3,
     nom: 'bigpharma',
     perso: 'Big Pharma'
@@ -29,6 +41,12 @@ export const deck = [
     force: 3,
     nom: 'soros',
     perso: 'George Soros'
+  },
+  {
+    categorie: 'comploteurs',
+    force: 3,
+    nom: 'pcr',
+    perso: 'Le test PCR'
   },
   {
     categorie: 'comploteurs',
@@ -62,9 +80,21 @@ export const deck = [
   },
   {
     categorie: 'comploteurs',
+    force: 5,
+    nom: 'satan',
+    perso: 'Satan'
+  },
+  {
+    categorie: 'comploteurs',
     force: 6,
     nom: 'francmacon',
     perso: 'La franc-maçonnerie'
+  },
+  {
+    categorie: 'comploteurs',
+    force: 6,
+    nom: 'deepstate',
+    perso: `L'état profond`
   },
   {
     categorie: 'complotistes',
@@ -92,6 +122,12 @@ export const deck = [
   },
   {
     categorie: 'complotistes',
+    force: 2,
+    nom: 'sudradio',
+    perso: 'Sud Radio'
+  },
+  {
+    categorie: 'complotistes',
     force: 3,
     nom: 'q',
     perso: 'Q'
@@ -101,6 +137,12 @@ export const deck = [
     force: 3,
     nom: 'perronne',
     perso: 'Christian Perronne'
+  },
+  {
+    categorie: 'complotistes',
+    force: 3,
+    nom: 'bigard',
+    perso: 'Jean-Marie Bigard'
   },
   {
     categorie: 'complotistes',
@@ -134,8 +176,20 @@ export const deck = [
   },
   {
     categorie: 'complotistes',
+    force: 5,
+    nom: 'soral',
+    perso: "Alain Soral"
+  },
+  {
+    categorie: 'complotistes',
     force: 6,
     nom: 'trotta',
     perso: 'Sylvano Trotta'
+  },
+  {
+    categorie: 'complotistes',
+    force: 6,
+    nom: 'dieudonne',
+    perso: 'Dieudonné'
   },
 ]

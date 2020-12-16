@@ -23,7 +23,7 @@ const verbe = ['a buté','a trucidé','a défoncé','a explosé','a exterminé',
 'a crevé','a décapité','a décimé','a démoli','a détruit','a descendu','a empoisonné','a exécuté','a exterminé',
 'a fait disparaitre','fait sauter','a flingué','a foudroyé','a fusillé','a guillotiné','a lynché',
 'a massacré','a occis','a pendu','a poignardé','a pourfendu','a refroidi','a saigné',
-'a immolé','a supprimé']
+'a immolé','a supprimé','a électrocuté']
 let gagne = motVainqueur[Math.floor(Math.random() * Math.floor(motVainqueur.length))];
 let perd = motPerdant[Math.floor(Math.random() * Math.floor(motPerdant.length))];
 let action = verbe[Math.floor(Math.random() * Math.floor(verbe.length))];
