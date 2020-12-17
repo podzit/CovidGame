@@ -97,6 +97,18 @@ export const deck = [
     perso: `L'état profond`
   },
   {
+    categorie: 'comploteurs',
+    force: 10,
+    nom: 'toux',
+    perso: `La quinte de toux`
+  },
+  {
+    categorie: 'comploteurs',
+    force: 10,
+    nom: 'vague',
+    perso: `La 2ème vague`
+  },
+  {
     categorie: 'complotistes',
     force: 1,
     nom: 'holdup',
@@ -191,5 +203,17 @@ export const deck = [
     force: 6,
     nom: 'dieudonne',
     perso: 'Dieudonné'
+  },
+  {
+    categorie: 'complotistes',
+    force: 10,
+    nom: 'youtube',
+    perso: 'Youtube'
+  },
+  {
+    categorie: 'complotistes',
+    force: 10,
+    nom: 'lancetgate',
+    perso: 'Le lancetgate'
   },
 ]
