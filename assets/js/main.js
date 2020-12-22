@@ -1,34 +1,32 @@
+import {deck} from './constants/deck.js';
+import {phrase} from './constants/phrase.js';
+
 var scoreWinToi = 0;
 var scoreWinEnnemi = 0;
 
 // Appel de la fonction jeu lors du clic sur le bouton
 document.getElementById("bouton").onclick = function() {jeu()};
 
-import {deck} from './constants/deck.js';
-import {phrase} from './constants/phrase.js';
-
 // Déclaration de la fonction jeu
 function jeu() {
+  // Tirage des cartes
+  let carteToi = deck[Math.floor(Math.random() * Math.floor(deck.length))]
+  let carteEnnemi = deck[Math.floor(Math.random() * Math.floor(deck.length))];
 
-// Tirage des cartes
-let carteToi = deck[Math.floor(Math.random() * Math.floor(deck.length))]
-let carteEnnemi = deck[Math.floor(Math.random() * Math.floor(deck.length))];
+  // Affichage des cartes
+  document.getElementById("img-toi").innerHTML = `<img src="assets/img/${carteToi.categorie}/${carteToi.nom}.jpeg" />`;
+  document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/${carteEnnemi.categorie}/${carteEnnemi.nom}.jpeg" />`;
 
-// Affichage des cartes
-document.getElementById("img-toi").innerHTML = `<img src="assets/img/${carteToi.categorie}/${carteToi.nom}.jpeg" />`;
-document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/${carteEnnemi.categorie}/${carteEnnemi.nom}.jpeg" />`;
+  let gagne = phrase.motVainqueur[Math.floor(Math.random() * Math.floor(phrase.motVainqueur.length))];
+  let perd = phrase.motPerdant[Math.floor(Math.random() * Math.floor(phrase.motPerdant.length))];
+  let action = phrase.verbe[Math.floor(Math.random() * Math.floor(phrase.verbe.length))];
 
-let gagne = phrase.motVainqueur[Math.floor(Math.random() * Math.floor(phrase.motVainqueur.length))];
-let perd = phrase.motPerdant[Math.floor(Math.random() * Math.floor(phrase.motPerdant.length))];
-let action = phrase.verbe[Math.floor(Math.random() * Math.floor(phrase.verbe.length))];
+  // Son
+  var audio = document.getElementById("audio");
+  const audiowin = `<audio autoplay><source src="assets/audiowin.ogg" type="audio/ogg"></audio>`;
+  const audioloose = `<audio autoplay><source src="assets/audioloose.ogg" type="audio/ogg"></audio>`;
 
-// Son
-var audio = document.getElementById("audio");
-const audiowin = `<audio autoplay><source src="assets/audiowin.ogg" type="audio/ogg"></audio>`;
-const audioloose = `<audio autoplay><source src="assets/audioloose.ogg" type="audio/ogg"></audio>`;
-
-
-// Affichage du résultats en fonction des cas
+  // Affichage du résultats en fonction des cas
   if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'comploteurs' && carteEnnemi.categorie == 'complotistes') {
     var result = `${gagne} ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
     audio.innerHTML = `${audiowin}`;
@@ -69,15 +67,10 @@ const audioloose = `<audio autoplay><source src="assets/audioloose.ogg" type="au
     result = `Match nul: Personne n'est sorti vivant de ce duel`;
   }
 
-// débug
-//console.log(carteToi.nom)
-
-// Affichage des résultats
-
+  // Affichage des résultats
   document.getElementById("resultat").innerHTML = `${result}`;
 
   // Affichage des scores
-document.getElementById("scoreWinToi").innerHTML = `Score: ${scoreWinToi}`;
-document.getElementById("scoreWinEnnemi").innerHTML = `Score: ${scoreWinEnnemi}`;
-
+  document.getElementById("scoreWinToi").innerHTML = `Score: ${scoreWinToi}`;
+  document.getElementById("scoreWinEnnemi").innerHTML = `Score: ${scoreWinEnnemi}`;
 }
