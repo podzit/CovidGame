@@ -10,16 +10,16 @@ document.getElementById("bouton").onclick = function() {jeu()};
 // Déclaration de la fonction jeu
 function jeu() {
   // Tirage des cartes
-  let carteToi = deck[Math.floor(Math.random() * Math.floor(deck.length))]
-  let carteEnnemi = deck[Math.floor(Math.random() * Math.floor(deck.length))];
+  let carteToi = deck[Math.floor(Math.random() * deck.length)]
+  let carteEnnemi = deck[Math.floor(Math.random() * deck.length)];
 
   // Affichage des cartes
   document.getElementById("img-toi").innerHTML = `<img src="assets/img/${carteToi.categorie}/${carteToi.nom}.jpeg" />`;
   document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/${carteEnnemi.categorie}/${carteEnnemi.nom}.jpeg" />`;
 
-  let gagne = phrase.motVainqueur[Math.floor(Math.random() * Math.floor(phrase.motVainqueur.length))];
-  let perd = phrase.motPerdant[Math.floor(Math.random() * Math.floor(phrase.motPerdant.length))];
-  let action = phrase.verbe[Math.floor(Math.random() * Math.floor(phrase.verbe.length))];
+  let gagne = phrase.motVainqueur[Math.floor(Math.random() * phrase.motVainqueur.length)];
+  let perd = phrase.motPerdant[Math.floor(Math.random() * phrase.motPerdant.length)];
+  let action = phrase.verbe[Math.floor(Math.random() * phrase.verbe.length)];
 
   // Son
   var audio = document.getElementById("audio");
