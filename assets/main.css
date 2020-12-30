@@ -80,12 +80,12 @@ table.carte tr.top {
 }
 table.carte tr.bandeau{
   width: 100%;
-  height: 7%;
+  height: 8%;
 }
 
 table.carte tr.body{
   width: 100%;
-  height: 15%;
+  height: 14%;
 }
 
 table.carte tr.info{
@@ -108,7 +108,7 @@ table.carte tr.bandeau td.force{
 }
 
 table.carte tr.body td.image{
-  height: 240px;
+  height: 235px;
   background-size: cover;
 }
 
