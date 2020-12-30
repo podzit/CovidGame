@@ -30,8 +30,8 @@ function jeu() {
             <tr class="body">
               <td class="image" colspan="2" style="background-image:url(assets/img/imgcarte/${carteToi.nom}.jpeg)"></td>
             </tr>
-            <tr class="bandeau">
-              <td class="cat">${carteToi.categorie} / ${carteToi.groupe}</td>
+            <tr class="bandeau2">
+              <td class="cat" colspan="2">${carteToi.categorie} / ${carteToi.groupe}</td>
             </tr>
             <tr class="info">
               <td class="info" colspan="2">${carteToi.info}<br/><br/>${carteToi.effet}</td>
@@ -61,7 +61,7 @@ function jeu() {
             <tr class="body">
               <td class="image" colspan="2" style="background-image:url(assets/img/imgcarte/${carteEnnemi.nom}.jpeg)"></td>
             </tr>
-            <tr class="bandeau">
+            <tr class="bandeau2">
               <td class="cat" colspan="2">${carteEnnemi.categorie} / ${carteEnnemi.groupe}</td>
             </tr>
             <tr class="info">
