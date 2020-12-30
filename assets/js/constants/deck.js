@@ -1,10 +1,10 @@
 // Déclaration des cartes
 export const deck = [
   {
-    categorie: 'comploteurs',
+    categorie: 'comploteurs', // <- également nom du dossier où se trouve l'image
     force: 1,
-    nom: 'sibeth', // <- la carte 1.jpeg
-    perso: 'Sibeth Ndiaye' 
+    nom: 'sibeth', // <- la carte sibeth.jpeg
+    perso: 'Sibeth Ndiaye' // <- Le nom qui s'affiche dans la phrase de résultat
   },
   {
     categorie: 'comploteurs',
