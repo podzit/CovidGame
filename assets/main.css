@@ -43,9 +43,83 @@ table {
   color: white;
   box-shadow: 0px 0px 10px #000;
 }
+
 table td.side { width: 25%; text-align: center; height: 18px; }
 table td.middle { width: 5%; text-align: center; }
 table td.score {width: 25%; text-align: center; font-size: 1rem; }
+
+table.imagecarte {
+  width: 380px;
+  height: 540px;
+  padding: 0%;
+  border-radius: 0%;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: url("img/modele.jpg");
+  background-size: cover;
+}
+table.carte{
+  width:88%;
+  height:100%;
+  padding: 0%;
+  border-radius: 0%;
+  box-shadow: none;
+  background-color: transparent;
+  font-size: 1rem;
+  color: black;
+}
+
+table.imagecarte tr.imagecarte{
+  width:100%;
+  height: 100%;
+}
+
+table.carte tr.top {
+  width: 100%;
+  height: 2%;  
+}
+table.carte tr.bandeau{
+  width: 100%;
+  height: 7%;
+}
+
+table.carte tr.body{
+  width: 100%;
+  height: 15%;
+}
+
+table.carte tr.info{
+  width: 100%;
+  height: 30%;
+}
+
+table.carte tr.bottom{
+  width: 100%;
+  height: 8%;
+}
+
+table.carte tr.bandeau td.nom{
+  width: 75%;
+  text-align: left;
+}
+
+table.carte tr.bandeau td.force{
+  color: gray;
+}
+
+table.carte tr.body td.image{
+  height: 240px;
+  background-size: cover;
+}
+
+table.carte tr.bandeau td.cat{
+  text-align: left;
+}
+
+table.carte tr.info td.info{
+  font-style: italic;
+  text-align: start;
+}
 
 button {
   border: none;
