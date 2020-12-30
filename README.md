@@ -15,7 +15,7 @@ pour ajouter une carte il faut éditer deck.js:
   
     categorie: 'Comploteurs',
     
-    groupe: 'Inutile',
+    groupe: 'Nom du groupe',
   
     force: 2, // Niveau sur la carte
     
