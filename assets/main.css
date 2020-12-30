@@ -98,25 +98,26 @@ table.carte tr.bottom{
   height: 8%;
 }
 
-table.carte tr.bandeau td.nom{
-  width: 75%;
+table.carte td.nom{
+  width: 80%;
   text-align: left;
 }
 
-table.carte tr.bandeau td.force{
+table.carte td.force{
+  width:20%;
   color: gray;
 }
 
-table.carte tr.body td.image{
+table.carte td.image{
   height: 235px;
   background-size: cover;
 }
 
-table.carte tr.bandeau td.cat{
+table.carte td.cat{
   text-align: left;
 }
 
-table.carte tr.info td.info{
+table.carte td.info{
   font-style: italic;
   text-align: start;
 }

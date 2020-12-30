@@ -62,7 +62,7 @@ function jeu() {
               <td class="image" colspan="2" style="background-image:url(assets/img/imgcarte/${carteEnnemi.nom}.jpeg)"></td>
             </tr>
             <tr class="bandeau">
-              <td class="cat">${carteEnnemi.categorie} / ${carteEnnemi.groupe}</td>
+              <td class="cat" colspan="2">${carteEnnemi.categorie} / ${carteEnnemi.groupe}</td>
             </tr>
             <tr class="info">
               <td class="info" colspan="2">${carteEnnemi.info}<br/><br/>${carteEnnemi.effet}</td>
