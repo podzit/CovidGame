@@ -56,7 +56,7 @@ export const phrase = {
     'a exécuté',
     'a exterminé',
     'a fait disparaitre',
-    'fait sauter',
+    'a fait sauter',
     'a flingué',
     'a foudroyé',
     'a fusillé',
