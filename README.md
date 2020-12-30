@@ -5,29 +5,37 @@ Jeu de hasard en ligne pour rire de l'affrontement entre "complotistes" et "comp
 
 ## Les cartes
 
-Les cartes sont à faire au préalables (par exemple sur https://www.mtgcardmaker.com/) et à insérer dans le dossier assets/img/comploteurs ou complotistes selon la catégorie voulue
+Les cartes sont créées en fonction du contenu de /assets/constants/deck.js
 
-À chaque ajout de carte il faut éditer data.js:
+pour ajouter une carte il faut éditer deck.js:
 
 - Ajouter dans le deck une nouvelle entrée sous la forme 
 ```  
   {
   
-    categorie: 'comploteurs', // Dossier où est le fichier
+    categorie: 'Comploteurs',
+    
+    groupe: 'Inutile',
   
     force: 2, // Niveau sur la carte
     
-    nom: 'nom du fichier',
+    nom: 'nom du fichier image',
     
-    perso: 'nom du personnage'
+    perso: 'nom du personnage',
+    
+    info: 'Info du perso',
+    
+    effet: 'effet du perso'
   
   },
 ```
+- Puis ajouter une image dans /assets/img/imgcarte avec l'extension jpeg et le nom correspondant à l'item "nom" dans deck.js (dimensions recommandées 342x260px) 
 
 ## Personnalisation du message de résultat
 
 Les résultats sont personnalisés en fonction de la catégorie et la force des 2 cartes.
 
+Les phrases sont personnalisables dans /assets/constants/phrase.js
 
 ## Debug
 
