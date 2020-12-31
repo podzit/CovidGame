@@ -28,7 +28,7 @@ function jeu() {
               <td class="force">Force ${carteToi.force}</td>
             </tr>
             <tr class="body">
-              <td class="image" colspan="2" style="background-image:url(assets/img/imgcarte/${carteToi.nom}.jpeg)"></td>
+              <td class="image" colspan="2" style="background-image:url(assets/img/carte/${carteToi.nom}.jpeg)"></td>
             </tr>
             <tr class="bandeau2">
               <td class="cat" colspan="2">${carteToi.categorie} / ${carteToi.groupe}</td>
@@ -59,7 +59,7 @@ function jeu() {
               <td class="force">Force ${carteEnnemi.force}</td>
             </tr>
             <tr class="body">
-              <td class="image" colspan="2" style="background-image:url(assets/img/imgcarte/${carteEnnemi.nom}.jpeg)"></td>
+              <td class="image" colspan="2" style="background-image:url(assets/img/carte/${carteEnnemi.nom}.jpeg)"></td>
             </tr>
             <tr class="bandeau2">
               <td class="cat" colspan="2">${carteEnnemi.categorie} / ${carteEnnemi.groupe}</td>
