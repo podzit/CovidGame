@@ -47,10 +47,6 @@
       <button id="bouton">
         CLIQUE POUR JOUER
       </button>
-
-      <!-- This <table> can be replaced by 3 <div> using flex-box or grid css attributes:  -->
-      <!-- flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ -->
-      <!-- grid: https://css-tricks.com/snippets/css/complete-guide-grid/ -->
       <table>
         <tbody>
           <tr>
@@ -64,14 +60,53 @@
             <td class="score" id= "scoreWinEnnemi"></td></td>
           </tr>
           <tr>
-            <td id="img-toi"><img src="assets/img/back.png"></td>
+            <td id="img-toi">
+              <img src="assets/img/back.png"/>
+            </td>
             <td></td>
-            <td id="img-ennemi"><img src="assets/img/back.png"></td>
+            <td id="img-ennemi">
+              <img src="assets/img/back.png"/>
+            </td>
           </tr>
-            <tr>
-              <td id="resultat" colspan="3"></td>
-          </tr>
+          <tr><td id="resultat" colspan="3"></td></tr>
         </tbody>
+      </table>
+
+      <table id="carte" class="imagecarte">
+        <tr class="imagecarte">
+          <td class="imagecarte">
+            <table class="carte">
+              <tr class="content">
+                <tr class="top">
+                  <td class="top"></td>
+                </tr>
+                <tr class="bandeau">
+                  <td class="perso nom"></td>
+                  <td class="force">
+                    Force
+                    <span class="force-val"></span>
+                  </td>
+                </tr>
+                <tr class="body">
+                  <td class="image" colspan="2"></td>
+                </tr>
+                <tr class="bandeau2">
+                  <td class="bandeau-val" class="cat" colspan="2"></td>
+                </tr>
+                <tr class="info">
+                  <td class="info" colspan="2">
+                    <span class="info-val"></span>
+                    <br/><br/>
+                    <span class="effet"></span>
+                  </td>
+                </tr>
+                <tr class="bottom">
+                  <td class="bottom"></td>
+                </tr>
+              </tr>
+            </table>
+          </td>
+        </tr>
       </table>
     </main>
 
