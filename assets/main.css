@@ -67,6 +67,7 @@ table.carte{
   background-color: transparent;
   font-size: 1rem;
   color: black;
+  font-weight: lighter;
 }
 
 table.imagecarte tr.imagecarte{
@@ -76,16 +77,17 @@ table.imagecarte tr.imagecarte{
 
 table.carte tr.top {
   width: 100%;
-  height: 1.5%;  
 }
+
 table.carte tr.bandeau{
   width: 100%;
-  height: 8%;
+  padding-bottom: 0.5%;
 }
 
 table.carte tr.bandeau2{
   width: 100%;
-  height: 8%;
+  height: 30px;
+  padding-top: 2px;
 }
 
 table.carte tr.body{
@@ -94,12 +96,12 @@ table.carte tr.body{
 
 table.carte tr.info{
   width: 100%;
-  height: 30%;
+  height: 190px;
 }
 
 table.carte tr.bottom{
   width: 100%;
-  height: 8%;
+  height: 8px;
 }
 
 table.carte td.nom{
@@ -114,7 +116,7 @@ table.carte td.force{
 }
 
 table.carte td.image{
-  height: 237px;
+  height: 240px;
   background-size: cover;
 }
 
@@ -125,7 +127,7 @@ table.carte td.cat{
 
 table.carte td.info{
   font-style: italic;
-  text-align: start;
+  text-align: left;
 }
 
 button {
