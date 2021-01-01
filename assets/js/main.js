@@ -20,9 +20,6 @@ function jeu() {
       <td class="imagecarte">
         <table class="carte">
           <tr class="content">
-            <tr class="top">
-              <td class="top"></td>
-            </tr>
             <tr class="bandeau">
               <td class="nom">${carteToi.perso}</td>
               <td class="force">Force ${carteToi.force}</td>
@@ -51,9 +48,6 @@ function jeu() {
       <td class="imagecarte">
         <table class="carte">
           <tr class="content">
-            <tr class="top">
-              <td class="top"></td>
-            </tr>
             <tr class="bandeau">
               <td class="nom">${carteEnnemi.perso}</td>
               <td class="force">Force ${carteEnnemi.force}</td>
