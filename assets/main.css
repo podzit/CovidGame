@@ -63,16 +63,17 @@ table td.score {width: 25%; text-align: center; font-size: 1rem; }
 }
 .carte .perso {
   position: absolute;
-  margin-top: 27px;
+  margin-top: 26px;
   margin-left: 28px;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bolder;
 }
 .carte .image {
   position: absolute;
   margin-top: 57px;
   margin-left: 26px;
   width: 329px;
-  height: 244px;
+  height: 234px;
   background-position: center;
   background-size: cover;
   padding-bottom: 10px;
@@ -82,34 +83,35 @@ table td.score {width: 25%; text-align: center; font-size: 1rem; }
   margin-top: 24px;
   margin-left: 333px;
   border-radius: 18px;
-  font-size: 15px;
+  font-size: 14px;
   width: 24px;
   height: 18px;
   padding-top: 6px;
   box-shadow: 0px 0px 10px grey;
   color: white;
+  line-height: 12px;
 }
 .carte .bandeau {
   position: absolute;
-  margin-top: 311px;
+  margin-top: 308px;
   margin-left: 30px;
   font-size: 17px;
 }
 .carte .info {
-  font-size: 14px;
+  font-size: 16px;
   position: absolute;
-  margin-top: 344px;
+  margin-top: 350px;
   margin-left: 25px;
   width: 324px;
-  text-align: justify;
+  text-align: left;
 }
 .carte .effet {
   position: absolute;
-  margin-top: 400px;
-  font-size: 14px;
+  margin-top: 420px;
+  font-size: 16px;
   width: 324px;
   margin-left: 25px;
-  text-align: justify;
+  text-align: left;
 }
 
 .carte .force-1 { background-color: #34008b; }
