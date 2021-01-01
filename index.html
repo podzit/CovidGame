@@ -47,10 +47,6 @@
       <button id="bouton">
         CLIQUE POUR JOUER
       </button>
-
-      <!-- This <table> can be replaced by 3 <div> using flex-box or grid css attributes:  -->
-      <!-- flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ -->
-      <!-- grid: https://css-tricks.com/snippets/css/complete-guide-grid/ -->
       <table>
         <tbody>
           <tr>
@@ -64,15 +60,26 @@
             <td class="score" id= "scoreWinEnnemi"></td></td>
           </tr>
           <tr>
-            <td id="img-toi"><img src="assets/img/back.png"></td>
+            <td id="img-toi">
+              <img src="assets/img/back.png"/>
+            </td>
             <td></td>
-            <td id="img-ennemi"><img src="assets/img/back.png"></td>
+            <td id="img-ennemi">
+              <img src="assets/img/back.png"/>
+            </td>
           </tr>
-            <tr>
-              <td id="resultat" colspan="3"></td>
-          </tr>
+          <tr><td id="resultat" colspan="3"></td></tr>
         </tbody>
       </table>
+
+      <div id="carte" class="carte">
+        <div class="perso"></div>
+        <div class="image"></div>
+        <div class="force"></div>
+        <div class="bandeau"></div>
+        <div class="info"></div>
+        <div class="effet"></div>
+      </div>
     </main>
 
     <!-- FOOTER -->

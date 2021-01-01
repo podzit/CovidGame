@@ -7,71 +7,42 @@ var scoreWinEnnemi = 0;
 // Appel de la fonction jeu lors du clic sur le bouton
 document.getElementById("bouton").onclick = function() {jeu()};
 
+let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_Joueur) => {
+
+  // On efface l'ancienne carte contenue dans DOM_Joueur
+  DOM_Joueur.innerHTML = "";
+
+  // On fait une copie du noeud DOM du modèle de la carte
+  const DOM_Carte = document.getElementById("carte").cloneNode(true);
+  DOM_Carte.id = `carte-${DOM_Joueur.id}`;
+  DOM_Carte.style.display = "block"; // change le style pour que le html devienne visible (display: none; dans css)
+
+  // On peuple les données de la carte dans le html
+  DOM_Carte.querySelector('.perso').innerHTML = perso;
+  DOM_Carte.querySelector('.force').innerHTML = force;
+  DOM_Carte.querySelector('.image').style.backgroundImage = `url('assets/img/carte/${nom}.jpeg')`;
+  DOM_Carte.querySelector('.bandeau').innerHTML = `${categorie} / ${groupe}`;
+  DOM_Carte.querySelector('.info').innerHTML = info;
+  DOM_Carte.querySelector('.effet').innerHTML = effet;
+
+  // Ajoute la classe de force pour le mettre dans la couleur du niveau de force
+  DOM_Carte.querySelector('.force').classList.add(`force-${force}`);
+
+  // On rempli le noeud html du joueur par la carte nouvellement créée
+  DOM_Joueur.appendChild(DOM_Carte);
+}
+
 // Déclaration de la fonction jeu
 function jeu() {
-  // Tirage des cartes
-  let carteToi = deck[Math.floor(Math.random() * deck.length)]
-  let carteEnnemi = deck[Math.floor(Math.random() * deck.length)];
-  
-  // Affichage des cartes
-  const affcarteToi = `
-  <table class="imagecarte">
-    <tr class="imagecarte">
-      <td class="imagecarte">
-        <table class="carte">
-          <tr class="content">
-            <tr class="bandeau">
-              <td class="nom">${carteToi.perso}</td>
-              <td class="force">Force ${carteToi.force}</td>
-            </tr>
-            <tr class="body">
-              <td class="image" colspan="2" style="background-image:url(assets/img/carte/${carteToi.nom}.jpeg)"></td>
-            </tr>
-            <tr class="bandeau2">
-              <td class="cat" colspan="2">${carteToi.categorie} / ${carteToi.groupe}</td>
-            </tr>
-            <tr class="info">
-              <td class="info" colspan="2">${carteToi.info}<br/><br/>${carteToi.effet}</td>
-            </tr>
-            <tr class="bottom">
-              <td class="bottom"></td>
-            </tr>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>`;
 
-  const affcarteEnnemi = `
-  <table class="imagecarte">
-    <tr class="imagecarte">
-      <td class="imagecarte">
-        <table class="carte">
-          <tr class="content">
-            <tr class="bandeau">
-              <td class="nom">${carteEnnemi.perso}</td>
-              <td class="force">Force ${carteEnnemi.force}</td>
-            </tr>
-            <tr class="body">
-              <td class="image" colspan="2" style="background-image:url(assets/img/carte/${carteEnnemi.nom}.jpeg)"></td>
-            </tr>
-            <tr class="bandeau2">
-              <td class="cat" colspan="2">${carteEnnemi.categorie} / ${carteEnnemi.groupe}</td>
-            </tr>
-            <tr class="info">
-              <td class="info" colspan="2">${carteEnnemi.info}<br/><br/>${carteEnnemi.effet}</td>
-            </tr>
-            <tr class="bottom">
-              <td class="bottom"></td>
-            </tr>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>`;
+  // Tirage aléatoire des cartes
+  let [carteToi, carteEnnemi] = [
+    deck[Math.floor(Math.random() * deck.length)],
+    deck[Math.floor(Math.random() * deck.length)]
+  ];
 
-  document.getElementById("img-toi").innerHTML = `${affcarteToi}`;
-  document.getElementById("img-ennemi").innerHTML = `${affcarteEnnemi}`;
+  afficheCarte(carteToi, document.getElementById("img-toi"));
+  afficheCarte(carteEnnemi, document.getElementById("img-ennemi"));
 
   let gagne = phrase.motVainqueur[Math.floor(Math.random() * phrase.motVainqueur.length)];
   let perd = phrase.motPerdant[Math.floor(Math.random() * phrase.motPerdant.length)];
