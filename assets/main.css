@@ -59,6 +59,7 @@ table td.score {width: 25%; text-align: center; font-size: 1rem; }
   background-image: url("img/modele.jpg");
   background-size: cover;
   color: black;
+  font-weight: lighter;
 }
 .carte .perso {
   position: absolute;
