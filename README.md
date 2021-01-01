@@ -29,7 +29,7 @@ pour ajouter une carte il faut éditer deck.js:
   
   },
 ```
-- Puis ajouter une image dans /assets/img/imgcarte avec l'extension jpeg et le nom correspondant à l'item "nom" dans deck.js (dimensions recommandées 342x232px) 
+- Puis ajouter une image dans /assets/img/imgcarte avec l'extension jpeg et le nom correspondant à l'item "nom" dans deck.js (dimensions recommandées 342 x 232px) 
 
 ## Personnalisation du message de résultat
 
