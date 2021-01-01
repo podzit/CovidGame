@@ -18,10 +18,10 @@ let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_J
 
   // On peuple les données de la carte dans le html
   DOM_Carte.querySelector('.perso').innerHTML = perso;
-  DOM_Carte.querySelector('.force-val').innerHTML = force;
+  DOM_Carte.querySelector('.force').innerHTML = force;
   DOM_Carte.querySelector('.image').style.backgroundImage = `url('assets/img/imgcarte/${nom}.jpeg')`;
-  DOM_Carte.querySelector('.bandeau-val').innerHTML = `${categorie} / ${groupe}`;
-  DOM_Carte.querySelector('.info-val').innerHTML = info;
+  DOM_Carte.querySelector('.bandeau').innerHTML = `${categorie} / ${groupe}`;
+  DOM_Carte.querySelector('.info').innerHTML = info;
   DOM_Carte.querySelector('.effet').innerHTML = effet;
 
   // On rempli le noeud html du joueur par la carte nouvellement créée
