@@ -13,7 +13,8 @@ let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_J
   DOM_Joueur.innerHTML = "";
 
   // On fait une copie du noeud DOM du modèle de la carte
-  let DOM_Carte = document.getElementById("carte").cloneNode(true);
+  const DOM_Carte = document.getElementById("carte").cloneNode(true);
+  DOM_Carte.id = `carte-${DOM_Joueur.id}`;
   DOM_Carte.style.display = "block"; // change le style pour que le html devienne visible (display: none; dans css)
 
   // On peuple les données de la carte dans le html
@@ -23,6 +24,9 @@ let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_J
   DOM_Carte.querySelector('.bandeau').innerHTML = `${categorie} / ${groupe}`;
   DOM_Carte.querySelector('.info').innerHTML = info;
   DOM_Carte.querySelector('.effet').innerHTML = effet;
+
+  // Ajoute la classe de force pour le mettre dans la couleur du niveau de force
+  DOM_Carte.querySelector('.force').classList.add(`force-${force}`);
 
   // On rempli le noeud html du joueur par la carte nouvellement créée
   DOM_Joueur.appendChild(DOM_Carte);
