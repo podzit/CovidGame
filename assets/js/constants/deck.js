@@ -320,8 +320,8 @@ export const deck = [
     groupe: `Joker`,
     force: 10,
     nom: 'lancetgate',
-    perso: 'Le lancetgate',
+    perso: 'Le Lancetgate',
     info:`Les études scientifiques sont corrompues par les labos à la solde de la CIA.`,
-    effet:`Jette un froid glacial.`
+    effet:`Jette un froid sur la recherche.`
   },
 ]
