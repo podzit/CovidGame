@@ -7,7 +7,7 @@ Jeu de hasard en ligne pour rire de l'affrontement entre "complotistes" et "comp
 
 Les cartes sont créées en fonction du contenu de /assets/constants/deck.js
 
-pour ajouter une carte il faut éditer deck.js:
+Pour ajouter une carte il faut éditer deck.js:
 
 - Ajouter dans le deck une nouvelle entrée sous la forme
 ```  
@@ -29,7 +29,7 @@ pour ajouter une carte il faut éditer deck.js:
 
   },
 ```
-- Puis ajouter une image dans /assets/img/imgcarte avec l'extension jpeg et le nom correspondant à l'item "nom" dans deck.js (dimensions recommandées 342 x 232px)
+- Puis ajouter une image dans /assets/img/imgcarte avec l'extension jpeg et le nom correspondant à au champ "nom" dans deck.js (dimensions recommandées 329 x 234px)
 
 ## Personnalisation du message de résultat
 
