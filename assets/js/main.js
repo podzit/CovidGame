@@ -100,4 +100,6 @@ function jeu() {
   // Affichage des scores
   document.getElementById("scoreWinToi").innerHTML = `Score: ${scoreWinToi}`;
   document.getElementById("scoreWinEnnemi").innerHTML = `Score: ${scoreWinEnnemi}`;
+
+  document.getElementById("bouton").innerHTML = `REJOUER`;
 }
