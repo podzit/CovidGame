@@ -1,0 +1,76 @@
+.carte {
+  display: none;
+  width: 380px;
+  height: 540px;
+  padding: 0%;
+  border-radius: 0%;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: url("img/modele.jpg");
+  background-size: cover;
+  color: black;
+  font-weight: lighter;
+}
+.carte .perso {
+  position: absolute;
+  margin-top: 26px;
+  margin-left: 28px;
+  font-size: 18px;
+  font-weight: bolder;
+}
+.carte .image {
+  position: absolute;
+  margin-top: 57px;
+  margin-left: 26px;
+  width: 329px;
+  height: 234px;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 10px;
+}
+.carte .force {
+  position: absolute;
+  margin-top: 24px;
+  margin-left: 333px;
+  border-radius: 18px;
+  font-size: 14px;
+  width: 24px;
+  height: 18px;
+  padding-top: 6px;
+  box-shadow: 0px 0px 10px grey;
+  color: white;
+  line-height: 12px;
+}
+.carte .bandeau {
+  position: absolute;
+  margin-top: 308px;
+  margin-left: 30px;
+  font-size: 17px;
+}
+.carte .info {
+  font-size: 16px;
+  position: absolute;
+  margin-top: 350px;
+  margin-left: 25px;
+  width: 324px;
+  text-align: left;
+}
+.carte .effet {
+  position: absolute;
+  margin-top: 420px;
+  font-size: 16px;
+  width: 324px;
+  margin-left: 25px;
+  text-align: left;
+}
+
+.carte .force-1 { background-color: #34008b; }
+.carte .force-2 { background-color: #390099; }
+.carte .force-3 { background-color: #6C0079; }
+.carte .force-4 { background-color: #9E0059; }
+.carte .force-5 { background-color: #CF0057; }
+.carte .force-6 { background-color: #FF0054; }
+.carte .force-7 { background-color: #FF2A2A; }
+.carte .force-8 { background-color: #FF5400; }
+.carte .force-9 { background-color: #FF8900; }
+.carte .force-10 { background-color: #FFBD00; color: black; }
