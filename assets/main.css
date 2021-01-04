@@ -36,19 +36,74 @@ footer {
   font-weight: bold;
 }
 
-table {
-  width: 50%;
+.jeu {
+  width: 810px;
+  align-self: center;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
-  padding: 10px;
+  padding: 0px;
   color: white;
   box-shadow: 0px 0px 10px #000;
 }
 
-table td.side { width: 25%; text-align: center; height: 18px; }
-table td.middle { width: 5%; text-align: center; }
-table td.score {width: 25%; text-align: center; font-size: 1rem; }
+.jeu .side-left {
+  position: absolute;
+  float: left; 
+  width: 380px; 
+  text-align: center;
+}
+
+.jeu .middle {
+  position: absolute;
+  margin-left:380px; 
+  width:50px; 
+  text-align:center;
+}
+
+.jeu .side-right { 
+  position: absolute;
+  margin-left: 430px;
+  width: 380px;  
+  text-align:center;
+}
+.jeu .score-toi {
+  position: absolute;
+  padding-top: 40px;
+  width: 380px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.jeu .score-ennemi {
+  position: absolute;
+  padding-top: 40px;
+  margin-left: 430px;
+  width: 380px;
+  font-size: 1rem;
+  text-align: center; 
+}
+
+.jeu .carte-back-left {
+  width: 380px;
+  height: 540px;
+  padding-top: 60px;
+  float:left;
+}
+
+.jeu .carte-back-right {
+  width: 380px;
+  height: 540px;
+  padding-top: 60px;
+  margin-left: 430px;
+}
+
+.jeu .resultat {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 800px;
+  text-align:center;
+}
 
 button {
   border: none;

@@ -44,30 +44,16 @@
       <button id="bouton">
         CLIQUE POUR JOUER
       </button>
-      <table>
-        <tbody>
-          <tr>
-            <td class="side">Toi</td>
-            <td class="middle">VS</td>
-            <td class="side">L'ennemi</td>
-          </tr>
-          <tr>
-            <td class="score" id = "scoreWinToi"></td>
-            <td class="middle"></td>
-            <td class="score" id= "scoreWinEnnemi"></td></td>
-          </tr>
-          <tr>
-            <td id="img-toi">
-              <img src="assets/img/back.png"/>
-            </td>
-            <td></td>
-            <td id="img-ennemi">
-              <img src="assets/img/back.png"/>
-            </td>
-          </tr>
-          <tr><td id="resultat" colspan="3"></td></tr>
-        </tbody>
-      </table>
+      <div id="jeu" class="jeu">
+        <div class="side-left">Toi</div>
+        <div class="middle">VS</div>
+        <div class="side-right">L'ennemi</div>
+        <div id="scoreWinToi" class="score-toi"></div>
+        <div id="scoreWinEnnemi" class="score-ennemi"></div>
+        <div id="img-toi" class="carte-back-left"><img src="assets/img/back.png"></img></div>
+        <div id="img-ennemi" class="carte-back-right"><img src="assets/img/back.png"></img></div>
+        <div id="resultat" class="resultat"></div>
+      </div>
 
       <div id="carte" class="carte">
         <div class="perso"></div>
