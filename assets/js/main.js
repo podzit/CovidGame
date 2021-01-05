@@ -35,6 +35,10 @@ let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_J
 // Déclaration de la fonction jeu
 function jeu() {
 
+  // Effet retournement des cartes
+  document.getElementById('flip-card').classList.toggle('do-flip');
+  document.getElementById('flip-card2').classList.toggle('do-flip2');
+
   // Tirage aléatoire des cartes
   let [carteToi, carteEnnemi] = [
     deck[Math.floor(Math.random() * deck.length)],
@@ -102,4 +106,5 @@ function jeu() {
   document.getElementById("scoreWinEnnemi").innerHTML = `Score: ${scoreWinEnnemi}`;
 
   document.getElementById("bouton").innerHTML = `REJOUER`;
+
 }

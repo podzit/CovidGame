@@ -84,18 +84,72 @@ footer {
   text-align: center; 
 }
 
-.jeu .carte-back-left {
+.flip-card-3D-wrapper {
+  -o-perspective: 900px;
+  -webkit-perspective: 900px;
+  -ms-perspective: 900px;
+  perspective: 900px;
+}
+
+.flip-card-3D-wrapper2 {
+  -o-perspective: 900px;
+  -webkit-perspective: 900px;
+  -ms-perspective: 900px;
+  perspective: 900px;
+}
+
+#flip-card {
+  width: 380px;
+  -o-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  -o-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+#flip-card2 {
+  width:380px;
+  margin-left: 430px;
+  -o-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  -o-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.do-flip {
+  -o-transform: rotateY(-360deg);
+  -webkit-transform: rotateY(-360deg);
+  -ms-transform: rotateY(-360deg);
+  transform: rotateY(-360deg);
+}
+
+.do-flip2 {
+  -o-transform: rotateY(-360deg);
+  -webkit-transform: rotateY(-360deg);
+  -ms-transform: rotateY(-360deg);
+  transform: rotateY(-360deg);
+}
+
+.jeu #flip-card .carte-back-left {
   width: 380px;
   height: 540px;
   padding-top: 60px;
   float:left;
+  z-index: 2;
 }
 
-.jeu .carte-back-right {
+.jeu #flip-card2 .carte-back-right {
   width: 380px;
   height: 540px;
   padding-top: 60px;
-  margin-left: 430px;
+  z-index: 2;
 }
 
 .jeu .resultat {
