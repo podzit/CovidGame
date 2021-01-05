@@ -3,9 +3,10 @@ import {phrase} from './constants/phrase.js';
 
 var scoreWinToi = 0;
 var scoreWinEnnemi = 0;
+var replay = 0;
 
-// Appel de la fonction jeu lors du clic sur le bouton
-document.getElementById("bouton").onclick = function() {jeu()};
+  // Appuie sur le bouton
+  document.getElementById("bouton").onclick = function() {jeu()};
 
 let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_Joueur) => {
 
@@ -35,6 +36,8 @@ let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_J
 // Déclaration de la fonction jeu
 function jeu() {
 
+  if (replay == 0) {
+
   // Effet retournement des cartes
   document.getElementById('flip-card').classList.toggle('do-flip');
   document.getElementById('flip-card2').classList.toggle('do-flip2');
@@ -45,8 +48,11 @@ function jeu() {
     deck[Math.floor(Math.random() * deck.length)]
   ];
 
-  afficheCarte(carteToi, document.getElementById("img-toi"));
-  afficheCarte(carteEnnemi, document.getElementById("img-ennemi"));
+  //pause pour retarder l'affichage des cartes
+  setTimeout(() => {  
+    afficheCarte(carteToi, document.getElementById("img-toi"));
+    afficheCarte(carteEnnemi, document.getElementById("img-ennemi"));
+  }, 700);
 
   let gagne = phrase.motVainqueur[Math.floor(Math.random() * phrase.motVainqueur.length)];
   let perd = phrase.motPerdant[Math.floor(Math.random() * phrase.motPerdant.length)];
@@ -105,6 +111,20 @@ function jeu() {
   document.getElementById("scoreWinToi").innerHTML = `Score: ${scoreWinToi}`;
   document.getElementById("scoreWinEnnemi").innerHTML = `Score: ${scoreWinEnnemi}`;
 
+  // transformation du bouton en REJOUER
   document.getElementById("bouton").innerHTML = `REJOUER`;
+  replay ++;
+  }
+
+else {
+  document.getElementById("img-toi").innerHTML = `<img src="assets/img/back.png"></img>`;
+  document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/back.png"></img>`;
+  replay = 0
+  }
 
 }
+
+
+
+  
+  
