@@ -34,7 +34,7 @@ let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_J
 }
 
 // Déclaration de la fonction jeu
-function jeu() {
+function jeu(tour) {
 
   if (replay == 0) {
 
@@ -116,13 +116,14 @@ function jeu() {
   replay ++;
   }
 
-else {
+  else {
   document.getElementById("img-toi").innerHTML = `<img src="assets/img/back.png"></img>`;
   document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/back.png"></img>`;
-  replay = 0
+  replay = 0;
+  jeu(0);
   }
-
 }
+
 
 
 
