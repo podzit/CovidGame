@@ -122,10 +122,4 @@ function jeu(tour) {
   replay = 0;
   jeu(0);
   }
-}
-
-
-
-
-  
-  
+}  
