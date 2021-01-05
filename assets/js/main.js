@@ -104,12 +104,15 @@ function jeu(tour) {
     result = `Match nul: Personne n'est sorti vivant de ce duel`;
   }
 
+  setTimeout(() => {  
   // Affichage des résultats
   document.getElementById("resultat").innerHTML = `${result}`;
 
   // Affichage des scores
   document.getElementById("scoreWinToi").innerHTML = `Score: ${scoreWinToi}`;
   document.getElementById("scoreWinEnnemi").innerHTML = `Score: ${scoreWinEnnemi}`;
+
+  }, 710);
 
   // transformation du bouton en REJOUER
   document.getElementById("bouton").innerHTML = `REJOUER`;
