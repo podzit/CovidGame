@@ -120,8 +120,10 @@ function jeu(tour) {
   }
 
   else {
+  setTimeout(() => {
   document.getElementById("img-toi").innerHTML = `<img src="assets/img/back.png"></img>`;
   document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/back.png"></img>`;
+  }, 345);
   replay = 0;
   jeu(0);
   }
