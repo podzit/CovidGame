@@ -85,17 +85,17 @@ footer {
 }
 
 .flip-card-3D-wrapper {
-  -o-perspective: 900px;
-  -webkit-perspective: 900px;
-  -ms-perspective: 900px;
-  perspective: 900px;
+  -o-perspective: 1200px;
+  -webkit-perspective: 1200px;
+  -ms-perspective: 1200px;
+  perspective: 1200px;
 }
 
 .flip-card-3D-wrapper2 {
-  -o-perspective: 900px;
-  -webkit-perspective: 900px;
-  -ms-perspective: 900px;
-  perspective: 900px;
+  -o-perspective: 1200px;
+  -webkit-perspective: 1200px;
+  -ms-perspective: 1200px;
+  perspective: 1200px;
 }
 
 #flip-card {
