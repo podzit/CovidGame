@@ -4,6 +4,13 @@ import {phrase} from './constants/phrase.js';
 var scoreWinToi = 0;
 var scoreWinEnnemi = 0;
 var replay = 0;
+var win = 0;
+
+// Sons
+var audio = document.getElementById("audio");
+const audiowin = `<audio autoplay><source src="assets/audiowin.ogg" type="audio/ogg"></audio>`;
+const audioloose = `<audio autoplay><source src="assets/audioloose.ogg" type="audio/ogg"></audio>`;
+const audiocarte = `<audio autoplay><source src="assets/swoosh.ogg" type="audio/ogg"></audio>`;
 
   // Appuie sur le bouton
   document.getElementById("bouton").onclick = function() {jeu()};
@@ -36,6 +43,8 @@ let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_J
 // Déclaration de la fonction jeu
 function jeu(tour) {
 
+  audio.innerHTML = `${audiocarte}`;
+
   if (replay == 0) {
 
   // Effet retournement des cartes
@@ -58,50 +67,50 @@ function jeu(tour) {
   let perd = phrase.motPerdant[Math.floor(Math.random() * phrase.motPerdant.length)];
   let action = phrase.verbe[Math.floor(Math.random() * phrase.verbe.length)];
 
-  // Son
-  var audio = document.getElementById("audio");
-  const audiowin = `<audio autoplay><source src="assets/audiowin.ogg" type="audio/ogg"></audio>`;
-  const audioloose = `<audio autoplay><source src="assets/audioloose.ogg" type="audio/ogg"></audio>`;
-
   // Affichage du résultats en fonction des cas
   if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Complotistes') {
     var result = `${gagne} ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
-    audio.innerHTML = `${audiowin}`;
+    win = 1;
     scoreWinToi ++;
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Comploteurs') {
     result = `${gagne} Entre comploteurs, ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
+    win = 2;
     scoreWinToi ++;
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Comploteurs'){
     result = `${gagne} Tu as vaincu l'élite pédophile satanique avec ${carteToi.perso}`;
-    audio.innerHTML = `${audiowin}`;
+    win = 1;
     scoreWinToi ++;
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Complotistes'){
     result = `${gagne} ${carteEnnemi.perso} a succombé ! Tu es le survivant de ta guilde`;
+    win = 2;
     scoreWinToi ++;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Comploteurs'){
     result = `${perd} Le complot mondial t'${action} en utilisant ${carteEnnemi.perso}`;
-    audio.innerHTML = `${audioloose}`;
+    win = 0;
     scoreWinEnnemi ++;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Comploteurs'){
     result = `${perd} ${carteEnnemi.perso} t'${action}! Trop de complot tue le complot`;
+    win = 2;
     scoreWinEnnemi ++;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Complotistes'){
     result = `${perd} ${carteEnnemi.perso} ${action} ${carteToi.perso}`;
-    audio.innerHTML = `${audioloose}`;
+    win = 0;
     scoreWinEnnemi ++;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Complotistes'){
     result = `${perd} Entre complotistes, ${carteEnnemi.perso} ${action} ${carteToi.perso}`;
+    win = 2;
     scoreWinEnnemi ++;
   }
   else{
     result = `Match nul: Personne n'est sorti vivant de ce duel`;
+    win = 2;
   }
 
   setTimeout(() => {  
@@ -112,6 +121,10 @@ function jeu(tour) {
   document.getElementById("scoreWinToi").innerHTML = `Score: ${scoreWinToi}`;
   document.getElementById("scoreWinEnnemi").innerHTML = `Score: ${scoreWinEnnemi}`;
 
+  // Son en fonction
+  if (win == 0) {audio.innerHTML = `${audioloose}`;}
+  else if (win == 1) {audio.innerHTML = `${audiowin}`;}
+  else {}
   }, 710);
 
   // transformation du bouton en REJOUER
