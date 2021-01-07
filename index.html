@@ -41,15 +41,21 @@
     <div id="audio"></div>
     <main>
       <h1>Covid Game</h1>
-      <button id="bouton">
-        CLIQUE POUR JOUER
-      </button>
+      <div id = "poche" class="poche">Ta poche: 50$</div>
+      <!-- <button id = "bouton"> -->
+        <button id ="mise1">1$
+        </button>
+        <button id ="mise2">2$
+        </button>
+        <button id ="mise5">5$
+        </button>
+        <button id ="mise10">10$
+        </button>
+      <!-- </button> -->
       <div id="jeu" class="jeu">
         <div class="side-left">Toi</div>
         <div class="middle">VS</div>
         <div class="side-right">L'ennemi</div>
-        <div id="scoreWinToi" class="score-toi"></div>
-        <div id="scoreWinEnnemi" class="score-ennemi"></div>
         <div class="flip-card-3D-wrapper">
           <div id="flip-card">
             <div id="img-toi" class="carte-back-left"><img src="assets/img/back.png"></img></div>
@@ -61,6 +67,7 @@
           </div>
         </div>
         <div id="resultat" class="resultat"></div>
+        <div id="gain" class="gain"></div>
       </div>
 
       <div id="carte" class="carte">
