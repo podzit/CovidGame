@@ -7,15 +7,15 @@ var mise = 0;
 var gain = 0;
 var poche = 50;
 
+// Mises
 const DOM_mise2 = document.getElementById("mise2");
 const DOM_mise5 = document.getElementById("mise5");
 const DOM_mise10 = document.getElementById("mise10");
 
 // Sons
-var audio = document.getElementById("audio");
-const audiowin = `<audio autoplay><source src="assets/audiowin.ogg" type="audio/ogg"></audio>`;
-const audioloose = `<audio autoplay><source src="assets/audioloose.ogg" type="audio/ogg"></audio>`;
-const audiocarte = `<audio autoplay><source src="assets/swoosh.ogg" type="audio/ogg"></audio>`;
+const DOM_audiowin = document.getElementById("audiowin");
+const DOM_audioloose = document.getElementById("audioloose");
+const DOM_audiocarte = document.getElementById("audiocarte");
 
 // Appuie sur un bouton
 document.getElementById("mise1").onclick = function() {jeu(mise = 1)};
@@ -53,8 +53,10 @@ function jeu(tour) {
 
   document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
 
-  audio.innerHTML = `${audiocarte}`;
+  // Son swoosh
+  DOM_audiocarte.play();
 
+  // En cas de premier tour
   if (replay == 0) {
 
   // Effet retournement des cartes
@@ -77,7 +79,7 @@ function jeu(tour) {
   let perd = phrase.motPerdant[Math.floor(Math.random() * phrase.motPerdant.length)];
   let action = phrase.verbe[Math.floor(Math.random() * phrase.verbe.length)];
 
-  // Affichage du résultats en fonction des cas
+  // Résultats en fonction des cas
   if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Complotistes') {
     var result = `${gagne} ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
     win = 1;
@@ -124,7 +126,9 @@ function jeu(tour) {
     gain = - mise;
   }
 
+  // temporisation de l'affichage
   setTimeout(() => {  
+
   // Affichage des résultats
   document.getElementById("resultat").innerHTML = `${result}`;
 
@@ -139,41 +143,49 @@ function jeu(tour) {
   document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
 
   // Son en fonction
-  if (win == 0) {audio.innerHTML = `${audioloose}`;}
-  else if (win == 1) {audio.innerHTML = `${audiowin}`;}
-  else {}
+  if (win == 0) {DOM_audioloose.play();}
+  else if (win == 1) {DOM_audiowin.play ();}
+  }, 710);
 
-  if (poche <= 0) {
-    alert(`👎 GAME OVER 👎
-Retente ta chance !`);
+  // Game Over
+  setTimeout (() => {
+  if (poche <= 0 && poche < 2 && poche < 5 && poche < 10) {
+    alert(`👎 GAME OVER 👎\nRetente ta chance !`);
     document.location.reload();      
   }
+
+  // Affichage des boutons de mise en fonction du montant de la poche
   else if (poche < 2 && poche < 5 && poche < 10) {
     DOM_mise2.style.display = "none";
     DOM_mise5.style.display = "none";
     DOM_mise10.style.display = "none";
   }
+
   else if (poche >= 2 && poche < 5 && poche < 10) {
     DOM_mise2.style.display = "inline-block";
     DOM_mise5.style.display = "none";
     DOM_mise10.style.display = "none";
   }
+
   else if (poche >= 2 && poche >= 5 && poche < 10) {
     DOM_mise2.style.display = "inline-block";
     DOM_mise5.style.display = "inline-block";
     DOM_mise10.style.display = "none";
   }
+
   else if (poche >= 2 && poche >= 5 && poche >= 10) {
     DOM_mise2.style.display = "inline-block";
     DOM_mise5.style.display = "inline-block";
     DOM_mise10.style.display = "inline-block";
   }
-  }, 710);
 
-  // transformation du bouton en REJOUER
+  }, 1000);
+
+  // Permet d'indiquer que ce n'est plus le premier tour
   replay ++;
   }
 
+  // En cas de deuxième tour affichage du dos des cartes dans le flip
   else {
   setTimeout(() => {
   document.getElementById("img-toi").innerHTML = `<img src="assets/img/back.png"></img>`;
