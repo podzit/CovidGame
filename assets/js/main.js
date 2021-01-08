@@ -8,6 +8,7 @@ var gain = 0;
 var poche = 50;
 
 // Mises
+const DOM_mise1 = document.getElementById("mise1");
 const DOM_mise2 = document.getElementById("mise2");
 const DOM_mise5 = document.getElementById("mise5");
 const DOM_mise10 = document.getElementById("mise10");
@@ -50,6 +51,11 @@ let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_J
 
 // Déclaration de la fonction jeu
 function jeu(tour) {
+
+  DOM_mise1.style.display = "none";
+  DOM_mise2.style.display = "none";
+  DOM_mise5.style.display = "none";
+  DOM_mise10.style.display = "none";
 
   document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
 
@@ -156,24 +162,28 @@ function jeu(tour) {
 
   // Affichage des boutons de mise en fonction du montant de la poche
   else if (poche < 2 && poche < 5 && poche < 10) {
+    DOM_mise1.style.display = "inline-block";    
     DOM_mise2.style.display = "none";
     DOM_mise5.style.display = "none";
     DOM_mise10.style.display = "none";
   }
 
   else if (poche >= 2 && poche < 5 && poche < 10) {
+    DOM_mise1.style.display = "inline-block"; 
     DOM_mise2.style.display = "inline-block";
     DOM_mise5.style.display = "none";
     DOM_mise10.style.display = "none";
   }
 
   else if (poche >= 2 && poche >= 5 && poche < 10) {
+    DOM_mise1.style.display = "inline-block"; 
     DOM_mise2.style.display = "inline-block";
     DOM_mise5.style.display = "inline-block";
     DOM_mise10.style.display = "none";
   }
 
   else if (poche >= 2 && poche >= 5 && poche >= 10) {
+    DOM_mise1.style.display = "inline-block"; 
     DOM_mise2.style.display = "inline-block";
     DOM_mise5.style.display = "inline-block";
     DOM_mise10.style.display = "inline-block";
