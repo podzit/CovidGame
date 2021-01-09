@@ -8,6 +8,11 @@ var gain = 0;
 var poche = 50;
 var hiscore = 50;
 
+const DOM_jeu = document.getElementById("jeu");
+const DOM_poche = document.getElementById("poche");
+const DOM_form = document.getElementById("form");
+DOM_form.style.display = "none";
+
 // Mises
 const DOM_mise1 = document.getElementById("mise1");
 const DOM_mise2 = document.getElementById("mise2");
@@ -161,8 +166,13 @@ function jeu(tour) {
   // Game Over
   setTimeout (() => {
   if (poche <= 0 && poche < 2 && poche < 5 && poche < 10) {
-    alert(` 👎 GAME OVER 👎 \n Ton record est ${hiscore}$ \n Retente ta chance`);
-    document.location.reload();      
+    DOM_jeu.style.display = "none";
+    DOM_poche.style.display ="none";
+    DOM_form.style.display = "block";
+    document.getElementById("score").innerHTML = `${hiscore}`;
+    document.getElementById("record").value = `${hiscore}`;
+    //alert(` 👎 GAME OVER 👎 \n Ton record est ${hiscore}$ \n Retente ta chance`);
+    //document.location.reload();      
   }
 
   // Affichage des boutons de mise en fonction du montant de la poche

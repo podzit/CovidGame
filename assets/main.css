@@ -175,3 +175,20 @@ button {
 button:hover {
    background-color: #008CBA;
 }
+
+table, td {
+  border-collapse: collapse;
+  color: bisque;
+  font-size: 2rem;
+  text-align: left;
+}
+td.record{
+  color: bisque;
+  font-size: 2rem;
+  text-align: right;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}

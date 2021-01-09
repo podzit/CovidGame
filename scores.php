@@ -38,66 +38,81 @@
 
   </head>
   <body>
-    
-    <audio id="audiowin"><source src="assets/audiowin.ogg" type="audio/ogg"></audio>
-    <audio id="audioloose"><source src="assets/audioloose.ogg" type="audio/ogg"></audio>
-    <audio id="audiocarte"><source src="assets/swoosh.ogg" type="audio/ogg"></audio>
-
-    <main>
+  <main>
       <h1>Covid Game</h1>
-      <div id = "poche" class="poche">Ta poche: 50$</div>
 
-        <button id ="mise1">1$
-        </button>
-        <button id ="mise2">2$
-        </button>
-        <button id ="mise5">5$
-        </button>
-        <button id ="mise10">10$
-        </button>
+<?php
+  // récupération des valeurs du formulaire
+  $name = htmlspecialchars($_POST['name']);
+  $record = htmlspecialchars($_POST['record']);
+  
+  // création d'un array
+  $data = array(
+    array($name, $record)
+    );
+  
+  // définition des variables
+  $file = 'assets/scores.csv';
+  $taille = 1024;
+  $delimiteur = ",";
+  $tour = 0;
+  $end = 10;
 
-      <div id="jeu" class="jeu">
-        <div class="side-left">Toi</div>
-        <div class="middle">VS</div>
-        <div class="side-right">L'ennemi</div>
-        <div class="flip-card-3D-wrapper">
-          <div id="flip-card">
-            <div id="img-toi" class="carte-back-left"><img src="assets/img/back.png"></img></div>
-          </div>
-        </div>
-        <div class="flip-card-3D-wrapper2">
-          <div id="flip-card2">
-            <div id="img-ennemi" class="carte-back-right"><img src="assets/img/back.png"></img></div>
-          </div>
-        </div>
-        <div id="resultat" class="resultat"></div>
-        <div id="gain" class="gain"></div>
-      </div>
 
-      <div id="carte" class="carte">
-        <div class="perso"></div>
-        <div class="image"></div>
-        <div class="force"></div>
-        <div class="bandeau"></div>
-        <div class="info"></div>
-        <div class="effet"></div>
-      </div>
+  // écriture dans le fichier  
+  if ($f = @fopen($file, 'a')) {
+    foreach ($data as $ligne) {
+      fputcsv($f, $ligne);
+      }
+    fclose($f);
+    }
+  else {
+    echo "Impossible d'acc&eacute;der au fichier.";
+    }
 
-      <form id="form" action="scores.php" method="post" class="poche">
-        <div>
-            <label for="name">Pseudo :</label>
-            <input type="text" id="name" name="name">
-        </div>
-        <div>
-            <label for="record" id="score"></label>
-            <input type="hidden" id="record" name="record">
-        </div>
-        <div class="button">
-          <button type="submit">Envoyer</button>
-      </div>
-      </form>
+  $tab = array();
+?>
 
-    </main>
+<?php
+  // lecture du fichier
+  $fichier = fopen($file, "r");
+  while (($data = fgetcsv($fichier, $taille, $delimiteur)) !== FALSE)
+  {
+    $tab[$data[0]]['nom'] = $data[1];
+    $tab[$data[0]]['record'] = $data[2];
+  }
+
+  fclose($fichier);
+
+  // tri décroissant des valeurs
+  arsort($tab);
+?>
+
+<div class="jeu">
+<h2> High Score </h2>
+<?php
+  // affichage des scores
+  if(isset($tab) && is_array($tab) && count($tab) > 0)
+  {
+    echo '<table class="center">';
+    foreach ($tab as $key => $value) { 
+      $tour++;
+      echo '<tr>';
+      echo '<td>'.$key.'</td><td class="record">'.$value['nom'].'</td><td>'.$value['record'].'</td>';
+      echo '</tr>';
+      if ($tour == $end) break;
+    }
+
+    echo '</table>';
+  }
+?>
+<form action="index.html">
+  <div class="button">
+    <button type="submit">REJOUER</button>
+  </div>
+</form>
+</div>
+</main>
 
     <!-- FOOTER -->
     <footer>
@@ -108,7 +123,5 @@
     </footer>
     <!-- FOOTER'S END -->
 
-    <!-- Javascript -->
-    <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>
