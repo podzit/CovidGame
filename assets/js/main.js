@@ -170,9 +170,7 @@ function jeu(tour) {
     DOM_poche.style.display ="none";
     DOM_form.style.display = "block";
     document.getElementById("score").innerHTML = `${hiscore}`;
-    document.getElementById("record").value = `${hiscore}`;
-    //alert(` 👎 GAME OVER 👎 \n Ton record est ${hiscore}$ \n Retente ta chance`);
-    //document.location.reload();      
+    document.getElementById("record").value = `${hiscore}`;   
   }
 
   // Affichage des boutons de mise en fonction du montant de la poche
