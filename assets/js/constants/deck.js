@@ -39,7 +39,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Inutile',
-    force: 2,
+    force: 3,
     nom: 'mouton',
     perso: 'Le troupeau de moutons',
     info:`Les fameux moutons dirigés par les médias. En troupeau vont tous dans la même direction.`,
@@ -57,7 +57,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Milliardaire',
-    force: 3,
+    force: 4,
     nom: 'soros',
     perso: 'George Soros',
     info:`Le big boss du complot. 153 ans.`,
@@ -66,7 +66,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Tueur',
-    force: 3,
+    force: 4,
     nom: 'pcr',
     perso: 'Le test PCR',
     info:`Pas très fiable mais trop utilisé quand même.`,
@@ -75,7 +75,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Tueur',
-    force: 4,
+    force: 5,
     nom: '5g',
     perso: 'La 5G',
     info:`Propage des ondes partout.`,
@@ -84,7 +84,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Milliardaire',
-    force: 4,
+    force: 5,
     nom: 'gates',
     perso: 'Bill Gates',
     info:`Apparaît dans tous les complots, son nom est devenu une marque.`,
@@ -93,7 +93,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Média',
-    force: 4,
+    force: 6,
     nom: 'bfm',
     perso: 'BFM TV',
     info:`Bergerie Française pour Moutons. 24/7 de propagande des multi-millionnaires à la solde du gouvernement ou l’inverse.`,
@@ -102,7 +102,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Tueur',
-    force: 5,
+    force: 6,
     nom: 'vaccin',
     perso: 'Le vaccin',
     info:`Tue les antivax, épargne les moutons et transforme l'ADN.`,
@@ -111,7 +111,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Société secrète',
-    force: 5,
+    force: 7,
     nom: 'illuminatis',
     perso: 'La société des illuminatis',
     info:`Imbattables, ils dirigent tout depuis la nuit des temps. Si c’est pas eux, c’est quand même eux.`,
@@ -120,7 +120,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Religieux',
-    force: 5,
+    force: 7,
     nom: 'satan',
     perso: 'Satan',
     info:`Prépare les pires complots grâce aux sacrifices d’enfants.`,
@@ -129,7 +129,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Société secrète',
-    force: 6,
+    force: 8,
     nom: 'francmacon',
     perso: 'La franc-maçonnerie',
     info:`Il ne construisent rien malgré leur nom.`,
@@ -138,7 +138,7 @@ export const deck = [
   {
     categorie: 'Comploteurs',
     groupe: 'Société secrète',
-    force: 6,
+    force: 8,
     nom: 'deepstate',
     perso: `L'état profond`,
     info:`Tellement profond qu’on ne l’a jamais vu.`,
@@ -201,7 +201,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: 'Média',
-    force: 2,
+    force: 3,
     nom: 'sudradio',
     perso: 'Sud Radio',
     info:`Radio écoutée uniquement par Eric Zemmour et le RN.`,
@@ -219,7 +219,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: 'Prophète',
-    force: 3,
+    force: 4,
     nom: 'perronne',
     perso: 'Christian Perronne',
     info:`Le lyme il le déteste, il le préfère dans son verre.`,
@@ -228,7 +228,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: 'Patron de PMU',
-    force: 3,
+    force: 4,
     nom: 'bigard',
     perso: 'Jean-Marie Bigard',
     info:`Connu pour ses sketches, il en est devenu un.`,
@@ -237,7 +237,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: `Lanceur d'alerte`,
-    force: 4,
+    force: 5,
     nom: 'krusi',
     perso: 'Ema Krusi',
     info:`Ne connait pas la neutralité Suisse. Elle lui dit merde.`,
@@ -246,7 +246,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: `Lanceur d'alerte`,
-    force: 4,
+    force: 5,
     nom: 'engerer',
     perso: 'Eve Engerer',
     info:`Elle a tout compris ! TOUT ! C’est compris ?`,
@@ -255,7 +255,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: `Patron de PMU`,
-    force: 4,
+    force: 6,
     nom: 'zemmour',
     perso: 'Eric Zemmour',
     info:`Pied noir à la parole libre contre les juifs et l’islam.`,
@@ -264,7 +264,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: `Prophète`,
-    force: 5,
+    force: 6,
     nom: 'raoult',
     perso: 'Didier Raoult',
     info:`Le covid 19 c'est du fantasme, il n'y croit pas.`,
@@ -273,7 +273,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: `Tueur`,
-    force: 5,
+    force: 7,
     nom: 'hcq',
     perso: "L'hydroxychloroquine",
     info:`Utilisé dans des pays où il est interdit.`,
@@ -282,7 +282,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: `Patron de PMU`,
-    force: 5,
+    force: 7,
     nom: 'soral',
     perso: "Alain Soral",
     info:`Youtubeur musclé sur canapé.`,
@@ -291,7 +291,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: `Prophète`,
-    force: 6,
+    force: 8,
     nom: 'trotta',
     perso: 'Sylvano Trotta',
     info:`Star lunaire sur Youtube.`,
@@ -300,7 +300,7 @@ export const deck = [
   {
     categorie: 'Complotistes',
     groupe: `Prophète`,
-    force: 6,
+    force: 8,
     nom: 'dieudonne',
     perso: 'Dieudonné',
     info:`Humoriste censuré reconverti en fabricant de quenelles.`,

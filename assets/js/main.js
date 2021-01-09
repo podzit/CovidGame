@@ -6,6 +6,7 @@ var win = 0;
 var mise = 0;
 var gain = 0;
 var poche = 50;
+var hiscore = 50;
 
 // Mises
 const DOM_mise1 = document.getElementById("mise1");
@@ -109,7 +110,7 @@ function jeu(tour) {
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Comploteurs'){
     result = `${perd} Le complot mondial t'${action} en utilisant ${carteEnnemi.perso}`;
     win = 0;
-    gain = - (carteEnnemi.force*mise);
+    gain = - (carteEnnemi.force*(2*mise));
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Comploteurs'){
     result = `${perd} ${carteEnnemi.perso} t'${action}! Trop de complot tue le complot`;
@@ -119,7 +120,7 @@ function jeu(tour) {
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Complotistes'){
     result = `${perd} ${carteEnnemi.perso} ${action} ${carteToi.perso}`;
     win = 0;
-    gain = - (carteEnnemi.force*mise);
+    gain = - (carteEnnemi.force*(2*mise));
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Complotistes'){
     result = `${perd} Entre complotistes, ${carteEnnemi.perso} ${action} ${carteToi.perso}`;
@@ -144,7 +145,11 @@ function jeu(tour) {
   }
   else {
   document.getElementById("gain").innerHTML = `Gain ${gain}$`;
+    if (hiscore < (gain + poche)){
+      hiscore = gain + poche;
+    }
   }
+  
   poche = gain + poche;
   document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
 
@@ -156,7 +161,7 @@ function jeu(tour) {
   // Game Over
   setTimeout (() => {
   if (poche <= 0 && poche < 2 && poche < 5 && poche < 10) {
-    alert(`👎 GAME OVER 👎\nRetente ta chance !`);
+    alert(` 👎 GAME OVER 👎 \n Ton record est ${hiscore}$ \n Retente ta chance`);
     document.location.reload();      
   }
 
