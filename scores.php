@@ -45,7 +45,7 @@
   // récupération des valeurs du formulaire
   $name = htmlspecialchars($_POST['name']);
   $record = htmlspecialchars($_POST['record']);
-  
+
   // création d'un array
   $data = array(
     array($name, $record)
@@ -57,20 +57,20 @@
   $delimiteur = ",";
   $tour = 0;
   $end = 10;
-
-
-  // écriture dans le fichier  
-  if ($f = @fopen($file, 'a')) {
-    foreach ($data as $ligne) {
-      fputcsv($f, $ligne);
-      }
-    fclose($f);
-    }
-  else {
-    echo "Impossible d'acc&eacute;der au fichier.";
-    }
-
   $tab = array();
+
+  // écriture dans le fichier
+  if (!empty($record)){
+    if ($f = @fopen($file, 'a')) {
+      foreach ($data as $ligne) {
+        fputcsv($f, $ligne);
+        }
+      fclose($f);
+      }
+    else {
+      echo "Impossible d'acc&eacute;der au fichier.";
+      }
+  }
 ?>
 
 <?php
