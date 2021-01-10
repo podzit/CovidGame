@@ -48,8 +48,8 @@ Les gains et pertes sont en fonction de plusieurs cas:
 - Catégorie différente (exemple complotiste vs comploteur) = Double de la mise x force de la carte vainqueure
 - match nul = perte de la mise
 
-Si la poche atteint minimum 500$, à la fin de la partie, le joueur peut enregistrer son pseudo et son score pour apparaitre dans le tableau "high score" (page `scores.php`).
-Le tableau n'affiche que les 10 meilleurs scores.
+Le jeu s'arrête quand la poche atteint 0$.
+Si au cours du jeu, la poche atteint 500$ et plus, à la fin de la partie, le joueur peut enregistrer son pseudo et son score pour apparaitre dans le tableau "High Score" (page `scores.php`) qui affiche les 10 meilleurs scores.
 
 ## Tester
 
