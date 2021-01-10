@@ -39,7 +39,7 @@ Les phrases sont personnalisables dans /assets/constants/phrase.js
 
 ## Règles
 
-Le joueur part avec 50$ en poche et dois miser.
+Le joueur part avec 50$ en poche et doit miser pour lancer le jeu.
 Il a le choix entre 1,2,5 ou 10$ de mise.
 Si la force de la carte du joueur dépasse la force de la carte ennemie, le joueur gagne.
 
