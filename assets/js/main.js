@@ -95,7 +95,7 @@ function jeu(tour) {
   if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Complotistes') {
     var result = `${gagne} ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
     win = 1;
-    gain = carteToi.force*mise; 
+    gain = carteToi.force*(2*mise); 
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Comploteurs') {
     result = `${gagne} Entre comploteurs, ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
@@ -105,12 +105,12 @@ function jeu(tour) {
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Comploteurs'){
     result = `${gagne} Tu as vaincu l'élite pédophile satanique avec ${carteToi.perso}`;
     win = 1;
-    gain = carteToi.force*mise;;
+    gain = carteToi.force*(2*mise);
   }
   else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Complotistes'){
     result = `${gagne} ${carteEnnemi.perso} a succombé ! Tu es le survivant de ta guilde`;
     win = 2;
-    gain = carteToi.force*mise;;
+    gain = carteToi.force*mise;
   }
   else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Comploteurs'){
     result = `${perd} Le complot mondial t'${action} en utilisant ${carteEnnemi.perso}`;
@@ -166,11 +166,17 @@ function jeu(tour) {
   // Game Over
   setTimeout (() => {
   if (poche <= 0 && poche < 2 && poche < 5 && poche < 10) {
-    DOM_jeu.style.display = "none";
-    DOM_poche.style.display ="none";
-    DOM_form.style.display = "block";
-    document.getElementById("score").innerHTML = `${hiscore}`;
-    document.getElementById("record").value = `${hiscore}`;   
+    if (hiscore >= 500){
+      DOM_jeu.style.display = "none";
+      DOM_poche.style.display ="none";
+      DOM_form.style.display = "block";
+      document.getElementById("score").innerHTML = `Ton meilleur score: ${hiscore}`;
+      document.getElementById("record").value = `${hiscore}`;
+    }
+    else {
+      alert(`GAME OVER`);
+      document.location.reload();
+    }  
   }
 
   // Affichage des boutons de mise en fonction du montant de la poche
