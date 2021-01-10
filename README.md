@@ -37,10 +37,19 @@ Les résultats sont personnalisés en fonction de la catégorie et la force des 
 
 Les phrases sont personnalisables dans /assets/constants/phrase.js
 
-## Debug
+## Règles
 
-En cas de problème décommenter la ligne console.log vers la fin du main.js
+Le joueur part avec 50$ en poche et dois miser.
+Il a le choix entre 1,2,5 ou 10$ de mise.
+Si la force de la carte du joueur dépasse la force de la carte ennemie, le joueur gagne.
 
+Les gains et pertes sont en fonction de plusieurs cas:
+- Même catégorie (exemple comploteur vs comploteur) = mise x force de la carte vainqueure
+- Catégorie différente (exemple complotiste vs comploteur) = Double de la mise x force de la carte vainqueure
+- match nul = perte de la mise
+
+Si la poche atteint minimum 500$, à la fin de la partie, le joueur peut enregistrer son pseudo et son score pour apparaitre dans le tableau "high score" (page `scores.php`).
+Le tableau n'affiche que les 10 meilleurs scores.
 
 ## Tester
 
