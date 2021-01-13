@@ -68,6 +68,8 @@ function jeu(tour) {
   DOM_mise2.style.display = "none";
   DOM_mise5.style.display = "none";
   DOM_mise10.style.display = "none";
+  DOM_stop.style.display = "none";
+
 
   document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
 
@@ -164,14 +166,6 @@ function jeu(tour) {
   poche = gain + poche;
   document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
 
-  // affichage bouton stop
-  if (poche >= 500) {
-    DOM_stop.style.display = "inline-block";
-  }
-  else {
-    DOM_stop.style.display = "none";
-  }
-
   // appuie sur le bouton stop
   document.getElementById("stop").onclick = function () {
     DOM_jeu.style.display = "none";
@@ -232,6 +226,14 @@ function jeu(tour) {
     DOM_mise2.style.display = "inline-block";
     DOM_mise5.style.display = "inline-block";
     DOM_mise10.style.display = "inline-block";
+  }
+
+  // affichage bouton stop
+  if (poche >= 500) {
+    DOM_stop.style.display = "inline-block";
+  }
+  else {
+    DOM_stop.style.display = "none";
   }
 
   }, 1000);
