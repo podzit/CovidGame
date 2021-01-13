@@ -98,7 +98,7 @@
     foreach ($tab as $key => $value) { 
       $tour++;
       echo '<tr>';
-      echo '<td>'.$key.'</td><td class="record">'.$value['nom'].'</td><td>'.$value['record'].'</td>';
+      echo '<td>'.$key.'</td><td class="vide"></td><td class="record">'.$value['nom'].'</td><td>'.$value['record'].'</td>';
       echo '</tr>';
       if ($tour == $end) break;
     }

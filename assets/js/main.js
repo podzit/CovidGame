@@ -11,6 +11,8 @@ var hiscore = 50;
 const DOM_jeu = document.getElementById("jeu");
 const DOM_poche = document.getElementById("poche");
 const DOM_form = document.getElementById("form");
+const DOM_gameover = document.getElementById("gameover");
+const DOM_pop1 = document.getElementById("pop1");
 DOM_form.style.display = "none";
 
 // Mises
@@ -18,6 +20,8 @@ const DOM_mise1 = document.getElementById("mise1");
 const DOM_mise2 = document.getElementById("mise2");
 const DOM_mise5 = document.getElementById("mise5");
 const DOM_mise10 = document.getElementById("mise10");
+const DOM_stop = document.getElementById("stop");
+DOM_stop.style.display = "none";
 
 // Sons
 const DOM_audiowin = document.getElementById("audiowin");
@@ -29,6 +33,8 @@ document.getElementById("mise1").onclick = function() {jeu(mise = 1)};
 document.getElementById("mise2").onclick = function() {jeu(mise = 2)};
 document.getElementById("mise5").onclick = function() {jeu(mise = 5)};
 document.getElementById("mise10").onclick = function() {jeu(mise = 10)};
+document.getElementById("popin").onclick = function() {(DOM_pop1.style.display = "block")};
+document.getElementById("closepop").onclick = function() {(DOM_pop1.style.display = "none")};
 
 let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_Joueur) => {
 
@@ -158,6 +164,24 @@ function jeu(tour) {
   poche = gain + poche;
   document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
 
+  // affichage bouton stop
+  if (poche >= 500) {
+    DOM_stop.style.display = "inline-block";
+  }
+  else {
+    DOM_stop.style.display = "none";
+  }
+
+  // appuie sur le bouton stop
+  document.getElementById("stop").onclick = function () {
+    DOM_jeu.style.display = "none";
+    DOM_poche.style.display ="none";
+    DOM_stop.style.display = "none";
+    DOM_form.style.display = "block";
+    document.getElementById("score").innerHTML = `Ton meilleur score: ${hiscore}`;
+    document.getElementById("record").value = `${hiscore}`;
+  };
+
   // Son en fonction
   if (win == 0) {DOM_audioloose.play();}
   else if (win == 1) {DOM_audiowin.play ();}
@@ -174,8 +198,10 @@ function jeu(tour) {
       document.getElementById("record").value = `${hiscore}`;
     }
     else {
-      alert(`GAME OVER`);
-      document.location.reload();
+      DOM_jeu.style.display = "none";
+      DOM_poche.style.display ="none";
+      DOM_gameover.style.display = "block";
+      document.getElementById("rejouer").onclick = function () {location.reload()};
     }  
   }
 

@@ -55,6 +55,8 @@
         </button>
         <button id ="mise10">10$
         </button>
+        <button id ="stop">Stop?
+        </button>
 
       <div id="jeu" class="jeu">
         <div class="side-left">Toi</div>
@@ -98,17 +100,50 @@
       </div>
       </form>
 
+      <div class="gameover" id="gameover">
+        <h2 style="text-align: center;">GAME OVER</h2>
+        Alors? t'as perdu tout ton argent?<br/>
+        Pas de bol...<br/>
+        Tu retentes ta chance ou tu abandonnes?<br/>
+        <button id="rejouer">REJOUER</button>
+      </div>
+
+      <div id="pop1" class="parentDisable">
+        <div class="popin">
+          <div class="regles">
+            <h2 style="text-align: center;">~ Règles du jeu ~</h2>
+            Le joueur part avec 50$ en poche et doit miser pour lancer le jeu.<br/>
+            Il a le choix entre 1,2,5 ou 10$ de mise.<br/>
+            Si la force de la carte du joueur dépasse la force de la carte ennemie, le joueur gagne.<br/>
+            <br/>
+            Les gains et pertes sont en fonction de plusieurs cas:<br/>
+            - Même catégorie (exemple comploteur vs comploteur)<br/>
+            <div class="indent">= mise x force de la carte vainqueure</div>
+            - Catégorie différente (exemple complotiste vs comploteur)<br/>
+            <div class="indent">= Double de la mise x force de la carte vainqueure</div>
+            - match nul = perte de la mise<br/>
+            <br/>
+            Le jeu s'arrête quand la poche atteint 0$.<br/>
+            Si au cours du jeu, la poche atteint 500$ et plus, à la fin de la partie, 
+            le joueur peut enregistrer son pseudo et son score pour apparaitre dans le tableau "High Score" 
+            qui affiche les 10 meilleurs.<br/>
+            <h2 style="text-align: center;">Bonne chance !</h2>
+          </div>
+          <span id="closepop" class="buttonS2">Fermer</span>
+        </div>
+      </div>
     </main>
 
     <!-- FOOTER -->
     <footer>
-        <a href="https://github.com/podzit/CovidGame" target="_blank">Contribuer à ce site</a> | 
-        <a href="scores.php" target="_self">High Score</a> | 
-        <a href="regles.html"  onclick="open('regles.html', 'Popup', 'scrollbars=1,resizable=1,height=560,width=700'); return false;" >Règles du jeu</a>
+        <a href="https://github.com/podzit/CovidGame" class="buttonS2" target="_blank">Contribuer à ce site</a> | 
+        <a href="scorespop.php" class="buttonS2" target="popup" onclick="window.open('scorespop.php','popup','width=400,height=600px'); return false;">High Score</a> | 
+        <span id="popin" class="buttonS2">Règles du jeu</span>
     </footer>
     <!-- FOOTER'S END -->
 
     <!-- Javascript -->
     <script type="module" src="assets/js/main.js"></script>
+    </script>
   </body>
 </html>

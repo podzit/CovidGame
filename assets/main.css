@@ -46,6 +46,13 @@ main {
   text-indent: 20px;
 }
 
+.gameover {
+  display: none;
+  text-align: center;
+  color:bisque;
+  font-size: 20px;
+}
+
 footer {
   text-align: center;
   background-color: black;
@@ -211,6 +218,16 @@ button:hover {
    background-color: #008CBA;
 }
 
+.buttonS2{
+  color: bisque;
+  text-decoration: underline;
+}
+
+.buttonS2:hover {
+  cursor: pointer;
+  color: crimson;
+}
+
 table, td {
   border-collapse: collapse;
   color: bisque;
@@ -221,6 +238,10 @@ td.record{
   color: bisque;
   font-size: 2rem;
   text-align: right;
+}
+
+td.vide {
+  width: 40px;
 }
 
 table.center {
@@ -242,4 +263,28 @@ form.form {
 input[type="text"]{
     font-size:3rem;
     margin: 30px;
+}
+
+.parentDisable {
+	z-index:999;
+	width:620px;
+	height:700px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+	/* For IE 5.5 - 7*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	/* For IE 8*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+.popin {
+	width:620px;
+	height:700px;
+	margin: 0 auto;
 }
