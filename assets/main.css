@@ -48,9 +48,14 @@ main {
 
 .gameover {
   display: none;
+  width: 810px;
+  align-self: center;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
   text-align: center;
   color:bisque;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 footer {
@@ -215,7 +220,27 @@ button {
 }
 
 button:hover {
-   background-color: #008CBA;
+  background-color: #008CBA;
+}
+
+button.stop{
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+  background-color: #b81f1f;
+  box-shadow: 0px 0px 20px 3px #000;
+}
+
+button.stop:hover {
+  background-color: #008CBA;
 }
 
 .buttonS2{
@@ -224,6 +249,19 @@ button:hover {
 }
 
 .buttonS2:hover {
+  cursor: pointer;
+  color: crimson;
+}
+
+.buttonS3{
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: bisque;
+  text-decoration: underline;
+}
+
+.buttonS3:hover {
   cursor: pointer;
   color: crimson;
 }
@@ -250,8 +288,13 @@ table.center {
 }
 
 form.form {
-  margin: 100px;
-  font-size: 3rem;
+  width: 810px;
+  align-self: center;
+  margin: auto;
+  margin-top: 100px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  font-size: 2rem;
   color: bisque;
   text-align: center;
 }
@@ -261,14 +304,14 @@ form.form {
 }
 
 input[type="text"]{
-    font-size:3rem;
+    font-size:2rem;
     margin: 30px;
 }
 
 .parentDisable {
 	z-index:999;
 	width:620px;
-	height:700px;
+	height:850px;
 	display:none;
 	position:absolute;
   left: 50%;

@@ -4,6 +4,8 @@
 <html>
 <body class="reglebody">
 <div class="regles">
+  <h2 style="text-align: center;"> High Score </h2>
+
 <?php
   
   // définition des variables
@@ -18,18 +20,15 @@
   $fichier = fopen($file, "r");
   while (($data = fgetcsv($fichier, $taille, $delimiteur)) !== FALSE)
   {
-    $tab[$data[0]]['nom'] = $data[1];
-    $tab[$data[0]]['record'] = $data[2];
+    $rand = random_int(1,2500);
+    $tab[$rand]['nom'] = $data[0];
+    $tab[$rand]['record'] = $data[1];
   }
-
   fclose($fichier);
 
   // tri décroissant des valeurs
-  arsort($tab);
-?>
-<h2 style="text-align: center;"> High Score </h2>
-<?php
-  arsort($tab);
+  array_multisort( array_column($tab, "record"), SORT_DESC, $tab );
+
   // affichage des scores
   if(isset($tab) && is_array($tab) && count($tab) > 0)
   {
@@ -37,7 +36,7 @@
     foreach ($tab as $key => $value) { 
       $tour++;
       echo '<tr>';
-      echo '<td>'.$key.'</td><td class="vide"></td><td class="record">'.$value['nom'].'</td><td>'.$value['record'].'</td>';
+      echo '<td>'.$value['nom'].'</td><td class="vide"></td><td class="record">'.$value['record'].'</td>';
       echo '</tr>';
       if ($tour == $end) break;
     }
@@ -45,8 +44,7 @@
     echo '</table>';
   }
 ?>
-<div align="center">
-    <span class="buttonS2" onclick="parent.window.close();">Fermer</span>
-</div>
+  
+  <span class="buttonS3" onclick="parent.window.close();">Fermer</span>
 </body>
 </html>

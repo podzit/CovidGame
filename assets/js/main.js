@@ -1,5 +1,6 @@
 import {deck} from './constants/deck.js';
 import {phrase} from './constants/phrase.js';
+import {over} from './constants/phrase.js';
 
 var replay = 0;
 var win = 0;
@@ -28,7 +29,7 @@ const DOM_audiowin = document.getElementById("audiowin");
 const DOM_audioloose = document.getElementById("audioloose");
 const DOM_audiocarte = document.getElementById("audiocarte");
 
-// Appuie sur un bouton
+// Appui sur un bouton
 document.getElementById("mise1").onclick = function() {jeu(mise = 1)};
 document.getElementById("mise2").onclick = function() {jeu(mise = 2)};
 document.getElementById("mise5").onclick = function() {jeu(mise = 5)};
@@ -64,11 +65,13 @@ let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_J
 // Déclaration de la fonction jeu
 function jeu(tour) {
 
-  DOM_mise1.style.display = "none";
-  DOM_mise2.style.display = "none";
-  DOM_mise5.style.display = "none";
-  DOM_mise10.style.display = "none";
-  DOM_stop.style.display = "none";
+  function no_mise() {
+    DOM_mise1.style.display = "none";
+    DOM_mise2.style.display = "none";
+    DOM_mise5.style.display = "none";
+    DOM_mise10.style.display = "none";
+    DOM_stop.style.display = "none";
+  };
 
 
   document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
@@ -98,6 +101,7 @@ function jeu(tour) {
   let gagne = phrase.motVainqueur[Math.floor(Math.random() * phrase.motVainqueur.length)];
   let perd = phrase.motPerdant[Math.floor(Math.random() * phrase.motPerdant.length)];
   let action = phrase.verbe[Math.floor(Math.random() * phrase.verbe.length)];
+  let fin = over.moquerie[Math.floor(Math.random() * over.moquerie.length)];
 
   // Résultats en fonction des cas
   if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Complotistes') {
@@ -168,9 +172,11 @@ function jeu(tour) {
 
   // appuie sur le bouton stop
   document.getElementById("stop").onclick = function () {
+    
+    no_mise();
+
     DOM_jeu.style.display = "none";
     DOM_poche.style.display ="none";
-    DOM_stop.style.display = "none";
     DOM_form.style.display = "block";
     document.getElementById("score").innerHTML = `Ton meilleur score: ${hiscore}`;
     document.getElementById("record").value = `${hiscore}`;
@@ -184,6 +190,9 @@ function jeu(tour) {
   // Game Over
   setTimeout (() => {
   if (poche <= 0 && poche < 2 && poche < 5 && poche < 10) {
+    
+    no_mise();
+
     if (hiscore >= 500){
       DOM_jeu.style.display = "none";
       DOM_poche.style.display ="none";
@@ -192,10 +201,13 @@ function jeu(tour) {
       document.getElementById("record").value = `${hiscore}`;
     }
     else {
+      setTimeout(() => {
       DOM_jeu.style.display = "none";
       DOM_poche.style.display ="none";
       DOM_gameover.style.display = "block";
+      document.getElementById("phraseover").innerHTML = `${fin}`;
       document.getElementById("rejouer").onclick = function () {location.reload()};
+      }, 500);
     }  
   }
 

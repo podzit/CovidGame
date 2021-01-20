@@ -55,7 +55,7 @@
         </button>
         <button id ="mise10">10$
         </button>
-        <button id ="stop">Stop?
+        <button class="stop" id ="stop">Stop
         </button>
 
       <div id="jeu" class="jeu">
@@ -102,8 +102,7 @@
 
       <div class="gameover" id="gameover">
         <h2 style="text-align: center;">GAME OVER</h2>
-        Alors? t'as perdu tout ton argent?<br/>
-        Pas de bol...<br/>
+        <div id="phraseover"></div><br/>
         Tu retentes ta chance ou tu abandonnes?<br/>
         <button id="rejouer">REJOUER</button>
       </div>
@@ -112,24 +111,25 @@
         <div class="popin">
           <div class="regles">
             <h2 style="text-align: center;">~ Règles du jeu ~</h2>
-            Le joueur part avec 50$ en poche et doit miser pour lancer le jeu.<br/>
-            Il a le choix entre 1,2,5 ou 10$ de mise.<br/>
-            Si la force de la carte du joueur dépasse la force de la carte ennemie, le joueur gagne.<br/>
-            <br/>
-            Les gains et pertes sont en fonction de plusieurs cas:<br/>
+            <h3>Le départ</h3>
+            Tu démarres avec 50$ en poche (ouais c'est radin et alors?) et dois miser pour lancer le jeu.<br/>
+            Tu as le choix entre 1,2,5 ou 10$ de mise et ça peut vite rapporter gros.<br/>
+            Si la force de ta carte dépasse la force de la carte ennemie, tu gagnes. Jusque là rien d'anormal.<br/>
+            <h3>Les gains et pertes</h3>
+            Ils sont en fonction de plusieurs cas alors lis bien ou prends des notes parceque y a des maths:<br/>
             - Même catégorie (exemple comploteur vs comploteur)<br/>
             <div class="indent">= mise x force de la carte vainqueure</div>
             - Catégorie différente (exemple complotiste vs comploteur)<br/>
             <div class="indent">= Double de la mise x force de la carte vainqueure</div>
             - match nul = perte de la mise<br/>
-            <br/>
-            Le jeu s'arrête quand la poche atteint 0$.<br/>
-            Si au cours du jeu, la poche atteint 500$ et plus, à la fin de la partie, 
-            le joueur peut enregistrer son pseudo et son score pour apparaitre dans le tableau "High Score" 
-            qui affiche les 10 meilleurs.<br/>
+            <h3>La fin</h3>
+            Si au cours du jeu, la poche atteint 500$ et plus, félicitations, grace au bouton "Stop", 
+            tu peux enregistrer ton pseudo et ton score pour apparaitre dans le tableau "High Score" 
+            qui affiche les 10 meilleurs et pas un de plus.<br/>
+            La maison ne fait pas crédit donc le jeu s'arrête quand ta poche atteint 0$.<br/>
             <h2 style="text-align: center;">Bonne chance !</h2>
           </div>
-          <span id="closepop" class="buttonS2">Fermer</span>
+          <span id="closepop" class="buttonS3">Fermer</span>
         </div>
       </div>
     </main>

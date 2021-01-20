@@ -74,3 +74,20 @@ export const phrase = {
     'a électrocuté'
   ]
 };
+export const over = {
+  moquerie: [
+  `Tu as perdu tout ton argent !`,
+  `C'est ça quand on joue n'importe comment !`,
+  `Tu l'as fait exprès ?`,
+  `T'es sûr(e) que t'as compris les règles ?`,
+  `Heureusement que tu joues pas ta vie !`,
+  `Dans la vie y a 2 types de personnes, y a les bons et y a toi...`,
+  `Pas si facile comme jeu hein ?`,
+  `T'as pas de bol, joue pas au loto...`,
+  `Comment c'est possible d'être aussi nul(le) ?`,
+  `Relis les règles si besoin, le but c'est pas de liquider son argent`,
+  `Tu t'es cru(e) dans les reines du shopping ?`,
+  `Je ne te prêterai jamais d'argent...`,
+  `Rassure moi tu ne travailles pas dans la finance ?`
+  ]
+};
