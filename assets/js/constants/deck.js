@@ -74,6 +74,15 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
+    groupe: 'Média',
+    force: 4,
+    nom: 'house',
+    perso: 'Dr House',
+    info:`Médecin fictif de fiction qui ne respecte pas les protocoles réels ce qui outre réellement les téléspectateurs réels.`,
+    effet:`Dégaine la maladie auto-immune.`
+  },
+  {
+    categorie: 'Comploteurs',
     groupe: 'Tueur',
     force: 5,
     nom: '5g',
@@ -146,12 +155,30 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Joker',
-    force: 10,
+    groupe: 'Tueur',
+    force: 9,
     nom: 'toux',
     perso: `La quinte de toux`,
     info:`Toux sèche qui donne envie de se graisser la gorge avec de l'huile de vidange.`,
     effet:`Disperse des postillons contaminés dans l'air.`
+  },
+  {
+    categorie: 'Comploteurs',
+    groupe: 'Religieux',
+    force: 9,
+    nom: 'pape',
+    perso: `Le pape`,
+    info:`Possède suffisamment d'argent pour éradiquer la faim dans le monde mais Dieu ne lui a pas demandé.`,
+    effet:`Libera te tutemet ex inferis.`
+  },
+  {
+    categorie: 'Comploteurs',
+    groupe: 'Joker',
+    force: 10,
+    nom: 'chuck',
+    perso: `Chuck Norris`,
+    info:`Une carte ne peut pas présenter Chuck Norris. Internet n'est pas assez puissant pour Chuck Norris.`,
+    effet:`Met les pieds où il veut, et c'est souvent dans la gueule.`
   },
   {
     categorie: 'Comploteurs',
@@ -251,6 +278,15 @@ export const deck = [
     perso: 'Eve Engerer',
     info:`Elle a tout compris ! TOUT ! C’est compris ?`,
     effet:`Voit au travers de l’adversaire grâce à ses dons de voyance.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: `Milliardaire`,
+    force: 5,
+    nom: 'jair',
+    perso: 'Jair Bolsonaro',
+    info:`N'aime pas les femmes, les homosexuels, les Noirs et les peuples indigènes. Ça tombe bien au Brésil pas grand monde ne l'aime.`,
+    effet:`Balance de l'hydroxychloroquine dans les yeux de son adversaire.`
   },
   {
     categorie: 'Complotistes',
