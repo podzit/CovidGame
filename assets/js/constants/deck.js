@@ -2,7 +2,7 @@
 export const deck = [
   {
     categorie: 'Comploteurs',
-    groupe: 'Inutile',
+    groupe: 'Inutiles',
     force: 1,
     nom: 'sibeth', // <- la carte sibeth.jpeg
     perso: 'Sibeth Ndiaye', // <- Le nom qui s'affiche dans la phrase de résultat
@@ -11,7 +11,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
+    groupe: 'Tueurs',
     force: 1,
     nom: 'linky',
     perso: 'Linky',
@@ -20,7 +20,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Inutile',
+    groupe: 'Inutiles',
     force: 2,
     nom: 'castex',
     perso: 'Jean Castex',
@@ -29,7 +29,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
+    groupe: 'Tueurs',
     force: 2,
     nom: 'masque',
     perso: 'Le masque',
@@ -38,7 +38,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Inutile',
+    groupe: 'Inutiles',
     force: 3,
     nom: 'mouton',
     perso: 'Le troupeau de moutons',
@@ -47,7 +47,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Lobby',
+    groupe: 'Lobbies',
     force: 3,
     nom: 'bigpharma',
     perso: 'Big Pharma',
@@ -56,7 +56,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Milliardaire',
+    groupe: 'Milliardaires',
     force: 4,
     nom: 'soros',
     perso: 'George Soros',
@@ -65,7 +65,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
+    groupe: 'Tueurs',
     force: 4,
     nom: 'pcr',
     perso: 'Le test PCR',
@@ -74,7 +74,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Média',
+    groupe: 'Médias',
     force: 4,
     nom: 'house',
     perso: 'Dr House',
@@ -83,7 +83,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
+    groupe: 'Tueurs',
     force: 5,
     nom: '5g',
     perso: 'La 5G',
@@ -92,7 +92,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Milliardaire',
+    groupe: 'Milliardaires',
     force: 5,
     nom: 'gates',
     perso: 'Bill Gates',
@@ -101,7 +101,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Média',
+    groupe: 'Médias',
     force: 6,
     nom: 'bfm',
     perso: 'BFM TV',
@@ -110,7 +110,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
+    groupe: 'Tueurs',
     force: 6,
     nom: 'vaccin',
     perso: 'Le vaccin',
@@ -119,7 +119,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Société secrète',
+    groupe: 'Sociétés secrètes',
     force: 7,
     nom: 'illuminatis',
     perso: 'La société des illuminatis',
@@ -137,7 +137,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Société secrète',
+    groupe: 'Sociétés secrètes',
     force: 8,
     nom: 'francmacon',
     perso: 'La franc-maçonnerie',
@@ -146,7 +146,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Société secrète',
+    groupe: 'Sociétés secrètes',
     force: 8,
     nom: 'deepstate',
     perso: `L'état profond`,
@@ -155,7 +155,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
+    groupe: 'Tueurs',
     force: 9,
     nom: 'toux',
     perso: `La quinte de toux`,
@@ -173,7 +173,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Joker',
+    groupe: 'Jokers',
     force: 10,
     nom: 'chuck',
     perso: `Chuck Norris`,
@@ -182,7 +182,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Joker',
+    groupe: 'Jokers',
     force: 10,
     nom: 'vague',
     perso: `La 2ème vague`,
@@ -191,7 +191,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Média',
+    groupe: 'Médias',
     force: 1,
     nom: 'holdup',
     perso: 'Hold Up',
@@ -200,7 +200,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Média',
+    groupe: 'Médias',
     force: 1,
     nom: 'cnews',
     perso: 'CNews',
@@ -209,7 +209,16 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Milliardaire',
+    groupe: 'Patrons de PMU',
+    force: 1,
+    nom: 'glow',
+    perso: 'Kim Glow',
+    info:`Célébrité de télé-réalité. Son vrai nom est Sophie Laune mais ça fait moins télé-réalité.`,
+    effet:`Perce les tympans avec ses cris d'influenceuse.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: 'Milliardaires',
     force: 2,
     nom: 'trump',
     perso: 'Donald Trump',
@@ -218,7 +227,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Patron de PMU',
+    groupe: 'Patrons de PMU',
     force: 2,
     nom: 'praud',
     perso: 'Pascal Praud',
@@ -227,7 +236,16 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Média',
+    groupe: `Lanceurs d'alerte`,
+    force: 2,
+    nom: 'wonner',
+    perso: 'Martine Wonner',
+    info:`Députée et anti-vax. Prend la parole dans l'hémicycle pour dire que le masque c'est mal m'voyez?`,
+    effet:`Met des coups de visière à l'adversaire.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: 'Médias',
     force: 3,
     nom: 'sudradio',
     perso: 'Sud Radio',
@@ -236,7 +254,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Lanceur d'alerte`,
+    groupe: `Lanceurs d'alerte`,
     force: 3,
     nom: 'q',
     perso: 'Q',
@@ -245,16 +263,25 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Prophète',
+    groupe: 'Prophètes',
+    force: 3,
+    nom: 'henrion',
+    perso: 'Alexandra Henrion-Caude',
+    info:`Ancienne chercheuse à l'INSERM, désormais chercheuse en génétique religieuse complotiste.`,
+    effet:`Foudroie l'adversaire à coup de vocabulaire savant.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: 'Prophètes',
     force: 4,
     nom: 'perronne',
     perso: 'Christian Perronne',
     info:`Le lyme il le déteste, il le préfère dans son verre.`,
-    effet:`Frappe les journalistes sur les plateaux TV armé de ses livres.`
+    effet:`Contredit les adversiares en citant ses livres.`
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Patron de PMU',
+    groupe: 'Patrons de PMU',
     force: 4,
     nom: 'bigard',
     perso: 'Jean-Marie Bigard',
@@ -263,7 +290,16 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Lanceur d'alerte`,
+    groupe: `Lanceurs d'alerte`,
+    force: 4,
+    nom: 'yan',
+    perso: 'Li-Meng Yan',
+    info:`Hong-Kongaise préférée de l'extrême droite américaine. Généticienne reconvertie en exilée chez Steve Bannon.`,
+    effet:`Manipule l'ADN de l'adversaire en éternuant.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: `Lanceurs d'alerte`,
     force: 5,
     nom: 'krusi',
     perso: 'Ema Krusi',
@@ -272,7 +308,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Lanceur d'alerte`,
+    groupe: `Lanceurs d'alerte`,
     force: 5,
     nom: 'engerer',
     perso: 'Eve Engerer',
@@ -281,7 +317,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Milliardaire`,
+    groupe: `Milliardaires`,
     force: 5,
     nom: 'jair',
     perso: 'Jair Bolsonaro',
@@ -290,7 +326,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Patron de PMU`,
+    groupe: `Patrons de PMU`,
     force: 6,
     nom: 'zemmour',
     perso: 'Eric Zemmour',
@@ -299,7 +335,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Prophète`,
+    groupe: `Prophètes`,
     force: 6,
     nom: 'raoult',
     perso: 'Didier Raoult',
@@ -308,7 +344,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Tueur`,
+    groupe: `Tueurs`,
     force: 7,
     nom: 'hcq',
     perso: "L'hydroxychloroquine",
@@ -317,7 +353,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Patron de PMU`,
+    groupe: `Patrons de PMU`,
     force: 7,
     nom: 'soral',
     perso: "Alain Soral",
@@ -326,7 +362,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Prophète`,
+    groupe: `Prophètes`,
     force: 8,
     nom: 'trotta',
     perso: 'Sylvano Trotta',
@@ -335,7 +371,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Prophète`,
+    groupe: `Prophètes`,
     force: 8,
     nom: 'dieudonne',
     perso: 'Dieudonné',
@@ -344,7 +380,25 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Joker`,
+    groupe: `Prophètes`,
+    force: 9,
+    nom: 'fouche',
+    perso: 'Louis Fouché',
+    info:`Réanimateur en réinformation hospitalière. Anti-vaccin, anti-masque, anti-coiffeur, anti-shampoing.`,
+    effet:`Commande une horde de partisan à marcher sur l'ennemi.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: `Milliardaires`,
+    force: 9,
+    nom: 'kennedy',
+    perso: 'Robert F Kennedy Jr',
+    info:`Fils de bonne famille. Apprenti en première année de télécommunication vaccinale génétique option 5G.`,
+    effet:`Fait un procès à l'adversaire.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: `Jokers`,
     force: 10,
     nom: 'youtube',
     perso: 'Youtube',
@@ -353,7 +407,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Joker`,
+    groupe: `Jokers`,
     force: 10,
     nom: 'lancetgate',
     perso: 'Le Lancetgate',
