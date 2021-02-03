@@ -11,7 +11,7 @@
       gtag('config', 'G-GNMWL78TM7');
     </script>
     <!---FIN DU SCRIPT GOOGLE ANALYTICS-->
-    <title>***Covid Game***</title>
+    <title>***Covid Game v3.0***</title>
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="assets/main.css">
     <link rel="stylesheet" href="assets/carte.css">
@@ -23,7 +23,7 @@
     <meta property="og:description" content="Qui des comploteurs ou des complotistes vaincront ?" />
     <meta name="Content-Language" content="fr">
     <meta name="Description" content="Jeu en ligne pour rigoler autour du Covid19">
-    <meta name="Keywords" content="jeu;france;fr;cartes;covid19;covid;complots;humour;nouvelordremondial;complistes;comploteurs;raoult;hydroxychloroquine;vaccin;masque;illuminatis;">
+    <meta name="Keywords" content="jeu;france;fr;cartes;covid19;covid;complots;humour;nouvelordremondial;complistes;comploteurs;raoult;hydroxychloroquine;vaccin;masque;illuminatis;Qanon;Deepstate">
     <meta name="Subject" content="CovidGame">
     <meta name="Copyright" content="PodzIT 2020">
     <meta name="Author" content="PodzIT">
@@ -36,6 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <meta charset="UTF-8">
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
     
@@ -132,18 +133,96 @@
           <span id="closepop" class="buttonS3">Fermer</span>
         </div>
       </div>
+
+      <form id="propcarte" action="mail.php" method="post" class="form">
+        <div class="label">
+          <label for="nomperso">Nom du personnage</label>
+          <br/>
+          <input type="text" id="nomperso" name="nomperso" required="required" pattern="[A-Za-z0-9]{1,20}" maxlength="20">
+        </div>
+
+        <div class="label">
+          <label for="force">Force</label>
+          <br/>
+          <select class="select" id="force" name="force" font-size="2rem">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+
+        <div class="label">
+          <br/>
+          <label for="guilde">Guilde</label>
+          <br/>
+          <select class="select" id="guilde" name="guilde" font-size="2rem">
+            <option value="comploteurs">Comploteurs</option>
+            <option value="complotistes">Complotistes</option>
+          </select>
+        </div>
+
+        <div class="label">
+          <br/>
+          <label for="groupe">Groupe</label>
+          <br/>
+          <select class="select" id="groupe" name="groupe" font-size="2rem">
+            <option value="inutiles">Inutiles</option>
+            <option value="tueurs">Tueurs</option>
+            <option value="lobbies">Lobbies</option>
+            <option value="milliardaires">Milliardaires</option>
+            <option value="médias">Médias</option>
+            <option value="sociétés secrètes">Sociétés secrètes</option>
+            <option value="religieux">Religieux</option>
+            <option value="patrons de pmu">Patrons de PMU</option>
+            <option value="lanceurs d'alerte">Lanceurs d'alerte</option>
+            <option value="prophètes">Prophètes</option>
+          </select>
+        </div>
+
+        <div class="label">
+          <label for="infos">Infos du personnage</label>
+          <br/>
+          <textarea id="infos" name="infos" pattern="[A-Za-z0-9]{1,100}" maxlength="100" rows="4" cols="50"></textarea>
+        </div>
+
+        <div class="label">
+          <label for="effets">Effet du personnage</label>
+          <br/>
+          <textarea id="effet" name="effet" pattern="[A-Za-z0-9]{1,100}" maxlength="100" rows="4" cols="50"></textarea>
+        </div> 
+        
+        <div class="label">
+          <label for="email">Ton e-mail</label>
+          <br/>
+          <input type="text" id="email" name="email" required="required" pattern="[A-Za-z0-9.+@]{1,30}" maxlength="30">
+        </div>
+        <div class="label">
+          <label for="captcha">"Combien font 2 + 3"</label>
+          <br/>
+        <input type="text" id="captcha" name="captcha" required="required" maxlength="2"></div>
+        </div>
+        <button type="submit">Envoyer</button>
+    </form>
+
     </main>
 
     <!-- FOOTER -->
     <footer>
         <a href="https://github.com/podzit/CovidGame" class="buttonS2" target="_blank">Contribuer à ce site</a> | 
         <a href="scorespop.php" class="buttonS2" target="popup" onclick="window.open('scorespop.php','popup','width=400,height=600px'); return false;">High Score</a> | 
-        <span id="popin" class="buttonS2">Règles du jeu</span>
+        <span id="popin" class="buttonS2">Règles du jeu</span> | 
+        <span id="buttonpropcarte" class="buttonS2">Proposer une carte</span>
     </footer>
     <!-- FOOTER'S END -->
-
     <!-- Javascript -->
     <script type="module" src="assets/js/main.js"></script>
     </script>
   </body>
 </html>
+

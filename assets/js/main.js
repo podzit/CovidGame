@@ -14,7 +14,9 @@ const DOM_poche = document.getElementById("poche");
 const DOM_form = document.getElementById("form");
 const DOM_gameover = document.getElementById("gameover");
 const DOM_pop1 = document.getElementById("pop1");
+const DOM_propcarte = document.getElementById("propcarte");
 DOM_form.style.display = "none";
+DOM_propcarte.style.display = "none";
 
 // Mises
 const DOM_mise1 = document.getElementById("mise1");
@@ -36,6 +38,16 @@ document.getElementById("mise5").onclick = function() {jeu(mise = 5)};
 document.getElementById("mise10").onclick = function() {jeu(mise = 10)};
 document.getElementById("popin").onclick = function() {(DOM_pop1.style.display = "block")};
 document.getElementById("closepop").onclick = function() {(DOM_pop1.style.display = "none")};
+document.getElementById("buttonpropcarte").onclick = function() {
+  DOM_propcarte.style.display = "block";
+  DOM_jeu.style.display = "none";
+  DOM_poche.style.display ="none";
+  DOM_mise1.style.display = "none";
+  DOM_mise2.style.display = "none";
+  DOM_mise5.style.display = "none";
+  DOM_mise10.style.display = "none";
+  DOM_stop.style.display = "none";
+  };
 
 let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_Joueur) => {
 

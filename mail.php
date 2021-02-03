@@ -41,74 +41,72 @@
   <main>
       <h1>Covid Game</h1>
       <div class="jeu">
-        <h2> High Score </h2>
 
 <?php
 
-  // définition des variables
-  $file = 'assets/scores.csv';
-  $taille = 1024;
-  $delimiteur = ",";
-  $tour = 0;
-  $end = 10;
-  $tab = array();
+  // variables
+  $destinataire = 'skankinbuzz@gmail.com';
+  $message_envoye = "Ta proposition de carte a bien été envoyée !<br> Si elle est acceptée tu recevras un mail.";    
+  $message_non_envoye = "L'envoi de ta proposition a échoué.";
 
+  // Cette fonction sert à vérifier la syntaxe d'un email
+  function IsEmail($email)    
+	{
+    		$value = preg_match('/^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9_](?:[a-zA-Z0-9_\-](?!\.)){0,61}[a-zA-Z0-9_-]?\.)+[a-zA-Z0-9_](?:[a-zA-Z0-9_\-](?!$)){0,61}[a-zA-Z0-9_]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/', $email);    	
+		return (($value === 0) || ($value === false)) ? false : true;
+  };
+
+  
   // récupération des valeurs du formulaire
-  $name = htmlspecialchars($_POST['name']);
-  $record = htmlspecialchars($_POST['record']);
+  $nomperso = $_POST['nomperso'];
+  $force = $_POST['force'];
+  $guilde = $_POST['guilde'];
+  $groupe = $_POST['groupe'];
+  $infos = $_POST['infos'];
+  $effet = $_POST['effet'];
+  $email = $_POST['email'];
+  $captcha = $_POST['captcha'];
 
-  // création d'un array
-  $data = array(
-    array($name, $record)
-    );
-
-  // écriture dans le fichier
-  if (!empty($record)){
-    if ($f = @fopen($file, 'a')) {
-      foreach ($data as $ligne) {
-        fputcsv($f, $ligne);
-        }
-      fclose($f);
-      }
-    else {
-      echo "Impossible d'acc&eacute;der au fichier.";
-      }
-  }
-
-  // lecture du fichier
-  $fichier = fopen($file, "r");
-  while (($data = fgetcsv($fichier, $taille, $delimiteur)) !== FALSE)
+  if ($captcha == 5)
   {
-    $rand = random_int(1,2500);
-    $tab[$rand]['nom'] = $data[0];
-    $tab[$rand]['record'] = $data[1];
+    $captcha = true;
   }
-  fclose($fichier);
-
-  // tri décroissant des valeurs
-  array_multisort( array_column($tab, "record"), SORT_DESC, $tab );
-
-  // affichage des scores
-  if(isset($tab) && is_array($tab) && count($tab) > 0)
-  {
-    echo '<table class="center">';
-    foreach ($tab as $key => $value) { 
-      $tour++;
-      echo '<tr>';
-      echo '<td>'.$value['nom'].'</td><td class="vide"></td><td class="record">'.$value['record'].'</td>';
-      echo '</tr>';
-      if ($tour == $end) break;
-    }
-
-    echo '</table>';
+  else {
+    $captcha = false;
   }
-?>
 
-<form action="index.html">
-  <div class="button">
-    <button type="submit">REJOUER</button>
-  </div>
-</form>
+  // On va vérifier les variables et l'email ...
+  $email = (IsEmail($email)) ? $email : '';
+  
+  $message = 'Nom du perso: ' .$nomperso. ' | Force: ' .$force. ' | Guilde: ' .$guilde. ' | Groupe: ' .$groupe. ' | Infos: ' .$infos. ' | Effet: ' .$effet. "\r\n";
+
+  // on génère puis envoie le mail
+  	
+		if ($captcha)
+    	{ 		
+    		$headers  = 'From:'.$email. "\r\n";    		
+        $headers .= 'X-Mailer:PHP/'.phpversion();
+
+        // Remplacement de certains caractères spéciaux
+        $message = html_entity_decode($message);
+        $message = str_replace('&#039;',"'",$message);
+        $message = str_replace('&#8217;',"'",$message);
+        $message = str_replace('<br>','',$message);
+        $message = str_replace('<br />','',$message);
+        
+
+    		// Envoi du mail		
+		    $objet = "Nouvelle carte";
+    		mail($destinataire, $objet, $message, $headers); 		
+        echo '<p>'.$message_envoye.'</p>';
+      }
+    else
+      {
+        echo '<p>'.$message_non_envoye.'</p>';
+      }
+
+  ?>
+
 </div>
 </main>
 
