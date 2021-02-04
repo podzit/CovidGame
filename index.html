@@ -45,7 +45,7 @@
     <audio id="audiocarte"><source src="assets/swoosh.ogg" type="audio/ogg"></audio>
 
     <main>
-      <h1>Covid Game</h1>
+      <h1><span class="buttontitre" id="buttontitre">Covid Game</span></h1>
       <div id = "poche" class="poche">Ta poche: 50$</div>
 
         <button id ="mise1">1$
@@ -135,18 +135,20 @@
       </div>
 
       <form id="propcarte" action="mail.php" method="post" class="form">
+        <br/>
           La proposition doit concerner une personne connue, doit être drôle et sans insultes.<br/>
-          Une fois envoyée elle sera soumise à validation de l'administrateur.<br/>
+          Le bouton "Envoyer" la soumet à l'administrateur.<br/>
           Les champs avec une étoile sont obligatoires.<br/>
-          <span id="aide" class="buttonS3">aide</span>
+          <span id="buttonaide" class="buttonS2">aide</span>
+          <br/>
         <div class="label">
-          <label for="nomperso">Nom du personnage *</label>
-          <input type="text" id="nomperso" name="nomperso" required="required" pattern="[A-Za-z0-9 ]{1,20}" maxlength="20"></input>
+          <label for="nomperso">Nom du personnage * </label>
+          <input type="text" id="nomperso" name="nomperso" required="required" pattern="[A-Za-z0-9 éèà]{1,20}" maxlength="20"></input>
         </div>
 
         <div class="label">
           <label for="force">Force</label>
-          <select class="select" id="force" name="force" font-size="2rem">
+          <select class="select" id="force" name="force">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -161,7 +163,7 @@
 
         <div class="label">
           <label for="guilde">Guilde</label>
-          <select class="select" id="guilde" name="guilde" font-size="2rem">
+          <select class="select" id="guilde" name="guilde">
             <option value="comploteurs">Comploteurs</option>
             <option value="complotistes">Complotistes</option>
           </select>
@@ -169,7 +171,7 @@
 
         <div class="label">
           <label for="groupe">Groupe</label>
-          <select class="select" id="groupe" name="groupe" font-size="2rem">
+          <select class="select" id="groupe" name="groupe">
             <option value="inutiles">Inutiles</option>
             <option value="tueurs">Tueurs</option>
             <option value="lobbies">Lobbies</option>
@@ -194,18 +196,28 @@
         </div> 
         
         <div class="label">
-          <label for="email">Ton e-mail *</label>
+          <label for="email">Ton e-mail * </label>
           <input type="text" id="email" name="email" required="required" pattern="[A-Za-z0-9.+@]{1,30}" maxlength="30"></input>
         </div>
 
         <div class="label">
-          <label for="captcha"><img src="assets/img/captcha.png"></label>
+          <label for="captcha"><img src="assets/img/captcha.png">* </label>
         <input type="text" id="captcha" name="captcha" required="required" maxlength="2"></input>
         </div>
 
         <button type="submit">Envoyer</button>
 
     </form>
+
+    <div id="aide" class="parentDisableaide">
+      <div class="popinaide">
+        <div class="aide">
+          <h2 style="text-align: center;">~ Détail des cartes ~</h2>
+          <img src="assets/img/aide.png">
+        </div>
+        <span id="closeaide" class="buttonS3">Fermer</span>
+      </div>
+    </div>
 
     </main>
 
@@ -219,7 +231,6 @@
     <!-- FOOTER'S END -->
     <!-- Javascript -->
     <script type="module" src="assets/js/main.js"></script>
-    </script>
   </body>
 </html>
 

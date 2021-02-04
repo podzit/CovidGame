@@ -42,6 +42,13 @@ main {
   margin: 20px 20px 20px 20px;
 }
 
+.aide {
+  text-align: left;
+  color:bisque;
+  font-size: 20px;
+  margin: 20px 20px 20px 20px;
+}
+
 .indent {
   text-indent: 20px;
 }
@@ -266,6 +273,15 @@ button.stop:hover {
   color: crimson;
 }
 
+.buttontitre {
+  color: black;
+  text-decoration: none;
+}
+
+.buttontitre:hover {
+  cursor: pointer;
+}
+
 table, td {
   border-collapse: collapse;
   color: bisque;
@@ -315,7 +331,7 @@ input[type="textarea"] {
 }
 
 .select {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .parentDisable {
@@ -336,8 +352,34 @@ input[type="textarea"] {
 	/* For IE 8*/
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
+
+.parentDisableaide {
+	z-index:999;
+	width:720px;
+	height:750px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+	/* For IE 5.5 - 7*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	/* For IE 8*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
 .popin {
 	width:620px;
 	height:700px;
+	margin: 0 auto;
+}
+
+.popinaide {
+	width:720px;
+	height:680px;
 	margin: 0 auto;
 }

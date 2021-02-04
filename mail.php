@@ -39,13 +39,13 @@
   </head>
   <body>
   <main>
-      <h1>Covid Game</h1>
+  <h1><span class="buttontitre" id="buttontitre">Covid Game</span></h1>
       <div class="jeu">
 
 <?php
 
   // variables
-  $destinataire = 'adressemailadministrateur';
+  $destinataire = 'contact@covidgame.fun';
   $message_envoye = "Ta proposition de carte a bien été envoyée !<br> Si elle est acceptée tu recevras un mail.";    
   $message_non_envoye = "L'envoi de ta proposition a échoué.";
 
@@ -78,26 +78,27 @@
   // On va vérifier les variables et l'email ...
   $email = (IsEmail($email)) ? $email : '';
   
-  $message = 'Nom du perso: ' .$nomperso. ' | Force: ' .$force. ' | Guilde: ' .$guilde. ' | Groupe: ' .$groupe. ' | Infos: ' .$infos. ' | Effet: ' .$effet. "\r\n";
+  $message = 'Nom du perso: ' .$nomperso. '<br>Force: ' .$force. '<br>Guilde: ' .$guilde. '<br>Groupe: ' .$groupe. '<br>Infos: ' .$infos. '<br>Effet: ' .$effet. "\r\n";
 
   // on génère puis envoie le mail
   	
 		if ($captcha)
     	{ 		
-    		$headers  = 'From:'.$email. "\r\n";    		
-        $headers .= 'X-Mailer:PHP/'.phpversion();
+    		$headers  = 'From:'.$email. "\r\n";
+        $headers .= "MIME-version: 1.0\n";
+        $headers .= "Content-type: text/html; charset= iso-8859-1\n";
 
         // Remplacement de certains caractères spéciaux
         $message = html_entity_decode($message);
         $message = str_replace('&#039;',"'",$message);
         $message = str_replace('&#8217;',"'",$message);
-        $message = str_replace('<br>','',$message);
-        $message = str_replace('<br />','',$message);
+        //$message = str_replace('<br>','',$message);
+        //$message = str_replace('<br />','',$message);
         
 
     		// Envoi du mail		
 		    $objet = "Nouvelle carte";
-    		mail($destinataire, $objet, $message, $headers); 		
+    		mail($destinataire, $objet, utf8_decode($message), $headers); 		
         echo '<p>'.$message_envoye.'</p>';
       }
     else
@@ -108,6 +109,11 @@
   ?>
 
 </div>
+<form action="index.html">
+  <div class="button">
+    <button type="submit">REJOUER</button>
+  </div>
+</form>
 </main>
 
     <!-- FOOTER -->
@@ -116,6 +122,7 @@
             Contribuer à ce site</a>
     </footer>
     <!-- FOOTER'S END -->
-
+    <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>
+

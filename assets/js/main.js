@@ -15,6 +15,7 @@ const DOM_form = document.getElementById("form");
 const DOM_gameover = document.getElementById("gameover");
 const DOM_pop1 = document.getElementById("pop1");
 const DOM_propcarte = document.getElementById("propcarte");
+const DOM_aide = document.getElementById("aide");
 DOM_form.style.display = "none";
 DOM_propcarte.style.display = "none";
 
@@ -47,7 +48,14 @@ document.getElementById("buttonpropcarte").onclick = function() {
   DOM_mise5.style.display = "none";
   DOM_mise10.style.display = "none";
   DOM_stop.style.display = "none";
+  document.getElementById("buttonaide").onclick = function(){
+    (DOM_aide.style.display = "block")
   };
+  document.getElementById("closeaide").onclick = function(){
+    (DOM_aide.style.display = "none")
+  };
+};
+document.getElementById("buttontitre").onclick = function(){window.location = "index.html";}
 
 let afficheCarte = ({ categorie, groupe, force, nom, perso, info, effet }, DOM_Joueur) => {
 

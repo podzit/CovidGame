@@ -39,7 +39,7 @@
   </head>
   <body>
   <main>
-      <h1>Covid Game</h1>
+  <h1><span class="buttontitre" id="buttontitre">Covid Game</span></h1>
       <div class="jeu">
         <h2> High Score </h2>
 
@@ -118,6 +118,6 @@
             Contribuer à ce site</a>
     </footer>
     <!-- FOOTER'S END -->
-
+    <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>
