@@ -65,6 +65,18 @@ main {
   font-size: 2rem;
 }
 
+.propcarte {
+  display: none;
+  width: 810px;
+  align-self: center;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  text-align: center;
+  color:bisque;
+  font-size: 2rem;
+}
+
 footer {
   text-align: center;
   background-color: black;
