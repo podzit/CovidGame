@@ -45,7 +45,7 @@
 <?php
 
   // variables
-  $destinataire = 'skankinbuzz@gmail.com';
+  $destinataire = 'adressemailadministrateur';
   $message_envoye = "Ta proposition de carte a bien été envoyée !<br> Si elle est acceptée tu recevras un mail.";    
   $message_non_envoye = "L'envoi de ta proposition a échoué.";
 
