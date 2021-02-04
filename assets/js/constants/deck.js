@@ -1,4 +1,5 @@
 // Déclaration des cartes
+// nb de carte au 04/02/2021 = 46
 export const deck = [
   {
     categorie: 'Comploteurs',
