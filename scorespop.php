@@ -44,7 +44,7 @@
     echo '</table>';
   }
 ?>
-  
+  <br/>
   <span class="buttonS3" onclick="parent.window.close();">Fermer</span>
 </body>
 </html>
