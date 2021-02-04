@@ -88,12 +88,12 @@ export const over = {
   `Relis les règles si besoin, le but c'est pas de liquider son argent`,
   `Tu t'es cru(e) dans les reines du shopping ?`,
   `Je ne te prêterai jamais d'argent...`,
-  `Laisse moi deviner, c'est pas toi qui fait les comptes ?`,
+  `Laisse moi deviner, c'est pas toi qui fait les comptes.`,
   `Il est si dur que ça ce jeu ? Salauds de développeurs !`,
   `Je peux te filer l'adresse des développeurs pour leur casser les genoux ...`,
   `Je suis sûr que ça te fais moins marrer d'avoir perdu.`,
   `On fait moins le malin hein ?`,
-  `Si un jour on m'avait dit qu'il y aurait un joueur aussi nul ...`,
+  `Si un jour on m'avait dit qu'il y aurait un(e) joueur(se) aussi nul(le) ...`,
   `Et voila ! On te donne de l'argent et tu le perds !`,
   `Rassure moi, tu ne travailles pas dans la finance ?`
   ]
