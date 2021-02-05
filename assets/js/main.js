@@ -48,6 +48,7 @@ document.getElementById("buttonpropcarte").onclick = function() {
   DOM_mise5.style.display = "none";
   DOM_mise10.style.display = "none";
   DOM_stop.style.display = "none";
+  DOM_gameover.style.display = "none";
   document.getElementById("buttonaide").onclick = function(){
     (DOM_aide.style.display = "block")
   };
