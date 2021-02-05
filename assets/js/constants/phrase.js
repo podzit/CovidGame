@@ -89,7 +89,7 @@ export const over = {
   `Tu t'es cru(e) dans les reines du shopping ?`,
   `Je ne te prêterai jamais d'argent...`,
   `Laisse moi deviner, c'est pas toi qui fais les comptes.`,
-  `Il est si dur que ça ce jeu ? Salauds de développeurs !`,
+  `Il est dur ce jeu ! Salauds de développeurs !`,
   `Je peux te filer l'adresse des développeurs pour leur casser les genoux ...`,
   `Je suis sûr que ça te fais moins marrer d'avoir perdu.`,
   `On fait moins le malin hein ?`,
