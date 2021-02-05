@@ -340,7 +340,7 @@ export const deck = [
     force: 6,
     nom: 'raoult',
     perso: 'Didier Raoult',
-    info:`Le covid 19 c'est du fantasme, il n'y croit pas.`,
+    info:`Le covid 19 c'est du fantasme, il n'y croit pas. Ambassadeur de la modestie à la française.`,
     effet:`Ses prophéties sont fausses mais redoutables.`
   },
   {
