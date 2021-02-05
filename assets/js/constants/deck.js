@@ -124,8 +124,8 @@ export const deck = [
     force: 7,
     nom: 'illuminatis',
     perso: 'La société des illuminatis',
-    info:`Imbattables, ils dirigent tout depuis la nuit des temps. Si c’est pas eux, c’est quand même eux.`,
-    effet:`Tuent les adversaires avant leur naissance.`
+    info:`Imbattable, elle dirige tout depuis la nuit des temps. Si c’est pas elle, c’est quand même elle.`,
+    effet:`Tue les adversaires avant leur naissance.`
   },
   {
     categorie: 'Comploteurs',
