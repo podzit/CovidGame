@@ -278,7 +278,7 @@ export const deck = [
     nom: 'perronne',
     perso: 'Christian Perronne',
     info:`Le lyme il le déteste, il le préfère dans son verre.`,
-    effet:`Contredit les adversiares en citant ses livres.`
+    effet:`Contredit les adversaires en citant ses livres.`
   },
   {
     categorie: 'Complotistes',
