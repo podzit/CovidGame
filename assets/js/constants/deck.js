@@ -44,7 +44,7 @@ export const deck = [
     nom: 'mouton',
     perso: 'Le troupeau de moutons',
     info:`Les fameux moutons dirigés par les médias. En troupeau vont tous dans la même direction.`,
-    effet:`Gare aux coups de sabots ils sont nombreux.`
+    effet:`Gare aux coups de sabots, ils sont nombreux.`
   },
   {
     categorie: 'Comploteurs',
@@ -62,7 +62,7 @@ export const deck = [
     nom: 'soros',
     perso: 'George Soros',
     info:`Le big boss du complot. 153 ans.`,
-    effet:`Il manipule son adversaire mieux qu’un marionnettiste.`
+    effet:`Manipule son adversaire mieux qu’un marionnettiste.`
   },
   {
     categorie: 'Comploteurs',
@@ -124,7 +124,7 @@ export const deck = [
     force: 7,
     nom: 'illuminatis',
     perso: 'La société des illuminatis',
-    info:`Imbattable, elle dirige tout depuis la nuit des temps. Si c’est pas elle, c’est quand même elle.`,
+    info:`Imbattable, dirige tout depuis la nuit des temps. Si c’est pas eux, c’est quand même eux.`,
     effet:`Tue les adversaires avant leur naissance.`
   },
   {
@@ -142,8 +142,8 @@ export const deck = [
     force: 8,
     nom: 'francmacon',
     perso: 'La franc-maçonnerie',
-    info:`Elle ne construit rien malgré son nom.`,
-    effet:`Par contre elle détruit les adversaires à coup de truelle.`
+    info:`Ne construit rien malgré son nom.`,
+    effet:`Par contre détruit les adversaires à coup de truelle.`
   },
   {
     categorie: 'Comploteurs',
@@ -178,7 +178,7 @@ export const deck = [
     force: 10,
     nom: 'chuck',
     perso: `Chuck Norris`,
-    info:`Une carte ne peut pas présenter Chuck Norris. Internet n'est pas assez puissant pour Chuck Norris.`,
+    info:`Une carte ne peut pas présenter Chuck Norris. Internet n'est pas assez puissant pour afficher Chuck Norris.`,
     effet:`Met les pieds où il veut, et c'est souvent dans la gueule.`
   },
   {
@@ -196,7 +196,7 @@ export const deck = [
     force: 1,
     nom: 'holdup',
     perso: 'Hold Up',
-    info:`Ouvre les yeux des non moutons.`,
+    info:`Ouvre les yeux des non moutons. Toutes les preuves y sont montrées sur des feuilles illisibles.`,
     effet:`Propage la maladie "crédulité".`
   },
   {
@@ -223,7 +223,7 @@ export const deck = [
     force: 2,
     nom: 'trump',
     perso: 'Donald Trump',
-    info:`Agent orange infiltré contre le nouvel ordre mondial.`,
+    info:`Ancien agent orange infiltré contre le nouvel ordre mondial, retraité en Floride.`,
     effet:`S'accroche à sa cible jusqu'à la mort.`
   },
   {
@@ -232,7 +232,7 @@ export const deck = [
     force: 2,
     nom: 'praud',
     perso: 'Pascal Praud',
-    info:`On ne peut plus rien dire mais lui y arrive.`,
+    info:`Négationiste du réchauffement climatique. On ne peut plus rien dire mais lui y arrive.`,
     effet:`Crie tout ce qui lui passe par la tête plus fort que l’adversaire.`
   },
   {
@@ -241,7 +241,7 @@ export const deck = [
     force: 2,
     nom: 'wonner',
     perso: 'Martine Wonner',
-    info:`Députée et anti-vax. Prend la parole dans l'hémicycle pour dire que le masque c'est mal m'voyez?`,
+    info:`Anti-vax sur fonds publics. Prend la parole dans l'hémicycle pour dire que le masque c'est mal m'voyez?`,
     effet:`Met des coups de visière à l'adversaire.`
   },
   {
@@ -268,7 +268,7 @@ export const deck = [
     force: 3,
     nom: 'henrion',
     perso: 'Alexandra Henrion-Caude',
-    info:`Ancienne chercheuse à l'INSERM, désormais chercheuse en génétique religieuse complotiste.`,
+    info:`Ancienne chercheuse à l'INSERM, désormais chercheuse en génétique religieuse sectaire complotiste.`,
     effet:`Foudroie l'adversaire à coup de vocabulaire savant.`
   },
   {
@@ -331,7 +331,7 @@ export const deck = [
     force: 6,
     nom: 'zemmour',
     perso: 'Eric Zemmour',
-    info:`Pied noir à la parole libre contre les juifs et l’islam.`,
+    info:`Délinquant pied noir à la parole haineuse contre les juifs et l’islam.`,
     effet:`Envoie des faux chiffres sur les conséquences de l’immigration pour effrayer son adversaire.`
   },
   {
@@ -349,7 +349,7 @@ export const deck = [
     force: 7,
     nom: 'hcq',
     perso: "L'hydroxychloroquine",
-    info:`Utilisé dans des pays où il est interdit.`,
+    info:`Utilisé dans des pays où il est interdit. Efficace mais impossible de le prouver.`,
     effet:`Soigne les covid+ en bonne santé.`
   },
   {
@@ -358,7 +358,7 @@ export const deck = [
     force: 7,
     nom: 'soral',
     perso: "Alain Soral",
-    info:`Youtubeur musclé sur canapé.`,
+    info:`Youtubeur musclé sur canapé. Freefighter à ses heures perdues.`,
     effet:`Fais apparaître des leurres juifs pour étourdir l’adversaire.`
   },
   {
@@ -367,7 +367,7 @@ export const deck = [
     force: 8,
     nom: 'trotta',
     perso: 'Sylvano Trotta',
-    info:`Star lunaire sur Youtube.`,
+    info:`Star lunaire superficiel sur Youtube. Anti-test mais les distribue quand même.`,
     effet:`Avec lui tout est creux même ses théories.`
   },
   {
@@ -386,7 +386,7 @@ export const deck = [
     nom: 'fouche',
     perso: 'Louis Fouché',
     info:`Réanimateur en réinformation hospitalière. Anti-vaccin, anti-masque, anti-coiffeur, anti-shampoing.`,
-    effet:`Commande une horde de partisan à marcher sur l'ennemi.`
+    effet:`Incite une horde de partisan à marcher sur l'ennemi.`
   },
   {
     categorie: 'Complotistes',
