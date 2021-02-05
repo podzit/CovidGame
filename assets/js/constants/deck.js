@@ -313,7 +313,7 @@ export const deck = [
     force: 5,
     nom: 'engerer',
     perso: 'Eve Engerer',
-    info:`Elle a tout compris ! TOUT ! C’est compris ?`,
+    info:`Médecin en burn-out. Elle a tout compris ! TOUT ! C’est compris ?`,
     effet:`Voit au travers de l’adversaire grâce à ses dons de voyance.`
   },
   {
