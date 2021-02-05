@@ -142,8 +142,8 @@ export const deck = [
     force: 8,
     nom: 'francmacon',
     perso: 'La franc-maçonnerie',
-    info:`Il ne construisent rien malgré leur nom.`,
-    effet:`Par contre ils détruisent les adversaires à coup de truelle.`
+    info:`Elle ne construit rien malgré son nom.`,
+    effet:`Par contre elle détruit les adversaires à coup de truelle.`
   },
   {
     categorie: 'Comploteurs',
