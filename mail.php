@@ -67,6 +67,7 @@
   $email = $_POST['email'];
   $captcha = $_POST['captcha'];
 
+  // Vérification de la question captcha
   if ($captcha == 5)
   {
     $captcha = true;
@@ -78,10 +79,10 @@
   // On va vérifier les variables et l'email ...
   $email = (IsEmail($email)) ? $email : '';
   
+  // Mise en forme du message avec les variables récupérées
   $message = 'Nom du perso: <b>'.$nomperso.'</b><br>Force: <b>' .$force. '</b><br>Guilde: <b>' .$guilde. '</b><br>Groupe: <b>' .$groupe. '</b><br>Infos: <b>' .$infos. '</b><br>Effet: <b>' .$effet. "</b>\r\n";
 
-  // on génère puis envoie le mail
-  	
+  // Génération des entêtes et du mail	
 		if ($captcha)
     	{ 		
     		$headers  = 'From:'.$email. "\r\n";

@@ -36,18 +36,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <meta charset="UTF-8">
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
     
+    <!-- Balises audio -->
     <audio id="audiowin"><source src="assets/audiowin.ogg" type="audio/ogg"></audio>
     <audio id="audioloose"><source src="assets/audioloose.ogg" type="audio/ogg"></audio>
     <audio id="audiocarte"><source src="assets/swoosh.ogg" type="audio/ogg"></audio>
-
+    <!-- Fin balises audio -->
+    
     <main>
       <h1><span class="buttontitre" id="buttontitre">Covid Game</span></h1>
       <div id = "poche" class="poche">Ta poche: 50$</div>
 
+    <!-- Boutons de mises -->
         <button id ="mise1">1$
         </button>
         <button id ="mise2">2$
@@ -58,7 +60,9 @@
         </button>
         <button class="stop" id ="stop">Stop
         </button>
+    <!-- Fin boutons de mises -->
 
+    <!-- Jeu  -->
       <div id="jeu" class="jeu">
         <div class="side-left">Toi</div>
         <div class="middle">VS</div>
@@ -76,7 +80,9 @@
         <div id="resultat" class="resultat"></div>
         <div id="gain" class="gain"></div>
       </div>
+    <!-- Fin jeu  -->
 
+    <!-- Template carte -->
       <div id="carte" class="carte">
         <div class="perso"></div>
         <div class="image"></div>
@@ -85,7 +91,9 @@
         <div class="info"></div>
         <div class="effet"></div>
       </div>
+    <!-- Fin template carte -->
 
+    <!-- Formulaire high score -->
       <form id="form" action="scores.php" method="post" class="form">
         <div class="label">
           <label for="record" id="score"></label>
@@ -100,14 +108,18 @@
           <button type="submit">Enregistrer</button>
       </div>
       </form>
+    <!-- Fin formulaire high score -->
 
+    <!-- Game over -->
       <div class="gameover" id="gameover">
         <h2 style="text-align: center;">GAME OVER</h2>
         <div id="phraseover"></div><br/>
         Tu retentes ta chance ou tu abandonnes?<br/>
         <button id="rejouer">REJOUER</button>
       </div>
+    <!-- Fin game over -->
 
+    <!-- Popin règles du jeu -->
       <div id="pop1" class="parentDisable">
         <div class="popin">
           <div class="regles">
@@ -133,7 +145,9 @@
           <span id="closepop" class="buttonS3">Fermer</span>
         </div>
       </div>
+      <!-- Fin popin règles du jeu -->
 
+      <!-- Formulaire proposition de carte -->
       <form id="propcarte" action="mail.php" method="post" class="propcarte">
         <br/>
           La proposition doit citer une personne connue, doit être drôle et sans insultes.<br/>
@@ -208,7 +222,9 @@
         <button type="submit">Envoyer</button>
 
     </form>
+    <!-- Fin de formulaire proposition de carte -->
 
+    <!-- Popin aide -->
     <div id="aide" class="parentDisableaide">
       <div class="popinaide">
         <div class="aide">
@@ -218,6 +234,7 @@
         <span id="closeaide" class="buttonS3">Fermer</span>
       </div>
     </div>
+    <!-- Fin popin aide -->
 
     </main>
 
