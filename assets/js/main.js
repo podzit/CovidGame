@@ -93,6 +93,7 @@ function jeu(tour) {
     DOM_stop.style.display = "none";
   };
 
+  no_mise();
 
   document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
 
