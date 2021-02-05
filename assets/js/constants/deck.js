@@ -1,8 +1,9 @@
 // Déclaration des cartes
+// nb de carte au 04/02/2021 = 46
 export const deck = [
   {
     categorie: 'Comploteurs',
-    groupe: 'Inutile',
+    groupe: 'Inutiles',
     force: 1,
     nom: 'sibeth', // <- la carte sibeth.jpeg
     perso: 'Sibeth Ndiaye', // <- Le nom qui s'affiche dans la phrase de résultat
@@ -11,7 +12,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
+    groupe: 'Tueurs',
     force: 1,
     nom: 'linky',
     perso: 'Linky',
@@ -20,7 +21,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Inutile',
+    groupe: 'Inutiles',
     force: 2,
     nom: 'castex',
     perso: 'Jean Castex',
@@ -29,7 +30,7 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
+    groupe: 'Tueurs',
     force: 2,
     nom: 'masque',
     perso: 'Le masque',
@@ -38,16 +39,16 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Inutile',
-    force: 2,
+    groupe: 'Inutiles',
+    force: 3,
     nom: 'mouton',
     perso: 'Le troupeau de moutons',
     info:`Les fameux moutons dirigés par les médias. En troupeau vont tous dans la même direction.`,
-    effet:`Gare aux coups de sabots ils sont nombreux.`
+    effet:`Gare aux coups de sabots, ils sont nombreux.`
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Lobby',
+    groupe: 'Lobbies',
     force: 3,
     nom: 'bigpharma',
     perso: 'Big Pharma',
@@ -56,17 +57,17 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Milliardaire',
-    force: 3,
+    groupe: 'Milliardaires',
+    force: 4,
     nom: 'soros',
     perso: 'George Soros',
     info:`Le big boss du complot. 153 ans.`,
-    effet:`Il manipule son adversaire mieux qu’un marionnettiste.`
+    effet:`Manipule son adversaire mieux qu’un marionnettiste.`
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
-    force: 3,
+    groupe: 'Tueurs',
+    force: 4,
     nom: 'pcr',
     perso: 'Le test PCR',
     info:`Pas très fiable mais trop utilisé quand même.`,
@@ -74,17 +75,26 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
+    groupe: 'Médias',
     force: 4,
+    nom: 'house',
+    perso: 'Dr House',
+    info:`Médecin fictif de fiction qui ne respecte pas les protocoles réels ce qui outre réellement les téléspectateurs réels.`,
+    effet:`Dégaine la maladie auto-immune.`
+  },
+  {
+    categorie: 'Comploteurs',
+    groupe: 'Tueurs',
+    force: 5,
     nom: '5g',
     perso: 'La 5G',
-    info:`Propage des ondes partout.`,
+    info:`Propage des ondes mortelles partout.`,
     effet: `Rend les adversaires hypersensibles, sauf ceux vaccinés.`
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Milliardaire',
-    force: 4,
+    groupe: 'Milliardaires',
+    force: 5,
     nom: 'gates',
     perso: 'Bill Gates',
     info:`Apparaît dans tous les complots, son nom est devenu une marque.`,
@@ -92,8 +102,8 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Média',
-    force: 4,
+    groupe: 'Médias',
+    force: 6,
     nom: 'bfm',
     perso: 'BFM TV',
     info:`Bergerie Française pour Moutons. 24/7 de propagande des multi-millionnaires à la solde du gouvernement ou l’inverse.`,
@@ -101,8 +111,8 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Tueur',
-    force: 5,
+    groupe: 'Tueurs',
+    force: 6,
     nom: 'vaccin',
     perso: 'Le vaccin',
     info:`Tue les antivax, épargne les moutons et transforme l'ADN.`,
@@ -110,17 +120,17 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Société secrète',
-    force: 5,
+    groupe: 'Sociétés secrètes',
+    force: 7,
     nom: 'illuminatis',
     perso: 'La société des illuminatis',
-    info:`Imbattables, ils dirigent tout depuis la nuit des temps. Si c’est pas eux, c’est quand même eux.`,
-    effet:`Tuent les adversaires avant leur naissance.`
+    info:`Imbattable, dirige tout depuis la nuit des temps. Si c’est pas eux, c’est quand même eux.`,
+    effet:`Tue les adversaires avant leur naissance.`
   },
   {
     categorie: 'Comploteurs',
     groupe: 'Religieux',
-    force: 5,
+    force: 7,
     nom: 'satan',
     perso: 'Satan',
     info:`Prépare les pires complots grâce aux sacrifices d’enfants.`,
@@ -128,17 +138,17 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Société secrète',
-    force: 6,
+    groupe: 'Sociétés secrètes',
+    force: 8,
     nom: 'francmacon',
     perso: 'La franc-maçonnerie',
-    info:`Il ne construisent rien malgré leur nom.`,
-    effet:`Par contre ils détruisent les adversaires à coup de truelle.`
+    info:`Ne construit rien malgré son nom.`,
+    effet:`Par contre détruit les adversaires à coup de truelle.`
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Société secrète',
-    force: 6,
+    groupe: 'Sociétés secrètes',
+    force: 8,
     nom: 'deepstate',
     perso: `L'état profond`,
     info:`Tellement profond qu’on ne l’a jamais vu.`,
@@ -146,8 +156,8 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Joker',
-    force: 10,
+    groupe: 'Tueurs',
+    force: 9,
     nom: 'toux',
     perso: `La quinte de toux`,
     info:`Toux sèche qui donne envie de se graisser la gorge avec de l'huile de vidange.`,
@@ -155,7 +165,25 @@ export const deck = [
   },
   {
     categorie: 'Comploteurs',
-    groupe: 'Joker',
+    groupe: 'Religieux',
+    force: 9,
+    nom: 'pape',
+    perso: `Le pape`,
+    info:`Possède suffisamment d'argent pour éradiquer la faim dans le monde mais Dieu ne lui a pas demandé.`,
+    effet:`Libera te tutemet ex inferis.`
+  },
+  {
+    categorie: 'Comploteurs',
+    groupe: 'Jokers',
+    force: 10,
+    nom: 'chuck',
+    perso: `Chuck Norris`,
+    info:`Une carte ne peut pas présenter Chuck Norris. Internet n'est pas assez puissant pour afficher Chuck Norris.`,
+    effet:`Met les pieds où il veut, et c'est souvent dans la gueule.`
+  },
+  {
+    categorie: 'Comploteurs',
+    groupe: 'Jokers',
     force: 10,
     nom: 'vague',
     perso: `La 2ème vague`,
@@ -164,16 +192,16 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Média',
+    groupe: 'Médias',
     force: 1,
     nom: 'holdup',
     perso: 'Hold Up',
-    info:`Ouvre les yeux des non moutons.`,
+    info:`Ouvre les yeux des non moutons. Toutes les preuves y sont montrées sur des feuilles illisibles.`,
     effet:`Propage la maladie "crédulité".`
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Média',
+    groupe: 'Médias',
     force: 1,
     nom: 'cnews',
     perso: 'CNews',
@@ -182,26 +210,44 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Milliardaire',
+    groupe: 'Patrons de PMU',
+    force: 1,
+    nom: 'glow',
+    perso: 'Kim Glow',
+    info:`Célébrité de télé-réalité. Son vrai nom est Sophie Laune mais ça fait moins télé-réalité.`,
+    effet:`Perce les tympans avec ses cris d'influenceuse.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: 'Milliardaires',
     force: 2,
     nom: 'trump',
     perso: 'Donald Trump',
-    info:`Agent orange infiltré contre le nouvel ordre mondial.`,
+    info:`Ancien agent orange infiltré contre le nouvel ordre mondial, retraité en Floride.`,
     effet:`S'accroche à sa cible jusqu'à la mort.`
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Patron de PMU',
+    groupe: 'Patrons de PMU',
     force: 2,
     nom: 'praud',
     perso: 'Pascal Praud',
-    info:`On ne peut plus rien dire mais lui y arrive.`,
+    info:`Négationiste du réchauffement climatique. On ne peut plus rien dire mais lui y arrive.`,
     effet:`Crie tout ce qui lui passe par la tête plus fort que l’adversaire.`
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Média',
+    groupe: `Lanceurs d'alerte`,
     force: 2,
+    nom: 'wonner',
+    perso: 'Martine Wonner',
+    info:`Anti-vax sur fonds publics. Prend la parole dans l'hémicycle pour dire que le masque c'est mal m'voyez?`,
+    effet:`Met des coups de visière à l'adversaire.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: 'Médias',
+    force: 3,
     nom: 'sudradio',
     perso: 'Sud Radio',
     info:`Radio écoutée uniquement par Eric Zemmour et le RN.`,
@@ -209,7 +255,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Lanceur d'alerte`,
+    groupe: `Lanceurs d'alerte`,
     force: 3,
     nom: 'q',
     perso: 'Q',
@@ -218,17 +264,26 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Prophète',
+    groupe: 'Prophètes',
     force: 3,
-    nom: 'perronne',
-    perso: 'Christian Perronne',
-    info:`Le lyme il le déteste, il le préfère dans son verre.`,
-    effet:`Frappe les journalistes sur les plateaux TV armé de ses livres.`
+    nom: 'henrion',
+    perso: 'Alexandra Henrion-Caude',
+    info:`Ancienne chercheuse à l'INSERM, désormais chercheuse en génétique religieuse sectaire complotiste.`,
+    effet:`Foudroie l'adversaire à coup de vocabulaire savant.`
   },
   {
     categorie: 'Complotistes',
-    groupe: 'Patron de PMU',
-    force: 3,
+    groupe: 'Prophètes',
+    force: 4,
+    nom: 'perronne',
+    perso: 'Christian Perronne',
+    info:`Le lyme il le déteste, il le préfère dans son verre.`,
+    effet:`Contredit les adversaires en citant ses livres.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: 'Patrons de PMU',
+    force: 4,
     nom: 'bigard',
     perso: 'Jean-Marie Bigard',
     info:`Connu pour ses sketches, il en est devenu un.`,
@@ -236,8 +291,17 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Lanceur d'alerte`,
+    groupe: `Lanceurs d'alerte`,
     force: 4,
+    nom: 'yan',
+    perso: 'Li-Meng Yan',
+    info:`Hong-Kongaise préférée de l'extrême droite américaine. Généticienne reconvertie en exilée chez Steve Bannon.`,
+    effet:`Manipule l'ADN de l'adversaire en éternuant.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: `Lanceurs d'alerte`,
+    force: 5,
     nom: 'krusi',
     perso: 'Ema Krusi',
     info:`Ne connait pas la neutralité Suisse. Elle lui dit merde.`,
@@ -245,62 +309,71 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Lanceur d'alerte`,
-    force: 4,
+    groupe: `Lanceurs d'alerte`,
+    force: 5,
     nom: 'engerer',
     perso: 'Eve Engerer',
-    info:`Elle a tout compris ! TOUT ! C’est compris ?`,
+    info:`Médecin en burn-out. Elle a tout compris ! TOUT ! C’est compris ?`,
     effet:`Voit au travers de l’adversaire grâce à ses dons de voyance.`
   },
   {
     categorie: 'Complotistes',
-    groupe: `Patron de PMU`,
-    force: 4,
+    groupe: `Milliardaires`,
+    force: 5,
+    nom: 'jair',
+    perso: 'Jair Bolsonaro',
+    info:`N'aime pas les femmes, les homosexuels, les Noirs et les peuples indigènes. Ça tombe bien au Brésil pas grand monde ne l'aime.`,
+    effet:`Balance de l'hydroxychloroquine dans les yeux de son adversaire.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: `Patrons de PMU`,
+    force: 6,
     nom: 'zemmour',
     perso: 'Eric Zemmour',
-    info:`Pied noir à la parole libre contre les juifs et l’islam.`,
+    info:`Délinquant pied noir à la parole haineuse contre les juifs et l’islam.`,
     effet:`Envoie des faux chiffres sur les conséquences de l’immigration pour effrayer son adversaire.`
   },
   {
     categorie: 'Complotistes',
-    groupe: `Prophète`,
-    force: 5,
+    groupe: `Prophètes`,
+    force: 6,
     nom: 'raoult',
     perso: 'Didier Raoult',
-    info:`Le covid 19 c'est du fantasme, il n'y croit pas.`,
+    info:`Le covid 19 c'est du fantasme, il n'y croit pas. Ambassadeur de la modestie à la française.`,
     effet:`Ses prophéties sont fausses mais redoutables.`
   },
   {
     categorie: 'Complotistes',
-    groupe: `Tueur`,
-    force: 5,
+    groupe: `Tueurs`,
+    force: 7,
     nom: 'hcq',
     perso: "L'hydroxychloroquine",
-    info:`Utilisé dans des pays où il est interdit.`,
+    info:`Utilisé dans des pays où il est interdit. Efficace mais impossible de le prouver.`,
     effet:`Soigne les covid+ en bonne santé.`
   },
   {
     categorie: 'Complotistes',
-    groupe: `Patron de PMU`,
-    force: 5,
+    groupe: `Patrons de PMU`,
+    force: 7,
     nom: 'soral',
     perso: "Alain Soral",
-    info:`Youtubeur musclé sur canapé.`,
+    info:`Youtubeur musclé sur canapé. Freefighter à ses heures perdues.`,
     effet:`Fais apparaître des leurres juifs pour étourdir l’adversaire.`
   },
   {
     categorie: 'Complotistes',
-    groupe: `Prophète`,
-    force: 6,
+    groupe: `Prophètes`,
+    force: 8,
     nom: 'trotta',
     perso: 'Sylvano Trotta',
-    info:`Star lunaire sur Youtube.`,
+    info:`Star lunaire superficiel sur Youtube. Anti-test mais les distribue quand même.`,
     effet:`Avec lui tout est creux même ses théories.`
   },
   {
     categorie: 'Complotistes',
-    groupe: `Prophète`,
-    force: 6,
+    groupe: `Prophètes`,
+    force: 8,
     nom: 'dieudonne',
     perso: 'Dieudonné',
     info:`Humoriste censuré reconverti en fabricant de quenelles.`,
@@ -308,7 +381,25 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Joker`,
+    groupe: `Prophètes`,
+    force: 9,
+    nom: 'fouche',
+    perso: 'Louis Fouché',
+    info:`Réanimateur en réinformation hospitalière. Anti-vaccin, anti-masque, anti-coiffeur, anti-shampoing.`,
+    effet:`Incite une horde de partisan à marcher sur l'ennemi.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: `Milliardaires`,
+    force: 9,
+    nom: 'kennedy',
+    perso: 'Robert F Kennedy Jr',
+    info:`Fils de bonne famille. Apprenti en première année de télécommunication vaccinale génétique option 5G.`,
+    effet:`Fait un procès à l'adversaire.`
+  },
+  {
+    categorie: 'Complotistes',
+    groupe: `Jokers`,
     force: 10,
     nom: 'youtube',
     perso: 'Youtube',
@@ -317,7 +408,7 @@ export const deck = [
   },
   {
     categorie: 'Complotistes',
-    groupe: `Joker`,
+    groupe: `Jokers`,
     force: 10,
     nom: 'lancetgate',
     perso: 'Le Lancetgate',
