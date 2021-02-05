@@ -78,7 +78,7 @@
   // On va vérifier les variables et l'email ...
   $email = (IsEmail($email)) ? $email : '';
   
-  $message = 'Nom du perso: ' .$nomperso. '<br>Force: ' .$force. '<br>Guilde: ' .$guilde. '<br>Groupe: ' .$groupe. '<br>Infos: ' .$infos. '<br>Effet: ' .$effet. "\r\n";
+  $message = 'Nom du perso: <b>'.$nomperso.'</b><br>Force: <b>' .$force. '</b><br>Guilde: <b>' .$guilde. '</b><br>Groupe: <b>' .$groupe. '</b><br>Infos: <b>' .$infos. '</b><br>Effet: <b>' .$effet. "</b>\r\n";
 
   // on génère puis envoie le mail
   	
@@ -92,8 +92,6 @@
         $message = html_entity_decode($message);
         $message = str_replace('&#039;',"'",$message);
         $message = str_replace('&#8217;',"'",$message);
-        //$message = str_replace('<br>','',$message);
-        //$message = str_replace('<br />','',$message);
         
 
     		// Envoi du mail		
