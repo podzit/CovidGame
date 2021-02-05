@@ -88,7 +88,7 @@ export const deck = [
     force: 5,
     nom: '5g',
     perso: 'La 5G',
-    info:`Propage des ondes partout.`,
+    info:`Propage des ondes mortelles partout.`,
     effet: `Rend les adversaires hypersensibles, sauf ceux vaccinés.`
   },
   {
