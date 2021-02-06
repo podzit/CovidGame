@@ -22,15 +22,12 @@ function record() {
 };
 
 // Appui sur les mises
-function appuiMises() {
-    DOM_mise1.onclick = function () { jeu(mise = 1); };
-    DOM_mise2.onclick = function () { jeu(mise = 2); };
-    DOM_mise5.onclick = function () { jeu(mise = 5); };
-    DOM_mise10.onclick = function () { jeu(mise = 10); };
-  };
+DOM_mise1.onclick = function () { jeu(mise = 1); };
+DOM_mise2.onclick = function () { jeu(mise = 2); };
+DOM_mise5.onclick = function () { jeu(mise = 5); };
+DOM_mise10.onclick = function () { jeu(mise = 10); };
 
-// Appui sur un bouton
-appuiMises();
+// Appui sur un bouton du footer
 document.getElementById("popin").onclick = function() {
   DOM_pop1.style.display = "block"
 };
