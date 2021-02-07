@@ -63,6 +63,10 @@ main {
   margin: 20px 20px 20px 20px;
 }
 
+.simule {
+  margin: 20px 20px 20px 20px;
+}
+
 .indent {
   text-indent: 20px;
 }
@@ -200,6 +204,25 @@ input[type="textarea"] {
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 
+.parentDisableCarte {
+	z-index:999;
+	width:720px;
+	height:750px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+	/* For IE 5.5 - 7*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	/* For IE 8*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
 .popin {
 	width:620px;
 	height:700px;
@@ -213,6 +236,12 @@ input[type="textarea"] {
 }
 
 .popinscores {
+	width:720px;
+	height:680px;
+	margin: 0 auto;
+}
+
+.popinsimule {
 	width:720px;
 	height:680px;
 	margin: 0 auto;

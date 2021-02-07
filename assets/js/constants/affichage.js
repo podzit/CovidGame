@@ -8,6 +8,7 @@ export const DOM_pop1 = document.getElementById("pop1");
 export const DOM_propcarte = document.getElementById("propcarte");
 export const DOM_aide = document.getElementById("aide");
 export const DOM_scorespop = document.getElementById("scorespop");
+export const DOM_cartesimule = document.getElementById("cartesimule");
 
 // Fonction suppression affichage du jeu
 export function no_jeu() {

@@ -1,7 +1,7 @@
 import { deck } from './constants/deck.js';
 import { phrase, over } from './constants/phrase.js';
 import { miselimit, mises, boutons, afficheCarte, no_jeu, flipCartes } from './constants/affichage.js';
-import { DOM_audiowin, DOM_audioloose, DOM_audiocarte, DOM_aide, DOM_form, DOM_gameover, DOM_pop1, DOM_propcarte, DOM_scorespop, DOM_stop, DOM_mise1, DOM_mise2, DOM_mise5, DOM_mise10 } from './constants/affichage.js'; 
+import { DOM_audiowin, DOM_audioloose, DOM_audiocarte, DOM_aide, DOM_form, DOM_gameover, DOM_pop1, DOM_propcarte, DOM_scorespop, DOM_cartesimule, DOM_stop, DOM_mise1, DOM_mise2, DOM_mise5, DOM_mise10 } from './constants/affichage.js'; 
 
 var win = 0;
 var mise = 0;
@@ -39,6 +39,14 @@ document.getElementById("buttonscores").onclick = function() {
 document.getElementById("closescores").onclick = function() {
   DOM_scorespop.style.display = "none"
 };
+/*document.getElementById("buttonsimule").onclick = function() {
+  DOM_cartesimule.style.display = "block";
+  //value="simule" formaction="simule.php"
+  //document.getElementById("buttonsimule").submit('../simule.php');
+};
+  document.getElementById("closesimule").onclick = function() {
+  DOM_cartesimule.style.display = "none"
+};*/
 document.getElementById("buttonpropcarte").onclick = function() {
   DOM_propcarte.style.display = "block";
   no_jeu();
@@ -54,6 +62,13 @@ document.getElementById("buttonpropcarte").onclick = function() {
 };
 
 document.getElementById("buttontitre").onclick = function(){window.location = "index.php";}
+
+// Récupération formulaire proposition de carte
+document.getElementById("persosimu").innerHTML = `${document.forms[propcarte].elements[nomperso]}`;
+document.getElementById("forcesimu").innerHTML = `${document.forms[propcarte].elements[force]}`;
+document.getElementById("bandeausimu").innerHTML = `${document.forms[propcarte].elements[guilde]} / ${document.forms[propcarte].elements[groupe]}`;
+document.getElementById("infosimu").innerHTML = `${document.forms[propcarte].elements[infos]}`;
+document.getElementById("effetsimu").innerHTML = `${document.forms[propcarte].elements[effet]}`;
 
 // Déclaration de la fonction jeu
 function jeu(tour) {

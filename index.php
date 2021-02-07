@@ -174,7 +174,7 @@
             <!-- Fin popin règles du jeu -->
 
             <!-- Formulaire proposition de carte -->
-            <form id="propcarte" action="mail.php" method="post" class="propcarte">
+            <form id="propcarte" name="propcarte" method="post" class="propcarte">
 
                 <br/>
                 La proposition doit citer une personne connue, doit être drôle et sans insultes.<br/>
@@ -247,7 +247,8 @@
                     <input type="text" id="captcha" name="captcha" required="required" maxlength="2"></input>
                 </div>
 
-                <button type="submit">Envoyer</button>
+                <button type="submit"  value="mail" formaction="mail.php">Envoyer</button>
+                <button id="buttonsimule" value="simule" formaction="simule.php" target="popup">Générer</button>
 
             </form>
             <!-- Fin de formulaire proposition de carte -->
