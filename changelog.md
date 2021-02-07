@@ -5,12 +5,14 @@
 ### Nouveautés
 
 - Boutons grisés pendant le tirage des cartes
+- Ouverture High Score en popin
 
 ### Bug résolu
 
 - Désactivation des boutons pour ne pas outrepasser le tirage des cartes.
 - Corrections diverses dans le deck de cartes
 - Ajout de caractères dans le formulaire High Score
+- Fermeture High Score dans Facebook mobile
 
 ## [V3.0] - 05-02-2021
 
