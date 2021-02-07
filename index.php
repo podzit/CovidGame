@@ -11,7 +11,7 @@
         </script>
         <!---FIN DU SCRIPT GOOGLE ANALYTICS-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <title>Covid Game v3.1</title>
+        <title>Covid Game v3.2</title>
         <link rel="icon" href="favicon.ico" />
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="assets/css/carte.css">
