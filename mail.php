@@ -11,7 +11,7 @@
       gtag('config', 'G-GNMWL78TM7');
     </script>
     <!---FIN DU SCRIPT GOOGLE ANALYTICS-->
-    <title>***Covid Game v3.0***</title>
+    <title>Covid Game v3.1</title>
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="assets/main.css">
     <link rel="stylesheet" href="assets/carte.css">
