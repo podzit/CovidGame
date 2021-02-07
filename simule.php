@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 	<head>
         <link rel="stylesheet" href="assets/css/carte.css">
 	</head>

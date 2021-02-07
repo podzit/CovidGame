@@ -248,8 +248,8 @@
                 </div>
 
                 <button type="submit"  value="mail" formaction="mail.php">Envoyer</button>
-                <button id="buttonsimule" value="simule" formaction="simule.php" target="popup">Générer</button>
-
+                <button id="buttonsimule" value="simule" formaction="simule.php" onclick="propcarte.target='POPUPW'; POPUPW = window.open('about:blank','POPUPW','width=410,height=560');">Aperçu</button>
+                
             </form>
             <!-- Fin de formulaire proposition de carte -->
 
