@@ -367,7 +367,7 @@ export const deck = [
     force: 8,
     nom: 'trotta',
     perso: 'Sylvano Trotta',
-    info:`Star lunaire superficiel sur Youtube. Anti-test mais les distribue quand même.`,
+    info:`Star lunaire superficielle sur Youtube. Anti-test mais les distribue quand même.`,
     effet:`Avec lui tout est creux même ses théories.`
   },
   {
