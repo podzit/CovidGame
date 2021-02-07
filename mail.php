@@ -123,10 +123,12 @@
 
       <!-- FOOTER -->
       <footer>
+
         <a href="https://github.com/podzit/CovidGame" target="_blank">Contribuer à ce site</a>
+        
       </footer>
       <!-- FOOTER'S END -->
 
     </body>
-    
+
     </html>
