@@ -16,8 +16,8 @@
 
     <title>Covid Game v3.2</title>
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="assets/main.css">
-    <link rel="stylesheet" href="assets/carte.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/carte.css">
     <meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:title" content="CovidGame" />
