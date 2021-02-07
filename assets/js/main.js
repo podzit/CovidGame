@@ -60,6 +60,7 @@ function jeu(tour) {
   
   document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
   boutons("none","grey");
+  document.getElementById("vs").style.display = "none";
 
   // Son swoosh
   DOM_audiocarte.play();
