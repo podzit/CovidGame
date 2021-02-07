@@ -1,5 +1,6 @@
 <head>
 <link rel="stylesheet" href="assets/main.css">
+<title>Covid Game v3.1</title>
 </head>
 <html>
 <body class="reglebody">
