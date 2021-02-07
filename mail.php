@@ -18,6 +18,8 @@
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/carte.css">
+    <link rel="stylesheet" href="assets/css/jeu.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
     <meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:title" content="CovidGame" />
@@ -113,7 +115,7 @@
 
         </div>
 
-        <form action="index.html">
+        <form action="index.php">
           <div class="button">
             <button type="submit">REJOUER</button>
           </div>
