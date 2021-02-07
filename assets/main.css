@@ -263,8 +263,8 @@ input[type="textarea"] {
 	display:none;
 	position:absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 2%;
+  transform: translate(-50%);
 	/* Fallback for web browsers that doesn't support RGBa */
 	background: rgb(0, 0, 0);
 	/* RGBa with 0.6 opacity */
@@ -282,8 +282,8 @@ input[type="textarea"] {
 	display:none;
 	position:absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 2%;
+  transform: translate(-50%);
 	/* Fallback for web browsers that doesn't support RGBa */
 	background: rgb(0, 0, 0);
 	/* RGBa with 0.6 opacity */
@@ -301,8 +301,8 @@ input[type="textarea"] {
 	display:none;
 	position:absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 2%;
+  transform: translate(-50%);
 	/* Fallback for web browsers that doesn't support RGBa */
 	background: rgb(0, 0, 0);
 	/* RGBa with 0.6 opacity */
