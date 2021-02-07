@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-
 <html>
-
     <head>
-
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNMWL78TM7"></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-GNMWL78TM7');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GNMWL78TM7');
         </script>
         <!---FIN DU SCRIPT GOOGLE ANALYTICS-->
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Covid Game v3.1</title>
         <link rel="icon" href="favicon.ico" />
-        <link rel="stylesheet" href="assets/main.css">
-        <link rel="stylesheet" href="assets/carte.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/carte.css">
+        <link rel="stylesheet" href="assets/css/jeu.css">
+        <link rel="stylesheet" href="assets/css/animation.css">
         <meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
         <meta property="og:image:type" content="image/jpeg">
         <meta property="og:title" content="CovidGame" />
@@ -38,9 +37,7 @@
         <meta name="Geography" content="France">
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
         <meta charset="UTF-8">
-        
     </head>
-
     <body>
 
         <!-- Balises audio -->
@@ -63,22 +60,35 @@
             <!-- Fin boutons de mises -->
 
             <!-- Jeu  -->
-            <div id="jeu" class="jeu">
-                <div class="side-left">Toi</div>
-                <div class="middle">VS</div>
-                <div class="side-right">L'ennemi</div>
-                <div class="flip-card-3D-wrapper">
-                    <div id="flip-card">
-                        <div id="img-toi" class="carte-back-left"><img src="assets/img/back.png"></img></div>
+            <div id="jeu">
+                <section id="result-popup">
+                    <div id="resultat"></div>
+                    <div id="gain"></div>
+                </section>
+                <section>
+                    <div class="deck">
+                        <div class="player-name">Toi</div>
+                        <div id="flip-card" class="flip-card-3D-wrapper">
+                        <div id="img-toi" class="carte-back-left">
+                            <img src="assets/img/back.png"/>
+                        </div>
+                        </div>
                     </div>
-                </div>
-                <div class="flip-card-3D-wrapper2">
-                    <div id="flip-card2">
-                        <div id="img-ennemi" class="carte-back-right"><img src="assets/img/back.png"></img></div>
+                    
+                    <div id="vs">
+                        <span class="fire">V</span>
+                        <span class="burn">S</span>
                     </div>
-                </div>
-                <div id="resultat" class="resultat"></div>
-                <div id="gain" class="gain"></div>
+
+                    <div class="deck">
+                        <div class="player-name">L'ennemi</div>
+                        <div id="flip-card2" class="flip-card-3D-wrapper2">
+                        <div id="img-ennemi" class="carte-back-right">
+                            <img src="assets/img/back.png"/>
+                        </div>
+                        </div>
+                    </div>
+                </section>
             </div>
             <!-- Fin jeu  -->
 

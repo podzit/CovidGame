@@ -155,6 +155,9 @@ function jeu(tour) {
   
       poche = gain + poche;
       document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
+      
+      jQuery('#result-popup').slideDown();
+      jQuery('#result-popup').fadeOut(5000);
 
   // appuie sur le bouton stop
       document.getElementById("stop").onclick = function () {
