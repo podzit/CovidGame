@@ -1,12 +1,3 @@
-<head>
-<link rel="stylesheet" href="assets/main.css">
-<title>Covid Game v3.1</title>
-</head>
-<html>
-<body class="reglebody">
-<div class="regles">
-  <h2 style="text-align: center;"> High Score </h2>
-
 <?php
   
   // définition des variables
@@ -45,7 +36,3 @@
     echo '</table>';
   }
 ?>
-  <br/>
-  <span class="buttonS3" onclick="parent.window.close();">Fermer</span>
-</body>
-</html>

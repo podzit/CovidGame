@@ -119,6 +119,18 @@
       </div>
     <!-- Fin game over -->
 
+    <!-- Popin high score -->
+      <div id="scorespop" class="parentDisableScores">
+        <div class="popinscores">
+            <div class="scores">
+                <h2 style="text-align: center;"> High Score </h2>
+                <?php include 'scorespopin.php';?>
+                <span id="closescores" class="buttonS3">Fermer</span>
+            </div>
+        </div>
+      </div>
+    <!-- Fin popin high score -->
+
     <!-- Popin règles du jeu -->
       <div id="pop1" class="parentDisable">
         <div class="popin">
@@ -241,7 +253,8 @@
     <!-- FOOTER -->
     <footer>
         <a href="https://github.com/podzit/CovidGame" class="buttonS2" target="_blank">Contribuer à ce site</a> | 
-        <a href="scorespop.php" class="buttonS2" target="popup" onclick="window.open('scorespop.php','popup','width=400,height=550px'); return false;">High Score</a> | 
+        <span id="buttonscores" class="buttonS2">High Score</span> | 
+        <!--<a href="scorespop.php" class="buttonS2" target="popup" onclick="window.open('scorespop.php','popup','width=400,height=550px'); return false;">High Score</a> | -->
         <span id="popin" class="buttonS2">Règles du jeu</span> | 
         <span id="buttonpropcarte" class="buttonS2">Proposer une carte</span>
     </footer>
