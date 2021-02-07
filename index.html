@@ -10,11 +10,14 @@
 
       gtag('config', 'G-GNMWL78TM7');
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!---FIN DU SCRIPT GOOGLE ANALYTICS-->
     <title>***Covid Game v3.0***</title>
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="assets/main.css">
-    <link rel="stylesheet" href="assets/carte.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/carte.css">
+    <link rel="stylesheet" href="assets/css/jeu.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
     <meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:title" content="CovidGame" />
@@ -49,40 +52,48 @@
       <h1><span class="buttontitre" id="buttontitre">Covid Game</span></h1>
       <div id = "poche" class="poche">Ta poche: 50$</div>
 
-    <!-- Boutons de mises -->
-        <button id ="mise1">1$
-        </button>
-        <button id ="mise2">2$
-        </button>
-        <button id ="mise5">5$
-        </button>
-        <button id ="mise10">10$
-        </button>
-        <button class="stop" id ="stop">Stop
-        </button>
-    <!-- Fin boutons de mises -->
+      <!-- Boutons de mises -->
+      <button id ="mise1">1$</button>
+      <button id ="mise2">2$</button>
+      <button id ="mise5">5$</button>
+      <button id ="mise10">10$</button>
+      <button class="stop" id ="stop">Stop</button>
+      <!-- Fin boutons de mises -->
 
-    <!-- Jeu  -->
-      <div id="jeu" class="jeu">
-        <div class="side-left">Toi</div>
-        <div class="middle">VS</div>
-        <div class="side-right">L'ennemi</div>
-        <div class="flip-card-3D-wrapper">
-          <div id="flip-card">
-            <div id="img-toi" class="carte-back-left"><img src="assets/img/back.png"></img></div>
+      <!-- Jeu  -->
+      <div id="jeu">
+        <section id="result-popup">
+          <div id="resultat"></div>
+          <div id="gain"></div>
+        </section>
+        <section>
+          <div class="deck">
+            <div class="player-name">Toi</div>
+            <div id="flip-card" class="flip-card-3D-wrapper">
+              <div id="img-toi" class="carte-back-left">
+                <img src="assets/img/back.png"/>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="flip-card-3D-wrapper2">
-          <div id="flip-card2">
-            <div id="img-ennemi" class="carte-back-right"><img src="assets/img/back.png"></img></div>
+          
+          <div id="vs">
+            <span class="fire">V</span>
+            <span class="burn">S</span>
           </div>
-        </div>
-        <div id="resultat" class="resultat"></div>
-        <div id="gain" class="gain"></div>
+
+          <div class="deck">
+            <div class="player-name">L'ennemi</div>
+            <div id="flip-card2" class="flip-card-3D-wrapper2">
+              <div id="img-ennemi" class="carte-back-right">
+                <img src="assets/img/back.png"/>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    <!-- Fin jeu  -->
+      <!-- Fin jeu  -->
 
-    <!-- Template carte -->
+      <!-- Template carte -->
       <div id="carte" class="carte">
         <div class="perso"></div>
         <div class="image"></div>
@@ -91,14 +102,14 @@
         <div class="info"></div>
         <div class="effet"></div>
       </div>
-    <!-- Fin template carte -->
+      <!-- Fin template carte -->
 
-    <!-- Formulaire high score -->
+      <!-- Formulaire high score -->
       <form id="form" action="scores.php" method="post" class="form">
         <div class="label">
           <label for="record" id="score"></label>
           <input type="hidden" id="record" name="record">
-      </div>
+        </div>
         <div class="label">
             <label for="name">Comment tu t'appelles champion ?</label>
             <br/>
@@ -106,20 +117,20 @@
         </div>
         <div class="button">
           <button type="submit">Enregistrer</button>
-      </div>
+        </div>
       </form>
-    <!-- Fin formulaire high score -->
+      <!-- Fin formulaire high score -->
 
-    <!-- Game over -->
+      <!-- Game over -->
       <div class="gameover" id="gameover">
         <h2 style="text-align: center;">GAME OVER</h2>
         <div id="phraseover"></div><br/>
         Tu retentes ta chance ou tu abandonnes?<br/>
         <button id="rejouer">REJOUER</button>
       </div>
-    <!-- Fin game over -->
+      <!-- Fin game over -->
 
-    <!-- Popin règles du jeu -->
+      <!-- Popin règles du jeu -->
       <div id="pop1" class="parentDisable">
         <div class="popin">
           <div class="regles">
