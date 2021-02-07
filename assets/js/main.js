@@ -3,7 +3,6 @@ import { phrase, over } from './constants/phrase.js';
 import { miselimit, mises, boutons, afficheCarte, no_jeu, flipCartes } from './constants/affichage.js';
 import { DOM_audiowin, DOM_audioloose, DOM_audiocarte, DOM_aide, DOM_form, DOM_gameover, DOM_pop1, DOM_propcarte, DOM_stop, DOM_mise1, DOM_mise2, DOM_mise5, DOM_mise10 } from './constants/affichage.js'; 
 
-var replay = 0;
 var win = 0;
 var mise = 0;
 var gain = 0;
