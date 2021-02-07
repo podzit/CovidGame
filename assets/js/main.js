@@ -55,13 +55,6 @@ document.getElementById("buttonpropcarte").onclick = function() {
 
 document.getElementById("buttontitre").onclick = function(){window.location = "index.php";}
 
-// Récupération formulaire proposition de carte
-document.getElementById("persosimu").innerHTML = `${document.forms[propcarte].elements[nomperso]}`;
-document.getElementById("forcesimu").innerHTML = `${document.forms[propcarte].elements[force]}`;
-document.getElementById("bandeausimu").innerHTML = `${document.forms[propcarte].elements[guilde]} / ${document.forms[propcarte].elements[groupe]}`;
-document.getElementById("infosimu").innerHTML = `${document.forms[propcarte].elements[infos]}`;
-document.getElementById("effetsimu").innerHTML = `${document.forms[propcarte].elements[effet]}`;
-
 // Déclaration de la fonction jeu
 function jeu(tour) {
   
