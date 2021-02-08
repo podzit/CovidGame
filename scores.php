@@ -17,8 +17,8 @@
 		<title>Covid Game v3.2</title>
 		<link rel="icon" href="favicon.ico" />
 		<link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/carte.css">
-  <link rel="stylesheet" href="assets/css/jeu.css">
+  <link rel="stylesheet" href="assets/css/card.css">
+  <link rel="stylesheet" href="assets/css/game.css">
   <link rel="stylesheet" href="assets/css/animation.css">
 		<meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
 		<meta property="og:image:type" content="image/jpeg">
@@ -27,7 +27,7 @@
 		<meta property="og:url" content="https://covidgame.fun" />
 		<meta property="og:description" content="Qui des comploteurs ou des complotistes vaincront ?" />
 		<meta name="Content-Language" content="fr">
-		<meta name="Description" content="Jeu en ligne pour rigoler autour du Covid19">
+		<meta name="Description" content="Jeu en line pour rigoler auround du Covid19">
 		<meta name="Keywords" content="jeu;france;fr;cartes;covid19;covid;complots;humour;nouvelordremondial;complistes;comploteurs;raoult;hydroxychloroquine;vaccin;masque;illuminatis;Qanon;Deepstate">
 		<meta name="Subject" content="CovidGame">
 		<meta name="Copyright" content="PodzIT 2020">
@@ -48,64 +48,64 @@
 		<main>
 
 			<h1>Covid Game</h1>
-			<div class="jeu">
+			<div class="game">
 				<h2> High Score </h2>
 
 				<?php
 
-				// définition des variables
+				// Values
 				$file = 'assets/scores.csv';
-				$taille = 1024;
-				$delimiteur = ",";
-				$tour = 0;
+				$length = 1024;
+				$delimiter = ",";
+				$round = 0;
 				$end = 10;
 				$tab = array();
 
-				// récupération des valeurs du formulaire
+				// Get form values
 				$name = htmlspecialchars($_POST['name']);
 				$record = htmlspecialchars($_POST['record']);
 
-				// création d'un array
+				// Array construction
 				$data = array(
 					array($name, $record)
 				);
 
-				// écriture dans le fichier
+				// File writing
 				if (!empty($record)){
 					if ($f = @fopen($file, 'a')) {
-						foreach ($data as $ligne) {
-							fputcsv($f, $ligne);
+						foreach ($data as $line) {
+							fputcsv($f, $line);
 						}
 						fclose($f);
 					}
 					else {
-						echo "Impossible d'acc&eacute;der au fichier.";
+						echo "Impossible d'acc&eacute;der au file.";
 					}
 				}
 
-				// lecture du fichier
-				$fichier = fopen($file, "r");
-				while (($data = fgetcsv($fichier, $taille, $delimiteur)) !== FALSE)
+				// file reading
+				$file = fopen($file, "r");
+				while (($data = fgetcsv($file, $length, $delimiter)) !== FALSE)
 				{
 					$rand = random_int(1,2500);
-					$tab[$rand]['nom'] = $data[0];
+					$tab[$rand]['name'] = $data[0];
 					$tab[$rand]['record'] = $data[1];
 				}
-				fclose($fichier);
+				fclose($file);
 
-				// tri décroissant des valeurs
+				// Values desc sort
 				array_multisort( array_column($tab, "record"), SORT_DESC, $tab );
 
-				// affichage des scores
+				// Scores displaying
 				if(isset($tab) && is_array($tab) && count($tab) > 0)
 				{
 					echo '<table class="center">';
 					foreach ($tab as $key => $value) { 
-						$tour++;
+						$round++;
 						echo '<tr>';
-						echo '<td>'.$value['nom'].'</td><td class="vide"></td><td class="record">'.$value['record'].'</td>';
+						echo '<td>'.$value['name'].'</td><td class="empty"></td><td class="record">'.$value['record'].'</td>';
 						echo '</tr>';
-						if ($tour == $end) break;
+						if ($round == $end) break;
 					}
 					echo '</table>';
 				}

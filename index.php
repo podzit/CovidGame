@@ -9,13 +9,13 @@
             gtag('js', new Date());
             gtag('config', 'G-GNMWL78TM7');
         </script>
-        <!---FIN DU SCRIPT GOOGLE ANALYTICS-->
+        <!--- GOOGLE ANALYTICS END -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Covid Game v3.2</title>
         <link rel="icon" href="favicon.ico" />
         <link rel="stylesheet" href="assets/css/main.css">
-        <link rel="stylesheet" href="assets/css/carte.css">
-        <link rel="stylesheet" href="assets/css/jeu.css">
+        <link rel="stylesheet" href="assets/css/card.css">
+        <link rel="stylesheet" href="assets/css/game.css">
         <link rel="stylesheet" href="assets/css/animation.css">
         <meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
         <meta property="og:image:type" content="image/jpeg">
@@ -40,36 +40,36 @@
     </head>
     <body>
 
-        <!-- Balises audio -->
-        <audio id="audiowin"><source src="assets/audiowin.ogg" type="audio/ogg"></audio>
-        <audio id="audioloose"><source src="assets/audioloose.ogg" type="audio/ogg"></audio>
-        <audio id="audiocarte"><source src="assets/swoosh.ogg" type="audio/ogg"></audio>
-        <!-- Fin balises audio -->
+        <!-- Audio -->
+        <audio id="audioWin"><source src="assets/audiowin.ogg" type="audio/ogg"></audio>
+        <audio id="audioLoose"><source src="assets/audioloose.ogg" type="audio/ogg"></audio>
+        <audio id="audioCard"><source src="assets/swoosh.ogg" type="audio/ogg"></audio>
+        <!-- Audio's end -->
 
         <main>
 
-            <h1><span class="buttontitre" id="buttontitre">Covid Game</span></h1>
-            <div id = "poche" class="poche">Ta poche: 50$</div>
+            <h1><span class="titleButton" id="titleButton">Covid Game</span></h1>
+            <div id = "pocket" class="pocket">Ta poche: 50$</div>
 
-            <!-- Boutons de mises -->
-            <button id ="mise1">1$</button>
-            <button id ="mise2">2$</button>
-            <button id ="mise5">5$</button>
-            <button id ="mise10">10$</button>
+            <!-- Bet's buttons -->
+            <button id ="bet1">1$</button>
+            <button id ="bet2">2$</button>
+            <button id ="bet5">5$</button>
+            <button id ="bet10">10$</button>
             <button class="stop" id ="stop">Stop</button>
-            <!-- Fin boutons de mises -->
+            <!-- Bet's buttons's end -->
 
-            <!-- Jeu  -->
-            <div id="jeu">
-                <section id="result-popup">
-                    <div id="resultat"></div>
+            <!-- Game  -->
+            <div id="game">
+                <section id="resultPopup">
+                    <div id="result"></div>
                     <div id="gain"></div>
                 </section>
                 <section>
                     <div class="deck">
-                        <div class="player-name">Toi</div>
-                        <div id="flip-card" class="flip-card-3D-wrapper">
-                        <div id="img-toi" class="carte-back-left">
+                        <div class="playerName">Toi</div>
+                        <div id="flipCard" class="flipCard3DWrapper">
+                        <div id="playerImage">
                             <img src="assets/img/back.png"/>
                         </div>
                         </div>
@@ -81,30 +81,30 @@
                     </div>
 
                     <div class="deck">
-                        <div class="player-name">L'ennemi</div>
-                        <div id="flip-card2" class="flip-card-3D-wrapper2">
-                        <div id="img-ennemi" class="carte-back-right">
+                        <div class="playerName">L'ennemi</div>
+                        <div id="flipCard2" class="flipCard3DWrapper2">
+                        <div id="ennemyImage">
                             <img src="assets/img/back.png"/>
                         </div>
                         </div>
                     </div>
                 </section>
             </div>
-            <!-- Fin jeu  -->
+            <!-- Game's end  -->
 
-            <!-- Template carte -->
-            <div id="carte" class="carte">
-                <div class="perso"></div>
+            <!-- Card template -->
+            <div id="card" class="card">
+                <div class="character"></div>
                 <div class="image"></div>
                 <div class="force"></div>
-                <div class="bandeau"></div>
+                <div class="band"></div>
                 <div class="info"></div>
-                <div class="effet"></div>
+                <div class="effect"></div>
             </div>
-            <!-- Fin template carte -->
+            <!-- Card template'end -->
 
-            <!-- Formulaire high score -->
-            <form id="form" action="scores.php" method="post" class="form">
+            <!-- High score form-->
+            <form id="formRecord" action="scores.php" method="post" class="formRecord">
 
                 <div class="label">
                     <label for="record" id="score"></label>
@@ -122,33 +122,33 @@
                 </div>
 
             </form>
-            <!-- Fin formulaire high score -->
+            <!-- High score form's end-->
 
             <!-- Game over -->
-            <div class="gameover" id="gameover">
+            <div class="gameOver" id="gameOver">
                 <h2 style="text-align: center;">GAME OVER</h2>
-                <div id="phraseover"></div><br/>
+                <div id="overWords"></div><br/>
                 Tu retentes ta chance ou tu abandonnes?<br/>
                 <button id="rejouer">REJOUER</button>
             </div>
-            <!-- Fin game over -->
+            <!-- Game over's end -->
 
-            <!-- Popin high score -->
-            <div id="scorespop" class="parentDisableScores">
-                <div class="popinscores">
+            <!-- High score pop-in-->
+            <div id="scoresPop" class="parentDisableScores">
+                <div class="popinScores">
                     <div class="scores">
                         <h2 style="text-align: center;"> High Score </h2>
-                        <?php include 'scorespopin.php';?>
-                        <span id="closescores" class="buttonS3">Fermer</span>
+                        <?php include 'scoresPopin.php';?>
+                        <span id="closeScores" class="buttonS3">Fermer</span>
                     </div>
                 </div>
             </div>
-            <!-- Fin popin high score -->
+            <!-- High score pop-in's end -->
 
-            <!-- Popin règles du jeu -->
-            <div id="pop1" class="parentDisable">
-                <div class="popin">
-                    <div class="regles">
+            <!-- Rules pop-in -->
+            <div id="rulesPop" class="parentDisable">
+                <div class="rulesPop">
+                    <div class="rules">
                         <h2 style="text-align: center;">~ Règles du jeu ~</h2>
                         <h3>Le départ</h3>
                         Tu démarres avec 50$ en poche (ouais c'est radin et alors?) et dois miser pour lancer le jeu.<br/>
@@ -168,24 +168,24 @@
                         La maison ne fait pas crédit donc le jeu s'arrête quand ta poche atteint 0$.<br/>
                         <h2 style="text-align: center;">Bonne chance !</h2>
                     </div>
-                    <span id="closepop" class="buttonS3">Fermer</span>
+                    <span id="closeRules" class="buttonS3">Fermer</span>
                 </div>
             </div>
-            <!-- Fin popin règles du jeu -->
+            <!-- Rules pop-in's end -->
 
-            <!-- Formulaire proposition de carte -->
-            <form id="propcarte" name="propcarte" method="post" class="propcarte">
+            <!-- Form card proposition -->
+            <form id="cardProp" name="cardProp" method="post" class="cardProp">
 
                 <br/>
                 La proposition doit citer une personne connue, doit être drôle et sans insultes.<br/>
                 Le bouton "Envoyer" la soumet à l'administrateur.<br/>
                 Les champs avec une étoile sont obligatoires.<br/>
-                <span id="buttonaide" class="buttonS2">aide</span>
+                <span id="helpButton" class="buttonS2">aide</span>
                 <br/>
 
                 <div class="label">
-                    <label for="nomperso">Nom du personnage * </label>
-                    <input type="text" id="nomperso" name="nomperso" required="required" pattern="[A-Za-z0-9 éèà]{1,20}" maxlength="20"></input>
+                    <label for="characterName">Nom du personnage * </label>
+                    <input type="text" id="characterName" name="characterName" required="required" pattern="[A-Za-z0-9 éèà]{1,20}" maxlength="20"></input>
                 </div>
 
                 <div class="label">
@@ -204,16 +204,16 @@
                 </div>
 
                 <div class="label">
-                    <label for="guilde">Guilde</label>
-                    <select class="select" id="guilde" name="guilde">
+                    <label for="guild">Guilde</label>
+                    <select class="select" id="guild" name="guild">
                         <option value="comploteurs">Comploteurs</option>
                         <option value="complotistes">Complotistes</option>
                     </select>
                 </div>
 
                 <div class="label">
-                    <label for="groupe">Groupe</label>
-                    <select class="select" id="groupe" name="groupe">
+                    <label for="group">Groupe</label>
+                    <select class="select" id="group" name="group">
                         <option value="inutiles">Inutiles</option>
                         <option value="tueurs">Tueurs</option>
                         <option value="lobbies">Lobbies</option>
@@ -228,13 +228,13 @@
                 </div>
 
                 <div class="label">
-                    <label for="infos">Infos du personnage</label>
-                    <textarea id="infos" name="infos" pattern="[A-Za-z0-9]{1,100}" maxlength="100" rows="4" cols="50"></textarea>
+                    <label for="info">Infos du personnage</label>
+                    <textarea id="info" name="info" pattern="[A-Za-z0-9]{1,100}" maxlength="100" rows="4" cols="50"></textarea>
                 </div>
 
                 <div class="label">
-                    <label for="effets">Effet du personnage</label>
-                    <textarea id="effet" name="effet" pattern="[A-Za-z0-9]{1,100}" maxlength="100" rows="4" cols="50"></textarea>
+                    <label for="effect">Effet du personnage</label>
+                    <textarea id="effect" name="effect" pattern="[A-Za-z0-9]{1,100}" maxlength="100" rows="4" cols="50"></textarea>
                 </div> 
 
                 <div class="label">
@@ -248,22 +248,22 @@
                 </div>
 
                 <button type="submit"  value="mail" formaction="mail.php">Envoyer</button>
-                <button id="buttonsimule" value="simule" formaction="simule.php" onclick="propcarte.target='POPUPW'; POPUPW = window.open('about:blank','POPUPW','width=410,height=560');">Aperçu</button>
+                <button id="previewButton" value="preview" formaction="preview.php" onclick="cardProp.target='POPUPW'; POPUPW = window.open('about:blank','POPUPW','width=410,height=560');">Aperçu</button>
                 
             </form>
-            <!-- Fin de formulaire proposition de carte -->
+            <!-- Form card proposition's end -->
 
-            <!-- Popin aide -->
-            <div id="aide" class="parentDisableaide">
-                <div class="popinaide">
-                    <div class="aide">
+            <!-- Help pop-in -->
+            <div id="help" class="parentDisableHelp">
+                <div class="popinHelp">
+                    <div class="help">
                         <h2 style="text-align: center;">~ Détail des cartes ~</h2>
-                        <img src="assets/img/aide.png">
+                        <img src="assets/img/help.png">
                     </div>
-                    <span id="closeaide" class="buttonS3">Fermer</span>
+                    <span id="closeHelp" class="buttonS3">Fermer</span>
                 </div>
             </div>
-            <!-- Fin popin aide -->
+            <!-- Help pop-in's end -->
 
         </main>
 
@@ -271,9 +271,9 @@
         <footer>
 
             <a href="https://github.com/podzit/CovidGame" class="buttonS2" target="_blank">Contribuer à ce site</a> | 
-            <span id="buttonscores" class="buttonS2">High Score</span> | 
-            <span id="popin" class="buttonS2">Règles du jeu</span> | 
-            <span id="buttonpropcarte" class="buttonS2">Proposer une carte</span>
+            <span id="scoresButton" class="buttonS2">High Score</span> | 
+            <span id="rulesButton" class="buttonS2">Règles du jeu</span> | 
+            <span id="cardPropButton" class="buttonS2">Proposer une carte</span>
 
         </footer>
         <!-- FOOTER'S END -->

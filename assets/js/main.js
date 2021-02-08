@@ -1,213 +1,213 @@
 import { deck } from './constants/deck.js';
-import { phrase, over } from './constants/phrase.js';
-import { miselimit, mises, boutons, afficheCarte, no_jeu, flipCartes } from './constants/affichage.js';
-import { DOM_audiowin, DOM_audioloose, DOM_audiocarte, DOM_aide, DOM_form, DOM_gameover, DOM_pop1, DOM_propcarte, DOM_scorespop, DOM_stop, DOM_mise1, DOM_mise2, DOM_mise5, DOM_mise10 } from './constants/affichage.js'; 
+import { words, over } from './constants/words.js';
+import { betLimit, bets, buttons, cardDisplay, noGame, flipCards } from './constants/display.js';
+import { DOM_audioWin, DOM_audioLoose, DOM_audioCard, DOM_help, DOM_formRecord, DOM_gameOver, DOM_rulesPop, DOM_cardProp, DOM_scoresPop, DOM_stop, DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js'; 
 
 var win = 0;
-var mise = 0;
+var bet = 0;
 var gain = 0;
-var poche = 50;
-var hiscore = 50;
+var pocket = 50;
+var hiScore = 50;
 
-DOM_form.style.display = "none";
-DOM_propcarte.style.display = "none";
+DOM_formRecord.style.display = "none";
+DOM_cardProp.style.display = "none";
 DOM_stop.style.display = "none";
 
-// Affichage du formulaire record
+// Display record form
 function record() {
-  DOM_form.style.display = "block";
-  document.getElementById("score").innerHTML = `Ton meilleur score: ${hiscore}`;
-  document.getElementById("record").value = `${hiscore}`;
+  DOM_formRecord.style.display = "block";
+  document.getElementById("score").innerHTML = `Ton meilleur score: ${hiScore}`;
+  document.getElementById("record").value = `${hiScore}`;
 };
 
-// Appui sur les mises
-DOM_mise1.onclick = function () { jeu(mise = 1); };
-DOM_mise2.onclick = function () { jeu(mise = 2); };
-DOM_mise5.onclick = function () { jeu(mise = 5); };
-DOM_mise10.onclick = function () { jeu(mise = 10); };
+// Click on bet's buttons
+DOM_bet1.onclick = function () { game(bet = 1); };
+DOM_bet2.onclick = function () { game(bet = 2); };
+DOM_bet5.onclick = function () { game(bet = 5); };
+DOM_bet10.onclick = function () { game(bet = 10); };
 
-// Appui sur un bouton du footer
-document.getElementById("popin").onclick = function() {
-  DOM_pop1.style.display = "block"
+// Click on footer's buttons
+document.getElementById("rulesButton").onclick = function() {
+  DOM_rulesPop.style.display = "block"
 };
-document.getElementById("closepop").onclick = function() {
-  DOM_pop1.style.display = "none"
+document.getElementById("closeRules").onclick = function() {
+  DOM_rulesPop.style.display = "none"
 };
-document.getElementById("buttonscores").onclick = function() {
-  DOM_scorespop.style.display = "block"
+document.getElementById("scoresButton").onclick = function() {
+  DOM_scoresPop.style.display = "block"
 };
-document.getElementById("closescores").onclick = function() {
-  DOM_scorespop.style.display = "none"
+document.getElementById("closeScores").onclick = function() {
+  DOM_scoresPop.style.display = "none"
 };
-document.getElementById("buttonpropcarte").onclick = function() {
-  DOM_propcarte.style.display = "block";
-  no_jeu();
-  mises("none");
+document.getElementById("cardPropButton").onclick = function() {
+  DOM_cardProp.style.display = "block";
+  noGame();
+  bets("none");
   DOM_stop.style.display = "none";
-  DOM_gameover.style.display = "none";
-  document.getElementById("buttonaide").onclick = function(){
-    DOM_aide.style.display = "block"
+  DOM_gameOver.style.display = "none";
+  document.getElementById("helpButton").onclick = function(){
+    DOM_help.style.display = "block"
   };
-  document.getElementById("closeaide").onclick = function(){
-    DOM_aide.style.display = "none"
+  document.getElementById("closeHelp").onclick = function(){
+    DOM_help.style.display = "none"
   };
 };
 
-document.getElementById("buttontitre").onclick = function(){window.location = "index.php";}
+document.getElementById("titleButton").onclick = function(){window.location = "index.php";}
 
-// Déclaration de la fonction jeu
-function jeu(tour) {
+// Principal game function
+function game(round) {
   
-  document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
-  boutons("none","grey");
+  document.getElementById("pocket").innerHTML = `Ta poche: ${pocket}$`;
+  buttons("none","grey");
   document.getElementById("vs").style.display = "none";
 
-  // Son swoosh
-  DOM_audiocarte.play();
+  // Swoosh sound effect
+  DOM_audioCard.play();
 
-  // En cas de premier tour
-  if (tour == 1) {
+  // First round
+  if (round == 1) {
 
-    flipCartes();
+    flipCards();
 
-  // Tirage aléatoire des cartes
-    let [carteToi, carteEnnemi] = [
+  // Card random choice
+    let [playerCard, ennemyCard] = [
       deck[Math.floor(Math.random() * deck.length)],
       deck[Math.floor(Math.random() * deck.length)]
     ];
 
-  //pause pour retarder l'affichage des cartes
+  // Timeout to slow card display
     setTimeout(() => {  
-      afficheCarte(carteToi, document.getElementById("img-toi"));
-      afficheCarte(carteEnnemi, document.getElementById("img-ennemi"));
+      cardDisplay(playerCard, document.getElementById("playerImage"));
+      cardDisplay(ennemyCard, document.getElementById("ennemyImage"));
     }, 700);
 
-    let gagne = phrase.motVainqueur[Math.floor(Math.random() * phrase.motVainqueur.length)];
-    let perd = phrase.motPerdant[Math.floor(Math.random() * phrase.motPerdant.length)];
-    let action = phrase.verbe[Math.floor(Math.random() * phrase.verbe.length)];
-    let fin = over.moquerie[Math.floor(Math.random() * over.moquerie.length)];
+    let winner = words.winWord[Math.floor(Math.random() * words.winWord.length)];
+    let looser = words.looseWord[Math.floor(Math.random() * words.looseWord.length)];
+    let action = words.verb[Math.floor(Math.random() * words.verb.length)];
+    let end = over.mock[Math.floor(Math.random() * over.mock.length)];
 
-  // Résultats en fonction des cas
-    if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Complotistes') {
-      var result = `${gagne} ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
+  // Result conditions
+    if (playerCard.force > ennemyCard.force && playerCard.guild == 'Comploteurs' && ennemyCard.guild == 'Complotistes') {
+      var result = `${winner} ${playerCard.character} ${action} ${ennemyCard.character}`;
       win = 1;
-      gain = carteToi.force*(2*mise); 
+      gain = playerCard.force*(2*bet); 
     }
-    else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Comploteurs') {
-      result = `${gagne} Entre comploteurs, ${carteToi.perso} ${action} ${carteEnnemi.perso}`;
+    else if (playerCard.force > ennemyCard.force && playerCard.guild == 'Comploteurs' && ennemyCard.guild == 'Comploteurs') {
+      result = `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}`;
       win = 2;
-      gain = carteToi.force*mise;;
+      gain = playerCard.force*bet;;
     }
-    else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Comploteurs'){
-      result = `${gagne} Tu as vaincu l'élite pédophile satanique avec ${carteToi.perso}`;
+    else if (playerCard.force > ennemyCard.force && playerCard.guild == 'Complotistes' && ennemyCard.guild == 'Comploteurs'){
+      result = `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
       win = 1;
-      gain = carteToi.force*(2*mise);
+      gain = playerCard.force*(2*bet);
     }
-    else if (carteToi.force > carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Complotistes'){
-      result = `${gagne} ${carteEnnemi.perso} a succombé ! Tu es le survivant de ta guilde`;
+    else if (playerCard.force > ennemyCard.force && playerCard.guild == 'Complotistes' && ennemyCard.guild == 'Complotistes'){
+      result = `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
       win = 2;
-      gain = carteToi.force*mise;
+      gain = playerCard.force*bet;
     }
-    else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Comploteurs'){
-      result = `${perd} Le complot mondial t'${action} en utilisant ${carteEnnemi.perso}`;
+    else if (playerCard.force < ennemyCard.force && playerCard.guild == 'Complotistes' && ennemyCard.guild == 'Comploteurs'){
+      result = `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}`;
       win = 0;
-      gain = - (carteEnnemi.force*(2*mise));
+      gain = - (ennemyCard.force*(2*bet));
     }
-    else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Comploteurs'){
-      result = `${perd} ${carteEnnemi.perso} t'${action}! Trop de complot tue le complot`;
+    else if (playerCard.force < ennemyCard.force && playerCard.guild == 'Comploteurs' && ennemyCard.guild == 'Comploteurs'){
+      result = `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot`;
       win = 2;
-      gain = - (carteEnnemi.force*mise);
+      gain = - (ennemyCard.force*bet);
     }
-    else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Comploteurs' && carteEnnemi.categorie == 'Complotistes'){
-      result = `${perd} ${carteEnnemi.perso} ${action} ${carteToi.perso}`;
+    else if (playerCard.force < ennemyCard.force && playerCard.guild == 'Comploteurs' && ennemyCard.guild == 'Complotistes'){
+      result = `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
       win = 0;
-      gain = - (carteEnnemi.force*(2*mise));
+      gain = - (ennemyCard.force*(2*bet));
     }
-    else if (carteToi.force < carteEnnemi.force && carteToi.categorie == 'Complotistes' && carteEnnemi.categorie == 'Complotistes'){
-      result = `${perd} Entre complotistes, ${carteEnnemi.perso} ${action} ${carteToi.perso}`;
+    else if (playerCard.force < ennemyCard.force && playerCard.guild == 'Complotistes' && ennemyCard.guild == 'Complotistes'){
+      result = `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
       win = 2;
-      gain = - (carteEnnemi.force*mise);
+      gain = - (ennemyCard.force*bet);
     }
     else{
-      result = `Match nul: Personne n'est sorti vivant de ce duel`;
+      result = `Match nul: characternne n'est sorti vivant de ce duel`;
       win = 2;
-      gain = - mise;
+      gain = - bet;
     };
 
-  // temporisation de l'affichage
+  // Display slower
     setTimeout(() => {  
 
-  // réactivation des boutons
-      boutons("auto","#4CAF50");
+  // Enabling bets buttons
+      buttons("auto","#4CAF50");
 
-  // Affichage des résultats
-      document.getElementById("resultat").innerHTML = `${result}`;
+  // Result displaying
+      document.getElementById("result").innerHTML = `${result}`;
 
-  // Affichage des gains
+  // Gain displaying
       if (gain < 0){
         document.getElementById("gain").innerHTML = `Perte ${gain}$`;
       }
       else {
         document.getElementById("gain").innerHTML = `Gain ${gain}$`;
-        if (hiscore < (gain + poche)){
-          hiscore = gain + poche;
+        if (hiScore < (gain + pocket)){
+          hiScore = gain + pocket;
         }
       };
   
-      poche = gain + poche;
-      document.getElementById("poche").innerHTML = `Ta poche: ${poche}$`;
+      pocket = gain + pocket;
+      document.getElementById("pocket").innerHTML = `Ta poche: ${pocket}$`;
       
-      jQuery('#result-popup').slideDown();
-      jQuery('#result-popup').fadeOut(5000);
+      jQuery('#resultPopup').slideDown();
+      jQuery('#resultPopup').fadeOut(5000);
 
-  // appuie sur le bouton stop
+  // Click on stop button
       document.getElementById("stop").onclick = function () {
-        mises("none");
-        no_jeu();
+        bets("none");
+        noGame();
         record()
       };
 
-  // Son en fonction
-      if (win == 0) {DOM_audioloose.play();}
-      else if (win == 1) {DOM_audiowin.play ();}
+  // Audio conditions
+      if (win == 0) {DOM_audioLoose.play();}
+      else if (win == 1) {DOM_audioWin.play ();}
     }, 710);
 
   // Game Over
     setTimeout (() => {
-      if (poche <= 0 && poche < 2 && poche < 5 && poche < 10) {
-        mises("none");
+      if (pocket <= 0 && pocket < 2 && pocket < 5 && pocket < 10) {
+        bets("none");
         setTimeout(() => {
-          no_jeu();
-          if (hiscore >= 500){
+          noGame();
+          if (hiScore >= 500){
             record();
           }
           else {
-            DOM_gameover.style.display = "block";
-            document.getElementById("phraseover").innerHTML = `${fin}`;
+            DOM_gameOver.style.display = "block";
+            document.getElementById("overWords").innerHTML = `${end}`;
             document.getElementById("rejouer").onclick = function () {location.reload()};
           };
         }, 500);  
       }
 
-  // Affichage des boutons de mise en fonction du montant de la poche
-      else if (poche < 2 && poche < 5 && poche < 10) {
-        miselimit(1);
+  // Bets buttons displaying conditions
+      else if (pocket < 2 && pocket < 5 && pocket < 10) {
+        betLimit(1);
       }
 
-      else if (poche >= 2 && poche < 5 && poche < 10) {
-        miselimit(2);
+      else if (pocket >= 2 && pocket < 5 && pocket < 10) {
+        betLimit(2);
       }
 
-      else if (poche >= 2 && poche >= 5 && poche < 10) {
-        miselimit(5);
+      else if (pocket >= 2 && pocket >= 5 && pocket < 10) {
+        betLimit(5);
       }
 
-      else if (poche >= 2 && poche >= 5 && poche >= 10) {
-        miselimit(10);
+      else if (pocket >= 2 && pocket >= 5 && pocket >= 10) {
+        betLimit(10);
       };
 
-  // affichage bouton stop
-      if (poche >= 500) {
+  // Stop button displaying condition
+      if (pocket >= 500) {
         DOM_stop.style.display = "inline-block";
       }
       else {
@@ -216,16 +216,16 @@ function jeu(tour) {
 
     }, 1000);
 
-  // Permet d'indiquer que ce n'est plus le premier tour
-  tour = 2;
+  // Set round 2
+  round = 2;
   }
 
-  // En cas de deuxième tour affichage du dos des cartes dans le flip
+  // Back card in flip effect starting round 2
   else {
     setTimeout(() => {
-    document.getElementById("img-toi").innerHTML = `<img src="assets/img/back.png"></img>`;
-    document.getElementById("img-ennemi").innerHTML = `<img src="assets/img/back.png"></img>`;
+    document.getElementById("playerImage").innerHTML = `<img src="assets/img/back.png"></img>`;
+    document.getElementById("ennemyImage").innerHTML = `<img src="assets/img/back.png"></img>`;
     }, 345);
-    jeu(1);
+    game(1);
   };
 };

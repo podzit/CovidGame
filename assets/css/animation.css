@@ -1,18 +1,18 @@
-.flip-card-3D-wrapper {
+.flipCard3DWrapper {
   -o-perspective: 1200px;
   -webkit-perspective: 1200px;
   -ms-perspective: 1200px;
   perspective: 1200px;
 }
 
-.flip-card-3D-wrapper2 {
+.flipCard3DWrapper2 {
   -o-perspective: 1200px;
   -webkit-perspective: 1200px;
   -ms-perspective: 1200px;
   perspective: 1200px;
 }
 
-#flip-card {
+#flipCard {
   -o-transition: all 1s ease-in-out;
   -webkit-transition: all 1s ease-in-out;
   -ms-transition: all 1s ease-in-out;
@@ -23,7 +23,7 @@
   transform-style: preserve-3d;
 }
 
-#flip-card2 {
+#flipCard2 {
   -o-transition: all 1s ease-in-out;
   -webkit-transition: all 1s ease-in-out;
   -ms-transition: all 1s ease-in-out;
@@ -34,14 +34,14 @@
   transform-style: preserve-3d;
 }
 
-.do-flip {
+.doFlip {
   -o-transform: rotateY(-360deg);
   -webkit-transform: rotateY(-360deg);
   -ms-transform: rotateY(-360deg);
   transform: rotateY(-360deg);
 }
 
-.do-flip2 {
+.doFlip2 {
   -o-transform: rotateY(-360deg);
   -webkit-transform: rotateY(-360deg);
   -ms-transform: rotateY(-360deg);

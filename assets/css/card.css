@@ -1,4 +1,4 @@
-.carte {
+.card {
   display: none;
   width: 380px;
   height: 540px;
@@ -12,14 +12,14 @@
   font-weight: lighter;
 }
 
-.carte .perso {
+.card .character {
   position: absolute;
   margin-top: 26px;
   margin-left: 28px;
   font-size: 18px;
   font-weight: bolder;
 }
-.carte .image {
+.card .image {
   position: absolute;
   margin-top: 57px;
   margin-left: 26px;
@@ -29,7 +29,7 @@
   background-size: cover;
   padding-bottom: 10px;
 }
-.carte .force {
+.card .force {
   position: absolute;
   margin-top: 24px;
   margin-left: 333px;
@@ -42,13 +42,13 @@
   color: white;
   line-height: 12px;
 }
-.carte .bandeau {
+.card .band {
   position: absolute;
   margin-top: 308px;
   margin-left: 30px;
   font-size: 17px;
 }
-.carte .info {
+.card .info {
   font-size: 16px;
   position: absolute;
   margin-top: 350px;
@@ -56,7 +56,7 @@
   width: 324px;
   text-align: left;
 }
-.carte .effet {
+.card .effect {
   position: absolute;
   margin-top: 420px;
   font-size: 16px;
@@ -65,13 +65,13 @@
   text-align: left;
 }
 
-.carte .force-1 { background-color: #34008b; }
-.carte .force-2 { background-color: #390099; }
-.carte .force-3 { background-color: #6C0079; }
-.carte .force-4 { background-color: #9E0059; }
-.carte .force-5 { background-color: #CF0057; }
-.carte .force-6 { background-color: #FF0054; }
-.carte .force-7 { background-color: #FF2A2A; }
-.carte .force-8 { background-color: #FF5400; }
-.carte .force-9 { background-color: #FF8900; }
-.carte .force-10 { background-color: #FFBD00; color: black; }
+.card .force-1 { background-color: #34008b; }
+.card .force-2 { background-color: #390099; }
+.card .force-3 { background-color: #6C0079; }
+.card .force-4 { background-color: #9E0059; }
+.card .force-5 { background-color: #CF0057; }
+.card .force-6 { background-color: #FF0054; }
+.card .force-7 { background-color: #FF2A2A; }
+.card .force-8 { background-color: #FF5400; }
+.card .force-9 { background-color: #FF8900; }
+.card .force-10 { background-color: #FFBD00; color: black; }

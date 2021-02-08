@@ -1,4 +1,4 @@
-#jeu {
+#game {
   width: 900px;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.6);
@@ -6,16 +6,16 @@
   border-radius: 12px;
 }
 
-#jeu section:last-of-type {
+#game section:last-of-type {
   color: white;
   display: flex;
   justify-content: space-around;
 }
-#jeu section:last-of-type .player-name {
+#game section:last-of-type .playerName {
   padding: 10px;
 }
 
-#jeu #vs {
+#game #vs {
   display: flex;
   position: relative;
   top: 200px;
@@ -30,7 +30,7 @@
   border-radius: 150px;
 }
 
-#jeu section:first-of-type {
+#game section:first-of-type {
   display: none;
   color: white;
   background-color: black;

@@ -12,13 +12,13 @@
     gtag('js', new Date());
     gtag('config', 'G-GNMWL78TM7');
     </script>
-    <!---FIN DU SCRIPT GOOGLE ANALYTICS-->
+    <!---SCRIPT GOOGLE ANALYTICS'S END-->
 
     <title>Covid Game v3.2</title>
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/carte.css">
-    <link rel="stylesheet" href="assets/css/jeu.css">
+    <link rel="stylesheet" href="assets/css/card.css">
+    <link rel="stylesheet" href="assets/css/game.css">
     <link rel="stylesheet" href="assets/css/animation.css">
     <meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
     <meta property="og:image:type" content="image/jpeg">
@@ -48,33 +48,33 @@
     <main>
 
       <h1>Covid Game</h1>
-      <div class="jeu">
+      <div class="game">
 
         <?php
 
-        // variables
-        $destinataire = 'contact@covidgame.fun';
-        $message_envoye = "Ta proposition de carte a bien été envoyée !<br> Si elle est acceptée tu recevras un mail.";    
-        $message_non_envoye = "L'envoi de ta proposition a échoué.";
+        // Values
+        $recipient = 'contact@covidgame.fun';
+        $sentMessage = "Ta proposition de carte a bien été envoyée !<br> Si elle est acceptée tu recevras un mail.";    
+        $errorMessage = "L'envoi de ta proposition a échoué.";
 
-        // Cette fonction sert à vérifier la syntaxe d'un email
+        // Email syntax verification
         function IsEmail($email)    
         {
           $value = preg_match('/^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9_](?:[a-zA-Z0-9_\-](?!\.)){0,61}[a-zA-Z0-9_-]?\.)+[a-zA-Z0-9_](?:[a-zA-Z0-9_\-](?!$)){0,61}[a-zA-Z0-9_]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/', $email);    	
           return (($value === 0) || ($value === false)) ? false : true;
         };
 
-        // récupération des valeurs du formulaire
-        $nomperso = $_POST['nomperso'];
+        // Get form values
+        $characterName = $_POST['characterName'];
         $force = $_POST['force'];
-        $guilde = $_POST['guilde'];
-        $groupe = $_POST['groupe'];
-        $infos = $_POST['infos'];
-        $effet = $_POST['effet'];
+        $guild = $_POST['guild'];
+        $group = $_POST['group'];
+        $info = $_POST['info'];
+        $effect = $_POST['effect'];
         $email = $_POST['email'];
         $captcha = $_POST['captcha'];
 
-        // Vérification de la question captcha
+        // Captcha verification
         if ($captcha == 5)
         {
           $captcha = true;
@@ -83,32 +83,32 @@
           $captcha = false;
         }
 
-        // Vérification l'email
+        // Email verification
         $email = (IsEmail($email)) ? $email : '';
 
-        // Mise en forme du message avec les variables récupérées
-        $message = 'Nom du perso: <b>'.$nomperso.'</b><br>Force: <b>' .$force. '</b><br>Guilde: <b>' .$guilde. '</b><br>Groupe: <b>' .$groupe. '</b><br>Infos: <b>' .$infos. '</b><br>Effet: <b>' .$effet. "</b>\r\n";
+        // Message construction with values
+        $message = 'Nom du perso: <b>'.$characterName.'</b><br>Force: <b>' .$force. '</b><br>Guilde: <b>' .$guild. '</b><br>Groupe: <b>' .$group. '</b><br>Infos: <b>' .$info. '</b><br>Effet: <b>' .$effect. "</b>\r\n";
 
-        // Génération des entêtes et du mail	
+        // Headers construction	
         if ($captcha)
         {
           $headers  = 'From:'.$email. "\r\n";
           $headers .= "MIME-version: 1.0\n";
           $headers .= "Content-type: text/html; charset= iso-8859-1\n";
 
-          // Remplacement de certains caractères spéciaux
+          // Strings replacement
           $message = html_entity_decode($message);
           $message = str_replace('&#039;',"'",$message);
           $message = str_replace('&#8217;',"'",$message);
 
-          // Envoi du mail		
-          $objet = "Nouvelle carte";
-          mail($destinataire, $objet, utf8_decode($message), $headers); 		
-          echo '<p>'.$message_envoye.'</p>';
+          // Mail sending	
+          $object = "Nouvelle carte";
+          mail($recipient, $object, utf8_decode($message), $headers); 		
+          echo '<p>'.$sentMessage.'</p>';
         }
         else
         {
-          echo '<p>'.$message_non_envoye.'</p>';
+          echo '<p>'.$errorMessage.'</p>';
         }
 
         ?>

@@ -1,6 +1,6 @@
 
-export const phrase = {
-  motVainqueur: [
+export const words = {
+  winWord: [
     'Wahou!',
     'Super!',
     'Great!',
@@ -11,7 +11,7 @@ export const phrase = {
     'Bien joué!',
     'Et bim!'
   ],
-  motPerdant: [
+  looseWord: [
     'Looser!',
     'Boooo!',
     'Oups!',
@@ -22,7 +22,7 @@ export const phrase = {
     'Zut!',
     'Ouch!'
   ],
-  verbe: [
+  verb: [
     'a buté',
     'a trucidé',
     'a défoncé',
@@ -75,7 +75,7 @@ export const phrase = {
   ]
 };
 export const over = {
-  moquerie: [
+  mock: [
   `Tu as perdu tout ton argent !`,
   `C'est ça quand on joue n'importe comment !`,
   `Tu l'as fait exprès ?`,
