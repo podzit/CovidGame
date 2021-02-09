@@ -104,7 +104,7 @@ export function buttons(pointerevents,color) {
 }
 
 export function cardDisplay({ guild, group, force, fileName, character, info, effect }, DOM_player) {
-
+  
   // Delete old card
   DOM_player.innerHTML = "";
 
