@@ -129,7 +129,7 @@
                 <h2 style="text-align: center;">GAME OVER</h2>
                 <div id="overWords"></div><br/>
                 Tu retentes ta chance ou tu abandonnes?<br/>
-                <button id="rejouer">REJOUER</button>
+                <button id="replay">REJOUER</button>
             </div>
             <!-- Game over's end -->
 

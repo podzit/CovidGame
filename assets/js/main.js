@@ -88,48 +88,48 @@ function game(round) {
     let end = over.mock[Math.floor(Math.random() * over.mock.length)];
 
   // Result conditions
-    if (playerCard.force > ennemyCard.force && playerCard.guild == 'Comploteurs' && ennemyCard.guild == 'Complotistes') {
-      var result = `${winner} ${playerCard.character} ${action} ${ennemyCard.character}`;
-      win = 1;
-      gain = playerCard.force*(2*bet); 
-    }
-    else if (playerCard.force > ennemyCard.force && playerCard.guild == 'Comploteurs' && ennemyCard.guild == 'Comploteurs') {
-      result = `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}`;
-      win = 2;
-      gain = playerCard.force*bet;;
-    }
-    else if (playerCard.force > ennemyCard.force && playerCard.guild == 'Complotistes' && ennemyCard.guild == 'Comploteurs'){
-      result = `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
+    if (playerCard.force > ennemyCard.force && playerCard.guild != ennemyCard.guild) {
       win = 1;
       gain = playerCard.force*(2*bet);
+      if (playerCard.guild == 'Comploteurs'){
+        var result = `${winner} ${playerCard.character} ${action} ${ennemyCard.character}`;
+      }
+      else {
+        result = `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
+      };
     }
-    else if (playerCard.force > ennemyCard.force && playerCard.guild == 'Complotistes' && ennemyCard.guild == 'Complotistes'){
-      result = `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
+    else if (playerCard.force > ennemyCard.force && playerCard.guild == ennemyCard.guild) {
       win = 2;
       gain = playerCard.force*bet;
+      if (playerCard.guild == 'Comploteurs'){
+        result = `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}`;
+      }
+      else {
+        result = `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
+      };
     }
-    else if (playerCard.force < ennemyCard.force && playerCard.guild == 'Complotistes' && ennemyCard.guild == 'Comploteurs'){
-      result = `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}`;
+    else if (playerCard.force < ennemyCard.force && playerCard.guild != ennemyCard.guild){
       win = 0;
       gain = - (ennemyCard.force*(2*bet));
+      if (ennemyCard.guild == 'Comploteurs') {
+        result = `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}`;
+      }
+      else {
+        result = `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
+      };
     }
-    else if (playerCard.force < ennemyCard.force && playerCard.guild == 'Comploteurs' && ennemyCard.guild == 'Comploteurs'){
-      result = `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot`;
+    else if (playerCard.force < ennemyCard.force && playerCard.guild == ennemyCard.guild){
       win = 2;
       gain = - (ennemyCard.force*bet);
+      if (ennemyCard.guild == 'Comploteurs') {
+        result = `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot`;
+      }
+      else {
+        result = `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
+      };
     }
-    else if (playerCard.force < ennemyCard.force && playerCard.guild == 'Comploteurs' && ennemyCard.guild == 'Complotistes'){
-      result = `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
-      win = 0;
-      gain = - (ennemyCard.force*(2*bet));
-    }
-    else if (playerCard.force < ennemyCard.force && playerCard.guild == 'Complotistes' && ennemyCard.guild == 'Complotistes'){
-      result = `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
-      win = 2;
-      gain = - (ennemyCard.force*bet);
-    }
-    else{
-      result = `Match nul: characternne n'est sorti vivant de ce duel`;
+    else {
+      result = `Match nul: personne n'est sorti vivant de ce duel`;
       win = 2;
       gain = - bet;
     };
@@ -184,7 +184,7 @@ function game(round) {
           else {
             DOM_gameOver.style.display = "block";
             document.getElementById("overWords").innerHTML = `${end}`;
-            document.getElementById("rejouer").onclick = function () {location.reload()};
+            document.getElementById("replay").onclick = function () {location.reload()};
           };
         }, 500);  
       }
