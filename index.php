@@ -41,9 +41,9 @@
     <body>
 
         <!-- Audio -->
-        <audio id="audioWin"><source src="assets/audiowin.ogg" type="audio/ogg"></audio>
-        <audio id="audioLoose"><source src="assets/audioloose.ogg" type="audio/ogg"></audio>
-        <audio id="audioCard"><source src="assets/swoosh.ogg" type="audio/ogg"></audio>
+        <audio id="audioWin"><source src="assets/audio/audiowin.ogg" type="audio/ogg"></audio>
+        <audio id="audioLoose"><source src="assets/audio/audioloose.ogg" type="audio/ogg"></audio>
+        <audio id="audioCard"><source src="assets/audio/swoosh.ogg" type="audio/ogg"></audio>
         <!-- Audio's end -->
 
         <main>

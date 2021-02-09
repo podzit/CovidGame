@@ -111,7 +111,7 @@ function game(round) {
     else if (playerCard.force < ennemyCard.force && playerCard.guild != ennemyCard.guild){
       win = 0;
       gain = - (ennemyCard.force*(2*bet));
-      if (ennemyCard.guild == 'Comploteurs') {
+      if (ennemyCard.guild == 'Comploteurs'){
         result = `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}`;
       }
       else {
@@ -121,7 +121,7 @@ function game(round) {
     else if (playerCard.force < ennemyCard.force && playerCard.guild == ennemyCard.guild){
       win = 2;
       gain = - (ennemyCard.force*bet);
-      if (ennemyCard.guild == 'Comploteurs') {
+      if (ennemyCard.guild == 'Comploteurs'){
         result = `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot`;
       }
       else {
