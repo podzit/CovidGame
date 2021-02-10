@@ -17,9 +17,9 @@
 		<title>Covid Game v3.2</title>
 		<link rel="icon" href="favicon.ico" />
 		<link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/card.css">
-  <link rel="stylesheet" href="assets/css/game.css">
-  <link rel="stylesheet" href="assets/css/animation.css">
+  		<link rel="stylesheet" href="assets/css/card.css">
+  		<link rel="stylesheet" href="assets/css/game.css">
+  		<link rel="stylesheet" href="assets/css/animation.css">
 		<meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
 		<meta property="og:image:type" content="image/jpeg">
 		<meta property="og:title" content="CovidGame" />
@@ -48,7 +48,7 @@
 		<main>
 
 			<h1>Covid Game</h1>
-			<div class="game">
+			<div id="game">
 				<h2> High Score </h2>
 
 				<?php
@@ -66,12 +66,17 @@
 				$record = htmlspecialchars($_POST['record']);
 
 				// Array construction
-				$data = array(
-					array($name, $record)
-				);
+				if (is_numeric($record)){
+					$data = array(
+						array($name, $record)
+					);
+				}
+				else {
+					echo "Erreur d'enregistrement";
+				}
 
 				// File writing
-				if (!empty($record)){
+				if (!empty($record) && is_numeric($record)){
 					if ($f = @fopen($file, 'a')) {
 						foreach ($data as $line) {
 							fputcsv($f, $line);

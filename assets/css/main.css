@@ -71,7 +71,7 @@ main {
   text-indent: 20px;
 }
 
-.gameOver {
+#gameOver {
   display: none;
   width: 810px;
   align-self: center;
@@ -83,7 +83,7 @@ main {
   font-size: 2rem;
 }
 
-.cardProp {
+#cardProp {
   display: none;
   width: 810px;
   align-self: center;
@@ -116,7 +116,7 @@ table.center {
   margin-right: auto;
 }
 
-form.formRecord {
+#formRecord {
   width: 810px;
   align-self: center;
   margin: auto;
@@ -141,14 +141,6 @@ input[type="textarea"] {
   font-size:2rem;
   margin: 30px auto 10px;
   height: 50px;
-}
-
-.mute input[type=checkbox]{
-  background-image: url("../img/mute.png") ;
-}
-
-.mute input[type="checkbox"]:checked{
-  background-image: url("../img/mute2.png") ;
 }
 
 .select {
@@ -259,16 +251,41 @@ button:hover {
   background-color: #008CBA;
 }
 
-.titleButton {
+#titleButton {
   color: black;
   text-decoration: none;
+  display: inline-block;
 }
 
-.titleButton:hover {
+#titleButton:hover {
   cursor: pointer;
 }
 
-button.stop{
+input[type="checkbox"][id^="muteButton"] {
+  display: none;
+}
+
+label[id^="muteLabel"]{
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+
+label img {
+  height: 30px;
+  width: 30px;
+  transition-duration: 0.2s;
+}
+
+:checked+label {
+  border-color: #ddd;
+}
+
+:checked+label img {
+  content:url("../img/muteon.png");
+}
+
+#button.stop{
   border: none;
   color: white;
   padding: 10px 32px;
@@ -284,7 +301,7 @@ button.stop{
   box-shadow: 0px 0px 20px 3px #000;
 }
 
-button.stop:hover {
+#button.stop:hover {
   background-color: #008CBA;
 }
 

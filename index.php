@@ -43,21 +43,26 @@
         <!-- Audio -->
         <audio id="audioWin"><source src="assets/audio/audiowin.ogg" type="audio/ogg"></audio>
         <audio id="audioLoose"><source src="assets/audio/audioloose.ogg" type="audio/ogg"></audio>
-        <audio id="audioCard"><source src="assets/audio/swoosh.ogg" type="audio/ogg"></audio>
+        <audio id="audioCard"><source src="assets/audio/audiocard.ogg" type="audio/ogg"></audio>
         <!-- Audio's end -->
 
         <main>
 
-            <h1><span class="titleButton" id="titleButton">Covid Game</span></h1>
-            <input type="checkbox" class="mute" id="mute"></input>
-            <div id = "pocket" class="pocket">Ta poche: 50$</div>
+            <h1>
+                <span id="titleButton">Covid Game</span>
+                <input type="checkbox" id="muteButton" />
+                <label id="muteLabel" for="muteButton"><img src="assets/img/muteoff.png" /></label>
+            </h1>
+            <div id="pocket" class="pocket">Ta poche: 50$
+            </div>
+            
 
             <!-- Bet's buttons -->
             <button id ="bet1">1$</button>
             <button id ="bet2">2$</button>
             <button id ="bet5">5$</button>
             <button id ="bet10">10$</button>
-            <button class="stop" id ="stop">Stop</button>
+            <button id ="stop">Stop</button>
             <!-- Bet's buttons's end -->
 
             <!-- Game  -->
@@ -105,7 +110,7 @@
             <!-- Card template'end -->
 
             <!-- High score form-->
-            <form id="formRecord" action="scores.php" method="post" class="formRecord">
+            <form id="formRecord" action="scores.php" method="post">
 
                 <div class="label">
                     <label for="record" id="score"></label>
@@ -126,7 +131,7 @@
             <!-- High score form's end-->
 
             <!-- Game over -->
-            <div class="gameOver" id="gameOver">
+            <div id="gameOver">
                 <h2 style="text-align: center;">GAME OVER</h2>
                 <div id="overWords"></div><br/>
                 Tu retentes ta chance ou tu abandonnes?<br/>
@@ -175,7 +180,7 @@
             <!-- Rules pop-in's end -->
 
             <!-- Form card proposition -->
-            <form id="cardProp" name="cardProp" method="post" class="cardProp">
+            <form id="cardProp" name="cardProp" method="post">
 
                 <br/>
                 La proposition doit citer une personne connue, doit être drôle et sans insultes.<br/>

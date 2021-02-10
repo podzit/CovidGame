@@ -48,7 +48,7 @@
     <main>
 
       <h1>Covid Game</h1>
-      <div class="game">
+      <div id="game">
 
         <?php
 
