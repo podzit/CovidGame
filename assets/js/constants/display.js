@@ -16,6 +16,7 @@ export function noGame() {
 };
 
 // Audio
+export const DOM_mute = document.getElementById('muteButton');
 export const DOM_audioWin = document.getElementById("audioWin");
 export const DOM_audioLoose = document.getElementById("audioLoose");
 export const DOM_audioCard = document.getElementById("audioCard");

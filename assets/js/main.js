@@ -1,7 +1,7 @@
 import { deck } from './constants/deck.js';
 import { words, over } from './constants/words.js';
 import { betLimit, bets, buttons, cardDisplay, noGame, flipCards } from './constants/display.js';
-import { DOM_audioWin, DOM_audioLoose, DOM_audioCard, DOM_help, DOM_formRecord, DOM_gameOver, DOM_rulesPop, DOM_cardProp, DOM_scoresPop } from './constants/display.js';
+import { DOM_mute, DOM_audioWin, DOM_audioLoose, DOM_audioCard, DOM_help, DOM_formRecord, DOM_gameOver, DOM_rulesPop, DOM_cardProp, DOM_scoresPop } from './constants/display.js';
 import { DOM_stop, DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js'; 
 
 var win = 0;
@@ -56,8 +56,6 @@ document.getElementById("cardPropButton").onclick = function() {
 
 document.getElementById("titleButton").onclick = function(){window.location = "index.php";}
 
-const mute = document.getElementById('muteButton');
-
 // Principal game function
 function game(round) {
   
@@ -66,7 +64,7 @@ function game(round) {
   document.getElementById("vs").style.display = "none";
 
   // Swoosh sound effect
-  if (mute.checked){
+  if (DOM_mute.checked){
     DOM_audioCard.pause();
   }
   else {
@@ -176,7 +174,7 @@ function game(round) {
       };
 
   // Audio conditions
-      if (mute.checked){
+      if (DOM_mute.checked){
         DOM_audioWin.pause();
         DOM_audioLoose.pause();
       }
