@@ -6,8 +6,8 @@ import { DOM_audiowin, DOM_audioloose, DOM_audiocarte, DOM_aide, DOM_form, DOM_g
 var win = 0;
 var mise = 0;
 var gain = 0;
-var poche = 50;
-var hiscore = 50;
+var poche = 1000;
+var hiscore = 1000;
 
 DOM_form.style.display = "none";
 DOM_propcarte.style.display = "none";

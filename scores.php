@@ -57,13 +57,19 @@
   $name = htmlspecialchars($_POST['name']);
   $record = htmlspecialchars($_POST['record']);
 
-  // création d'un array
-  $data = array(
-    array($name, $record)
-    );
+  // création d'un array avec vérification pour protéger des injections
+  if (is_numeric($record)){
+	$data = array(
+		array($name, $record)
+		);
+  }
+  else {
+	  echo "erreur d'enregistrement";
+  }
+
 
   // écriture dans le fichier
-  if (!empty($record)){
+  if (!empty($record) && is_numeric($record)){
     if ($f = @fopen($file, 'a')) {
       foreach ($data as $ligne) {
         fputcsv($f, $ligne);
@@ -104,7 +110,7 @@
   }
 ?>
 
-<form action="index.html">
+<form action="index.php">
   <div class="button">
     <button type="submit">REJOUER</button>
   </div>
