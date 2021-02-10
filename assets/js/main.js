@@ -63,7 +63,10 @@ function game(round) {
   document.getElementById("vs").style.display = "none";
 
   // Swoosh sound effect
-  DOM_audioCard.play();
+  const checkBox = document.getElementById('mute');
+      if (checkBox.checked == false){
+        DOM_audioCard.play();
+      }
 
   // First round
   if (round == 1) {
@@ -168,8 +171,11 @@ function game(round) {
       };
 
   // Audio conditions
-      if (win == 0) {DOM_audioLoose.play();}
-      else if (win == 1) {DOM_audioWin.play ();}
+      const checkBox = document.getElementById('mute');
+      if (checkBox.checked == false){
+        if (win == 0) {DOM_audioLoose.play();}
+        else if (win == 1) {DOM_audioWin.play();}
+      }
     }, 710);
 
   // Game Over

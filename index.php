@@ -49,6 +49,7 @@
         <main>
 
             <h1><span class="titleButton" id="titleButton">Covid Game</span></h1>
+            <input type="checkbox" class="mute" id="mute"></input>
             <div id = "pocket" class="pocket">Ta poche: 50$</div>
 
             <!-- Bet's buttons -->
@@ -108,7 +109,7 @@
 
                 <div class="label">
                     <label for="record" id="score"></label>
-                    <input type="hidden" id="record" name="record">
+                    <input type="hidden" id="record" name="record" pattern="[0-9]{1,5}">
                 </div>
 
                 <div class="label">
