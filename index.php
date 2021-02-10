@@ -58,11 +58,11 @@
             
 
             <!-- Bet's buttons -->
-            <button id ="bet1">1$</button>
-            <button id ="bet2">2$</button>
-            <button id ="bet5">5$</button>
-            <button id ="bet10">10$</button>
-            <button id ="stop">Stop</button>
+            <button id="bet1">1$</button>
+            <button id="bet2">2$</button>
+            <button id="bet5">5$</button>
+            <button id="bet10">10$</button>
+            <button id="stop">Stop</button>
             <!-- Bet's buttons's end -->
 
             <!-- Game  -->
