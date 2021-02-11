@@ -1,6 +1,6 @@
 import { deck } from './constants/deck.js';
 import { words, over } from './constants/words.js';
-import { betLimit, bets, buttons } from './constants/display.js';
+import { betLimit, buttons } from './constants/display.js';
 import { DOM_mute, DOM_audioWin, DOM_audioLoose, DOM_audioCard, DOM_help, DOM_rulesPop, DOM_scoresPop } from './constants/display.js';
 import { DOM_stop, DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js';
 import { DOM_formRecord, DOM_cardProp, DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_result, DOM_gain } from './constants/game.js';
@@ -17,6 +17,17 @@ export function reset(){
 };
 
 reset();
+
+function audio() {
+  if (DOM_mute.checked){
+    DOM_audioWin.pause();
+    DOM_audioLoose.pause();
+  }
+  else {
+    if (win == 0) {DOM_audioLoose.play();}
+    else if (win == 1) {DOM_audioWin.play();}
+  };
+};
 
 // Display record form
 function record() {
@@ -47,7 +58,7 @@ document.getElementById("closeScores").onclick = function() {
 document.getElementById("cardPropButton").onclick = function() {
   DOM_cardProp.style.display = "block";
   noGame();
-  bets("none");
+  betLimit(0);
   DOM_stop.style.display = "none";
   document.getElementById("helpButton").onclick = function(){
     DOM_help.style.display = "block"
@@ -97,19 +108,19 @@ function game(round) {
     let end = over.mock[Math.floor(Math.random() * over.mock.length)];
 
     // Result conditions
-    var sameGuild = playerCard.guild == ennemyCard.guild ? true : false ;
-    var playerWin = playerCard.force > ennemyCard.force ? true : false ;
-    var playerGuild = playerCard.guild == 'Comploteurs' ? true : false ;
-    var ennemyGuild = ennemyCard.guild == 'Comploteurs' ? true : false ;
-    var text1 = `${winner} ${playerCard.character} ${action} ${ennemyCard.character}`;
-    var text2 = `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
-    var text3 = `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}`;
-    var text4 = `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
-    var text5 = `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}`;
-    var text6 = `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
-    var text7 = `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot`;
-    var text8 = `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
-    var text9 = `Match nul: personne n'est sorti vivant de ce duel`;
+    let sameGuild = playerCard.guild == ennemyCard.guild ? true : false ;
+    let playerWin = playerCard.force > ennemyCard.force ? true : false ;
+    let playerGuild = playerCard.guild == 'Comploteurs' ? true : false ;
+    let ennemyGuild = ennemyCard.guild == 'Comploteurs' ? true : false ;
+    const text1 = `${winner} ${playerCard.character} ${action} ${ennemyCard.character}`;
+    const text2 = `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
+    const text3 = `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}`;
+    const text4 = `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
+    const text5 = `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}`;
+    const text6 = `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
+    const text7 = `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot`;
+    const text8 = `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
+    const text9 = `Match nul: personne n'est sorti vivant de ce duel`;
 
     // Sound conditions
     win = playerWin && !sameGuild ? win = 1 : playerWin && sameGuild ? win = 2 : 
@@ -144,20 +155,14 @@ function game(round) {
 
   // Click on stop button
       DOM_stop.onclick = function () {
-        bets("none");
+        betLimit(0);
         noGame();
         record();
       };
 
   // Audio conditions
-      if (DOM_mute.checked){
-        DOM_audioWin.pause();
-        DOM_audioLoose.pause();
-      }
-      else {
-        if (win == 0) {DOM_audioLoose.play();}
-        else if (win == 1) {DOM_audioWin.play();}
-      };
+      audio();
+
       }, 710);
 
   // Game Over
@@ -175,7 +180,7 @@ function game(round) {
       }
 
   // Bets buttons displaying conditions
-      var n = pocket < 0 ?  betLimit(n = 0) : pocket < 2 ? betLimit(n = 1) : pocket < 5 ? betLimit(n = 2) : 
+      var n = pocket <= 0 ?  betLimit(n = 0) : pocket < 2 ? betLimit(n = 1) : pocket < 5 ? betLimit(n = 2) : 
       pocket < 10 ? betLimit(n = 5) : betLimit(n = 10);
 
   // Stop button displaying condition
