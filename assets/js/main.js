@@ -8,11 +8,7 @@ import { gameReady, gameOver, cardDisplay, noGame, flipCards } from './constants
 
 document.getElementById("title").innerHTML = "Covid Game v3.2"
 
-var win = 0;
-var gain = 0;
-var bet = 0;
-var pocket = 0;
-var hiScore = 0;
+var win = 0 , gain = 0 , bet = 0 , pocket = 0 , hiScore = 0;
 
 export function reset(){
   gameReady();
@@ -101,49 +97,26 @@ function game(round) {
     let end = over.mock[Math.floor(Math.random() * over.mock.length)];
 
   // Result conditions
+    win = playerCard.force > ennemyCard.force && playerCard.guild != ennemyCard.guild ? win = 1 : playerCard.force > ennemyCard.force && playerCard.guild == ennemyCard.guild ? win = 2 : playerCard.force < ennemyCard.force && playerCard.guild != ennemyCard.guild ? win = 0 : win = 2 ;
+
     if (playerCard.force > ennemyCard.force && playerCard.guild != ennemyCard.guild) {
-      win = 1;
       gain = playerCard.force*(2*bet);
-      if (playerCard.guild == 'Comploteurs'){
-        var result = `${winner} ${playerCard.character} ${action} ${ennemyCard.character}`;
-      }
-      else {
-        result = `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
-      };
+      var result = playerCard.guild == 'Comploteurs' ? `${winner} ${playerCard.character} ${action} ${ennemyCard.character}` : `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
     }
     else if (playerCard.force > ennemyCard.force && playerCard.guild == ennemyCard.guild) {
-      win = 2;
       gain = playerCard.force*bet;
-      if (playerCard.guild == 'Comploteurs'){
-        result = `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}`;
-      }
-      else {
-        result = `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
-      };
+      result = playerCard.guild == 'Comploteurs' ? `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}` : `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
     }
     else if (playerCard.force < ennemyCard.force && playerCard.guild != ennemyCard.guild){
-      win = 0;
       gain = - (ennemyCard.force*(2*bet));
-      if (ennemyCard.guild == 'Comploteurs'){
-        result = `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}`;
-      }
-      else {
-        result = `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
-      };
+      result = ennemyCard.guild == 'Comploteurs' ? `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}` : `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
     }
     else if (playerCard.force < ennemyCard.force && playerCard.guild == ennemyCard.guild){
-      win = 2;
       gain = - (ennemyCard.force*bet);
-      if (ennemyCard.guild == 'Comploteurs'){
-        result = `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot`;
-      }
-      else {
-        result = `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
-      };
+      result = ennemyCard.guild == 'Comploteurs' ? `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot` : `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
     }
     else {
       result = `Match nul: personne n'est sorti vivant de ce duel`;
-      win = 2;
       gain = - bet;
     };
 
@@ -157,21 +130,13 @@ function game(round) {
       DOM_result.innerHTML = `${result}`;
 
   // Gain displaying
-      if (gain < 0){
-        DOM_gain.innerHTML = `Perte ${gain}$`;
-      }
-      else {
-        DOM_gain.innerHTML = `Gain ${gain}$`;
-        if (hiScore < (gain + pocket)){
-          hiScore = gain + pocket;
-        }
-      };
+      DOM_gain.innerHTML = gain < 0 ? `Perte ${gain}$` : `Gain ${gain}$`;
+      hiScore = hiScore < (gain + pocket) ? gain + pocket : hiScore;
   
-      pocket = gain + pocket;
-      DOM_pocket.innerHTML = `Ta poche: ${pocket}$`;
+      DOM_pocket.innerHTML = `Ta poche: ${pocket = gain + pocket}$`;
 
-        jQuery('#resultPopup').slideDown("fast");
-        jQuery('#resultPopup').fadeOut(5000);
+      jQuery('#resultPopup').slideDown("fast");
+      jQuery('#resultPopup').fadeOut(5000);
 
   // Click on stop button
       DOM_stop.onclick = function () {
@@ -193,7 +158,7 @@ function game(round) {
 
   // Game Over
     setTimeout (() => {
-      if (pocket <= 0 && pocket < 2 && pocket < 5 && pocket < 10) {
+      if (pocket <= 0) {
         bets("none");
         setTimeout(() => {
           if (hiScore >= 500){
@@ -207,29 +172,10 @@ function game(round) {
       }
 
   // Bets buttons displaying conditions
-      else if (pocket < 2 && pocket < 5 && pocket < 10) {
-        betLimit(1);
-      }
-
-      else if (pocket >= 2 && pocket < 5 && pocket < 10) {
-        betLimit(2);
-      }
-
-      else if (pocket >= 2 && pocket >= 5 && pocket < 10) {
-        betLimit(5);
-      }
-
-      else if (pocket >= 2 && pocket >= 5 && pocket >= 10) {
-        betLimit(10);
-      };
+      var n = pocket < 0 ?  betLimit(n = 0) : pocket < 2 ? betLimit(n = 1) : pocket < 5 ? betLimit(n = 2) : pocket < 10 ? betLimit(n = 5) : betLimit(n = 10);
 
   // Stop button displaying condition
-      if (pocket >= 500) {
-        DOM_stop.style.display = "inline-block";
-      }
-      else {
-        DOM_stop.style.display = "none";
-      };
+      DOM_stop.style.display = pocket >= 500 ? "inline-block" : "none";
 
     }, 1000);
 
