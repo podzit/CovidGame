@@ -1,3 +1,5 @@
+import { reset } from '../main.js'
+
 // HTML various parts
 export const DOM_game = document.getElementById("game");
 export const DOM_pocket = document.getElementById("pocket");
@@ -21,6 +23,16 @@ export function gameReady(){
   bets("inline-block");
   DOM_stop.style.display = "none";
   DOM_playerImage.innerHTML = DOM_ennemyImage.innerHTML = `<img src="assets/img/back.png"/>`;
+};
+
+export function gameOver(){
+  jQuery('#resultPopup').stop(true, true);
+  jQuery('#resultPopup').show();
+  document.getElementById("gain").innerHTML = `Tu retentes ta chance ou tu abandonnes?`;
+  DOM_replay.style.display="inline-block";
+  DOM_replay.onclick = function () {
+    reset();
+  };
 };
 
 // Delete game part

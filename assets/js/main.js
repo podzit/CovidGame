@@ -1,6 +1,6 @@
 import { deck } from './constants/deck.js';
 import { words, over } from './constants/words.js';
-import { betLimit, bets, buttons, cardDisplay, noGame, flipCards, gameReady } from './constants/display.js';
+import { betLimit, bets, buttons, cardDisplay, noGame, flipCards, gameReady, gameOver, } from './constants/display.js';
 import { DOM_mute, DOM_audioWin, DOM_audioLoose, DOM_audioCard, DOM_help, DOM_formRecord, DOM_rulesPop, DOM_cardProp, DOM_scoresPop } from './constants/display.js';
 import { DOM_stop, DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10, DOM_playerImage, DOM_ennemyImage } from './constants/display.js';
 
@@ -10,7 +10,7 @@ var bet = 0;
 var pocket = 0;
 var hiScore = 0;
 
-function reset(){
+export function reset(){
   gameReady();
   win = bet = gain = 0;
   pocket = hiScore = 50;
@@ -196,14 +196,8 @@ function game(round) {
             record();
           }
           else {
-            jQuery('#resultPopup').stop(true, true);
-            jQuery('#resultPopup').show();
             document.getElementById("result").innerHTML = `GAME OVER !<br/>${end}`;
-            document.getElementById("gain").innerHTML = `Tu retentes ta chance ou tu abandonnes?`;
-            document.getElementById("replay").style.display="inline-block";
-            document.getElementById("replay").onclick = function () {
-              reset();
-            };
+            gameOver();
           };
         }, 500);  
       }
