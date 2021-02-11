@@ -1,18 +1,22 @@
 import { deck } from './constants/deck.js';
 import { words, over } from './constants/words.js';
-import { betLimit, bets, buttons, cardDisplay, noGame, flipCards } from './constants/display.js';
-import { DOM_mute, DOM_audioWin, DOM_audioLoose, DOM_audioCard, DOM_help, DOM_formRecord, DOM_gameOver, DOM_rulesPop, DOM_cardProp, DOM_scoresPop } from './constants/display.js';
-import { DOM_stop, DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js'; 
+import { betLimit, bets, buttons, cardDisplay, noGame, flipCards, gameReady } from './constants/display.js';
+import { DOM_mute, DOM_audioWin, DOM_audioLoose, DOM_audioCard, DOM_help, DOM_formRecord, DOM_rulesPop, DOM_cardProp, DOM_scoresPop } from './constants/display.js';
+import { DOM_stop, DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10, DOM_playerImage, DOM_ennemyImage } from './constants/display.js';
 
 var win = 0;
-var bet = 0;
 var gain = 0;
-var pocket = 50;
-var hiScore = 50;
+var bet = 0;
+var pocket = 0;
+var hiScore = 0;
 
-DOM_formRecord.style.display = "none";
-DOM_cardProp.style.display = "none";
-DOM_stop.style.display = "none";
+function reset(){
+  gameReady();
+  win = bet = gain = 0;
+  pocket = hiScore = 50;
+};
+
+reset();
 
 // Display record form
 function record() {
@@ -45,7 +49,6 @@ document.getElementById("cardPropButton").onclick = function() {
   noGame();
   bets("none");
   DOM_stop.style.display = "none";
-  DOM_gameOver.style.display = "none";
   document.getElementById("helpButton").onclick = function(){
     DOM_help.style.display = "block"
   };
@@ -54,7 +57,7 @@ document.getElementById("cardPropButton").onclick = function() {
   };
 };
 
-document.getElementById("titleButton").onclick = function(){window.location = "index.php";}
+document.getElementById("titleButton").onclick = function(){reset();}
 
 // Principal game function
 function game(round) {
@@ -162,15 +165,15 @@ function game(round) {
   
       pocket = gain + pocket;
       document.getElementById("pocket").innerHTML = `Ta poche: ${pocket}$`;
-      
-      jQuery('#resultPopup').slideDown();
-      jQuery('#resultPopup').fadeOut(5000);
+
+        jQuery('#resultPopup').slideDown("fast");
+        jQuery('#resultPopup').fadeOut(5000);
 
   // Click on stop button
       document.getElementById("stop").onclick = function () {
         bets("none");
         noGame();
-        record()
+        record();
       };
 
   // Audio conditions
@@ -189,14 +192,18 @@ function game(round) {
       if (pocket <= 0 && pocket < 2 && pocket < 5 && pocket < 10) {
         bets("none");
         setTimeout(() => {
-          noGame();
           if (hiScore >= 500){
             record();
           }
           else {
-            DOM_gameOver.style.display = "block";
-            document.getElementById("overWords").innerHTML = `${end}`;
-            document.getElementById("replay").onclick = function () {location.reload()};
+            jQuery('#resultPopup').stop(true, true);
+            jQuery('#resultPopup').show();
+            document.getElementById("result").innerHTML = `GAME OVER !<br/>${end}`;
+            document.getElementById("gain").innerHTML = `Tu retentes ta chance ou tu abandonnes?`;
+            document.getElementById("replay").style.display="inline-block";
+            document.getElementById("replay").onclick = function () {
+              reset();
+            };
           };
         }, 500);  
       }
@@ -235,8 +242,7 @@ function game(round) {
   // Back card in flip effect starting round 2
   else {
     setTimeout(() => {
-    document.getElementById("playerImage").innerHTML = `<img src="assets/img/back.png"></img>`;
-    document.getElementById("ennemyImage").innerHTML = `<img src="assets/img/back.png"></img>`;
+    DOM_playerImage.innerHTML = DOM_ennemyImage.innerHTML = `<img src="assets/img/back.png"></img>`;
     }, 345);
     game(1);
   };

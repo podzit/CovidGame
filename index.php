@@ -53,8 +53,7 @@
                 <input type="checkbox" id="muteButton" />
                 <label id="muteLabel" for="muteButton"><img src="assets/img/muteoff.png" /></label>
             </h1>
-            <div id="pocket" class="pocket">Ta poche: 50$
-            </div>
+            <div id="pocket" class="pocket"></div>
             
 
             <!-- Bet's buttons -->
@@ -70,13 +69,13 @@
                 <section id="resultPopup">
                     <div id="result"></div>
                     <div id="gain"></div>
+                    <button id="replay">REJOUER</button>
                 </section>
                 <section>
                     <div class="deck">
                         <div class="playerName">Toi</div>
                         <div id="flipCard" class="flipCard3DWrapper">
                         <div id="playerImage">
-                            <img src="assets/img/back.png"/>
                         </div>
                         </div>
                     </div>
@@ -90,7 +89,6 @@
                         <div class="playerName">L'ennemi</div>
                         <div id="flipCard2" class="flipCard3DWrapper2">
                         <div id="ennemyImage">
-                            <img src="assets/img/back.png"/>
                         </div>
                         </div>
                     </div>
@@ -129,15 +127,6 @@
 
             </form>
             <!-- High score form's end-->
-
-            <!-- Game over -->
-            <div id="gameOver">
-                <h2 style="text-align: center;">GAME OVER</h2>
-                <div id="overWords"></div><br/>
-                Tu retentes ta chance ou tu abandonnes?<br/>
-                <button id="replay">REJOUER</button>
-            </div>
-            <!-- Game over's end -->
 
             <!-- High score pop-in-->
             <div id="scoresPop" class="parentDisableScores">

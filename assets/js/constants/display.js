@@ -1,13 +1,27 @@
-
 // HTML various parts
 export const DOM_game = document.getElementById("game");
 export const DOM_pocket = document.getElementById("pocket");
 export const DOM_formRecord = document.getElementById("formRecord");
-export const DOM_gameOver = document.getElementById("gameOver");
 export const DOM_rulesPop = document.getElementById("rulesPop");
 export const DOM_cardProp = document.getElementById("cardProp");
 export const DOM_help = document.getElementById("help");
 export const DOM_scoresPop = document.getElementById("scoresPop");
+export const DOM_playerImage = document.getElementById("playerImage");
+export const DOM_ennemyImage = document.getElementById("ennemyImage");
+export const DOM_replay = document.getElementById("replay");
+
+export function gameReady(){
+  DOM_game.style.display ="block";
+  DOM_pocket.style.display ="block";
+  DOM_pocket.innerHTML = `Ta poche: 50$`;
+  DOM_formRecord.style.display = "none";
+  DOM_cardProp.style.display = "none";
+  DOM_replay.style.display = "none";
+  jQuery('#resultPopup').hide();
+  bets("inline-block");
+  DOM_stop.style.display = "none";
+  DOM_playerImage.innerHTML = DOM_ennemyImage.innerHTML = `<img src="assets/img/back.png"/>`;
+}
 
 // Delete game part
 export function noGame() {
