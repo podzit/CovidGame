@@ -21,7 +21,7 @@ export function gameReady(){
   bets("inline-block");
   DOM_stop.style.display = "none";
   DOM_playerImage.innerHTML = DOM_ennemyImage.innerHTML = `<img src="assets/img/back.png"/>`;
-}
+};
 
 // Delete game part
 export function noGame() {
