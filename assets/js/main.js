@@ -1,8 +1,10 @@
 import { deck } from './constants/deck.js';
 import { words, over } from './constants/words.js';
-import { betLimit, bets, buttons, cardDisplay, noGame, flipCards, gameReady, gameOver, } from './constants/display.js';
-import { DOM_mute, DOM_audioWin, DOM_audioLoose, DOM_audioCard, DOM_help, DOM_formRecord, DOM_rulesPop, DOM_cardProp, DOM_scoresPop } from './constants/display.js';
-import { DOM_stop, DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10, DOM_playerImage, DOM_ennemyImage } from './constants/display.js';
+import { betLimit, bets, buttons } from './constants/display.js';
+import { DOM_mute, DOM_audioWin, DOM_audioLoose, DOM_audioCard, DOM_help, DOM_rulesPop, DOM_scoresPop } from './constants/display.js';
+import { DOM_stop, DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js';
+import { DOM_formRecord, DOM_cardProp, DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_result, DOM_gain } from './constants/game.js';
+import { gameReady, gameOver, cardDisplay, noGame, flipCards } from './constants/game.js';
 
 var win = 0;
 var gain = 0;
@@ -62,7 +64,7 @@ document.getElementById("titleButton").onclick = function(){reset();}
 // Principal game function
 function game(round) {
   
-  document.getElementById("pocket").innerHTML = `Ta poche: ${pocket}$`;
+  DOM_pocket.innerHTML = `Ta poche: ${pocket}$`;
   buttons("none","grey");
   document.getElementById("vs").style.display = "none";
 
@@ -87,8 +89,8 @@ function game(round) {
 
   // Timeout to slow card display
     setTimeout(() => {  
-      cardDisplay(playerCard, document.getElementById("playerImage"));
-      cardDisplay(ennemyCard, document.getElementById("ennemyImage"));
+      cardDisplay(playerCard, DOM_playerImage);
+      cardDisplay(ennemyCard, DOM_ennemyImage);
     }, 700);
 
     let winner = words.winWord[Math.floor(Math.random() * words.winWord.length)];
@@ -150,27 +152,27 @@ function game(round) {
       buttons("auto","#4CAF50");
 
   // Result displaying
-      document.getElementById("result").innerHTML = `${result}`;
+      DOM_result.innerHTML = `${result}`;
 
   // Gain displaying
       if (gain < 0){
-        document.getElementById("gain").innerHTML = `Perte ${gain}$`;
+        DOM_gain.innerHTML = `Perte ${gain}$`;
       }
       else {
-        document.getElementById("gain").innerHTML = `Gain ${gain}$`;
+        DOM_gain.innerHTML = `Gain ${gain}$`;
         if (hiScore < (gain + pocket)){
           hiScore = gain + pocket;
         }
       };
   
       pocket = gain + pocket;
-      document.getElementById("pocket").innerHTML = `Ta poche: ${pocket}$`;
+      DOM_pocket.innerHTML = `Ta poche: ${pocket}$`;
 
         jQuery('#resultPopup').slideDown("fast");
         jQuery('#resultPopup').fadeOut(5000);
 
   // Click on stop button
-      document.getElementById("stop").onclick = function () {
+      DOM_stop.onclick = function () {
         bets("none");
         noGame();
         record();
@@ -196,7 +198,7 @@ function game(round) {
             record();
           }
           else {
-            document.getElementById("result").innerHTML = `GAME OVER !<br/>${end}`;
+            DOM_result.innerHTML = `GAME OVER !<br/>${end}`;
             gameOver();
           };
         }, 500);  
