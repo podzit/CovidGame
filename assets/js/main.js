@@ -6,6 +6,8 @@ import { DOM_stop, DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/d
 import { DOM_formRecord, DOM_cardProp, DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_result, DOM_gain } from './constants/game.js';
 import { gameReady, gameOver, cardDisplay, noGame, flipCards } from './constants/game.js';
 
+document.getElementById("title").innerHTML = "Covid Game v3.2"
+
 var win = 0;
 var gain = 0;
 var bet = 0;

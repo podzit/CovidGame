@@ -14,7 +14,7 @@
 		</script>
 		<!---FIN DU SCRIPT GOOGLE ANALYTICS-->
 
-		<title>Covid Game v3.2</title>
+		<title>High Score</title>
 		<link rel="icon" href="favicon.ico" />
 		<link rel="stylesheet" href="assets/css/main.css">
   		<link rel="stylesheet" href="assets/css/card.css">
