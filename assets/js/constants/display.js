@@ -27,7 +27,10 @@ export function bets(display) {
 
 // Bets buttons display conditions
 export function betLimit(limit) {
-  if (limit == 1) {
+  if (limit == 0) {
+    bets("none");
+  }
+  else if (limit == 1) {
     DOM_bet1.style.display = "inline-block";
     DOM_bet2.style.display = "none";
     DOM_bet5.style.display = "none";

@@ -96,29 +96,29 @@ function game(round) {
     let action = words.verb[Math.floor(Math.random() * words.verb.length)];
     let end = over.mock[Math.floor(Math.random() * over.mock.length)];
 
-  // Result conditions
-    win = playerCard.force > ennemyCard.force && playerCard.guild != ennemyCard.guild ? win = 1 : playerCard.force > ennemyCard.force && playerCard.guild == ennemyCard.guild ? win = 2 : playerCard.force < ennemyCard.force && playerCard.guild != ennemyCard.guild ? win = 0 : win = 2 ;
+    // Result conditions
+    var sameGuild = playerCard.guild == ennemyCard.guild ? true : false ;
+    var playerWin = playerCard.force > ennemyCard.force ? true : false ;
+    var playerGuild = playerCard.guild == 'Comploteurs' ? true : false ;
+    var ennemyGuild = ennemyCard.guild == 'Comploteurs' ? true : false ;
+    var text1 = `${winner} ${playerCard.character} ${action} ${ennemyCard.character}`;
+    var text2 = `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
+    var text3 = `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}`;
+    var text4 = `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
+    var text5 = `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}`;
+    var text6 = `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
+    var text7 = `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot`;
+    var text8 = `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
+    var text9 = `Match nul: personne n'est sorti vivant de ce duel`;
 
-    if (playerCard.force > ennemyCard.force && playerCard.guild != ennemyCard.guild) {
-      gain = playerCard.force*(2*bet);
-      var result = playerCard.guild == 'Comploteurs' ? `${winner} ${playerCard.character} ${action} ${ennemyCard.character}` : `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
-    }
-    else if (playerCard.force > ennemyCard.force && playerCard.guild == ennemyCard.guild) {
-      gain = playerCard.force*bet;
-      result = playerCard.guild == 'Comploteurs' ? `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}` : `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
-    }
-    else if (playerCard.force < ennemyCard.force && playerCard.guild != ennemyCard.guild){
-      gain = - (ennemyCard.force*(2*bet));
-      result = ennemyCard.guild == 'Comploteurs' ? `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}` : `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
-    }
-    else if (playerCard.force < ennemyCard.force && playerCard.guild == ennemyCard.guild){
-      gain = - (ennemyCard.force*bet);
-      result = ennemyCard.guild == 'Comploteurs' ? `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot` : `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
-    }
-    else {
-      result = `Match nul: personne n'est sorti vivant de ce duel`;
-      gain = - bet;
-    };
+    console.log(playerGuild)
+    // Sound conditions
+    win = playerWin && !sameGuild ? win = 1 : playerWin && sameGuild ? win = 2 : !playerWin && !sameGuild ? win = 0 : !playerWin && sameGuild ? win = 3 : win = 4 ;
+    
+    // Gain conditions
+    gain = playerWin && !sameGuild ? gain = playerCard.force*(2*bet) : playerWin && sameGuild ? gain = playerCard.force*bet : !playerWin && !sameGuild ? gain = - (ennemyCard.force*(2*bet)) : !playerWin && sameGuild ? gain = - (ennemyCard.force*bet) : gain = - bet ;
+
+    var result = win == 1 && playerGuild ? `${text1}` : win == 1 && !playerGuild ? `${text2}` : win == 2 && playerGuild ? `${text3}` : win == 2 && !playerGuild ? `${text4}` : win == 0 && ennemyGuild ? `${text5}` : win == 0 && !ennemyGuild ? `${text6}` :  win == 3 && ennemyGuild ? `${text7}` : win == 3 && !ennemyGuild ? `${text8}` : win == 4 ? text9: '' ;
 
   // Display slower
     setTimeout(() => {  
@@ -159,7 +159,6 @@ function game(round) {
   // Game Over
     setTimeout (() => {
       if (pocket <= 0) {
-        bets("none");
         setTimeout(() => {
           if (hiScore >= 500){
             record();
