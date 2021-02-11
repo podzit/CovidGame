@@ -111,14 +111,18 @@ function game(round) {
     var text8 = `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
     var text9 = `Match nul: personne n'est sorti vivant de ce duel`;
 
-    console.log(playerGuild)
     // Sound conditions
-    win = playerWin && !sameGuild ? win = 1 : playerWin && sameGuild ? win = 2 : !playerWin && !sameGuild ? win = 0 : !playerWin && sameGuild ? win = 3 : win = 4 ;
+    win = playerWin && !sameGuild ? win = 1 : playerWin && sameGuild ? win = 2 : 
+    !playerWin && !sameGuild ? win = 0 : !playerWin && sameGuild ? win = 3 : win = 4 ;
     
     // Gain conditions
-    gain = playerWin && !sameGuild ? gain = playerCard.force*(2*bet) : playerWin && sameGuild ? gain = playerCard.force*bet : !playerWin && !sameGuild ? gain = - (ennemyCard.force*(2*bet)) : !playerWin && sameGuild ? gain = - (ennemyCard.force*bet) : gain = - bet ;
+    gain = win == 1 ? gain = playerCard.force*(2*bet) : win == 2 ? gain = playerCard.force*bet : 
+    win == 0 ? gain = - (ennemyCard.force*(2*bet)) : win == 3 ? gain = - (ennemyCard.force*bet) : gain = - bet ;
 
-    var result = win == 1 && playerGuild ? `${text1}` : win == 1 && !playerGuild ? `${text2}` : win == 2 && playerGuild ? `${text3}` : win == 2 && !playerGuild ? `${text4}` : win == 0 && ennemyGuild ? `${text5}` : win == 0 && !ennemyGuild ? `${text6}` :  win == 3 && ennemyGuild ? `${text7}` : win == 3 && !ennemyGuild ? `${text8}` : win == 4 ? text9: '' ;
+    var result = win == 1 && playerGuild ? `${text1}` : win == 1 && !playerGuild ? `${text2}` : 
+    win == 2 && playerGuild ? `${text3}` : win == 2 && !playerGuild ? `${text4}` : 
+    win == 0 && ennemyGuild ? `${text5}` : win == 0 && !ennemyGuild ? `${text6}` :  
+    win == 3 && ennemyGuild ? `${text7}` : win == 3 && !ennemyGuild ? `${text8}` : win == 4 ? text9: '' ;
 
   // Display slower
     setTimeout(() => {  
@@ -171,7 +175,8 @@ function game(round) {
       }
 
   // Bets buttons displaying conditions
-      var n = pocket < 0 ?  betLimit(n = 0) : pocket < 2 ? betLimit(n = 1) : pocket < 5 ? betLimit(n = 2) : pocket < 10 ? betLimit(n = 5) : betLimit(n = 10);
+      var n = pocket < 0 ?  betLimit(n = 0) : pocket < 2 ? betLimit(n = 1) : pocket < 5 ? betLimit(n = 2) : 
+      pocket < 10 ? betLimit(n = 5) : betLimit(n = 10);
 
   // Stop button displaying condition
       DOM_stop.style.display = pocket >= 500 ? "inline-block" : "none";
