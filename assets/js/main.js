@@ -133,7 +133,7 @@ function game(round) {
     var result = win == 1 && playerGuild ? `${text1}` : win == 1 && !playerGuild ? `${text2}` : 
     win == 2 && playerGuild ? `${text3}` : win == 2 && !playerGuild ? `${text4}` : 
     win == 0 && ennemyGuild ? `${text5}` : win == 0 && !ennemyGuild ? `${text6}` :  
-    win == 3 && ennemyGuild ? `${text7}` : win == 3 && !ennemyGuild ? `${text8}` : win == 4 ? text9: '' ;
+    win == 3 && ennemyGuild ? `${text7}` : win == 3 && !ennemyGuild ? `${text8}` : win == 4 ? `${text9}` : '' ;
 
   // Display slower
     setTimeout(() => {  
