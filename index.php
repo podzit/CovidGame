@@ -94,18 +94,18 @@
     <!-- Fin template carte -->
 
     <!-- Formulaire high score -->
-      <form id="form" action="scores.php" method="post" class="form">
+      <form name="formRecord" id="formRecord" action="scores.php" method="post" class="form">
         <div class="label">
-          <label for="record" id="score"></label>
-          <input type="hidden" id="record" name="record">
+          <label id="score"></label>
+          <input type="hidden" name="record" />
       </div>
         <div class="label">
             <label for="name">Comment tu t'appelles champion ?</label>
             <br/>
-            <input type="text" id="name" name="name" required="required" pattern="[A-Za-z0-9-éèÉÈ]{1,20}" maxlength="20">
+            <input type="text" name="name" required="required" pattern="[A-Za-z0-9-éèÉÈ]{1,20}" maxlength="20" />
         </div>
         <div class="button">
-          <button type="submit">Enregistrer</button>
+          <button type="submit" id="recordButton">Enregistrer</button>
       </div>
       </form>
     <!-- Fin formulaire high score -->

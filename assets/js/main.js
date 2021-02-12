@@ -1,23 +1,25 @@
 import { deck } from './constants/deck.js';
 import { phrase, over } from './constants/phrase.js';
 import { miselimit, mises, boutons, afficheCarte, no_jeu, flipCartes } from './constants/affichage.js';
-import { DOM_audiowin, DOM_audioloose, DOM_audiocarte, DOM_aide, DOM_form, DOM_gameover, DOM_pop1, DOM_propcarte, DOM_scorespop, DOM_stop, DOM_mise1, DOM_mise2, DOM_mise5, DOM_mise10 } from './constants/affichage.js'; 
+import { DOM_audiowin, DOM_audioloose, DOM_audiocarte, DOM_aide, DOM_formRecord, DOM_gameover, DOM_pop1, DOM_propcarte, DOM_scorespop, DOM_stop, DOM_mise1, DOM_mise2, DOM_mise5, DOM_mise10 } from './constants/affichage.js'; 
 
 var win = 0;
 var mise = 0;
 var gain = 0;
 var poche = 50;
-var hiscore = 50;
+var hiScore = 50;
 
-DOM_form.style.display = "none";
+DOM_formRecord.style.display = "none";
 DOM_propcarte.style.display = "none";
 DOM_stop.style.display = "none";
 
 // Affichage du formulaire record
 function record() {
-  DOM_form.style.display = "block";
-  document.getElementById("score").innerHTML = `Ton meilleur score: ${hiscore}`;
-  document.getElementById("record").value = `${hiscore}`;
+  DOM_formRecord.style.display = "block";
+  document.getElementById("score").innerHTML = `Ton meilleur score: ${hiScore}`;
+  formRecord.addEventListener('submit', (event) => {
+    document.formRecord.record.value=`${hiScore}`
+  });
 };
 
 // Appui sur les mises
@@ -148,8 +150,8 @@ function jeu(tour) {
       }
       else {
         document.getElementById("gain").innerHTML = `Gain ${gain}$`;
-        if (hiscore < (gain + poche)){
-          hiscore = gain + poche;
+        if (hiScore < (gain + poche)){
+          hiScore = gain + poche;
         }
       };
   
@@ -174,7 +176,7 @@ function jeu(tour) {
         mises("none");
         setTimeout(() => {
           no_jeu();
-          if (hiscore >= 500){
+          if (hiScore >= 500){
             record();
           }
           else {

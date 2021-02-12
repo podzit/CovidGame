@@ -2,7 +2,7 @@
 // Différentes parties HTML
 export const DOM_jeu = document.getElementById("jeu");
 export const DOM_poche = document.getElementById("poche");
-export const DOM_form = document.getElementById("form");
+export const DOM_formRecord = document.getElementById("formRecord");
 export const DOM_gameover = document.getElementById("gameover");
 export const DOM_pop1 = document.getElementById("pop1");
 export const DOM_propcarte = document.getElementById("propcarte");
