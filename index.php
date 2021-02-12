@@ -111,7 +111,6 @@
             <form name="formRecord" id="formRecord" action="scores.php" method="post">
 
                 <div class="label">
-                    <!--<label for="record" id="score"></label>-->
                     <label id="score"></label>
                     <input type="hidden" name="record" />
                 </div>
