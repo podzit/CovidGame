@@ -13,7 +13,7 @@ var win = 0 , gain = 0 , bet = 0 , pocket = 0 , hiScore = 0;
 export function reset(){
   gameReady();
   win = bet = gain = 0;
-  pocket = hiScore = 50;
+  pocket = hiScore = 5000;
 };
 
 reset();
@@ -29,11 +29,17 @@ function audio() {
   };
 };
 
+
+
 // Display record form
 function record() {
+  let formRecord = document.getElementById('formRecord');
   DOM_formRecord.style.display = "block";
   document.getElementById("score").innerHTML = `Ton meilleur score: ${hiScore}`;
-  document.getElementById("record").value = `${hiScore}`;
+  formRecord.addEventListener('submit', (event) => {
+    document.formRecord.record.value=`${hiScore}`
+  });
+  
 };
 
 // Click on bet's buttons
