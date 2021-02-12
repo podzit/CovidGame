@@ -38,25 +38,20 @@ function record() {
   });
 };
 
+// Display card proposition preview
 function cardPreview(){
   DOM_cardProp.email.value = '';
   DOM_cardProp.captcha.value = '';
-  var characterPreview = DOM_cardProp.characterName.value;
-  var forcePreview = DOM_cardProp.force.value;
-  var guildPreview = DOM_cardProp.guild.value;
-  var groupPreview = DOM_cardProp.group.value;
-  var infoPreview = DOM_cardProp.info.value;
-  var effectPreview = DOM_cardProp.effect.value;
   const DOM_cardPreviewDisplay = document.getElementById("cardPreviewDisplay");
   DOM_cardPreviewDisplay.style.display = "block";
-  document.getElementById("characterPreview").innerHTML = `${characterPreview}`;
-  document.getElementById("forcePreview").innerHTML = `${forcePreview}`;
-  document.getElementById("bandPreview").innerHTML = `${guildPreview} / ${groupPreview}`;
-  document.getElementById("infoPreview").innerHTML = `${infoPreview}`;
-  document.getElementById("effectPreview").innerHTML = `${effectPreview}`;
+  document.getElementById("characterPreview").innerHTML = `${DOM_cardProp.characterName.value}`;
+  document.getElementById("forcePreview").innerHTML = `${DOM_cardProp.force.value}`;
+  document.getElementById("bandPreview").innerHTML = `${DOM_cardProp.guild.value} / ${DOM_cardProp.group.value}`;
+  document.getElementById("infoPreview").innerHTML = `${DOM_cardProp.info.value}`;
+  document.getElementById("effectPreview").innerHTML = `${DOM_cardProp.effect.value}`;
   document.getElementById("closePreview").onclick = function() {
     DOM_cardPreviewDisplay.style.display = "none";
-  }
+  };
 };
 
 // Click on bet's buttons
