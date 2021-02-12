@@ -34,8 +34,29 @@ function record() {
   DOM_formRecord.style.display = "block";
   document.getElementById("score").innerHTML = `Ton meilleur score: ${hiScore}`;
   DOM_formRecord.addEventListener('submit', (event) => {
-    DOM_formRecord.record.value=`${hiScore}`
+    DOM_formRecord.record.value =`${hiScore}`
   });
+};
+
+function cardPreview(){
+  DOM_cardProp.email.value = '';
+  DOM_cardProp.captcha.value = '';
+  var characterPreview = DOM_cardProp.characterName.value;
+  var forcePreview = DOM_cardProp.force.value;
+  var guildPreview = DOM_cardProp.guild.value;
+  var groupPreview = DOM_cardProp.group.value;
+  var infoPreview = DOM_cardProp.info.value;
+  var effectPreview = DOM_cardProp.effect.value;
+  const DOM_cardPreviewDisplay = document.getElementById("cardPreviewDisplay");
+  DOM_cardPreviewDisplay.style.display = "block";
+  document.getElementById("characterPreview").innerHTML = `${characterPreview}`;
+  document.getElementById("forcePreview").innerHTML = `${forcePreview}`;
+  document.getElementById("bandPreview").innerHTML = `${guildPreview} / ${groupPreview}`;
+  document.getElementById("infoPreview").innerHTML = `${infoPreview}`;
+  document.getElementById("effectPreview").innerHTML = `${effectPreview}`;
+  document.getElementById("closePreview").onclick = function() {
+    DOM_cardPreviewDisplay.style.display = "none";
+  }
 };
 
 // Click on bet's buttons
@@ -62,6 +83,9 @@ document.getElementById("cardPropButton").onclick = function() {
   noGame();
   betLimit(0);
   DOM_stop.style.display = "none";
+  document.getElementById("previewButton").onclick = function() {
+    cardPreview();
+  };
   document.getElementById("helpButton").onclick = function(){
     DOM_help.style.display = "block"
   };

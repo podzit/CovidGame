@@ -104,11 +104,11 @@
           // Mail sending	
           $object = "Nouvelle carte";
           mail($recipient, $object, utf8_decode($message), $headers); 		
-          echo '<p>'.$sentMessage.'</p>';
+          echo '<p style="color: bisque;">'.$sentMessage.'</p>';
         }
         else
         {
-          echo '<p>'.$errorMessage.'</p>';
+          echo '<p style="color: bisque;">'.$errorMessage.'</p>';
         }
 
         ?>

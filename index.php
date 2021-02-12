@@ -243,10 +243,25 @@
                 </div>
 
                 <button type="submit"  value="mail" formaction="mail.php">Envoyer</button>
-                <button id="previewButton" value="preview" formaction="preview.php" onclick="cardProp.target='POPUPW'; POPUPW = window.open('about:blank','POPUPW','width=410,height=560');">Aperçu</button>
-                
+                <button id="previewButton">Aperçu</button>
             </form>
             <!-- Form card proposition's end -->
+
+            <!-- Card proposition pop-in -->
+            <div id="cardPreviewDisplay" class="parentDisableCard">
+                <div class="popinPreview">
+                        <div class="card" style="display:block;">
+                        <div id="characterPreview" class="character"></div>
+                        <div class="image">image non disponible</div>
+                        <div id="forcePreview" class="force" style="color: black;"></div>
+                        <div id="bandPreview" class="band"></div>
+                        <div id="infoPreview" class="info" style="overflow-wrap: break-word;"></div>
+                        <div id="effectPreview" class="effect" style="overflow-wrap: break-word;"></div>
+                        </div>
+                    <span id="closePreview" class="buttonS3">Fermer</span>
+                </div>
+            </div>
+            <!-- Card proposition pop-in's end -->
 
             <!-- Help pop-in -->
             <div id="help" class="parentDisableHelp">

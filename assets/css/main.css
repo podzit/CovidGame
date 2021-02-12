@@ -63,25 +63,9 @@ main {
   margin: 20px 20px 20px 20px;
 }
 
-.preview {
-  margin: 20px 20px 20px 20px;
-}
-
 .indent {
   text-indent: 20px;
 }
-
-/*#gameOver {
-  display: none;
-  width: 810px;
-  align-self: center;
-  margin: auto;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-  text-align: center;
-  color:bisque;
-  font-size: 2rem;
-}*/
 
 #cardProp {
   display: none;
@@ -194,8 +178,8 @@ input[type="textarea"] {
 
 .parentDisableCard {
 	z-index:999;
-	width:720px;
-	height:750px;
+  width: 380px;
+  height: 580px;
 	display:none;
 	position:absolute;
   left: 50%;
@@ -226,9 +210,9 @@ input[type="textarea"] {
 }
 
 .popinPreview {
-	width:720px;
-	height:680px;
-	margin: 0 auto;
+  width: 380px;
+  height: 540px;
+	margin: auto;
 }
 
 #titleButton {
