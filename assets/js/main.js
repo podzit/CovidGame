@@ -29,8 +29,6 @@ function audio() {
   };
 };
 
-
-
 // Display record form
 function record() {
   let formRecord = document.getElementById('formRecord');
@@ -39,7 +37,6 @@ function record() {
   formRecord.addEventListener('submit', (event) => {
     document.formRecord.record.value=`${hiScore}`
   });
-  
 };
 
 // Click on bet's buttons
