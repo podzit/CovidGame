@@ -125,12 +125,12 @@ function game(round) {
     const text9 = `Match nul: personne n'est sorti vivant de ce duel`;
 
     // Sound conditions
-    win = playerWin && !sameGuild ? win = 1 : playerWin && sameGuild ? win = 2 : 
-    !playerWin && !sameGuild ? win = 0 : !playerWin && sameGuild ? win = 3 : win = 4 ;
+    win = playerWin && !sameGuild ? 1 : playerWin && sameGuild ? 2 : 
+    !playerWin && !sameGuild ? 0 : !playerWin && sameGuild ? 3 : 4 ;
     
     // Gain conditions
-    gain = win == 1 ? gain = playerCard.force*(2*bet) : win == 2 ? gain = playerCard.force*bet : 
-    win == 0 ? gain = - (ennemyCard.force*(2*bet)) : win == 3 ? gain = - (ennemyCard.force*bet) : gain = - bet ;
+    gain = win == 1 ? playerCard.force*(2*bet) : win == 2 ? playerCard.force*bet : 
+    win == 0 ? - (ennemyCard.force*(2*bet)) : win == 3 ? - (ennemyCard.force*bet) : - bet ;
 
     var result = win == 1 && playerGuild ? `${text1}` : win == 1 && !playerGuild ? `${text2}` : 
     win == 2 && playerGuild ? `${text3}` : win == 2 && !playerGuild ? `${text4}` : 
