@@ -42,10 +42,12 @@ function record() {
 function cardPreview(){
   DOM_cardProp.email.value = '';
   DOM_cardProp.captcha.value = '';
+  DOM_cardProp.imageUrl.value = DOM_cardProp.imageUrl.value == "https://" ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" : DOM_cardProp.imageUrl.value ;
   const DOM_cardPreviewDisplay = document.getElementById("cardPreviewDisplay");
   DOM_cardPreviewDisplay.style.display = "block";
   document.getElementById("characterPreview").innerHTML = `${DOM_cardProp.characterName.value}`;
   document.getElementById("forcePreview").innerHTML = `${DOM_cardProp.force.value}`;
+  document.getElementById("imagePreview").innerHTML = `<img src="${DOM_cardProp.imageUrl.value}" width="329" height="234" />`;
   document.getElementById("bandPreview").innerHTML = `${DOM_cardProp.guild.value} / ${DOM_cardProp.group.value}`;
   document.getElementById("infoPreview").innerHTML = `${DOM_cardProp.info.value}`;
   document.getElementById("effectPreview").innerHTML = `${DOM_cardProp.effect.value}`;

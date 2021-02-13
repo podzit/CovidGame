@@ -67,6 +67,7 @@
         // Get form values
         $characterName = $_POST['characterName'];
         $force = $_POST['force'];
+        $imageUrl = $_POST['imageUrl'];
         $guild = $_POST['guild'];
         $group = $_POST['group'];
         $info = $_POST['info'];
@@ -87,7 +88,7 @@
         $email = (IsEmail($email)) ? $email : '';
 
         // Message construction with values
-        $message = 'Nom du perso: <b>'.$characterName.'</b><br>Force: <b>' .$force. '</b><br>Guilde: <b>' .$guild. '</b><br>Groupe: <b>' .$group. '</b><br>Infos: <b>' .$info. '</b><br>Effet: <b>' .$effect. "</b>\r\n";
+        $message = 'Nom du perso: <b>'.$characterName.'</b><br>Force: <b>' .$force. '</b><br>Image: <b>' .$imageUrl. '</b><br>Guilde: <b>' .$guild. '</b><br>Groupe: <b>' .$group. '</b><br>Infos: <b>' .$info. '</b><br>Effet: <b>' .$effect. "</b>\r\n";
 
         // Headers construction	
         if ($captcha)

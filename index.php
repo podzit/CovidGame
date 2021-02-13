@@ -199,6 +199,11 @@
                 </div>
 
                 <div class="label">
+                    <label for="imageUrl">URL de l'image</label>
+                    <input type="text" id="imageUrl" name="imageUrl" value="https://"></input>
+                </div>
+
+                <div class="label">
                     <label for="guild">Guilde</label>
                     <select class="select" id="guild" name="guild">
                         <option value="comploteurs">Comploteurs</option>
@@ -252,7 +257,7 @@
                 <div class="popinPreview">
                         <div class="card" style="display:block;">
                         <div id="characterPreview" class="character"></div>
-                        <div class="image">image non disponible</div>
+                        <div id="imagePreview" class="image"></div>
                         <div id="forcePreview" class="force" style="color: black;"></div>
                         <div id="bandPreview" class="band"></div>
                         <div id="infoPreview" class="info" style="overflow-wrap: break-word;"></div>
