@@ -27,7 +27,7 @@
 		<meta property="og:url" content="https://covidgame.fun" />
 		<meta property="og:description" content="Qui des comploteurs ou des complotistes vaincront ?" />
 		<meta name="Content-Language" content="fr">
-		<meta name="Description" content="Jeu en line pour rigoler auround du Covid19">
+		<meta name="Description" content="Jeu en line pour rigoler autour du Covid19">
 		<meta name="Keywords" content="jeu;france;fr;cartes;covid19;covid;complots;humour;nouvelordremondial;complistes;comploteurs;raoult;hydroxychloroquine;vaccin;masque;illuminatis;Qanon;Deepstate">
 		<meta name="Subject" content="CovidGame">
 		<meta name="Copyright" content="PodzIT 2020">

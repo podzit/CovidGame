@@ -1,10 +1,9 @@
-import { reset } from '../main.js'
-import { DOM_stop, bets } from '../constants/display.js'
+import { DOM_stop, bets } from '../constants/display.js';
+import { reset } from '../main.js';
 
 export const DOM_pocket = document.getElementById("pocket");
 export const DOM_playerImage = document.getElementById("playerImage");
 export const DOM_ennemyImage = document.getElementById("ennemyImage");
-export const DOM_replay = document.getElementById("replay");
 export const DOM_gain = document.getElementById("gain");
 export const DOM_result = document.getElementById("result");
 export const DOM_cardProp = document.getElementById("cardProp");
@@ -16,7 +15,7 @@ export function gameReady(){
     DOM_pocket.innerHTML = `Ta poche: 50$`;
     jQuery('#formRecord').hide();
     DOM_cardProp.style.display = "none";
-    DOM_replay.style.display = "none";
+    jQuery('#replay').hide();
     jQuery('#resultPopup').hide();
     bets("inline-block");
     DOM_stop.style.display = "none";
@@ -27,15 +26,15 @@ export function gameOver(){
     jQuery('#resultPopup').stop(true, true);
     jQuery('#resultPopup').show();
     DOM_gain.innerHTML = `Tu retentes ta chance ou tu abandonnes?`;
-    DOM_replay.style.display="inline-block";
-    DOM_replay.onclick = function () {
-      reset();
-    };
+    jQuery('#replay').show();
+    jQuery('#replay').on("click", function () { reset(); } );
   };
 
 // Delete game part
 export function noGame() {
   jQuery('#game').hide();
+  jQuery('#stop').hide();
+  bets("none");
   DOM_pocket.style.display ="none";
   };
 

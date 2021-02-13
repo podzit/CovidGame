@@ -1,8 +1,55 @@
+import { DOM_formRecord, noGame, DOM_cardProp } from './game.js';
+import { hiScore } from '../main.js';
+
+// Click on footer's buttons
+export function footerButtons(){
+  jQuery('#rulesButton').on("click", function() { jQuery('#rulesPop').show(); } );
+  jQuery('#closeRules').on("click", function() { jQuery('#rulesPop').hide(); } );
+  jQuery('#scoresButton').on("click", function() { jQuery('#scoresPop').show(); } );
+  jQuery('#closeScores').on("click", function() { jQuery('#scoresPop').hide(); } );
+  jQuery('#cardPropButton').on("click", function() {
+    jQuery('#cardProp').show();
+    noGame();
+    betLimit(0);
+    jQuery('#formRecord').hide();
+    jQuery('#previewButton').on("click", function() { cardPreview(); } );
+    jQuery('#helpButton').on("click", function(){ jQuery('#help').show(); } );
+    jQuery('#closeHelp').on("click", function(){ jQuery('#help').hide(); } );
+  } );
+}
+
+// Display record form
+export function record() {
+  jQuery('#formRecord').show();
+  noGame();
+  document.getElementById("score").innerHTML = `Ton meilleur score: ${hiScore}`;
+  DOM_formRecord.addEventListener('submit', (event) => {
+    DOM_formRecord.record.value =`${hiScore}`
+  });
+};
+
+// Display card proposition preview
+export function cardPreview(){
+  DOM_cardProp.email.value = '';
+  DOM_cardProp.captcha.value = '';
+  DOM_cardProp.imageUrl.value = DOM_cardProp.imageUrl.value == "https://" ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" : DOM_cardProp.imageUrl.value ;
+  jQuery('#cardPreviewDisplay').show();
+  document.getElementById("characterPreview").innerHTML = `${DOM_cardProp.characterName.value}`;
+  document.getElementById("forcePreview").innerHTML = `${DOM_cardProp.force.value}`;
+  document.getElementById("imagePreview").innerHTML = `<img src="${DOM_cardProp.imageUrl.value}" width="329" height="234" />`;
+  document.getElementById("bandPreview").innerHTML = `${DOM_cardProp.guild.value} / ${DOM_cardProp.group.value}`;
+  document.getElementById("infoPreview").innerHTML = `${DOM_cardProp.info.value}`;
+  document.getElementById("effectPreview").innerHTML = `${DOM_cardProp.effect.value}`;
+  jQuery('#closePreview').on("click", function() {
+    jQuery('#cardPreviewDisplay').hide();
+  } );
+};
+
 // Audio
-export const DOM_mute = document.getElementById('muteButton');
-export const DOM_audioWin = document.getElementById("audioWin");
-export const DOM_audioLoose = document.getElementById("audioLoose");
-export const DOM_audioCard = document.getElementById("audioCard");
+export const muteButton = document.getElementById('muteButton');
+export const audioWin = document.getElementById("audioWin");
+export const audioLoose = document.getElementById("audioLoose");
+export const audioCard = document.getElementById("audioCard");
 
 // Bets
 export const DOM_bet1 = document.getElementById("bet1");
