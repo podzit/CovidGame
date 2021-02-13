@@ -2,8 +2,7 @@ import { deck } from './constants/deck.js';
 import { words, over } from './constants/words.js';
 import { betLimit, buttons, record, footerButtons, muteButton, audioWin, audioLoose, audioCard } from './constants/display.js';
 import { DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js';
-import { DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_gain, DOM_result } from './constants/game.js';
-import { gameOver, cardDisplay, noGame, flipCards, gameReady } from './constants/game.js';
+import { DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_gain, DOM_result, gameOver, cardDisplay, noGame, flipCards, gameReady } from './constants/game.js';
 
 document.getElementById("title").innerHTML = "Covid Game v3.2"
 

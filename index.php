@@ -132,7 +132,7 @@
             <div id="scoresPop" class="parentDisableScores">
                 <div class="popinScores">
                     <div class="scores">
-                        <h2 style="text-align: center;"> High Score </h2>
+                        <h2 style="text-align: center;">~ High Score ~</h2>
                         <?php include 'scoresPopin.php';?>
                         <span id="closeScores" class="buttonS3">Fermer</span>
                     </div>
@@ -146,16 +146,16 @@
                     <div class="rules">
                         <h2 style="text-align: center;">~ Règles du jeu ~</h2>
                         <h3>Le départ</h3>
-                        Tu démarres avec 50$ en poche (ouais c'est radin et alors?) et dois miser pour lancer le jeu.<br/>
-                        Tu as le choix entre 1,2,5 ou 10$ de mise et ça peut vite rapporter gros.<br/>
+                        Tu démarres avec 50$ en poche (ouais c'est radin et alors?).<br/>
+                        Tu as le choix entre 1,2,5 ou 10$ de mise pour lancer le jeu et ça peut vite rapporter gros.<br/>
                         Si la force de ta carte dépasse la force de la carte ennemie, tu gagnes. Jusque là rien d'anormal.<br/>
                         <h3>Les gains et pertes</h3>
                         Ils sont en fonction de plusieurs cas alors lis bien ou prends des notes parceque y a des maths:<br/>
-                        - Même catégorie (exemple comploteur vs comploteur)<br/>
+                        - Même guilde (exemple comploteurs vs comploteurs)<br/>
                         <div class="indent">= mise x force de la carte vainqueure</div>
-                        - Catégorie différente (exemple complotiste vs comploteur)<br/>
+                        - Guildes différentes (exemple complotistes vs comploteurs)<br/>
                         <div class="indent">= Double de la mise x force de la carte vainqueure</div>
-                        - match nul = perte de la mise<br/>
+                        - Match nul = perte de la mise<br/>
                         <h3>La fin</h3>
                         Si au cours du jeu, la poche atteint 500$ et plus, félicitations, grace au bouton "Stop", 
                         tu peux enregistrer ton pseudo et ton score pour apparaitre dans le tableau "High Score" 
@@ -172,7 +172,7 @@
             <form id="cardProp" name="cardProp" method="post">
 
                 <br/>
-                La proposition doit citer une personne connue, doit être drôle et sans insultes.<br/>
+                La proposition doit citer une personne connue et sans insultes.<br/>
                 Le bouton "Envoyer" la soumet à l'administrateur.<br/>
                 Les champs avec une étoile sont obligatoires.<br/>
                 <span id="helpButton" class="buttonS2">aide</span>

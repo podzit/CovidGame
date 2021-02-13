@@ -9,6 +9,7 @@ export const DOM_result = document.getElementById("result");
 export const DOM_cardProp = document.getElementById("cardProp");
 export const DOM_formRecord = document.getElementById("formRecord");
 
+// Set environment to start the game
 export function gameReady(){
     jQuery('#game').show();
     DOM_pocket.style.display ="block";
@@ -21,7 +22,8 @@ export function gameReady(){
     DOM_stop.style.display = "none";
     DOM_playerImage.innerHTML = DOM_ennemyImage.innerHTML = `<img src="assets/img/back.png"/>`;
   };
-  
+
+// Set environment when game is over
 export function gameOver(){
     jQuery('#resultPopup').stop(true, true);
     jQuery('#resultPopup').show();
@@ -38,6 +40,7 @@ export function noGame() {
   DOM_pocket.style.display ="none";
   };
 
+// Display cards
 export function cardDisplay({ guild, group, force, fileName, character, info, effect }, DOM_player) {
   
     // Delete old card
