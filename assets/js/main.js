@@ -1,9 +1,9 @@
 import { deck } from './constants/deck.js';
 import { words, over } from './constants/words.js';
 import { betLimit, buttons } from './constants/display.js';
-import { DOM_mute, DOM_audioWin, DOM_audioLoose, DOM_audioCard, DOM_help, DOM_rulesPop, DOM_scoresPop } from './constants/display.js';
+import { DOM_mute, DOM_audioWin, DOM_audioLoose, DOM_audioCard } from './constants/display.js';
 import { DOM_stop, DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js';
-import { DOM_formRecord, DOM_cardProp, DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_result, DOM_gain } from './constants/game.js';
+import { DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_gain, DOM_cardProp, DOM_result, DOM_formRecord } from './constants/game.js';
 import { gameReady, gameOver, cardDisplay, noGame, flipCards } from './constants/game.js';
 
 document.getElementById("title").innerHTML = "Covid Game v3.2"
@@ -19,19 +19,13 @@ export function reset(){
 reset();
 
 function audio() {
-  if (DOM_mute.checked){
-    DOM_audioWin.pause();
-    DOM_audioLoose.pause();
-  }
-  else {
-    if (win == 0) {DOM_audioLoose.play();}
-    else if (win == 1) {DOM_audioWin.play();}
-  };
-};
+  DOM_mute.checked ? (DOM_audioWin.pause(), DOM_audioLoose.pause()) : win == 0 ? DOM_audioLoose.play() : win == 1 ? DOM_audioWin.play() : '';
+}; 
 
 // Display record form
 function record() {
-  DOM_formRecord.style.display = "block";
+  jQuery('#formRecord').show();
+  noGame();
   document.getElementById("score").innerHTML = `Ton meilleur score: ${hiScore}`;
   DOM_formRecord.addEventListener('submit', (event) => {
     DOM_formRecord.record.value =`${hiScore}`
@@ -43,17 +37,16 @@ function cardPreview(){
   DOM_cardProp.email.value = '';
   DOM_cardProp.captcha.value = '';
   DOM_cardProp.imageUrl.value = DOM_cardProp.imageUrl.value == "https://" ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" : DOM_cardProp.imageUrl.value ;
-  const DOM_cardPreviewDisplay = document.getElementById("cardPreviewDisplay");
-  DOM_cardPreviewDisplay.style.display = "block";
+  jQuery('#cardPreviewDisplay').show();
   document.getElementById("characterPreview").innerHTML = `${DOM_cardProp.characterName.value}`;
   document.getElementById("forcePreview").innerHTML = `${DOM_cardProp.force.value}`;
   document.getElementById("imagePreview").innerHTML = `<img src="${DOM_cardProp.imageUrl.value}" width="329" height="234" />`;
   document.getElementById("bandPreview").innerHTML = `${DOM_cardProp.guild.value} / ${DOM_cardProp.group.value}`;
   document.getElementById("infoPreview").innerHTML = `${DOM_cardProp.info.value}`;
   document.getElementById("effectPreview").innerHTML = `${DOM_cardProp.effect.value}`;
-  document.getElementById("closePreview").onclick = function() {
-    DOM_cardPreviewDisplay.style.display = "none";
-  };
+  jQuery('#closePreview').on("click", function() {
+    jQuery('#cardPreviewDisplay').hide();
+  } );
 };
 
 // Click on bet's buttons
@@ -63,50 +56,32 @@ DOM_bet5.onclick = function () { game(bet = 5); };
 DOM_bet10.onclick = function () { game(bet = 10); };
 
 // Click on footer's buttons
-document.getElementById("rulesButton").onclick = function() {
-  DOM_rulesPop.style.display = "block"
-};
-document.getElementById("closeRules").onclick = function() {
-  DOM_rulesPop.style.display = "none"
-};
-document.getElementById("scoresButton").onclick = function() {
-  DOM_scoresPop.style.display = "block"
-};
-document.getElementById("closeScores").onclick = function() {
-  DOM_scoresPop.style.display = "none"
-};
-document.getElementById("cardPropButton").onclick = function() {
-  DOM_cardProp.style.display = "block";
+jQuery('#rulesButton').on("click", function() { jQuery('#rulesPop').show(); } );
+jQuery('#closeRules').on("click", function() { jQuery('#rulesPop').hide(); } );
+jQuery('#scoresButton').on("click", function() { jQuery('#scoresPop').show(); } );
+jQuery('#closeScores').on("click", function() { jQuery('#scoresPop').hide(); } );
+jQuery('#cardPropButton').on("click", function() {
+  jQuery('#cardProp').show();
   noGame();
   betLimit(0);
-  DOM_stop.style.display = "none";
-  document.getElementById("previewButton").onclick = function() {
-    cardPreview();
-  };
-  document.getElementById("helpButton").onclick = function(){
-    DOM_help.style.display = "block"
-  };
-  document.getElementById("closeHelp").onclick = function(){
-    DOM_help.style.display = "none"
-  };
-};
+  jQuery('#stop').hide();
+  jQuery('#formRecord').hide();
+  jQuery('#previewButton').on("click", function() { cardPreview(); } );
+  jQuery('#helpButton').on("click", function(){ jQuery('#help').show(); } );
+  jQuery('#closeHelp').on("click", function(){ jQuery('#help').hide(); } );
+} );
 
-document.getElementById("titleButton").onclick = function(){reset();}
+jQuery('#titleButton').on("click", function(){reset();} );
 
 // Principal game function
 function game(round) {
   
   DOM_pocket.innerHTML = `Ta poche: ${pocket}$`;
   buttons("none","grey");
-  document.getElementById("vs").style.display = "none";
+  jQuery('#vs').hide()
 
   // Swoosh sound effect
-  if (DOM_mute.checked){
-    DOM_audioCard.pause();
-  }
-  else {
-    DOM_audioCard.play();
-  };
+  DOM_mute.checked ? DOM_audioCard.pause() : DOM_audioCard.play();
 
   // First round
   if (round == 1) {
@@ -190,24 +165,14 @@ function game(round) {
 
   // Game Over
     setTimeout (() => {
-      if (pocket <= 0) {
-        setTimeout(() => {
-          if (hiScore >= 500){
-            record();
-          }
-          else {
-            DOM_result.innerHTML = `GAME OVER !<br/>${end}`;
-            gameOver();
-          };
-        }, 500);  
-      }
+      pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `GAME OVER !<br>${end}`, gameOver() ) }, 500)) : '' ;
 
   // Bets buttons displaying conditions
-      var n = pocket <= 0 ?  betLimit(n = 0) : pocket < 2 ? betLimit(n = 1) : pocket < 5 ? betLimit(n = 2) : 
-      pocket < 10 ? betLimit(n = 5) : betLimit(n = 10);
+      pocket <= 0 ?  betLimit(0) : pocket < 2 ? betLimit(1) : pocket < 5 ? betLimit(2) : 
+      pocket < 10 ? betLimit(5) : betLimit(10);
 
   // Stop button displaying condition
-      DOM_stop.style.display = pocket >= 500 ? "inline-block" : "none";
+      pocket >= 500 ? jQuery('#stop').show() : jQuery('#stop').hide() ;
 
     }, 1000);
 

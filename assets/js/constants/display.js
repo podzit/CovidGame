@@ -1,8 +1,3 @@
-// HTML various parts
-export const DOM_rulesPop = document.getElementById("rulesPop");
-export const DOM_help = document.getElementById("help");
-export const DOM_scoresPop = document.getElementById("scoresPop");
-
 // Audio
 export const DOM_mute = document.getElementById('muteButton');
 export const DOM_audioWin = document.getElementById("audioWin");
@@ -31,22 +26,22 @@ export function betLimit(limit) {
     bets("none");
   }
   else if (limit == 1) {
-    DOM_bet1.style.display = "inline-block";
-    DOM_bet2.style.display = "none";
-    DOM_bet5.style.display = "none";
-    DOM_bet10.style.display = "none";
+    jQuery('#bet1').show();
+    jQuery('#bet2').hide();
+    jQuery('#bet5').hide();
+    jQuery('#bet10').hide();
   }
   else if (limit == 2) {
-    DOM_bet1.style.display = "inline-block";
-    DOM_bet2.style.display = "inline-block";
-    DOM_bet5.style.display = "none";
-    DOM_bet10.style.display = "none";
+    jQuery('#bet1').show();
+    jQuery('#bet2').show();
+    jQuery('#bet5').hide();
+    jQuery('#bet10').hide();
   }
   else if (limit == 5) {
-    DOM_bet1.style.display = "inline-block";
-    DOM_bet2.style.display = "inline-block";
-    DOM_bet5.style.display = "inline-block";
-    DOM_bet10.style.display = "none";
+    jQuery('#bet1').show();
+    jQuery('#bet2').show();
+    jQuery('#bet5').show();
+    jQuery('#bet10').hide();
   }
   else if (limit == 10) {
     bets("inline-block");

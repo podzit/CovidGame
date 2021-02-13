@@ -1,21 +1,20 @@
 import { reset } from '../main.js'
 import { DOM_stop, bets } from '../constants/display.js'
 
-export const DOM_game = document.getElementById("game");
 export const DOM_pocket = document.getElementById("pocket");
-export const DOM_formRecord = document.getElementById("formRecord");
-export const DOM_cardProp = document.getElementById("cardProp");
 export const DOM_playerImage = document.getElementById("playerImage");
 export const DOM_ennemyImage = document.getElementById("ennemyImage");
 export const DOM_replay = document.getElementById("replay");
 export const DOM_gain = document.getElementById("gain");
 export const DOM_result = document.getElementById("result");
+export const DOM_cardProp = document.getElementById("cardProp");
+export const DOM_formRecord = document.getElementById("formRecord");
 
 export function gameReady(){
-    DOM_game.style.display ="block";
+    jQuery('#game').show();
     DOM_pocket.style.display ="block";
     DOM_pocket.innerHTML = `Ta poche: 50$`;
-    DOM_formRecord.style.display = "none";
+    jQuery('#formRecord').hide();
     DOM_cardProp.style.display = "none";
     DOM_replay.style.display = "none";
     jQuery('#resultPopup').hide();
@@ -36,8 +35,8 @@ export function gameOver(){
 
 // Delete game part
 export function noGame() {
-    DOM_game.style.display ="none";
-    DOM_pocket.style.display ="none";
+  jQuery('#game').hide();
+  DOM_pocket.style.display ="none";
   };
 
 export function cardDisplay({ guild, group, force, fileName, character, info, effect }, DOM_player) {
