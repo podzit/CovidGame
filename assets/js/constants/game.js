@@ -1,4 +1,4 @@
-import { DOM_stop, bets } from '../constants/display.js';
+import { DOM_stop, bets, buttons } from '../constants/display.js';
 import { reset } from '../main.js';
 
 export const DOM_pocket = document.getElementById("pocket");
@@ -14,11 +14,12 @@ export function gameReady(){
     jQuery('#game').show();
     DOM_pocket.style.display ="block";
     DOM_pocket.innerHTML = `Ta poche: 50$`;
-    jQuery('#formRecord').hide();
+    jQuery('#scoresPopForm').hide();
     DOM_cardProp.style.display = "none";
     jQuery('#replay').hide();
     jQuery('#resultPopup').hide();
     bets("inline-block");
+    buttons("auto","#4CAF50");
     DOM_stop.style.display = "none";
     DOM_playerImage.innerHTML = DOM_ennemyImage.innerHTML = `<img src="assets/img/back.png"/>`;
   };

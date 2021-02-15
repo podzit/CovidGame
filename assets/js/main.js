@@ -33,6 +33,8 @@ footerButtons();
 
 jQuery('#titleButton').on("click", function(){reset();} );
 
+
+
 // Principal game function
 function game(round) {
   
@@ -93,40 +95,39 @@ function game(round) {
     win == 0 && ennemyGuild ? `${text5}` : win == 0 && !ennemyGuild ? `${text6}` :  
     win == 3 && ennemyGuild ? `${text7}` : win == 3 && !ennemyGuild ? `${text8}` : win == 4 ? `${text9}` : '' ;
 
-  // Display slower
+    // Display slower
     setTimeout(() => {  
 
-  // Enabling bets buttons
-      buttons("auto","#4CAF50");
-
-  // Result displaying
+      // Result displaying
       DOM_result.innerHTML = `${result}`;
 
-  // Gain displaying
+      // Gain displaying
       DOM_gain.innerHTML = gain < 0 ? `Perte ${gain}$` : `Gain ${gain}$`;
       hiScore = hiScore < (gain + pocket) ? gain + pocket : hiScore;
       DOM_pocket.innerHTML = `Ta poche: ${pocket = gain + pocket}$`;
       jQuery('#resultPopup').slideDown("fast");
-      jQuery('#resultPopup').fadeOut(5000);
+      jQuery('#resultPopup').fadeOut(3000, "linear", function() {
+        // Enabling bets buttons
+        buttons("auto","#4CAF50");
+      });
 
-  // Click on stop button
+      // Click on stop button
       jQuery('#stop').on("click", function () {
-        noGame();
         record();
       } );
 
-  // Audio conditions
+      // Audio conditions
       audio();
     }, 710);
 
-  // Game Over
+    // Game Over
     setTimeout (() => {
       pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `GAME OVER !<br>${end}`, gameOver() ) }, 500)) : '' ;
 
-  // Bets buttons displaying conditions
+      // Bets buttons displaying conditions
       pocket <= 0 ?  betLimit(0) : pocket < 2 ? betLimit(1) : pocket < 5 ? betLimit(2) : pocket < 10 ? betLimit(5) : betLimit(10);
 
-  // Stop button displaying condition
+      // Stop button displaying condition
       pocket >= 500 ? jQuery('#stop').show() : jQuery('#stop').hide() ;
     }, 1000);
 

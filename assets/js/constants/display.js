@@ -1,17 +1,22 @@
 import { DOM_formRecord, noGame, DOM_cardProp } from './game.js';
-import { hiScore } from '../main.js';
+import { hiScore, reset } from '../main.js';
 
 // Click on footer's buttons
 export function footerButtons(){
   jQuery('#rulesButton').on("click", function() { jQuery('#rulesPop').show(); } );
   jQuery('#closeRules').on("click", function() { jQuery('#rulesPop').hide(); } );
-  jQuery('#scoresButton').on("click", function() { jQuery('#scoresPop').show(); } );
+  jQuery('#scoresButton').on("click", function() { 
+    jQuery('#scoresPop').show();
+    jQuery('#scores').load("scoresPopin.php");
+  } );
   jQuery('#closeScores').on("click", function() { jQuery('#scoresPop').hide(); } );
   jQuery('#cardPropButton').on("click", function() {
     jQuery('#cardProp').show();
     noGame();
     betLimit(0);
-    jQuery('#formRecord').hide();
+    jQuery('#scoresPopForm').hide();
+    jQuery('#scoresPop').hide();
+    jQuery('#rulesPop').hide();
     jQuery('#previewButton').on("click", function() { cardPreview(); } );
     jQuery('#helpButton').on("click", function(){ jQuery('#help').show(); } );
     jQuery('#closeHelp').on("click", function(){ jQuery('#help').hide(); } );
@@ -20,13 +25,39 @@ export function footerButtons(){
 
 // Display record form
 export function record() {
-  jQuery('#formRecord').show();
-  noGame();
+  jQuery('#scoresPopForm').show();
   document.getElementById("score").innerHTML = `Ton meilleur score: ${hiScore}`;
-  DOM_formRecord.addEventListener('submit', (event) => {
-    DOM_formRecord.record.value =`${hiScore}`
-  });
-};
+}
+
+// Click on record button
+jQuery('#recordButton').on("click", function() {
+  ajaxPost();
+  jQuery('#scoresPopForm').hide();
+  ajaxRead();
+});
+
+// Post data from record form
+function ajaxPost(){
+  // GET FORM DATA
+  let data = new FormData();
+  data.append("name", DOM_formRecord.name.value);
+  data.append("record", hiScore);
+ 
+  // AJAX
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "scores.php");
+
+  // What to do when server responds
+  //xhr.onload = function(){ console.log(data); };
+  xhr.send(data);
+}
+
+// Read scores file
+function ajaxRead(){
+  jQuery('#scoresPop').show();
+  jQuery('#scores').load("scoresPopin.php");
+  reset();
+}
 
 // Display card proposition preview
 export function cardPreview(){

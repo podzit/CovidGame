@@ -10,11 +10,11 @@ $tab = array();
 
 // File reading
 $file = fopen($file, "r");
-while (($data = fgetcsv($file, $length, $delimiter)) !== FALSE)
+while (($array = fgetcsv($file, $length, $delimiter)) !== FALSE)
 {
     $rand = random_int(1,2500);
-    $tab[$rand]['name'] = $data[0];
-    $tab[$rand]['record'] = $data[1];
+    $tab[$rand]['name'] = $array[0];
+    $tab[$rand]['record'] = $array[1];
 }
 fclose($file);
 
@@ -22,8 +22,7 @@ fclose($file);
 array_multisort( array_column($tab, "record"), SORT_DESC, $tab );
 
 // Scores displaying
-if(isset($tab) && is_array($tab) && count($tab) > 0)
-{
+if(isset($tab) && is_array($tab) && count($tab) > 0) {
     echo '<table class="center">';
     foreach ($tab as $key => $value) { 
         $round++;

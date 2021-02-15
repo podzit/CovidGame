@@ -108,34 +108,40 @@
             <!-- Card template'end -->
 
             <!-- High score form-->
-            <form name="formRecord" id="formRecord" action="scores.php" method="post">
+            <div id="scoresPopForm" class="parentDisableScoresForm">
+                <div class="popinScoresForm">
+                    <div class="scoresForm">
 
-                <div class="label">
+                    <form name="formRecord" id="formRecord" method="post" onsubmit="return false">
+
+                    <div class="label">
                     <label id="score"></label>
-                    <input type="hidden" name="record" />
-                </div>
-
-                <div class="label">
+                    <input type="hidden" id="record" name="record" />
+                    </div>
+                    
+                    <div class="label">
                     <label for="name">Comment tu t'appelles champion ?</label>
                     <br/>
-                    <input type="text" name="name" required="required" pattern="[A-Za-z0-9-éèÉÈ]{1,20}" maxlength="20" />
-                </div>
-
-                <div class="button">
+                    <input type="text" name="name" id="userName" required="required" pattern="[A-Za-z0-9-éèÉÈ]{1,20}" maxlength="20" />
+                    </div>
+                    
+                    <div class="button">
                     <button type="submit" id="recordButton">Enregistrer</button>
-                </div>
+                    </div>
+                    
+                    </form>
 
-            </form>
+                    </div>
+                </div>
+            </div>
             <!-- High score form's end-->
 
             <!-- High score pop-in-->
             <div id="scoresPop" class="parentDisableScores">
                 <div class="popinScores">
-                    <div class="scores">
-                        <h2 style="text-align: center;">~ High Score ~</h2>
-                        <?php include 'scoresPopin.php';?>
-                        <span id="closeScores" class="buttonS3">Fermer</span>
-                    </div>
+                    <h2 style="text-align: center;">~ High Score ~</h2>
+                    <div id="scores" class="scores"></div>
+                    <span id="closeScores" class="buttonS3">Fermer</span>
                 </div>
             </div>
             <!-- High score pop-in's end -->
