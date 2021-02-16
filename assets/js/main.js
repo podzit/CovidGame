@@ -2,7 +2,7 @@ import { deck } from './constants/deck.js';
 import { words, over } from './constants/words.js';
 import { betLimit, buttons, record, footerButtons, muteButton, audioWin, audioLoose, audioCard } from './constants/display.js';
 import { DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js';
-import { DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_gain, DOM_result, gameOver, cardDisplay, noGame, flipCards, gameReady } from './constants/game.js';
+import { DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_gain, DOM_result, gameOver, cardDisplay, flipCards, gameReady } from './constants/game.js';
 
 document.getElementById("title").innerHTML = "Covid Game v3.2"
 
@@ -32,8 +32,6 @@ DOM_bet10.onclick = function () { game(bet = 10); };
 footerButtons();
 
 jQuery('#titleButton').on("click", function(){reset();} );
-
-
 
 // Principal game function
 function game(round) {
@@ -106,7 +104,7 @@ function game(round) {
       hiScore = hiScore < (gain + pocket) ? gain + pocket : hiScore;
       DOM_pocket.innerHTML = `Ta poche: ${pocket = gain + pocket}$`;
       jQuery('#resultPopup').slideDown("fast");
-      jQuery('#resultPopup').fadeOut(3000, "linear", function() {
+      jQuery('#resultPopup').fadeOut(2500, "linear", function() {
         // Enabling bets buttons
         buttons("auto","#4CAF50");
       });
@@ -122,7 +120,7 @@ function game(round) {
 
     // Game Over
     setTimeout (() => {
-      pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `GAME OVER !<br>${end}`, gameOver() ) }, 500)) : '' ;
+      pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `GAME OVER !<br>${end}`, gameOver() ) }, 1500)) : '' ;
 
       // Bets buttons displaying conditions
       pocket <= 0 ?  betLimit(0) : pocket < 2 ? betLimit(1) : pocket < 5 ? betLimit(2) : pocket < 10 ? betLimit(5) : betLimit(10);

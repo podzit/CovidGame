@@ -175,7 +175,7 @@
             <!-- Rules pop-in's end -->
 
             <!-- Form card proposition -->
-            <form id="cardProp" name="cardProp" method="post">
+            <form id="cardProp" name="cardProp" method="post" onsubmit="return false">
 
                 <br/>
                 La proposition doit citer une personne connue et sans insultes.<br/>
@@ -253,7 +253,7 @@
                     <input type="text" id="captcha" name="captcha" required="required" maxlength="2"></input>
                 </div>
 
-                <button type="submit"  value="mail" formaction="mail.php">Envoyer</button>
+                <button type="submit" id="sendButton">Envoyer</button>
                 <button id="previewButton">Aperçu</button>
             </form>
             <!-- Form card proposition's end -->
@@ -273,6 +273,15 @@
                 </div>
             </div>
             <!-- Card proposition pop-in's end -->
+
+            <!-- Mail sending pop-in -->
+            <div id="mailPop" class="parentDisableMail">
+                <div class="popinMail">
+                    <div id="mail" class="mail"></div>
+                    <button id="replayButton">Fermer</button>
+                </div>
+            </div>
+            <!-- Mail sending pop-in's end -->
 
             <!-- Help pop-in -->
             <div id="help" class="parentDisableHelp">

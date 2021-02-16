@@ -70,6 +70,13 @@ main {
   margin: auto;
 }
 
+.mail {
+  text-align: center;
+  color:bisque;
+  font-size: 2rem;
+  margin: 20px 20px 20px 20px;
+}
+
 .indent {
   text-indent: 20px;
 }
@@ -197,6 +204,21 @@ input[type="textarea"] {
 	background: rgba(0, 0, 0, 1);
 }
 
+.parentDisableMail {
+	z-index:999;
+	width:720px;
+	height:200px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+}
+
 .parentDisableCard {
 	z-index:999;
   width: 380px;
@@ -241,6 +263,13 @@ input[type="textarea"] {
   width: 380px;
   height: 540px;
 	margin: auto;
+}
+
+.popinMail {
+	width:720px;
+	height:200px;
+	margin: 0 auto;
+  color: bisque;
 }
 
 #titleButton {

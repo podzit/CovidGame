@@ -31,13 +31,13 @@ export function record() {
 
 // Click on record button
 jQuery('#recordButton').on("click", function() {
-  ajaxPost();
+  scorePost();
   jQuery('#scoresPopForm').hide();
-  ajaxRead();
+  scoreRead();
 });
 
 // Post data from record form
-function ajaxPost(){
+function scorePost(){
   // GET FORM DATA
   let data = new FormData();
   data.append("name", DOM_formRecord.name.value);
@@ -53,7 +53,7 @@ function ajaxPost(){
 }
 
 // Read scores file
-function ajaxRead(){
+function scoreRead(){
   jQuery('#scoresPop').show();
   jQuery('#scores').load("scoresPopin.php");
   reset();
@@ -61,13 +61,12 @@ function ajaxRead(){
 
 // Display card proposition preview
 export function cardPreview(){
-  DOM_cardProp.email.value = '';
   DOM_cardProp.captcha.value = '';
-  DOM_cardProp.imageUrl.value = DOM_cardProp.imageUrl.value == "https://" ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" : DOM_cardProp.imageUrl.value ;
+  let imageUrl = DOM_cardProp.imageUrl.value == "https://" ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" : DOM_cardProp.imageUrl.value ;
   jQuery('#cardPreviewDisplay').show();
   document.getElementById("characterPreview").innerHTML = `${DOM_cardProp.characterName.value}`;
   document.getElementById("forcePreview").innerHTML = `${DOM_cardProp.force.value}`;
-  document.getElementById("imagePreview").innerHTML = `<img src="${DOM_cardProp.imageUrl.value}" width="329" height="234" />`;
+  document.getElementById("imagePreview").innerHTML = `<img src="${imageUrl}" width="329" height="234" />`;
   document.getElementById("bandPreview").innerHTML = `${DOM_cardProp.guild.value} / ${DOM_cardProp.group.value}`;
   document.getElementById("infoPreview").innerHTML = `${DOM_cardProp.info.value}`;
   document.getElementById("effectPreview").innerHTML = `${DOM_cardProp.effect.value}`;
@@ -75,6 +74,48 @@ export function cardPreview(){
     jQuery('#cardPreviewDisplay').hide();
   } );
 };
+
+// Post data from card prop form
+function cardPost(){
+  // GET FORM DATA
+  let data = new FormData();
+  data.append("characterName", DOM_cardProp.characterName.value);
+  data.append("force", DOM_cardProp.force.value);
+  data.append("imageUrl", DOM_cardProp.imageUrl.value);
+  data.append("guild", DOM_cardProp.guild.value);
+  data.append("group", DOM_cardProp.group.value);
+  data.append("info", DOM_cardProp.info.value);
+  data.append("effect", DOM_cardProp.effect.value);
+  data.append("email", DOM_cardProp.email.value);
+      
+  // AJAX
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "mail.php");
+    
+  // What to do when server responds
+  //xhr.onload = function(){ console.log(data); };
+  xhr.send(data);
+  document.getElementById('mail').innerHTML = `Merci, ta carte va être étudiée avec le plus grand sérieux.`;
+  jQuery('#replayButton').on("click", function(){
+    jQuery('#mailPop').hide();
+    reset();
+    DOM_cardProp.captcha.value = '';
+  });
+}
+
+jQuery('#sendButton').on("click", function(){
+  DOM_cardProp.captcha.value == 5 ? cardPost() : (
+    (document.getElementById('mail').innerHTML = `Captcha invalide, la proposition n'a pas été envoyée.`),
+    jQuery('#replayButton').on("click", function(){
+      jQuery('#mailPop').hide();
+      DOM_cardProp.captcha.value = '';
+    })
+    );
+  jQuery('#mailPop').show();
+});
+
+
+
 
 // Audio
 export const muteButton = document.getElementById('muteButton');
