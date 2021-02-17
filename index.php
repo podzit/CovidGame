@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="assets/css/card.css">
         <link rel="stylesheet" href="assets/css/game.css">
         <link rel="stylesheet" href="assets/css/animation.css">
+        <link rel="stylesheet" href="assets/css/pop.css">
         <meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
         <meta property="og:image:type" content="image/jpeg">
         <meta property="og:title" content="CovidGame" />
@@ -120,7 +121,7 @@
                     </div>
                     
                     <div class="label">
-                    <label for="name">Comment tu t'appelles champion ?</label>
+                    <label id="scoreName" for="name"></label>
                     <br/>
                     <input type="text" name="name" id="userName" required="required" pattern="[A-Za-z0-9-éèÉÈ]{1,20}" maxlength="20" />
                     </div>
@@ -139,9 +140,9 @@
             <!-- High score pop-in-->
             <div id="scoresPop" class="parentDisableScores">
                 <div class="popinScores">
-                    <h2 style="text-align: center;">~ High Score ~</h2>
+                    <div id="titleScores"></div>
                     <div id="scores" class="scores"></div>
-                    <span id="closeScores" class="buttonS3">Fermer</span>
+                    <span id="closeScores" class="buttonS3"></span>
                 </div>
             </div>
             <!-- High score pop-in's end -->
@@ -149,117 +150,99 @@
             <!-- Rules pop-in -->
             <div id="rulesPop" class="parentDisable">
                 <div class="rulesPop">
-                    <div class="rules">
-                        <h2 style="text-align: center;">~ Règles du jeu ~</h2>
-                        <h3>Le départ</h3>
-                        Tu démarres avec 50$ en poche (ouais c'est radin et alors?).<br/>
-                        Tu as le choix entre 1,2,5 ou 10$ de mise pour lancer le jeu et ça peut vite rapporter gros.<br/>
-                        Si la force de ta carte dépasse la force de la carte ennemie, tu gagnes. Jusque là rien d'anormal.<br/>
-                        <h3>Les gains et pertes</h3>
-                        Ils sont en fonction de plusieurs cas alors lis bien ou prends des notes parceque y a des maths:<br/>
-                        - Même guilde (exemple comploteurs vs comploteurs)<br/>
-                        <div class="indent">= mise x force de la carte vainqueure</div>
-                        - Guildes différentes (exemple complotistes vs comploteurs)<br/>
-                        <div class="indent">= Double de la mise x force de la carte vainqueure</div>
-                        - Match nul = perte de la mise<br/>
-                        <h3>La fin</h3>
-                        Si au cours du jeu, la poche atteint 500$ et plus, félicitations, grace au bouton "Stop", 
-                        tu peux enregistrer ton pseudo et ton score pour apparaitre dans le tableau "High Score" 
-                        qui affiche les 10 meilleurs et pas un de plus.<br/>
-                        La maison ne fait pas crédit donc le jeu s'arrête quand ta poche atteint 0$.<br/>
-                        <h2 style="text-align: center;">Bonne chance !</h2>
-                    </div>
-                    <span id="closeRules" class="buttonS3">Fermer</span>
+                    <div class="rules" id="textRules"></div>
+                    <span id="closeRules" class="buttonS3"></span>
                 </div>
             </div>
             <!-- Rules pop-in's end -->
 
             <!-- Form card proposition -->
-            <form id="cardProp" name="cardProp" method="post" onsubmit="return false">
+            <div id="cardPropPop" class="parentDisableCardProp">
+                <div class="popinCardProp">
+                    <form id="formCardProp" name="formCardProp" method="post" onsubmit="return false"><br/>
+                    Toute propositoin est soumise à l'administrateur.<br/>
+                    Les champs avec une étoile sont obligatoires.<br/>
+                    <span id="helpButton" class="buttonS2">aide</span><br/>
 
-                <br/>
-                La proposition doit citer une personne connue et sans insultes.<br/>
-                Le bouton "Envoyer" la soumet à l'administrateur.<br/>
-                Les champs avec une étoile sont obligatoires.<br/>
-                <span id="helpButton" class="buttonS2">aide</span>
-                <br/>
+                    <div class="label">
+                        <label for="characterName">Nom du perso * </label>
+                        <input type="text" id="characterName" name="characterName" required="required" pattern="[A-Za-z0-9 éèà]{1,20}" maxlength="20"></input>
+                    </div>
 
-                <div class="label">
-                    <label for="characterName">Nom du personnage * </label>
-                    <input type="text" id="characterName" name="characterName" required="required" pattern="[A-Za-z0-9 éèà]{1,20}" maxlength="20"></input>
+                    <div class="label">
+                        <label for="force">Force</label>
+                        <select class="select" id="force" name="force">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>
+
+                    <div class="label">
+                        <label for="imageUrl">URL d'image</label>
+                        <input type="text" id="imageUrl" name="imageUrl" value="https://"></input>
+                    </div>
+
+                    <div class="labelInline">
+                        <label for="guild">Guilde</label>
+                        <select class="select" id="guild" name="guild">
+                            <option value="comploteurs">Comploteurs</option>
+                            <option value="complotistes">Complotistes</option>
+                        </select>
+                    </div>
+
+                    <div class="labelInline">
+                        <label for="group">Groupe</label>
+                        <select class="select" id="group" name="group">
+                            <option value="inutiles">Inutiles</option>
+                            <option value="tueurs">Tueurs</option>
+                            <option value="lobbies">Lobbies</option>
+                            <option value="milliardaires">Milliardaires</option>
+                            <option value="médias">Médias</option>
+                            <option value="sociétés secrètes">Sociétés secrètes</option>
+                            <option value="religieux">Religieux</option>
+                            <option value="patrons de pmu">Patrons de PMU</option>
+                            <option value="lanceurs d'alerte">Lanceurs d'alerte</option>
+                            <option value="prophètes">Prophètes</option>
+                        </select>
+                    </div>
+
+                    <div class="label">
+                        <label for="info">Infos du personnage</label>
+                        <textarea id="info" name="info" pattern="[A-Za-z0-9]{1,100}" maxlength="100" rows="4" cols="50"></textarea>
+                    </div>
+
+                    <div class="label">
+                        <label for="effect">Effet du personnage</label>
+                        <textarea id="effect" name="effect" pattern="[A-Za-z0-9]{1,100}" maxlength="100" rows="4" cols="50"></textarea>
+                    </div> 
+
+                    <div class="label">
+                        <label for="email">Ton e-mail * </label>
+                        <input type="text" id="email" name="email" required="required" pattern="[A-Za-z0-9.+@]{1,30}" maxlength="30"></input>
+                    </div>
+
+                    <div class="label">
+                        <label for="captcha"><img src="assets/img/captcha.png">* </label>
+                        <input type="text" id="captcha" name="captcha" required="required" maxlength="2"></input>
+                    </div>
+
+                    <button type="submit" id="sendButton">Envoyer</button>
+                    <button id="previewButton">Aperçu</button>
+                    <button id="closeCardPropButton"></button>
+                    </form>
                 </div>
-
-                <div class="label">
-                    <label for="force">Force</label>
-                    <select class="select" id="force" name="force">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select>
-                </div>
-
-                <div class="label">
-                    <label for="imageUrl">URL de l'image</label>
-                    <input type="text" id="imageUrl" name="imageUrl" value="https://"></input>
-                </div>
-
-                <div class="label">
-                    <label for="guild">Guilde</label>
-                    <select class="select" id="guild" name="guild">
-                        <option value="comploteurs">Comploteurs</option>
-                        <option value="complotistes">Complotistes</option>
-                    </select>
-                </div>
-
-                <div class="label">
-                    <label for="group">Groupe</label>
-                    <select class="select" id="group" name="group">
-                        <option value="inutiles">Inutiles</option>
-                        <option value="tueurs">Tueurs</option>
-                        <option value="lobbies">Lobbies</option>
-                        <option value="milliardaires">Milliardaires</option>
-                        <option value="médias">Médias</option>
-                        <option value="sociétés secrètes">Sociétés secrètes</option>
-                        <option value="religieux">Religieux</option>
-                        <option value="patrons de pmu">Patrons de PMU</option>
-                        <option value="lanceurs d'alerte">Lanceurs d'alerte</option>
-                        <option value="prophètes">Prophètes</option>
-                    </select>
-                </div>
-
-                <div class="label">
-                    <label for="info">Infos du personnage</label>
-                    <textarea id="info" name="info" pattern="[A-Za-z0-9]{1,100}" maxlength="100" rows="4" cols="50"></textarea>
-                </div>
-
-                <div class="label">
-                    <label for="effect">Effet du personnage</label>
-                    <textarea id="effect" name="effect" pattern="[A-Za-z0-9]{1,100}" maxlength="100" rows="4" cols="50"></textarea>
-                </div> 
-
-                <div class="label">
-                    <label for="email">Ton e-mail * </label>
-                    <input type="text" id="email" name="email" required="required" pattern="[A-Za-z0-9.+@]{1,30}" maxlength="30"></input>
-                </div>
-
-                <div class="label">
-                    <label for="captcha"><img src="assets/img/captcha.png">* </label>
-                    <input type="text" id="captcha" name="captcha" required="required" maxlength="2"></input>
-                </div>
-
-                <button type="submit" id="sendButton">Envoyer</button>
-                <button id="previewButton">Aperçu</button>
-            </form>
+            </div>
             <!-- Form card proposition's end -->
 
             <!-- Card proposition pop-in -->
-            <div id="cardPreviewDisplay" class="parentDisableCard">
+            <div id="cardPreviewDisplay" class="parentDisableCardPreview">
                 <div class="popinPreview">
                         <div class="card" style="display:block;">
                         <div id="characterPreview" class="character"></div>
@@ -269,7 +252,7 @@
                         <div id="infoPreview" class="info" style="overflow-wrap: break-word;"></div>
                         <div id="effectPreview" class="effect" style="overflow-wrap: break-word;"></div>
                         </div>
-                    <span id="closePreview" class="buttonS3">Fermer</span>
+                    <span id="closePreview" class="buttonS3"></span>
                 </div>
             </div>
             <!-- Card proposition pop-in's end -->
@@ -278,19 +261,16 @@
             <div id="mailPop" class="parentDisableMail">
                 <div class="popinMail">
                     <div id="mail" class="mail"></div>
-                    <button id="replayButton">Fermer</button>
+                    <button id="replayButton"></button>
                 </div>
             </div>
             <!-- Mail sending pop-in's end -->
 
             <!-- Help pop-in -->
-            <div id="help" class="parentDisableHelp">
+            <div id="helpPop" class="parentDisableHelp">
                 <div class="popinHelp">
-                    <div class="help">
-                        <h2 style="text-align: center;">~ Détail des cartes ~</h2>
-                        <img src="assets/img/help.png">
-                    </div>
-                    <span id="closeHelp" class="buttonS3">Fermer</span>
+                    <div id="help" class="help"></div>
+                    <span id="closeHelp" class="buttonS3"></span>
                 </div>
             </div>
             <!-- Help pop-in's end -->

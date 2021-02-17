@@ -1,0 +1,149 @@
+.parentDisable {
+	z-index:999;
+	width:620px;
+	height:850px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+}
+
+.parentDisableHelp {
+	z-index:999;
+	width:720px;
+	height:750px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+}
+
+.parentDisableScores {
+	z-index:999;
+	width:720px;
+	height:750px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+}
+
+.parentDisableScoresForm {
+	z-index:999;
+	width:720px;
+	height:300px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+}
+
+.parentDisableMail {
+	z-index:999;
+	width:720px;
+	height:200px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+}
+
+.parentDisableCardProp {
+	z-index:999;
+  width: 810px;
+  height: 850px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+}
+
+.parentDisableCardPreview {
+	z-index:999;
+  width: 380px;
+  height: 580px;
+	display:none;
+	position:absolute;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%);
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0);
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 1);
+}
+
+.popin {
+	width:620px;
+	height:700px;
+	margin: 0 auto;
+}
+
+.popinHelp {
+	width:720px;
+	height:680px;
+	margin: 0 auto;
+}
+
+.popinScores {
+	width:720px;
+	height:680px;
+	margin: 0 auto;
+  color: bisque;
+}
+
+.popinScoresForm {
+	width:720px;
+	height:300px;
+	margin: 0 auto;
+}
+
+.popinPreview {
+  width: 380px;
+  height: 540px;
+	margin: auto;
+}
+
+.popinMail {
+	width:720px;
+	height:200px;
+	margin: 0 auto;
+  color: bisque;
+}
+
+.popinCardProp {
+	width:810px;
+	height:850px;
+	margin: auto;
+  color: bisque;
+}

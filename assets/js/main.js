@@ -3,8 +3,9 @@ import { words, over } from './constants/words.js';
 import { betLimit, buttons, record, footerButtons, muteButton, audioWin, audioLoose, audioCard } from './constants/display.js';
 import { DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js';
 import { DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_gain, DOM_result, gameOver, cardDisplay, flipCards, gameReady } from './constants/game.js';
+import { text } from './constants/text.js';
 
-document.getElementById("title").innerHTML = "Covid Game v3.2"
+document.getElementById("title").innerHTML = `${text.title}`
 
 var win = 0 , gain = 0 , bet = 0 , pocket = 0 , hiScore = 0;
 
@@ -14,7 +15,7 @@ export function reset(){
   jQuery('#resultPopup').hide();
   gameReady();
   win = bet = gain = 0;
-  pocket = hiScore = 50;
+  pocket = hiScore = 5000;
 };
 
 reset();
@@ -36,7 +37,7 @@ jQuery('#titleButton').on("click", function(){reset();} );
 // Principal game function
 function game(round) {
   
-  DOM_pocket.innerHTML = `Ta poche: ${pocket}$`;
+  DOM_pocket.innerHTML = `${text.pocket}${pocket}$`;
   buttons("none","grey");
   jQuery('#vs').hide()
 
@@ -102,7 +103,7 @@ function game(round) {
       // Gain displaying
       DOM_gain.innerHTML = gain < 0 ? `Perte ${gain}$` : `Gain ${gain}$`;
       hiScore = hiScore < (gain + pocket) ? gain + pocket : hiScore;
-      DOM_pocket.innerHTML = `Ta poche: ${pocket = gain + pocket}$`;
+      DOM_pocket.innerHTML = `${text.pocket}${pocket = gain + pocket}$`;
       jQuery('#resultPopup').slideDown("fast");
       jQuery('#resultPopup').fadeOut(2500, "linear", function() {
         // Enabling bets buttons
@@ -120,7 +121,7 @@ function game(round) {
 
     // Game Over
     setTimeout (() => {
-      pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `GAME OVER !<br>${end}`, gameOver() ) }, 1500)) : '' ;
+      pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `${text.gameOver}${end}`, gameOver() ) }, 1500)) : '' ;
 
       // Bets buttons displaying conditions
       pocket <= 0 ?  betLimit(0) : pocket < 2 ? betLimit(1) : pocket < 5 ? betLimit(2) : pocket < 10 ? betLimit(5) : betLimit(10);

@@ -1,5 +1,6 @@
-import { DOM_formRecord, noGame, DOM_cardProp } from './game.js';
+import { DOM_formRecord, DOM_formCardProp } from './game.js';
 import { hiScore, reset } from '../main.js';
+import { text } from './text.js';
 
 // Audio
 export const muteButton = document.getElementById('muteButton');
@@ -96,7 +97,8 @@ if (color == '#4CAF50') {
 // Display record form
 export function record() {
   jQuery('#scoresPopForm').show();
-  document.getElementById("score").innerHTML = `Ton meilleur score: ${hiScore}`;
+  document.getElementById("score").innerHTML = `${text.hiScore} ${hiScore}`;
+  document.getElementById("scoreName").innerHTML = `${text.scoreName}`;
 }
 
 // Click on record button
@@ -129,17 +131,18 @@ function scoreRead(){
   reset();
 }
 
+
 // Display card proposition preview
 function cardPreview(){
-  DOM_cardProp.captcha.value = '';
-  let imageUrl = DOM_cardProp.imageUrl.value == "https://" ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" : DOM_cardProp.imageUrl.value ;
+  DOM_formCardProp.captcha.value = '';
+  let imageUrl = DOM_formCardProp.imageUrl.value == "https://" ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" : DOM_formCardProp.imageUrl.value ;
   jQuery('#cardPreviewDisplay').show();
-  document.getElementById("characterPreview").innerHTML = `${DOM_cardProp.characterName.value}`;
-  document.getElementById("forcePreview").innerHTML = `${DOM_cardProp.force.value}`;
+  document.getElementById("characterPreview").innerHTML = `${DOM_formCardProp.characterName.value}`;
+  document.getElementById("forcePreview").innerHTML = `${DOM_formCardProp.force.value}`;
   document.getElementById("imagePreview").innerHTML = `<img src="${imageUrl}" width="329" height="234" />`;
-  document.getElementById("bandPreview").innerHTML = `${DOM_cardProp.guild.value} / ${DOM_cardProp.group.value}`;
-  document.getElementById("infoPreview").innerHTML = `${DOM_cardProp.info.value}`;
-  document.getElementById("effectPreview").innerHTML = `${DOM_cardProp.effect.value}`;
+  document.getElementById("bandPreview").innerHTML = `${DOM_formCardProp.guild.value} / ${DOM_formCardProp.group.value}`;
+  document.getElementById("infoPreview").innerHTML = `${DOM_formCardProp.info.value}`;
+  document.getElementById("effectPreview").innerHTML = `${DOM_formCardProp.effect.value}`;
   jQuery('#closePreview').on("click", function() {
     jQuery('#cardPreviewDisplay').hide();
   } );
@@ -147,11 +150,11 @@ function cardPreview(){
 
 // Click on send button on card prop form
 jQuery('#sendButton').on("click", function(){
-  DOM_cardProp.captcha.value == 5 ? cardPost() : (
-    (document.getElementById('mail').innerHTML = `Captcha invalide, la proposition n'a pas été envoyée.`),
+  DOM_formCardProp.captcha.value == 5 ? cardPost() : (
+    (document.getElementById('mail').innerHTML = `${text.captchaError}`),
     jQuery('#replayButton').on("click", function(){
       jQuery('#mailPop').hide();
-      DOM_cardProp.captcha.value = '';
+      DOM_formCardProp.captcha.value = '';
     })
     );
   jQuery('#mailPop').show();
@@ -161,14 +164,14 @@ jQuery('#sendButton').on("click", function(){
 function cardPost(){
   // GET FORM DATA
   let data = new FormData();
-  data.append("characterName", DOM_cardProp.characterName.value);
-  data.append("force", DOM_cardProp.force.value);
-  data.append("imageUrl", DOM_cardProp.imageUrl.value);
-  data.append("guild", DOM_cardProp.guild.value);
-  data.append("group", DOM_cardProp.group.value);
-  data.append("info", DOM_cardProp.info.value);
-  data.append("effect", DOM_cardProp.effect.value);
-  data.append("email", DOM_cardProp.email.value);
+  data.append("characterName", DOM_formCardProp.characterName.value);
+  data.append("force", DOM_formCardProp.force.value);
+  data.append("imageUrl", DOM_formCardProp.imageUrl.value);
+  data.append("guild", DOM_formCardProp.guild.value);
+  data.append("group", DOM_formCardProp.group.value);
+  data.append("info", DOM_formCardProp.info.value);
+  data.append("effect", DOM_formCardProp.effect.value);
+  data.append("email", DOM_formCardProp.email.value);
       
   // AJAX
   let xhr = new XMLHttpRequest();
@@ -177,32 +180,57 @@ function cardPost(){
   // What to do when server responds
   //xhr.onload = function(){ console.log(data); };
   xhr.send(data);
-  document.getElementById('mail').innerHTML = `Merci, ta carte va être étudiée avec le plus grand sérieux.`;
+  document.getElementById('mail').innerHTML = `${text.thanx}`;
   jQuery('#replayButton').on("click", function(){
     jQuery('#mailPop').hide();
     reset();
-    DOM_cardProp.captcha.value = '';
+    DOM_formCardProp.captcha.value = '';
   });
 }
 
 // Click on footer's buttons
 export function footerButtons(){
-  jQuery('#rulesButton').on("click", function() { jQuery('#rulesPop').show(); } );
+  jQuery('#rulesButton').on("click", function() { 
+    jQuery('#rulesPop').show();
+    jQuery('#scoresPop').hide();
+    jQuery('#cardPropPop').hide(); 
+    jQuery('#cardPreviewDisplay').hide();
+    jQuery('#helpPop').hide();
+  } );
   jQuery('#closeRules').on("click", function() { jQuery('#rulesPop').hide(); } );
-  jQuery('#scoresButton').on("click", function() { 
+  jQuery('#scoresButton').on("click", function() {
+    jQuery('#cardPropPop').hide(); 
+    jQuery('#cardPreviewDisplay').hide();
+    jQuery('#helpPop').hide();
+    jQuery('#rulesPop').hide();
     jQuery('#scoresPop').show();
     jQuery('#scores').load("scoresPopin.php");
   } );
   jQuery('#closeScores').on("click", function() { jQuery('#scoresPop').hide(); } );
   jQuery('#cardPropButton').on("click", function() {
-    jQuery('#cardProp').show();
-    noGame();
-    betLimit(0);
+    jQuery('#cardPropPop').show();
     jQuery('#scoresPopForm').hide();
     jQuery('#scoresPop').hide();
     jQuery('#rulesPop').hide();
     jQuery('#previewButton').on("click", function() { cardPreview(); } );
-    jQuery('#helpButton').on("click", function(){ jQuery('#help').show(); } );
-    jQuery('#closeHelp').on("click", function(){ jQuery('#help').hide(); } );
+    jQuery('#helpButton').on("click", function(){ 
+      jQuery('#helpPop').show(); 
+    } );
+    jQuery('#closeHelp').on("click", function(){ jQuery('#helpPop').hide(); } );
+    jQuery('#closeCardPropButton').on("click", function(){
+      jQuery('#cardPropPop').hide(); 
+      jQuery('#cardPreviewDisplay').hide();
+      jQuery('#helpPop').hide();
+    });
   } );
 }
+
+document.getElementById("closeScores").innerHTML = `${text.close}`;
+document.getElementById("closeRules").innerHTML = `${text.close}`;
+document.getElementById("closeCardPropButton").innerHTML = `${text.close}`;
+document.getElementById("closePreview").innerHTML = `${text.close}`;
+document.getElementById("replayButton").innerHTML = `${text.close}`;
+document.getElementById("closeHelp").innerHTML = `${text.close}`;
+document.getElementById("titleScores").innerHTML = `${text.titleScores}`;
+document.getElementById("help").innerHTML = `${text.help}`;
+document.getElementById("textRules").innerHTML = `${text.rules}`;
