@@ -15,7 +15,7 @@ export function reset(){
   jQuery('#resultPopup').hide();
   gameReady();
   win = bet = gain = 0;
-  pocket = hiScore = 5000;
+  pocket = hiScore = 50;
 };
 
 reset();
