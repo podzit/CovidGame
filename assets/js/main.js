@@ -104,10 +104,9 @@ function game(round) {
       DOM_gain.innerHTML = gain < 0 ? `Perte ${gain}$` : `Gain ${gain}$`;
       hiScore = hiScore < (gain + pocket) ? gain + pocket : hiScore;
       DOM_pocket.innerHTML = `${text.pocket}${pocket = gain + pocket}$`;
-      jQuery('#resultPopup').slideDown("fast");
-      jQuery('#resultPopup').fadeOut(2500, "linear", function() {
+      jQuery('#resultPopup').slideDown("fast").delay(1000).fadeOut(500, "swing", function() {
         // Enabling bets buttons
-        buttons("auto","#4CAF50");
+        buttons("auto","#4CAF50")
       });
 
       // Click on stop button
@@ -121,7 +120,7 @@ function game(round) {
 
     // Game Over
     setTimeout (() => {
-      pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `${text.gameOver}${end}`, gameOver() ) }, 1500)) : '' ;
+      pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `${text.gameOver}${end}`, gameOver() ) }, 1000)) : '' ;
 
       // Bets buttons displaying conditions
       pocket <= 0 ?  betLimit(0) : pocket < 2 ? betLimit(1) : pocket < 5 ? betLimit(2) : pocket < 10 ? betLimit(5) : betLimit(10);

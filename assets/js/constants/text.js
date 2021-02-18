@@ -1,3 +1,4 @@
+
 export const text = {
     title: [`Covid Game v3.2`],
     hiScore: [`Ton meilleur score:`],
