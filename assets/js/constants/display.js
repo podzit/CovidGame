@@ -96,7 +96,7 @@ if (color == '#4CAF50') {
 
 // Display record form
 export function record() {
-  jQuery('#scoresPopForm').show();
+  jQuery('#scoresPopForm').toggle("fade");
   document.getElementById("score").innerHTML = `${text.hiScore} ${hiScore}`;
   document.getElementById("scoreName").innerHTML = `${text.scoreName}`;
 }
@@ -104,7 +104,8 @@ export function record() {
 // Click on record button
 jQuery('#recordButton').on("click", function() {
   scorePost();
-  jQuery('#scoresPopForm').hide();
+  jQuery('#scoresPopForm').toggle();
+  reset();
   scoreRead();
 });
 
@@ -126,9 +127,8 @@ function scorePost(){
 
 // Read scores file
 function scoreRead(){
-  jQuery('#scoresPop').show();
+  jQuery('#scoresPop').toggle("fade");
   jQuery('#scores').load("scoresRead.php");
-  reset();
 }
 
 
@@ -136,7 +136,7 @@ function scoreRead(){
 function cardPreview(){
   DOM_formCardProp.captcha.value = '';
   let imageUrl = DOM_formCardProp.imageUrl.value == "https://" ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" : DOM_formCardProp.imageUrl.value ;
-  jQuery('#cardPreviewDisplay').show();
+  jQuery('#cardPreviewDisplay').toggle();
   document.getElementById("characterPreview").innerHTML = `${DOM_formCardProp.characterName.value}`;
   document.getElementById("forcePreview").innerHTML = `${DOM_formCardProp.force.value}`;
   document.getElementById("imagePreview").innerHTML = `<img src="${imageUrl}" width="329" height="234" />`;
@@ -153,11 +153,11 @@ jQuery('#sendButton').on("click", function(){
   DOM_formCardProp.captcha.value == 5 ? cardPost() : (
     (document.getElementById('mail').innerHTML = `${text.captchaError}`),
     jQuery('#replayButton').on("click", function(){
-      jQuery('#mailPop').hide();
+      jQuery('#mailPop').toggle();
       DOM_formCardProp.captcha.value = '';
     })
     );
-  jQuery('#mailPop').show();
+  jQuery('#mailPop').toggle();
 });
 
 // Post data from card prop form
@@ -182,7 +182,7 @@ function cardPost(){
   xhr.send(data);
   document.getElementById('mail').innerHTML = `${text.thanx}`;
   jQuery('#replayButton').on("click", function(){
-    jQuery('#mailPop').hide();
+    jQuery('#mailPop').topggle();
     reset();
     DOM_formCardProp.captcha.value = '';
   });
@@ -191,7 +191,7 @@ function cardPost(){
 // Click on footer's buttons
 export function footerButtons(){
   jQuery('#rulesButton').on("click", function() { 
-    jQuery('#rulesPop').show();
+    jQuery('#rulesPop').toggle("fade");
     jQuery('#scoresPop').hide();
     jQuery('#cardPropPop').hide(); 
     jQuery('#cardPreviewDisplay').hide();
@@ -203,18 +203,17 @@ export function footerButtons(){
     jQuery('#cardPreviewDisplay').hide();
     jQuery('#helpPop').hide();
     jQuery('#rulesPop').hide();
-    jQuery('#scoresPop').show();
-    jQuery('#scores').load("scoresRead.php");
+    scoreRead();
   } );
   jQuery('#closeScores').on("click", function() { jQuery('#scoresPop').hide(); } );
   jQuery('#cardPropButton').on("click", function() {
-    jQuery('#cardPropPop').show();
+    jQuery('#cardPropPop').toggle("fade");
     jQuery('#scoresPopForm').hide();
     jQuery('#scoresPop').hide();
     jQuery('#rulesPop').hide();
     jQuery('#previewButton').on("click", function() { cardPreview(); } );
     jQuery('#helpButton').on("click", function(){ 
-      jQuery('#helpPop').show(); 
+      jQuery('#helpPop').toggle(); 
     } );
     jQuery('#closeHelp').on("click", function(){ jQuery('#helpPop').hide(); } );
     jQuery('#closeCardPropButton').on("click", function(){
