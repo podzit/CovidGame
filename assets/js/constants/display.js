@@ -136,7 +136,7 @@ function scoreRead(){
 function cardPreview(){
   DOM_formCardProp.captcha.value = '';
   let imageUrl = DOM_formCardProp.imageUrl.value == "https://" ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" : DOM_formCardProp.imageUrl.value ;
-  jQuery('#cardPreviewDisplay').toggle();
+  jQuery('#cardPreviewDisplay').toggle("fade");
   document.getElementById("characterPreview").innerHTML = `${DOM_formCardProp.characterName.value}`;
   document.getElementById("forcePreview").innerHTML = `${DOM_formCardProp.force.value}`;
   document.getElementById("imagePreview").innerHTML = `<img src="${imageUrl}" width="329" height="234" />`;
@@ -144,7 +144,7 @@ function cardPreview(){
   document.getElementById("infoPreview").innerHTML = `${DOM_formCardProp.info.value}`;
   document.getElementById("effectPreview").innerHTML = `${DOM_formCardProp.effect.value}`;
   jQuery('#closePreview').on("click", function() {
-    jQuery('#cardPreviewDisplay').hide();
+    jQuery('#cardPreviewDisplay').hide("fade");
   } );
 };
 
@@ -153,11 +153,11 @@ jQuery('#sendButton').on("click", function(){
   DOM_formCardProp.captcha.value == 5 ? cardPost() : (
     (document.getElementById('mail').innerHTML = `${text.captchaError}`),
     jQuery('#replayButton').on("click", function(){
-      jQuery('#mailPop').toggle();
+      jQuery('#mailPop').hide("fade");
       DOM_formCardProp.captcha.value = '';
     })
     );
-  jQuery('#mailPop').toggle();
+  jQuery('#mailPop').show("fade");
 });
 
 // Post data from card prop form
@@ -182,7 +182,7 @@ function cardPost(){
   xhr.send(data);
   document.getElementById('mail').innerHTML = `${text.thanx}`;
   jQuery('#replayButton').on("click", function(){
-    jQuery('#mailPop').topggle();
+    jQuery('#mailPop').hide("fade");
     reset();
     DOM_formCardProp.captcha.value = '';
   });
@@ -197,7 +197,7 @@ export function footerButtons(){
     jQuery('#cardPreviewDisplay').hide();
     jQuery('#helpPop').hide();
   } );
-  jQuery('#closeRules').on("click", function() { jQuery('#rulesPop').hide(); } );
+  jQuery('#closeRules').on("click", function() { jQuery('#rulesPop').toggle("fade"); } );
   jQuery('#scoresButton').on("click", function() {
     jQuery('#cardPropPop').hide(); 
     jQuery('#cardPreviewDisplay').hide();
@@ -205,7 +205,7 @@ export function footerButtons(){
     jQuery('#rulesPop').hide();
     scoreRead();
   } );
-  jQuery('#closeScores').on("click", function() { jQuery('#scoresPop').hide(); } );
+  jQuery('#closeScores').on("click", function() { jQuery('#scoresPop').toggle("fade"); } );
   jQuery('#cardPropButton').on("click", function() {
     jQuery('#cardPropPop').toggle("fade");
     jQuery('#scoresPopForm').hide();
@@ -213,13 +213,13 @@ export function footerButtons(){
     jQuery('#rulesPop').hide();
     jQuery('#previewButton').on("click", function() { cardPreview(); } );
     jQuery('#helpButton').on("click", function(){ 
-      jQuery('#helpPop').toggle(); 
+      jQuery('#helpPop').show("fade"); 
     } );
-    jQuery('#closeHelp').on("click", function(){ jQuery('#helpPop').hide(); } );
+    jQuery('#closeHelp').on("click", function(){ jQuery('#helpPop').hide("fade"); } );
     jQuery('#closeCardPropButton').on("click", function(){
-      jQuery('#cardPropPop').hide(); 
-      jQuery('#cardPreviewDisplay').hide();
-      jQuery('#helpPop').hide();
+      jQuery('#cardPropPop').hide("fade"); 
+      jQuery('#cardPreviewDisplay').hide("fade");
+      jQuery('#helpPop').hide("fade");
     });
   } );
 }
