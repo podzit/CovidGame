@@ -117,7 +117,7 @@ function scorePost(){
  
   // AJAX
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "scores.php");
+  xhr.open("POST", "scoresWrite.php");
 
   // What to do when server responds
   //xhr.onload = function(){ console.log(data); };
@@ -127,7 +127,7 @@ function scorePost(){
 // Read scores file
 function scoreRead(){
   jQuery('#scoresPop').show();
-  jQuery('#scores').load("scoresPopin.php");
+  jQuery('#scores').load("scoresRead.php");
   reset();
 }
 
@@ -204,7 +204,7 @@ export function footerButtons(){
     jQuery('#helpPop').hide();
     jQuery('#rulesPop').hide();
     jQuery('#scoresPop').show();
-    jQuery('#scores').load("scoresPopin.php");
+    jQuery('#scores').load("scoresRead.php");
   } );
   jQuery('#closeScores').on("click", function() { jQuery('#scoresPop').hide(); } );
   jQuery('#cardPropButton').on("click", function() {

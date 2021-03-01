@@ -76,7 +76,8 @@ function game(round) {
     win = playerWin && !sameGuild ? 1 : playerWin && sameGuild ? 2 : !playerWin && !sameGuild ? 0 : !playerWin && sameGuild ? 3 : 4 ;
     
     // Gain conditions
-    gain = win == 1 ? playerCard.force*(2*bet) : win == 2 ? playerCard.force*bet : win == 0 ? - (ennemyCard.force*(2*bet)) : win == 3 ? - (ennemyCard.force*bet) : - bet ;
+    gain = win == 1 ? playerCard.force*(2*bet) : win == 2 ? playerCard.force*bet : win == 0 ? - (ennemyCard.force*(2*bet)) : 
+    win == 3 ? - (ennemyCard.force*bet) : - bet ;
 
     // Result conditions
     const text1 = `${winner} ${playerCard.character} ${action} ${ennemyCard.character}`;
