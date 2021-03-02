@@ -233,3 +233,4 @@ document.getElementById("closeHelp").innerHTML = `${text.close}`;
 document.getElementById("titleScores").innerHTML = `${text.titleScores}`;
 document.getElementById("help").innerHTML = `${text.help}`;
 document.getElementById("textRules").innerHTML = `${text.rules}`;
+document.getElementById("cardPropRules").innerHTML = `${text.cardPropRules}`;

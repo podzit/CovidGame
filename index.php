@@ -160,8 +160,7 @@
             <div id="cardPropPop" class="parentDisableCardProp">
                 <div class="popinCardProp">
                     <form id="formCardProp" name="formCardProp" method="post" onsubmit="return false"><br/>
-                    Toute propositoin est soumise à l'administrateur.<br/>
-                    Les champs avec une étoile sont obligatoires.<br/>
+                    <div id="cardPropRules"></div>
                     <span id="helpButton" class="buttonS2">aide</span><br/>
 
                     <div class="label">
