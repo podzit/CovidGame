@@ -35,7 +35,7 @@ footerButtons();
 jQuery('#titleButton').on("click", function(){reset();} );
 
 // Principal game function
-function game(round) {
+function game() {
   
   DOM_pocket.innerHTML = `${text.pocket}${pocket}$`;
   buttons("none","grey");
