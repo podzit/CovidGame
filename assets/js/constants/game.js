@@ -1,5 +1,5 @@
 import { DOM_stop, bets, buttons } from '../constants/display.js';
-import { reset, } from '../main.js';
+import { reset } from '../main.js';
 import { text } from '../constants/text.js';
 
 export const DOM_pocket = document.getElementById("pocket");
