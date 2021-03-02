@@ -96,7 +96,7 @@ export const deck = [
     force: 5,
     fileName: 'gates',
     character: 'Bill Gates',
-    info:`Apparaît dans tous les complots, son fileName est devenu une marque.`,
+    info:`Apparaît dans tous les complots, son nom est devenu une marque.`,
     effect: `Réduit le nombre d’adversaires à l’aide de vaccins.`
   },
   {
@@ -141,7 +141,7 @@ export const deck = [
     force: 8,
     fileName: 'francmacon',
     character: 'La franc-maçonnerie',
-    info:`Ne construit rien malgré son fileName.`,
+    info:`Ne construit rien malgré son nom.`,
     effect:`Par contre détruit les adversaires à coup de truelle.`
   },
   {
@@ -213,7 +213,7 @@ export const deck = [
     force: 1,
     fileName: 'glow',
     character: 'Kim Glow',
-    info:`Célébrité de télé-réalité. Son vrai fileName est Sophie Laune mais ça fait moins télé-réalité.`,
+    info:`Célébrité de télé-réalité. Son vrai nom est Sophie Laune mais ça fait moins télé-réalité.`,
     effect:`Perce les tympans avec ses cris d'influenceuse.`
   },
   {
