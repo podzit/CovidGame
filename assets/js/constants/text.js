@@ -29,5 +29,7 @@ export const text = {
     titleScores: [`<h2 style="text-align: center;">~ High Score ~</h2>`],
     close: [`Fermer`],
     help: [`<h2 style="text-align: center;">~ Détail des cartes ~</h2>
-    <img src="assets/img/help.png">`]
+    <img src="assets/img/help.png">`],
+    cardPropRules: [`Toute proposition est soumise à l'administrateur.<br/>
+    Les champs avec une étoile sont obligatoires.<br/>`]
 }
