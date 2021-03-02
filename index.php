@@ -76,8 +76,7 @@
                     <div class="deck">
                         <div class="playerName">Toi</div>
                         <div id="flipCard" class="flipCard3DWrapper">
-                        <div id="playerImage">
-                        </div>
+                        <div id="playerImage"></div>
                         </div>
                     </div>
                     
@@ -89,8 +88,7 @@
                     <div class="deck">
                         <div class="playerName">L'ennemi</div>
                         <div id="flipCard2" class="flipCard3DWrapper2">
-                        <div id="ennemyImage">
-                        </div>
+                        <div id="ennemyImage"></div>
                         </div>
                     </div>
                 </section>

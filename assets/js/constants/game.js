@@ -71,6 +71,7 @@ export function cardDisplay({ guild, group, force, fileName, character, info, ef
   
 // Flip effect
 export function flipCards() {
-    document.getElementById('flipCard').classList.toggle('doFlip');
-    document.getElementById('flipCard2').classList.toggle('doFlip2');
-  };
+  setTimeout(() => { DOM_playerImage.innerHTML = DOM_ennemyImage.innerHTML = `<img src="assets/img/back.png"></img>`; }, 345);
+  document.getElementById('flipCard').classList.toggle('doFlip');
+  document.getElementById('flipCard2').classList.toggle('doFlip2');
+};
