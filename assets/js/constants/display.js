@@ -1,6 +1,7 @@
-import { DOM_formRecord, DOM_formCardProp } from './game.js';
-import { hiScore, reset } from '../main.js';
+import { DOM_formRecord, DOM_formCardProp, DOM_result, gameOver } from './game.js';
+import { hiScore, pocket, win, reset } from '../main.js';
 import { text } from './text.js';
+import { words } from './words.js';
 
 // Audio
 export const muteButton = document.getElementById('muteButton');
@@ -34,77 +35,95 @@ export function bets(display) {
 
 // Bets buttons display conditions
 export function betLimit(limit) {
-if (limit == 0) {
-  bets("none");
-}
-else if (limit == 1) {
-  jQuery('#bet1').show();
-  jQuery('#bet2').hide();
-  jQuery('#bet5').hide();
-  jQuery('#bet10').hide();
-}
-else if (limit == 2) {
-  jQuery('#bet1').show();
-  jQuery('#bet2').show();
-  jQuery('#bet5').hide();
-  jQuery('#bet10').hide();
-}
-else if (limit == 5) {
-  jQuery('#bet1').show();
-  jQuery('#bet2').show();
-  jQuery('#bet5').show();
-  jQuery('#bet10').hide();
-}
-else if (limit == 10) {
-  bets("inline-block");
-};
+  if (limit == 0) {
+    bets("none");
+  }
+  else if (limit == 1) {
+    jQuery('#bet1').show();
+    jQuery('#bet2').hide();
+    jQuery('#bet5').hide();
+    jQuery('#bet10').hide();
+    jQuery('#stop').hide();
+  }
+  else if (limit == 2) {
+    jQuery('#bet1').show();
+    jQuery('#bet2').show();
+    jQuery('#bet5').hide();
+    jQuery('#bet10').hide();
+    jQuery('#stop').hide();
+  }
+  else if (limit == 5) {
+    jQuery('#bet1').show();
+    jQuery('#bet2').show();
+    jQuery('#bet5').show();
+    jQuery('#bet10').hide();
+    jQuery('#stop').hide();
+  }
+  else if (limit == 10) {
+    bets("inline-block");
+    jQuery('#stop').hide();
+  }
+  else if (limit == 500) {
+    bets("inline-block");
+    jQuery('#stop').show();
+  };
 }
 
 // Buttoncolors when enabled or disabled
 function buttoncolor(over,out) {
-DOM_bet1.addEventListener("mouseover", function() {
-  DOM_bet1.style.backgroundColor = over;
-});
-DOM_bet1.addEventListener("mouseout", function() {
-  DOM_bet1.style.backgroundColor = out;
-});
-DOM_bet2.addEventListener("mouseover", function() {
-  DOM_bet2.style.backgroundColor = over;
-});
-DOM_bet2.addEventListener("mouseout", function() {
-  DOM_bet2.style.backgroundColor = out;
-});
-DOM_bet5.addEventListener("mouseover", function() {
-  DOM_bet5.style.backgroundColor = over;
-});
-DOM_bet5.addEventListener("mouseout", function() {
-  DOM_bet5.style.backgroundColor = out;
-});
-DOM_bet10.addEventListener("mouseover", function() {
-  DOM_bet10.style.backgroundColor = over;
-});
-DOM_bet10.addEventListener("mouseout", function() {
-  DOM_bet10.style.backgroundColor = out;
-});
+  DOM_bet1.addEventListener("mouseover", function() {
+    DOM_bet1.style.backgroundColor = over;
+  });
+  DOM_bet1.addEventListener("mouseout", function() {
+    DOM_bet1.style.backgroundColor = out;
+  });
+  DOM_bet2.addEventListener("mouseover", function() {
+    DOM_bet2.style.backgroundColor = over;
+  });
+  DOM_bet2.addEventListener("mouseout", function() {
+    DOM_bet2.style.backgroundColor = out;
+  });
+  DOM_bet5.addEventListener("mouseover", function() {
+    DOM_bet5.style.backgroundColor = over;
+  });
+  DOM_bet5.addEventListener("mouseout", function() {
+    DOM_bet5.style.backgroundColor = out;
+  });
+  DOM_bet10.addEventListener("mouseover", function() {
+    DOM_bet10.style.backgroundColor = over;
+  });
+  DOM_bet10.addEventListener("mouseout", function() {
+    DOM_bet10.style.backgroundColor = out;
+  });
 };
 
 export function buttons(pointerevents,color) {
-DOM_bet1.style.pointerEvents = pointerevents;
-DOM_bet2.style.pointerEvents = pointerevents;
-DOM_bet5.style.pointerEvents = pointerevents;
-DOM_bet10.style.pointerEvents = pointerevents;
-DOM_bet1.style.backgroundColor = color;
-DOM_bet2.style.backgroundColor = color;
-DOM_bet5.style.backgroundColor = color;
-DOM_bet10.style.backgroundColor = color;
-if (color == '#4CAF50') {
-  buttoncolor("#008CBA", "#4CAF50");
-};
+  DOM_bet1.style.pointerEvents = pointerevents;
+  DOM_bet2.style.pointerEvents = pointerevents;
+  DOM_bet5.style.pointerEvents = pointerevents;
+  DOM_bet10.style.pointerEvents = pointerevents;
+  DOM_bet1.style.backgroundColor = color;
+  DOM_bet2.style.backgroundColor = color;
+  DOM_bet5.style.backgroundColor = color;
+  DOM_bet10.style.backgroundColor = color;
+  if (color == '#4CAF50') {
+    buttoncolor("#008CBA", "#4CAF50");
+  };
 }
+
+export function endGame() {
+  let mock = words.mock[Math.floor(Math.random() * words.mock.length)];
+
+  pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `${text.gameOver}${mock}`, gameOver() ) }, 1000)) : '' ;
+
+  // Bets buttons displaying conditions
+  pocket <= 0 ?  betLimit(0) : pocket < 2 ? betLimit(1) : pocket < 5 ? betLimit(2) : pocket < 10 ? betLimit(5) : pocket < 500 ? betLimit(10) : 
+  pocket >= 500 ? betLimit(500) : pocket ;
+};
 
 // Display record form
 export function record() {
-  jQuery('#scoresPopForm').toggle("fade");
+  jQuery('#scoresPopForm').show("fade");
   document.getElementById("score").innerHTML = `${text.hiScore} ${hiScore}`;
   document.getElementById("scoreName").innerHTML = `${text.scoreName}`;
 }
