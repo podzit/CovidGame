@@ -8,6 +8,14 @@ export const audioWin = document.getElementById("audioWin");
 export const audioLoose = document.getElementById("audioLoose");
 export const audioCard = document.getElementById("audioCard");
 
+export function audio() {
+  muteButton.checked ? (audioWin.pause(), audioLoose.pause()) : win == 0 ? audioLoose.play() : win == 1 ? audioWin.play() : '';
+};
+
+export function cardSound() {
+  muteButton.checked ? audioCard.pause() : audioCard.play();
+}
+
 // Bets buttons
 export const DOM_bet1 = document.getElementById("bet1");
 export const DOM_bet2 = document.getElementById("bet2");

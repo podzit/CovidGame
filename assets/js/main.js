@@ -1,6 +1,6 @@
 import { deck } from './constants/deck.js';
 import { words, over } from './constants/words.js';
-import { betLimit, buttons, record, footerButtons, muteButton, audioWin, audioLoose, audioCard } from './constants/display.js';
+import { betLimit, buttons, record, footerButtons, audio, cardSound } from './constants/display.js';
 import { DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js';
 import { DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_gain, DOM_result, gameOver, cardDisplay, flipCards, gameReady } from './constants/game.js';
 import { text } from './constants/text.js';
@@ -20,10 +20,6 @@ export function reset(){
 
 reset();
 
-function audio() {
-  muteButton.checked ? (audioWin.pause(), audioLoose.pause()) : win == 0 ? audioLoose.play() : win == 1 ? audioWin.play() : '';
-};
-
 // Click on bet's buttons
 DOM_bet1.onclick = function () { game(bet = 1); };
 DOM_bet2.onclick = function () { game(bet = 2); };
@@ -42,9 +38,7 @@ function game() {
   jQuery('#vs').hide()
 
   // Swoosh sound effect
-  muteButton.checked ? audioCard.pause() : audioCard.play();
-  
-  flipCards();
+  cardSound();
 
   // Card random choice
   let [playerCard, ennemyCard] = [
@@ -53,10 +47,12 @@ function game() {
   ];
 
   // Timeout to slow card display
-  setTimeout(() => {  
+  setTimeout(() => { cardInjection() }, 700);
+    
+  function cardInjection() {
     cardDisplay(playerCard, DOM_playerImage);
     cardDisplay(ennemyCard, DOM_ennemyImage);
-  }, 700);
+  };
 
   let winner = words.winWord[Math.floor(Math.random() * words.winWord.length)];
   let looser = words.looseWord[Math.floor(Math.random() * words.looseWord.length)];
@@ -92,10 +88,13 @@ function game() {
   win == 0 && ennemyGuild ? `${text5}` : win == 0 && !ennemyGuild ? `${text6}` :  
   win == 3 && ennemyGuild ? `${text7}` : win == 3 && !ennemyGuild ? `${text8}` : win == 4 ? `${text9}` : '' ;
 
+  flipCards();
+  
   // Display slower
-  setTimeout(() => {  
+  setTimeout(() => { displayResult() }, 710); 
 
-    // Result displaying
+  // Result displaying
+  function displayResult(){
     DOM_result.innerHTML = `${result}`;
 
     // Gain displaying
@@ -112,12 +111,15 @@ function game() {
       record();
     } );
 
-    // Audio conditions
+  // Audio conditions
     audio();
-  }, 710);
+  };
+
 
   // Game Over
-  setTimeout (() => {
+  setTimeout (() => { endGame() }, 1000); 
+    
+  function endGame() {
     pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `${text.gameOver}${end}`, gameOver() ) }, 1000)) : '' ;
 
     // Bets buttons displaying conditions
@@ -125,5 +127,5 @@ function game() {
 
     // Stop button displaying condition
     pocket >= 500 ? jQuery('#stop').show() : jQuery('#stop').hide() ;
-  }, 1000);
+  };
 };
