@@ -43,17 +43,14 @@ function game(round) {
 
   // Swoosh sound effect
   muteButton.checked ? audioCard.pause() : audioCard.play();
-
-  // First round
-  if (round == 1) {
-
-    flipCards();
+  
+  flipCards();
 
   // Card random choice
-    let [playerCard, ennemyCard] = [
-      deck[Math.floor(Math.random() * deck.length)],
-      deck[Math.floor(Math.random() * deck.length)]
-    ];
+  let [playerCard, ennemyCard] = [
+    deck[Math.floor(Math.random() * deck.length)],
+    deck[Math.floor(Math.random() * deck.length)]
+  ];
 
   // Timeout to slow card display
     setTimeout(() => {  
@@ -76,68 +73,58 @@ function game(round) {
     // Sound conditions
     win = nul ? 4 : playerWin && !sameGuild ? 1 : playerWin && sameGuild ? 2 : !playerWin && !sameGuild ? 0 : !playerWin && sameGuild ? 3 : '' ;
     
-    // Gain conditions
-    gain = win == 1 ? playerCard.force*(2*bet) : win == 2 ? playerCard.force*bet : win == 0 ? - (ennemyCard.force*(2*bet)) : 
-    win == 3 ? - (ennemyCard.force*bet) : - bet ;
+  // Gain conditions
+  gain = win == 1 ? playerCard.force*(2*bet) : win == 2 ? playerCard.force*bet : win == 0 ? - (ennemyCard.force*(2*bet)) : 
+  win == 3 ? - (ennemyCard.force*bet) : - bet ;
 
-    // Result conditions
-    const text1 = `${winner} ${playerCard.character} ${action} ${ennemyCard.character}`;
-    const text2 = `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
-    const text3 = `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}`;
-    const text4 = `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
-    const text5 = `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}`;
-    const text6 = `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
-    const text7 = `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot`;
-    const text8 = `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
-    const text9 = `Match nul: personne n'est sorti vivant de ce duel`;
+  // Result conditions
+  const text1 = `${winner} ${playerCard.character} ${action} ${ennemyCard.character}`;
+  const text2 = `${winner} Tu as vaincu l'élite pédophile satanique avec ${playerCard.character}`;
+  const text3 = `${winner} Entre comploteurs, ${playerCard.character} ${action} ${ennemyCard.character}`;
+  const text4 = `${winner} ${ennemyCard.character} a succombé ! Tu es le survivant de ta guilde`;
+  const text5 = `${looser} Le complot mondial t'${action} en utilisant ${ennemyCard.character}`;
+  const text6 = `${looser} ${ennemyCard.character} ${action} ${playerCard.character}`;
+  const text7 = `${looser} ${ennemyCard.character} t'${action}! Trop de complot tue le complot`;
+  const text8 = `${looser} Entre complotistes, ${ennemyCard.character} ${action} ${playerCard.character}`;
+  const text9 = `Match nul: personne n'est sorti vivant de ce duel`;
 
-    var result = win == 1 && playerGuild ? `${text1}` : win == 1 && !playerGuild ? `${text2}` : 
-    win == 2 && playerGuild ? `${text3}` : win == 2 && !playerGuild ? `${text4}` : 
-    win == 0 && ennemyGuild ? `${text5}` : win == 0 && !ennemyGuild ? `${text6}` :  
-    win == 3 && ennemyGuild ? `${text7}` : win == 3 && !ennemyGuild ? `${text8}` : win == 4 ? `${text9}` : '' ;
+  var result = win == 1 && playerGuild ? `${text1}` : win == 1 && !playerGuild ? `${text2}` : 
+  win == 2 && playerGuild ? `${text3}` : win == 2 && !playerGuild ? `${text4}` : 
+  win == 0 && ennemyGuild ? `${text5}` : win == 0 && !ennemyGuild ? `${text6}` :  
+  win == 3 && ennemyGuild ? `${text7}` : win == 3 && !ennemyGuild ? `${text8}` : win == 4 ? `${text9}` : '' ;
 
-    // Display slower
-    setTimeout(() => {  
+  // Display slower
+  setTimeout(() => {  
 
-      // Result displaying
-      DOM_result.innerHTML = `${result}`;
+    // Result displaying
+    DOM_result.innerHTML = `${result}`;
 
-      // Gain displaying
-      DOM_gain.innerHTML = gain < 0 ? `Perte ${gain}$` : `Gain ${gain}$`;
-      hiScore = hiScore < (gain + pocket) ? gain + pocket : hiScore;
-      DOM_pocket.innerHTML = `${text.pocket}${pocket = gain + pocket}$`;
-      jQuery('#resultPopup').slideDown("fast").delay(1000).fadeOut(500, "swing", function() {
-        // Enabling bets buttons
-        buttons("auto","#4CAF50")
-      });
+    // Gain displaying
+    DOM_gain.innerHTML = gain < 0 ? `Perte ${gain}$` : `Gain ${gain}$`;
+    hiScore = hiScore < (gain + pocket) ? gain + pocket : hiScore;
+    DOM_pocket.innerHTML = `${text.pocket}${pocket = gain + pocket}$`;
+    jQuery('#resultPopup').slideDown("fast").delay(1000).fadeOut(500, "swing", function() {
+      // Enabling bets buttons
+      buttons("auto","#4CAF50")
+    });
 
-      // Click on stop button
-      jQuery('#stop').on("click", function () {
-        record();
-      } );
+    // Click on stop button
+    jQuery('#stop').on("click", function () {
+      record();
+    } );
 
-      // Audio conditions
-      audio();
-    }, 710);
+    // Audio conditions
+    audio();
+  }, 710);
 
-    // Game Over
-    setTimeout (() => {
-      pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `${text.gameOver}${end}`, gameOver() ) }, 1000)) : '' ;
+  // Game Over
+  setTimeout (() => {
+    pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `${text.gameOver}${end}`, gameOver() ) }, 1000)) : '' ;
 
-      // Bets buttons displaying conditions
-      pocket <= 0 ?  betLimit(0) : pocket < 2 ? betLimit(1) : pocket < 5 ? betLimit(2) : pocket < 10 ? betLimit(5) : betLimit(10);
+    // Bets buttons displaying conditions
+    pocket <= 0 ?  betLimit(0) : pocket < 2 ? betLimit(1) : pocket < 5 ? betLimit(2) : pocket < 10 ? betLimit(5) : betLimit(10);
 
-      // Stop button displaying condition
-      pocket >= 500 ? jQuery('#stop').show() : jQuery('#stop').hide() ;
-    }, 1000);
-
-  // Set round 2
-  round = 2;
-  }
-
-  // Back card in flip effect starting round 2
-  else {
-    setTimeout(() => { DOM_playerImage.innerHTML = DOM_ennemyImage.innerHTML = `<img src="assets/img/back.png"></img>`; }, 345);
-    game(1);
-  };
+    // Stop button displaying condition
+    pocket >= 500 ? jQuery('#stop').show() : jQuery('#stop').hide() ;
+  }, 1000);
 };

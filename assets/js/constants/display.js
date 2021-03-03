@@ -136,7 +136,7 @@ function scoreRead(){
 function cardPreview(){
   DOM_formCardProp.captcha.value = '';
   let imageUrl = DOM_formCardProp.imageUrl.value == "https://" ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" : DOM_formCardProp.imageUrl.value ;
-  jQuery('#cardPreviewDisplay').toggle("fade");
+  jQuery('#cardPreviewDisplay').show("fade");
   document.getElementById("characterPreview").innerHTML = `${DOM_formCardProp.characterName.value}`;
   document.getElementById("forcePreview").innerHTML = `${DOM_formCardProp.force.value}`;
   document.getElementById("imagePreview").innerHTML = `<img src="${imageUrl}" width="329" height="234" />`;
@@ -233,3 +233,4 @@ document.getElementById("closeHelp").innerHTML = `${text.close}`;
 document.getElementById("titleScores").innerHTML = `${text.titleScores}`;
 document.getElementById("help").innerHTML = `${text.help}`;
 document.getElementById("textRules").innerHTML = `${text.rules}`;
+document.getElementById("cardPropRules").innerHTML = `${text.cardPropRules}`;
