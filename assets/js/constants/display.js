@@ -217,6 +217,9 @@ function cardPost(){
 
 // Click on footer's buttons
 export function footerButtons(){
+  outOfContainer('#rulesPop');
+  outOfContainer('#scoresPop');
+  outOfContainer('#cardPropPop');
   jQuery('#rulesButton').on("click", function() { 
     jQuery('#rulesPop').toggle("fade");
     jQuery('#scoresPop').hide();
@@ -250,6 +253,14 @@ export function footerButtons(){
     });
   } );
 }
+
+function outOfContainer(container){
+  $(document).mouseup(function (e) { 
+    if ($(e.target).closest(container).length === 0) { 
+        $(container).hide("fade"); 
+    } 
+  });
+  };
 
 document.getElementById("title").innerHTML = `${text.title}`;
 document.getElementById("closeScores").innerHTML = `${text.close}`;
