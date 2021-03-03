@@ -69,11 +69,12 @@ function game(round) {
     // Result conditions
     let sameGuild = playerCard.guild == ennemyCard.guild ? true : false ;
     let playerWin = playerCard.force > ennemyCard.force ? true : false ;
+    let nul = playerCard.force == ennemyCard.force ? true : false ;
     let playerGuild = playerCard.guild == 'Comploteurs' ? true : false ;
     let ennemyGuild = ennemyCard.guild == 'Comploteurs' ? true : false ;
 
     // Sound conditions
-    win = playerWin && !sameGuild ? 1 : playerWin && sameGuild ? 2 : !playerWin && !sameGuild ? 0 : !playerWin && sameGuild ? 3 : 4 ;
+    win = nul ? 4 : playerWin && !sameGuild ? 1 : playerWin && sameGuild ? 2 : !playerWin && !sameGuild ? 0 : !playerWin && sameGuild ? 3 : '' ;
     
     // Gain conditions
     gain = win == 1 ? playerCard.force*(2*bet) : win == 2 ? playerCard.force*bet : win == 0 ? - (ennemyCard.force*(2*bet)) : 
