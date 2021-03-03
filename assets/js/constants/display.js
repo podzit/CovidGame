@@ -111,6 +111,7 @@ export function buttons(pointerevents,color) {
   };
 }
 
+// Display end of the game
 export function endGame() {
   let mock = words.mock[Math.floor(Math.random() * words.mock.length)];
 
@@ -157,7 +158,6 @@ function scoreRead(){
   jQuery('#scoresPop').toggle("fade");
   jQuery('#scores').load("scoresRead.php");
 }
-
 
 // Display card proposition preview
 function cardPreview(){
@@ -251,6 +251,7 @@ export function footerButtons(){
   } );
 }
 
+document.getElementById("title").innerHTML = `${text.title}`;
 document.getElementById("closeScores").innerHTML = `${text.close}`;
 document.getElementById("closeRules").innerHTML = `${text.close}`;
 document.getElementById("closeCardPropButton").innerHTML = `${text.close}`;

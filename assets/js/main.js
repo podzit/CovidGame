@@ -5,8 +5,6 @@ import { DOM_bet1, DOM_bet2, DOM_bet5, DOM_bet10 } from './constants/display.js'
 import { DOM_playerImage, DOM_ennemyImage, DOM_pocket, DOM_gain, DOM_result, cardDisplay, flipCards, gameReady } from './constants/game.js';
 import { text } from './constants/text.js';
 
-document.getElementById("title").innerHTML = `${text.title}`
-
 var win = 0 , gain = 0 , bet = 0 , pocket = 0 , hiScore = 0;
 
 export { hiScore, pocket, win };
@@ -68,7 +66,7 @@ function game() {
   gain = win == 1 ? playerCard.force*(2*bet) : win == 2 ? playerCard.force*bet : win == 0 ? - (ennemyCard.force*(2*bet)) : 
   win == 3 ? - (ennemyCard.force*bet) : - bet ;
 
-  // random text choice
+  // Random text choice
   const end = {
     winner: [ words.win[Math.floor(Math.random() * words.win.length)] ],
     looser: [ words.loose[Math.floor(Math.random() * words.loose.length)] ],
@@ -96,11 +94,11 @@ function game() {
   // Display slower
   setTimeout(() => { displayResult() }, 710); 
 
- // Result displaying
+ // Result display
   function displayResult(){
     DOM_result.innerHTML = `${resultText}`;
 
-    // Gain displaying
+    // Gain display
     DOM_gain.innerHTML = gain < 0 ? `Perte ${gain}$` : `Gain ${gain}$`;
     hiScore = hiScore < (gain + pocket) ? gain + pocket : hiScore;
     DOM_pocket.innerHTML = `${text.pocket}${pocket = gain + pocket}$`;
