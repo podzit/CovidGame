@@ -103,7 +103,7 @@ function game(round) {
     DOM_gain.innerHTML = gain < 0 ? `Perte ${gain}$` : `Gain ${gain}$`;
     hiScore = hiScore < (gain + pocket) ? gain + pocket : hiScore;
     DOM_pocket.innerHTML = `${text.pocket}${pocket = gain + pocket}$`;
-    jQuery('#resultPopup').slideDown("fast").delay(1000).fadeOut(500, "swing", function() {
+    jQuery('#resultPopup').slideDown("fast").delay(1000).fadeOut(1500, "swing", function() {
       // Enabling bets buttons
       buttons("auto","#4CAF50")
     });
