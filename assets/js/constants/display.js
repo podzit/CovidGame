@@ -156,10 +156,10 @@ function scorePost(){
 // Read scores file
 function scoreRead(){
   jQuery('#scoresPop').toggle("fade");
-  parseData("./assets/scores.csv", doStuff);
+  parseData("./assets/scores.csv", sortFile);
 }
 
-// Récupération du csv 
+// Load and convert csv file to array
 function parseData(url, callBack) {
   Papa.parse(url, {
       download: true,
@@ -169,31 +169,31 @@ function parseData(url, callBack) {
   });
 }
 
-// tri des scores
+// Sort data
 function sortFunction(a, b) {
   return b[1] - a[1];
 }  
 
-function doStuff(data) {
+function sortFile(data) {
  //Data is usable here
- let tri = data.sort(sortFunction);
- makeTableHTML(tri);
+ let dataSorted = data.sort(sortFunction);
+ makeTableHTML(dataSorted);
 };
 
-// création du tableau de score
+// Score table creation
 function makeTableHTML(myArray) {
-  var tableTri = `<table class="tableScores">`;
+  var tableData = `<table class="tableScores">`;
   for(var i=0; i<10; i++) {
-      tableTri += "<tr>";
+      tableData += "<tr>";
       for(var j=0; j<myArray[i].length; j++){
-          tableTri += `<td>${myArray[i][j]}</td>`;
+          tableData += `<td>${myArray[i][j]}</td>`;
       }
-      tableTri += "</tr>";
+      tableData += "</tr>";
   }
-  tableTri += "</table>";
+  tableData += "</table>";
 
   //return result;
-  document.getElementById('scores').innerHTML = `${tableTri}`;
+  document.getElementById('scores').innerHTML = `${tableData}`;
 }
 
 // Display card proposition preview
