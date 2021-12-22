@@ -53,4 +53,4 @@ Si au cours du jeu, la poche atteint 500$ et plus, le joueur peut arrêter de jo
 
 ## Tester
 
-Le site est dispo en ligne sur http://covidgame.free.fr
+Le site est dispo en ligne sur https://podz.be/CovidGame
