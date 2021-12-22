@@ -132,9 +132,10 @@ export function record() {
 // Click on record button
 jQuery('#recordButton').on("click", function() {
   scorePost();
-  jQuery('#scoresPopForm').toggle();
+  $.when(jQuery('#scoresPopForm').toggle()).then(function(){
+    scoreRead();
+  });
   reset();
-  scoreRead();
 });
 
 // Post data from record form
