@@ -210,6 +210,7 @@ function cardPreview(){
   document.getElementById("effectPreview").innerHTML = `${DOM_formCardProp.effect.value}`;
   jQuery('#closePreview').on("click", function() {
     jQuery('#cardPreviewDisplay').hide("fade");
+    jQuery('#cardPropPop').show("fade"); 
   } );
 };
 
