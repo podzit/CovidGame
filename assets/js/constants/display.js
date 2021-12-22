@@ -156,7 +156,6 @@ function scorePost(){
 // Read scores file
 function scoreRead(){
   jQuery('#scoresPop').toggle("fade");
-  //jQuery('#scores').load("scoresRead.php");
   parseData("./assets/scores.csv", doStuff);
 }
 
