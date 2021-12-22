@@ -1,12 +1,21 @@
-import { DOM_formRecord, DOM_formCardProp } from './game.js';
-import { hiScore, reset } from '../main.js';
+import { DOM_formRecord, DOM_formCardProp, DOM_result, gameOver } from './game.js';
+import { hiScore, pocket, win, reset } from '../main.js';
 import { text } from './text.js';
+import { words } from './words.js';
 
 // Audio
 export const muteButton = document.getElementById('muteButton');
 export const audioWin = document.getElementById("audioWin");
 export const audioLoose = document.getElementById("audioLoose");
 export const audioCard = document.getElementById("audioCard");
+
+export function audio() {
+  muteButton.checked ? (audioWin.pause(), audioLoose.pause()) : win == 0 ? audioLoose.play() : win == 1 ? audioWin.play() : '';
+};
+
+export function cardSound() {
+  muteButton.checked ? audioCard.pause() : audioCard.play();
+}
 
 // Bets buttons
 export const DOM_bet1 = document.getElementById("bet1");
@@ -26,77 +35,96 @@ export function bets(display) {
 
 // Bets buttons display conditions
 export function betLimit(limit) {
-if (limit == 0) {
-  bets("none");
-}
-else if (limit == 1) {
-  jQuery('#bet1').show();
-  jQuery('#bet2').hide();
-  jQuery('#bet5').hide();
-  jQuery('#bet10').hide();
-}
-else if (limit == 2) {
-  jQuery('#bet1').show();
-  jQuery('#bet2').show();
-  jQuery('#bet5').hide();
-  jQuery('#bet10').hide();
-}
-else if (limit == 5) {
-  jQuery('#bet1').show();
-  jQuery('#bet2').show();
-  jQuery('#bet5').show();
-  jQuery('#bet10').hide();
-}
-else if (limit == 10) {
-  bets("inline-block");
-};
+  if (limit == 0) {
+    bets("none");
+  }
+  else if (limit == 1) {
+    jQuery('#bet1').show();
+    jQuery('#bet2').hide();
+    jQuery('#bet5').hide();
+    jQuery('#bet10').hide();
+    jQuery('#stop').hide();
+  }
+  else if (limit == 2) {
+    jQuery('#bet1').show();
+    jQuery('#bet2').show();
+    jQuery('#bet5').hide();
+    jQuery('#bet10').hide();
+    jQuery('#stop').hide();
+  }
+  else if (limit == 5) {
+    jQuery('#bet1').show();
+    jQuery('#bet2').show();
+    jQuery('#bet5').show();
+    jQuery('#bet10').hide();
+    jQuery('#stop').hide();
+  }
+  else if (limit == 10) {
+    bets("inline-block");
+    jQuery('#stop').hide();
+  }
+  else if (limit == 500) {
+    bets("inline-block");
+    jQuery('#stop').show();
+  };
 }
 
 // Buttoncolors when enabled or disabled
 function buttoncolor(over,out) {
-DOM_bet1.addEventListener("mouseover", function() {
-  DOM_bet1.style.backgroundColor = over;
-});
-DOM_bet1.addEventListener("mouseout", function() {
-  DOM_bet1.style.backgroundColor = out;
-});
-DOM_bet2.addEventListener("mouseover", function() {
-  DOM_bet2.style.backgroundColor = over;
-});
-DOM_bet2.addEventListener("mouseout", function() {
-  DOM_bet2.style.backgroundColor = out;
-});
-DOM_bet5.addEventListener("mouseover", function() {
-  DOM_bet5.style.backgroundColor = over;
-});
-DOM_bet5.addEventListener("mouseout", function() {
-  DOM_bet5.style.backgroundColor = out;
-});
-DOM_bet10.addEventListener("mouseover", function() {
-  DOM_bet10.style.backgroundColor = over;
-});
-DOM_bet10.addEventListener("mouseout", function() {
-  DOM_bet10.style.backgroundColor = out;
-});
+  DOM_bet1.addEventListener("mouseover", function() {
+    DOM_bet1.style.backgroundColor = over;
+  });
+  DOM_bet1.addEventListener("mouseout", function() {
+    DOM_bet1.style.backgroundColor = out;
+  });
+  DOM_bet2.addEventListener("mouseover", function() {
+    DOM_bet2.style.backgroundColor = over;
+  });
+  DOM_bet2.addEventListener("mouseout", function() {
+    DOM_bet2.style.backgroundColor = out;
+  });
+  DOM_bet5.addEventListener("mouseover", function() {
+    DOM_bet5.style.backgroundColor = over;
+  });
+  DOM_bet5.addEventListener("mouseout", function() {
+    DOM_bet5.style.backgroundColor = out;
+  });
+  DOM_bet10.addEventListener("mouseover", function() {
+    DOM_bet10.style.backgroundColor = over;
+  });
+  DOM_bet10.addEventListener("mouseout", function() {
+    DOM_bet10.style.backgroundColor = out;
+  });
 };
 
 export function buttons(pointerevents,color) {
-DOM_bet1.style.pointerEvents = pointerevents;
-DOM_bet2.style.pointerEvents = pointerevents;
-DOM_bet5.style.pointerEvents = pointerevents;
-DOM_bet10.style.pointerEvents = pointerevents;
-DOM_bet1.style.backgroundColor = color;
-DOM_bet2.style.backgroundColor = color;
-DOM_bet5.style.backgroundColor = color;
-DOM_bet10.style.backgroundColor = color;
-if (color == '#4CAF50') {
-  buttoncolor("#008CBA", "#4CAF50");
-};
+  DOM_bet1.style.pointerEvents = pointerevents;
+  DOM_bet2.style.pointerEvents = pointerevents;
+  DOM_bet5.style.pointerEvents = pointerevents;
+  DOM_bet10.style.pointerEvents = pointerevents;
+  DOM_bet1.style.backgroundColor = color;
+  DOM_bet2.style.backgroundColor = color;
+  DOM_bet5.style.backgroundColor = color;
+  DOM_bet10.style.backgroundColor = color;
+  if (color == '#4CAF50') {
+    buttoncolor("#008CBA", "#4CAF50");
+  };
 }
+
+// Display end of the game
+export function endGame() {
+  let mock = words.mock[Math.floor(Math.random() * words.mock.length)];
+
+  pocket <= 0 ? (setTimeout(() => { hiScore >= 500 ? record() : (DOM_result.innerHTML = `${text.gameOver}${mock}`, gameOver() ) }, 1000)) : '' ;
+
+  // Bets buttons displaying conditions
+  pocket <= 0 ?  betLimit(0) : pocket < 2 ? betLimit(1) : pocket < 5 ? betLimit(2) : pocket < 10 ? betLimit(5) : pocket < 500 ? betLimit(10) : 
+  pocket >= 500 ? betLimit(500) : pocket ;
+};
 
 // Display record form
 export function record() {
-  jQuery('#scoresPopForm').toggle("fade");
+  jQuery('#scoresPopForm').show("fade");
   document.getElementById("score").innerHTML = `${text.hiScore} ${hiScore}`;
   document.getElementById("scoreName").innerHTML = `${text.scoreName}`;
 }
@@ -128,9 +156,46 @@ function scorePost(){
 // Read scores file
 function scoreRead(){
   jQuery('#scoresPop').toggle("fade");
-  jQuery('#scores').load("scoresRead.php");
+  //jQuery('#scores').load("scoresRead.php");
+  parseData("./assets/scores.csv", doStuff);
 }
 
+// Récupération du csv 
+function parseData(url, callBack) {
+  Papa.parse(url, {
+      download: true,
+      complete: function (result) {
+          callBack(result.data);
+      }
+  });
+}
+
+// tri des scores
+function sortFunction(a, b) {
+  return b[1] - a[1];
+}  
+
+function doStuff(data) {
+ //Data is usable here
+ let tri = data.sort(sortFunction);
+ makeTableHTML(tri);
+};
+
+// création du tableau de score
+function makeTableHTML(myArray) {
+  var tableTri = `<table class="tableScores">`;
+  for(var i=0; i<10; i++) {
+      tableTri += "<tr>";
+      for(var j=0; j<myArray[i].length; j++){
+          tableTri += `<td>${myArray[i][j]}</td>`;
+      }
+      tableTri += "</tr>";
+  }
+  tableTri += "</table>";
+
+  //return result;
+  document.getElementById('scores').innerHTML = `${tableTri}`;
+}
 
 // Display card proposition preview
 function cardPreview(){
@@ -190,6 +255,9 @@ function cardPost(){
 
 // Click on footer's buttons
 export function footerButtons(){
+  outOfContainer('#rulesPop');
+  outOfContainer('#scoresPop');
+  outOfContainer('#cardPropPop');
   jQuery('#rulesButton').on("click", function() { 
     jQuery('#rulesPop').toggle("fade");
     jQuery('#scoresPop').hide();
@@ -224,6 +292,15 @@ export function footerButtons(){
   } );
 }
 
+function outOfContainer(container){
+  $(document).mouseup(function (e) { 
+    if ($(e.target).closest(container).length === 0) { 
+        $(container).hide("fade"); 
+    } 
+  });
+  };
+
+document.getElementById("title").innerHTML = `${text.title}`;
 document.getElementById("closeScores").innerHTML = `${text.close}`;
 document.getElementById("closeRules").innerHTML = `${text.close}`;
 document.getElementById("closeCardPropButton").innerHTML = `${text.close}`;
