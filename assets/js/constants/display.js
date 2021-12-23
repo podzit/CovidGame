@@ -184,12 +184,28 @@ function sortFile(data) {
 // Score table creation
 function makeTableHTML(myArray) {
   var tableData = `<table class="tableScores">`;
+  let v=1;
   for(var i=0; i<10; i++) {
-      tableData += "<tr>";
-      for(var j=0; j<myArray[i].length; j++){
-          tableData += `<td>${myArray[i][j]}</td>`;
+    if (v<=3){
+      tableData += `<tr>`;
+      tableData += `<td style="color:red">${v}</td>`;
+      tableData += `<td>&nbsp&nbsp</td>`;
+    }
+    else {
+      tableData += `<tr>`;
+      tableData += `<td>${v}</td>`;
+      tableData += `<td>&nbsp&nbsp</td>`;
+    }
+    v++;
+    for(var j=0; j<myArray[i].length; j++){
+      if (v<=4){
+        tableData += `<td style="color:red">${myArray[i][j]}</td>`;
       }
-      tableData += "</tr>";
+      else {
+        tableData += `<td>${myArray[i][j]}</td>`;
+      }
+    }
+    tableData += "</tr>";
   }
   tableData += "</table>";
 
