@@ -23,6 +23,7 @@ export const DOM_bet2 = document.getElementById("bet2");
 export const DOM_bet5 = document.getElementById("bet5");
 export const DOM_bet10 = document.getElementById("bet10");
 export const DOM_stop = document.getElementById("stop");
+export const DOM_betAllin = document.getElementById("allin");
 
 // Bets buttons display
 export function bets(display) {
@@ -31,6 +32,7 @@ export function bets(display) {
   DOM_bet5.style.display = display;
   DOM_bet10.style.display = display;
   DOM_stop.style.display = display;
+  DOM_betAllin.style.display = display;
 }
 
 // Bets buttons display conditions
@@ -44,6 +46,7 @@ export function betLimit(limit) {
     jQuery('#bet5').hide();
     jQuery('#bet10').hide();
     jQuery('#stop').hide();
+    jQuery('#allin').hide();
   }
   else if (limit == 2) {
     jQuery('#bet1').show();
@@ -51,6 +54,7 @@ export function betLimit(limit) {
     jQuery('#bet5').hide();
     jQuery('#bet10').hide();
     jQuery('#stop').hide();
+    jQuery('#allin').hide();
   }
   else if (limit == 5) {
     jQuery('#bet1').show();
@@ -58,14 +62,17 @@ export function betLimit(limit) {
     jQuery('#bet5').show();
     jQuery('#bet10').hide();
     jQuery('#stop').hide();
+    jQuery('#allin').hide();
   }
   else if (limit == 10) {
     bets("inline-block");
     jQuery('#stop').hide();
+    jQuery('#allin').hide();
   }
   else if (limit == 500) {
     bets("inline-block");
     jQuery('#stop').show();
+    jQuery('#allin').show();
   };
 }
 
@@ -95,6 +102,12 @@ function buttoncolor(over,out) {
   DOM_bet10.addEventListener("mouseout", function() {
     DOM_bet10.style.backgroundColor = out;
   });
+  DOM_betAllin.addEventListener("mouseover", function() {
+    DOM_betAllin.style.backgroundColor = over;
+  });
+  DOM_betAllin.addEventListener("mouseout", function() {
+    DOM_betAllin.style.backgroundColor = out;
+  });
 };
 
 export function buttons(pointerevents,color) {
@@ -102,10 +115,12 @@ export function buttons(pointerevents,color) {
   DOM_bet2.style.pointerEvents = pointerevents;
   DOM_bet5.style.pointerEvents = pointerevents;
   DOM_bet10.style.pointerEvents = pointerevents;
+  DOM_betAllin.style.pointerEvents = pointerevents;
   DOM_bet1.style.backgroundColor = color;
   DOM_bet2.style.backgroundColor = color;
   DOM_bet5.style.backgroundColor = color;
   DOM_bet10.style.backgroundColor = color;
+  DOM_betAllin.style.backgroundColor = color;
   if (color == '#4CAF50') {
     buttoncolor("#008CBA", "#4CAF50");
   };
@@ -179,6 +194,7 @@ function sortFile(data) {
  //Data is usable here
  let dataSorted = data.sort(sortFunction);
  makeTableHTML(dataSorted);
+ console.table(dataSorted);
 };
 
 // Score table creation
