@@ -19,11 +19,11 @@
         <link rel="stylesheet" href="assets/css/game.css">
         <link rel="stylesheet" href="assets/css/animation.css">
         <link rel="stylesheet" href="assets/css/pop.css">
-        <meta property="og:image" content="https://podz.be/CovdiGame/assets/img/covid.jpg">
+        <meta property="og:image" content="https://podz.be/CovidGame/assets/img/covid.jpg">
         <meta property="og:image:type" content="image/jpeg">
         <meta property="og:title" content="CovidGame" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://podz.be/CovdiGame/" />
+        <meta property="og:url" content="https://podz.be/CovidGame/" />
         <meta property="og:description" content="Qui des comploteurs ou des complotistes vaincront ?" />
         <meta name="Content-Language" content="fr">
         <meta name="Description" content="Jeu en ligne pour rigoler autour du Covid19">
