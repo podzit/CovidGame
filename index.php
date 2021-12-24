@@ -11,6 +11,7 @@
         </script>
         <!--- GOOGLE ANALYTICS END -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./assets/js/constants/papaparse.min.js"></script>
         <title id="title"></title>
         <link rel="icon" href="favicon.ico" />
         <link rel="stylesheet" href="assets/css/main.css">
@@ -18,11 +19,11 @@
         <link rel="stylesheet" href="assets/css/game.css">
         <link rel="stylesheet" href="assets/css/animation.css">
         <link rel="stylesheet" href="assets/css/pop.css">
-        <meta property="og:image" content="https://covidgame.fun/assets/img/covid.jpg">
+        <meta property="og:image" content="https://podz.be/CovdiGame/assets/img/covid.jpg">
         <meta property="og:image:type" content="image/jpeg">
         <meta property="og:title" content="CovidGame" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://covidgame.fun" />
+        <meta property="og:url" content="https://podz.be/CovdiGame/" />
         <meta property="og:description" content="Qui des comploteurs ou des complotistes vaincront ?" />
         <meta name="Content-Language" content="fr">
         <meta name="Description" content="Jeu en ligne pour rigoler autour du Covid19">
@@ -30,7 +31,7 @@
         <meta name="Subject" content="CovidGame">
         <meta name="Copyright" content="PodzIT 2020">
         <meta name="Author" content="PodzIT">
-        <meta name="Identifier-Url" content="covidgame.fun">
+        <meta name="Identifier-Url" content="podz.be">
         <meta name="Revisit-After" content="1 day">
         <meta name="Robots" content="all">
         <meta name="Rating" content="general">
@@ -38,6 +39,9 @@
         <meta name="Geography" content="France">
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
         <meta charset="UTF-8">
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
     </head>
     <body>
 
@@ -63,6 +67,7 @@
             <button id="bet5">5$</button>
             <button id="bet10">10$</button>
             <button id="stop">Stop</button>
+            <button id="allin">TAPIS !</button>
             <!-- Bet's buttons's end -->
 
             <!-- Game  -->
