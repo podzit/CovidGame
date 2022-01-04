@@ -41,10 +41,7 @@ function game() {
   cardSound();
 
   // Card random choice
-  let [playerCard, ennemyCard] = [
-    deck[Math.floor(Math.random() * deck.length)],
-    deck[Math.floor(Math.random() * deck.length)]
-  ];
+  let [playerCard, ennemyCard] = Array.from({length:2}, () => deck[Math.floor(Math.random() * deck.length)]);
 
   // Timeout to slow card display
   setTimeout(() => { cardInjection() }, 700);
