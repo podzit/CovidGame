@@ -49,7 +49,7 @@ Les gains et pertes sont en fonction de plusieurs cas:
 - match nul = perte de la mise
 
 Le jeu s'arrête quand la poche atteint 0$.
-Si au cours du jeu, la poche atteint 500$ et plus, le joueur peut arrêter de jouer avec le bouton `Stop` et enregistrer son pseudo et son score pour apparaitre dans le tableau "High Score" (page `scores.php`) qui affiche les 10 meilleurs.
+Si au cours du jeu, la poche atteint 500$ et plus, le joueur peut arrêter de jouer avec le bouton `Stop` et enregistrer son pseudo et son score pour apparaitre dans le tableau "High Score" qui affiche les 10 meilleurs.
 
 ## Tester
 
