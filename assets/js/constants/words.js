@@ -1,6 +1,6 @@
 
 export const words = {
-  winWord: [
+  win: [
     'Wahou!',
     'Super!',
     'Great!',
@@ -11,7 +11,7 @@ export const words = {
     'Bien joué!',
     'Et bim!'
   ],
-  looseWord: [
+  loose: [
     'Looser!',
     'Boooo!',
     'Oups!',
@@ -72,9 +72,7 @@ export const words = {
     'a immolé',
     'a supprimé',
     'a électrocuté'
-  ]
-};
-export const over = {
+  ],
   mock: [
   `Tu as perdu tout ton argent !`,
   `C'est ça quand on joue n'importe comment !`,

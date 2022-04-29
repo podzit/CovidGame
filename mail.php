@@ -1,7 +1,7 @@
         <?php
 
         // Values
-        $recipient = 'contact@covidgame.fun';
+        $recipient = 'podz@free.fr';
         $sentMessage = "Ta proposition de carte a bien été envoyée !<br> Si elle est acceptée tu recevras un mail.";    
         $errorMessage = "L'envoi de ta proposition a échoué.";
 
