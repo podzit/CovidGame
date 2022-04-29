@@ -1,5 +1,12 @@
 # Changelog
 
+## [V3.2] - 29-04-2022
+
+### Nouveautés
+
+- Bouton "Tapis"
+- Tableau High Score généré par papaparse: https://www.papaparse.com/
+
 ## [V3.1] - 07-02-2021
 
 ### Nouveautés
