@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./assets/js/constants/papaparse.min.js"></script>
+
+<script>
+
+function makeTableHTML(myArray) {
+    var result = "<table border=1>";
+    for(var i=0; i<10; i++) {
+        result += "<tr>";
+        for(var j=0; j<myArray[i].length; j++){
+            result += "<td>"+myArray[i][j]+"</td>";
+        }
+        result += "</tr>";
+    }
+    result += "</table>";
+
+    //return result;
+    let DOM_scores = document.getElementById("tableau");
+    DOM_scores.innerHTML = `${result}`;
+}
+
+function sortFunction(a, b) {
+    return b[1] - a[1];
+}  
+
+function doStuff(data) {
+   //Data is usable here
+   let tri = data.sort(sortFunction);
+   makeTableHTML(tri);
+};
+
+function parseData(url, callBack) {
+    Papa.parse(url, {
+        download: true,
+        complete: function (result) {
+            callBack(result.data);
+        }
+    });
+}
+
+parseData("./assets/scores.csv", doStuff);
+
+</script>
+
+</head>
+<body>
+    <div>
+        <div id="tableau">
+            
+        </div>
+
+    </div>
+</body>
+</html>
