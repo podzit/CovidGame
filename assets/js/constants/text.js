@@ -6,7 +6,7 @@ export const text = {
     rules: [`<h2 style="text-align: center;">~ Règles du jeu ~</h2>
     <h3>Le départ</h3>
     Tu démarres avec 50$ en poche (ouais c'est radin et alors?).<br/>
-    Tu as le choix entre 1,2,5 ou 10$ de mise pour lancer le jeu et ça peut vite rapporter gros.<br/>
+    Tu as le choix entre 1, 2, 5, 10$ (ou tapis au delà de 500$ en poche) de mise pour lancer le jeu et ça peut vite rapporter gros.<br/>
     Si la force de ta carte dépasse la force de la carte ennemie, tu gagnes. Jusque là rien d'anormal.<br/>
     <h3>Les gains et pertes</h3>
     Ils sont en fonction de plusieurs cas alors lis bien ou prends des notes parceque y a des maths:<br/>
