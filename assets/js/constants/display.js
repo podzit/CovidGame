@@ -288,9 +288,6 @@ function cardPost(){
 
 // Click on footer's buttons
 export function footerButtons(){
-  outOfContainer('#rulesPop');
-  outOfContainer('#scoresPop');
-  outOfContainer('#cardPropPop');
   jQuery('#rulesButton').on("click", function() { 
     jQuery('#rulesPop').toggle("fade");
     jQuery('#scoresPop').hide();
@@ -298,7 +295,9 @@ export function footerButtons(){
     jQuery('#cardPreviewDisplay').hide();
     jQuery('#helpPop').hide();
   } );
-  jQuery('#closeRules').on("click", function() { jQuery('#rulesPop').toggle("fade"); } );
+  jQuery('#closeRules').on("click", function() { 
+    jQuery('#rulesPop').toggle("fade"); 
+  } );
   jQuery('#scoresButton').on("click", function() {
     jQuery('#cardPropPop').hide(); 
     jQuery('#cardPreviewDisplay').hide();
@@ -306,17 +305,24 @@ export function footerButtons(){
     jQuery('#rulesPop').hide();
     scoreRead();
   } );
-  jQuery('#closeScores').on("click", function() { jQuery('#scoresPop').toggle("fade"); } );
+  jQuery('#closeScores').on("click", function() { 
+    jQuery('#scoresPop').toggle("fade"); } );
   jQuery('#cardPropButton').on("click", function() {
     jQuery('#cardPropPop').toggle("fade");
     jQuery('#scoresPopForm').hide();
     jQuery('#scoresPop').hide();
     jQuery('#rulesPop').hide();
-    jQuery('#previewButton').on("click", function() { cardPreview(); } );
+    if ($('#cardPreviewDisplay').is(":visible")) {
+      jQuery('#cardPreviewDisplay').toggle();
+    }
+    jQuery('#previewButton').on("click", function() { 
+      cardPreview(); 
+    } );
     jQuery('#helpButton').on("click", function(){ 
       jQuery('#helpPop').show("fade"); 
     } );
-    jQuery('#closeHelp').on("click", function(){ jQuery('#helpPop').hide("fade"); } );
+    jQuery('#closeHelp').on("click", function(){ 
+      jQuery('#helpPop').hide("fade"); } );
     jQuery('#closeCardPropButton').on("click", function(){
       jQuery('#cardPropPop').hide("fade"); 
       jQuery('#cardPreviewDisplay').hide("fade");
@@ -324,14 +330,6 @@ export function footerButtons(){
     });
   } );
 }
-
-function outOfContainer(container){
-  $(document).mouseup(function (e) { 
-    if ($(e.target).closest(container).length === 0) { 
-        $(container).hide("fade"); 
-    } 
-  });
-  };
 
 document.getElementById("title").innerHTML = `${text.title}`;
 document.getElementById("closeScores").innerHTML = `${text.close}`;

@@ -1,6 +1,6 @@
 
 export const text = {
-    title: [`Covid Game v3.2`],
+    title: [`Covid Game v3.2.1`],
     hiScore: [`Ton meilleur score:`],
     scoreName: [`Comment tu t'appelles champion ?`],
     rules: [`<h2 style="text-align: center;">~ Règles du jeu ~</h2>
