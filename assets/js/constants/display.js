@@ -147,9 +147,6 @@ export function record() {
 // Click on record button
 jQuery('#recordButton').on("click", function() {
   scorePost();
-  $.when(jQuery('#scoresPopForm').toggle()).then(function(){
-    scoreRead();
-  });
   reset();
 });
 
