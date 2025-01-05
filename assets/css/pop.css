@@ -1,7 +1,7 @@
 .parentDisable {
 	z-index:999;
-	width:620px;
-	height:850px;
+	width:850px;
+	height:800px;
 	display:none;
 	position:absolute;
   left: 50%;
